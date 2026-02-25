@@ -4,7 +4,7 @@ import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { SEO } from "@/components/SEO";
 
-// ─── Small helpers ────────────────────────────────────────────────────────────
+// ─── Helper components ────────────────────────────────────────────────────────
 
 function Tag({ children }: { children: React.ReactNode }) {
   return (
@@ -15,31 +15,23 @@ function Tag({ children }: { children: React.ReactNode }) {
 }
 
 function SectionHeading({ children }: { children: React.ReactNode }) {
-  return (
-    <h2 className="mt-12 text-2xl font-semibold text-foreground">{children}</h2>
-  );
+  return <h2 className="mt-14 text-2xl font-semibold text-foreground">{children}</h2>;
 }
 
 function SubHeading({ children }: { children: React.ReactNode }) {
-  return (
-    <h3 className="mt-8 text-lg font-semibold text-foreground">{children}</h3>
-  );
+  return <h3 className="mt-8 text-lg font-semibold text-foreground">{children}</h3>;
 }
 
 function Prose({ children }: { children: React.ReactNode }) {
-  return <div className="mt-4 space-y-4 text-muted-foreground leading-relaxed">{children}</div>;
+  return (
+    <div className="mt-4 space-y-4 text-muted-foreground leading-relaxed">{children}</div>
+  );
 }
 
-function CodeBlock({
-  lang,
-  children,
-}: {
-  lang: string;
-  children: React.ReactNode;
-}) {
+function CodeBlock({ lang, children }: { lang: string; children: React.ReactNode }) {
   return (
     <div className="relative mt-6 rounded-lg overflow-hidden border border-border/50">
-      <div className="flex items-center justify-between bg-[#161b22] px-4 py-2 border-b border-border/50">
+      <div className="flex items-center bg-[#161b22] px-4 py-2 border-b border-border/50">
         <span className="text-xs font-mono text-[#8b949e]">{lang}</span>
       </div>
       <pre className="overflow-x-auto bg-[#0d1117] p-4 text-sm text-[#e6edf3] font-mono leading-relaxed">
@@ -49,43 +41,34 @@ function CodeBlock({
   );
 }
 
-function Callout({
-  label,
-  children,
-}: {
-  label: string;
-  children: React.ReactNode;
-}) {
+function Callout({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="mt-6 rounded-lg border-l-4 border-primary bg-primary/5 px-5 py-4">
       <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-2">{label}</p>
-      <div className="text-sm text-foreground">{children}</div>
+      <div className="text-sm text-foreground leading-relaxed">{children}</div>
     </div>
   );
 }
 
-// ─── Benchmark tables ─────────────────────────────────────────────────────────
+// ─── Tables ───────────────────────────────────────────────────────────────────
 
-function BenchmarkTable() {
+function BatchPollingTable() {
   const rows = [
-    { workers: 1, batchSize: 1000, msgS: "3,800", p99: "26 ms", cpu: "18%", highlight: false },
-    { workers: 2, batchSize: 1000, msgS: "7,500", p99: "28 ms", cpu: "34%", highlight: false },
-    { workers: 4, batchSize: 1000, msgS: "14,200", p99: "31 ms", cpu: "61%", highlight: false },
-    { workers: 8, batchSize: 1000, msgS: "24,900", p99: "38 ms", cpu: "89%", highlight: false },
-    { workers: 4, batchSize: 5000, msgS: "31,400", p99: "42 ms", cpu: "67%", highlight: false },
-    { workers: 8, batchSize: 5000, msgS: "38,100", p99: "47 ms", cpu: "91%", highlight: true },
+    { config: "single-poll (baseline)", msgs: "50,000", active: "4.33s", total: "5.61s", throughput: "12,339/s", highlight: false },
+    { config: "batch-100", msgs: "50,000", active: "2.02s", total: "3.30s", throughput: "26,531/s", highlight: true },
+    { config: "batch-500", msgs: "50,000", active: "2.08s", total: "3.48s", throughput: "24,058/s", highlight: false },
+    { config: "batch-500 + deser×4", msgs: "50,000", active: "2.07s", total: "3.36s", throughput: "25,161/s", highlight: false },
   ];
-
   return (
     <div className="mt-6 overflow-x-auto rounded-lg border border-border/50">
       <table className="w-full border-collapse text-sm">
         <thead>
           <tr className="bg-muted">
-            <th className="px-4 py-3 text-left font-semibold text-foreground">Workers</th>
-            <th className="px-4 py-3 text-left font-semibold text-foreground">Batch size</th>
-            <th className="px-4 py-3 text-left font-semibold text-foreground">Throughput (msg/s)</th>
-            <th className="px-4 py-3 text-left font-semibold text-foreground">p99 latency</th>
-            <th className="px-4 py-3 text-left font-semibold text-foreground">CPU</th>
+            <th className="px-4 py-3 text-left font-semibold text-foreground">Configuration</th>
+            <th className="px-4 py-3 text-left font-semibold text-foreground">Messages</th>
+            <th className="px-4 py-3 text-left font-semibold text-foreground">Active time</th>
+            <th className="px-4 py-3 text-left font-semibold text-foreground">Total duration</th>
+            <th className="px-4 py-3 text-left font-semibold text-foreground">Throughput</th>
           </tr>
         </thead>
         <tbody>
@@ -100,17 +83,17 @@ function BenchmarkTable() {
                   : "bg-muted/30 text-muted-foreground"
               }
             >
-              <td className="px-4 py-3">{row.workers}</td>
-              <td className="px-4 py-3">{row.batchSize.toLocaleString()}</td>
+              <td className="px-4 py-3 font-mono text-xs">{row.config}</td>
+              <td className="px-4 py-3 font-mono">{row.msgs}</td>
+              <td className="px-4 py-3 font-mono">{row.active}</td>
+              <td className="px-4 py-3 font-mono">{row.total}</td>
               <td className="px-4 py-3 font-mono">
                 {row.highlight ? (
-                  <span className="text-primary font-semibold">{row.msgS}</span>
+                  <span className="text-primary font-semibold">{row.throughput}</span>
                 ) : (
-                  row.msgS
+                  row.throughput
                 )}
               </td>
-              <td className="px-4 py-3 font-mono">{row.p99}</td>
-              <td className="px-4 py-3 font-mono">{row.cpu}</td>
             </tr>
           ))}
         </tbody>
@@ -119,22 +102,60 @@ function BenchmarkTable() {
   );
 }
 
-function FailureModeTable() {
+function CommitStrategyTable() {
   const rows = [
-    { scenario: "Kafka broker restart", behaviour: "Consumer reconnects, zero message loss", tested: true },
-    { scenario: "S3 write timeout", behaviour: "Retry with exponential backoff, DLQ after 3 failures", tested: true },
-    { scenario: "Schema change (new column)", behaviour: "Auto-detected, schema registry updated, downstream continues", tested: true },
-    { scenario: "Debezium connector crash", behaviour: "Offset committed to Kafka — replay from last checkpoint on restart", tested: true },
-    { scenario: "Consumer group lag spike", behaviour: "Horizontal scaling: add workers without restart", tested: true },
+    { strategy: "per-event (sync, baseline)", msgs: "50,000", active: "2.11s", total: "3.36s", throughput: "25,175/s" },
+    { strategy: "1s interval", msgs: "50,000", active: "1.96s", total: "3.28s", throughput: "26,183/s" },
+    { strategy: "5s interval", msgs: "50,000", active: "2.01s", total: "3.33s", throughput: "25,590/s" },
   ];
-
   return (
     <div className="mt-6 overflow-x-auto rounded-lg border border-border/50">
       <table className="w-full border-collapse text-sm">
         <thead>
           <tr className="bg-muted">
-            <th className="px-4 py-3 text-left font-semibold text-foreground">Failure scenario</th>
-            <th className="px-4 py-3 text-left font-semibold text-foreground">Observed behaviour</th>
+            <th className="px-4 py-3 text-left font-semibold text-foreground">Commit strategy</th>
+            <th className="px-4 py-3 text-left font-semibold text-foreground">Messages</th>
+            <th className="px-4 py-3 text-left font-semibold text-foreground">Active time</th>
+            <th className="px-4 py-3 text-left font-semibold text-foreground">Total duration</th>
+            <th className="px-4 py-3 text-left font-semibold text-foreground">Throughput</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, i) => (
+            <tr
+              key={i}
+              className={i % 2 === 0 ? "bg-card text-muted-foreground" : "bg-muted/30 text-muted-foreground"}
+            >
+              <td className="px-4 py-3 font-mono text-xs">{row.strategy}</td>
+              <td className="px-4 py-3 font-mono">{row.msgs}</td>
+              <td className="px-4 py-3 font-mono">{row.active}</td>
+              <td className="px-4 py-3 font-mono">{row.total}</td>
+              <td className="px-4 py-3 font-mono">{row.throughput}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function SummaryTable() {
+  const rows = [
+    { metric: "Throughput (100K msgs, 8 partitions)", baseline: "14,968 msg/s", highThroughput: "38,647 msg/s", improvement: "2.6×", highlight: true },
+    { metric: "Active processing time (100K, 8P)", baseline: "7.13s", highThroughput: "2.69s", improvement: "2.7×", highlight: true },
+    { metric: "Throughput (50K msgs, 4 partitions)", baseline: "12,339 msg/s", highThroughput: "26,531 msg/s", improvement: "2.1×", highlight: false },
+    { metric: "Backpressure queue depth (slow sink)", baseline: "N/A", highThroughput: "≤ 101 messages", improvement: "Verified", highlight: false },
+    { metric: "Unit tests", baseline: "317 passing", highThroughput: "317 passing", improvement: "No regressions", highlight: false },
+  ];
+  return (
+    <div className="mt-6 overflow-x-auto rounded-lg border border-border/50">
+      <table className="w-full border-collapse text-sm">
+        <thead>
+          <tr className="bg-muted">
+            <th className="px-4 py-3 text-left font-semibold text-foreground">Metric</th>
+            <th className="px-4 py-3 text-left font-semibold text-foreground">Default config</th>
+            <th className="px-4 py-3 text-left font-semibold text-foreground">High-throughput config</th>
+            <th className="px-4 py-3 text-left font-semibold text-foreground">Improvement</th>
           </tr>
         </thead>
         <tbody>
@@ -142,13 +163,23 @@ function FailureModeTable() {
             <tr
               key={i}
               className={
-                i % 2 === 0
+                row.highlight
+                  ? "bg-primary/5 text-foreground"
+                  : i % 2 === 0
                   ? "bg-card text-muted-foreground"
                   : "bg-muted/30 text-muted-foreground"
               }
             >
-              <td className="px-4 py-3 font-mono text-xs">{row.scenario}</td>
-              <td className="px-4 py-3">{row.behaviour}</td>
+              <td className="px-4 py-3">{row.metric}</td>
+              <td className="px-4 py-3 font-mono text-xs">{row.baseline}</td>
+              <td className="px-4 py-3 font-mono text-xs">
+                {row.highlight ? (
+                  <span className="text-primary font-semibold">{row.highThroughput}</span>
+                ) : (
+                  row.highThroughput
+                )}
+              </td>
+              <td className="px-4 py-3 font-mono text-xs font-semibold">{row.improvement}</td>
             </tr>
           ))}
         </tbody>
@@ -164,8 +195,8 @@ export default function CDCPlatform() {
     <Layout>
       <SEO
         title="Building a High-Throughput CDC Platform | Baselyne Systems Blog"
-        description="How we built a modular CDC pipeline achieving 38,000 msg/s — and proved it with 18 load tests on 100,000+ messages."
-        keywords="change data capture, CDC platform, Debezium, Kafka, Apache Iceberg, open source data pipeline"
+        description="How we built a modular Python CDC platform achieving 38,647 msg/s — with config-driven tuning, exactly-once delivery, and Iceberg lakehouse support."
+        keywords="change data capture, CDC platform, Debezium, Kafka, Apache Iceberg, Python asyncio, open source data pipeline"
         canonical="https://baselynesystems.com/blog/cdc-platform"
       />
 
@@ -188,14 +219,12 @@ export default function CDCPlatform() {
                 <Tag>Case Study</Tag>
                 <Tag>Open Source</Tag>
               </div>
-
               <h1 className="mt-5 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
                 Building a High-Throughput CDC Platform
               </h1>
               <p className="mt-3 text-xl text-muted-foreground">
-                From database change to lakehouse in milliseconds
+                From database change to lakehouse in milliseconds — 38,647 msg/s with config alone
               </p>
-
               <div className="mt-6 flex flex-wrap items-center gap-4">
                 <span className="text-sm text-muted-foreground">February 2026</span>
                 <a
@@ -208,423 +237,556 @@ export default function CDCPlatform() {
                   Baselyne-Systems/cdc-platform
                 </a>
               </div>
-
               <div className="mt-8 border-t border-border" />
             </div>
 
-            {/* ── Introduction ── */}
+            {/* ── Why we built this ── */}
             <SectionHeading>Why we built this</SectionHeading>
             <Prose>
               <p>
-                Change Data Capture is one of those concepts that sounds straightforward until you try to operationalise it.
-                The idea is simple: instead of querying a database periodically and hoping you catch everything,
-                you read the database's write-ahead log and stream every insert, update, and delete as an event.
-                The execution is where things get complicated.
+                Change Data Capture sounds simple. Read the write-ahead log, stream every insert, update,
+                and delete as an event, deliver it somewhere useful. The hard parts are invisible until
+                you operate it: schema changes break consumers, sinks fail mid-batch, Kafka rebalances
+                corrupt offsets, and Iceberg small-file accumulation silently degrades query performance
+                over weeks.
               </p>
               <p>
-                We built the Baselyne CDC Platform as a reference implementation — fully open-source — to answer
-                a question we kept hearing from clients: <em>"What does a production-grade CDC pipeline actually look like?"</em>
+                We built the Baselyne CDC Platform as an open-source reference implementation that takes
+                responsibility for the full pipeline — source database to sink destination. Not a connector
+                framework, not a thin wrapper around Debezium. An end-to-end system that handles
+                provisioning, consumption, delivery guarantees, schema monitoring, error routing, and
+                lakehouse maintenance.
               </p>
               <p>
-                This post documents the architecture, the load-testing methodology, and the specific design decisions
-                that let us reach 38,000 messages per second without heroics.
+                This post covers the architecture, the six-phase performance optimization that got us to
+                38,647 msg/s, and the design decisions that make it production-grade.
               </p>
             </Prose>
 
-            <Callout label="Key result">
-              38,000 msg/s sustained throughput · p99 latency under 50 ms · 18 load tests across 100,000+ message batches · zero data loss in all failure scenarios tested
+            <Callout label="Key results">
+              <strong>38,647 msg/s</strong> sustained throughput in high-throughput mode ·{" "}
+              <strong>2.6× improvement</strong> over default config · achieved entirely through config
+              changes, zero code modifications · 317 unit tests, no regressions ·
+              exactly-once delivery with min-watermark offset commits
             </Callout>
 
             {/* ── Architecture ── */}
-            <SectionHeading>Architecture overview</SectionHeading>
+            <SectionHeading>Architecture</SectionHeading>
             <Prose>
               <p>
-                The pipeline has four logical layers. Each layer is independently deployable and replaceable —
-                a deliberate choice that lets you swap Kafka for Kinesis or Iceberg for Delta Lake without
-                touching the rest of the stack.
+                The platform owns the full pipeline. It provisions transport resources (Kafka topics,
+                Debezium connector), manages consumer groups and offset lifecycle, monitors schemas,
+                and routes events to configurable sinks — webhooks, PostgreSQL replicas, and Apache
+                Iceberg lakehouse tables.
+              </p>
+              <p>
+                The core design principle is <strong>transport-agnostic architecture</strong>. Protocol
+                abstractions (<code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">EventSource</code>,{" "}
+                <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">Provisioner</code>,{" "}
+                <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">ErrorRouter</code>,{" "}
+                <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">SourceMonitor</code>)
+                decouple the pipeline from any specific event transport. Kafka is the default backend
+                (including MSK and Confluent Cloud), but the architecture is designed so that new transports
+                can be added without touching the core pipeline.
               </p>
             </Prose>
 
-            <CodeBlock lang="ascii — pipeline topology">
-{`┌──────────────┐     WAL      ┌─────────────┐    events    ┌──────────────┐
-│  PostgreSQL  │ ──────────▶ │   Debezium  │ ───────────▶ │    Kafka     │
-│  (source DB) │  replication │  Connector  │   (topic per │   Cluster    │
-└──────────────┘  slot        └─────────────┘    table)     └──────┬───────┘
-                                                                    │
-                                                            consume │
-                                                                    ▼
-                                                    ┌───────────────────────┐
-                                                    │   CDC Consumer (Go)   │
-                                                    │  ┌─────────────────┐  │
-                                                    │  │ Schema Registry │  │
-                                                    │  │ (Avro / JSON)   │  │
-                                                    │  └────────┬────────┘  │
-                                                    │           │ validate  │
-                                                    │  ┌────────▼────────┐  │
-                                                    │  │   Transformer   │  │
-                                                    │  │  (field maps,   │  │
-                                                    │  │   enrichment)   │  │
-                                                    │  └────────┬────────┘  │
-                                                    │           │ batch     │
-                                                    │  ┌────────▼────────┐  │
-                                                    │  │  S3 Writer /    │  │
-                                                    │  │ Iceberg sink    │  │
-                                                    │  └─────────────────┘  │
-                                                    └───────────────────────┘`}
+            <CodeBlock lang="ascii — platform architecture">
+{` ┌─────────────────── CDC Platform ──────────────────────────────┐
+ │                                                               │
+ │  ┌─────────────┐   ┌──────────────────────────────┐           │
+ │  │ Provisioner │──▸│   EventSource (transport)    │           │
+ │  │ (topics +   │   │  ┌────────────────────────┐  │           │
+ │  │  connector) │   │  │ Kafka / Pub/Sub / PG   │  │           │
+ │  └─────────────┘   │  └────────────┬───────────┘  │           │
+ │                    └───────────────┼──────────────┘           │
+ │                         SourceEvent stream                    │
+ │                              │                                │
+ │              ┌───────────────┼───────────────┐                │
+ │              ▼               ▼               ▼                │
+ │         Queue(p0)       Queue(p1)       Queue(p2)             │
+ │              │               │               │                │
+ │         Worker(p0)      Worker(p1)      Worker(p2)──▸ sinks   │
+ │                                                               │
+ │    SourceMonitor (schema + lag)          table maintenance    │
+ │    ErrorRouter (DLQ)                                          │
+ └───────────────────────────────────────────────────────────────┘
+         ▲                                     │
+    source DB                          sink destinations:
+  Postgres · MySQL                  Webhook, Postgres, Iceberg
+  MongoDB · SQL Server`}
             </CodeBlock>
 
             <Prose>
               <p>
-                Debezium sits on a replication slot, so there's no polling — every committed transaction
-                appears as an event within single-digit milliseconds. Events land in a Kafka topic per source
-                table, which gives you independent consumer scaling and clean retention policies per dataset.
+                Per-partition async workers process events independently within a single Python asyncio
+                process. Bounded queues between the consumer and the workers enforce backpressure — when
+                sinks are slow, the queue fills and the poll loop naturally slows down. No message loss,
+                no unbounded memory growth.
               </p>
               <p>
-                The consumer layer is a Go service we wrote from scratch. We chose Go over Python for the
-                consumer because the goroutine model makes it trivial to fan out batch writes to S3 without
-                the GIL standing in the way.
+                Supported sources: <strong>PostgreSQL</strong> (logical replication via pgoutput),{" "}
+                <strong>MySQL</strong> (binlog), <strong>MongoDB</strong> (change streams), and{" "}
+                <strong>SQL Server</strong> (CDC tables). All four are configured with a single{" "}
+                <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">source_type</code>{" "}
+                field — the platform handles connector deployment, topic naming, and snapshot behavior
+                automatically.
               </p>
             </Prose>
 
-            {/* ── Debezium config ── */}
-            <SubHeading>Debezium connector configuration</SubHeading>
+            {/* ── Config-driven pipeline ── */}
+            <SectionHeading>A config-first pipeline</SectionHeading>
             <Prose>
               <p>
-                A few non-obvious settings that matter at scale:
+                The platform separates pipeline config (what to capture) from platform config (how to
+                run it). A minimal PostgreSQL-to-Iceberg pipeline looks like this:
               </p>
             </Prose>
 
-            <CodeBlock lang="yaml — debezium connector">
-{`name: "pg-source-connector"
-config:
-  connector.class: "io.debezium.connector.postgresql.PostgresConnector"
-  database.hostname: "\${DB_HOST}"
-  database.port: "5432"
-  database.user: "\${DB_USER}"
-  database.password: "\${DB_PASSWORD}"
-  database.dbname: "\${DB_NAME}"
-  database.server.name: "baselyne"
+            <CodeBlock lang="yaml — pipeline.yaml">
+{`pipeline_id: orders-cdc
+topic_prefix: cdc
 
-  # Use pgoutput (native) — avoids wal2json dependency
-  plugin.name: "pgoutput"
-  publication.name: "dbz_publication"
-  slot.name: "debezium_slot"
+source:
+  source_type: postgres
+  host: \${CDC_SOURCE_HOST}
+  database: \${CDC_SOURCE_DB}
+  username: \${CDC_SOURCE_USER}
+  password: \${CDC_SOURCE_PASSWORD}
+  tables:
+    - public.orders
+    - public.order_items
+  slot_name: orders_cdc_slot     # unique per pipeline
+  publication_name: orders_pub
+  snapshot_mode: initial         # initial | never | when_needed
 
-  # Capture schema changes alongside data changes
-  include.schema.changes: "true"
-
-  # Heartbeat prevents replication slot bloat on idle tables
-  heartbeat.interval.ms: "10000"
-
-  # Tombstone events for hard deletes → downstream can compact
-  tombstones.on.delete: "true"
-
-  # Batch tuning
-  max.batch.size: "2048"
-  max.queue.size: "16384"
-  poll.interval.ms: "100"`}
+sinks:
+  - sink_id: iceberg-lake
+    sink_type: iceberg
+    enabled: true
+    iceberg:
+      catalog_uri: \${ICEBERG_CATALOG_URI}
+      warehouse: \${ICEBERG_WAREHOUSE}
+      table_name: orders_cdc
+      write_mode: upsert          # idempotent on replay
+      batch_size: 5000
+      maintenance:
+        enabled: true
+        compaction_interval_seconds: 3600`}
             </CodeBlock>
 
-            <Callout label="Why pgoutput over wal2json">
-              pgoutput is built into PostgreSQL 10+ and requires no server-side extension. wal2json adds a
-              dependency that must be managed across every Postgres upgrade. At the replication throughputs
-              we tested, pgoutput also had ~12% lower CPU overhead on the database host.
+            <Prose>
+              <p>
+                Platform config (<code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">platform.yaml</code>)
+                controls transport settings, consumer tuning, retry behaviour, and health probes. Most
+                fields have safe defaults — you only override what differs from your environment.
+              </p>
+            </Prose>
+
+            <CodeBlock lang="bash — CLI">
+{`# Validate config
+cdc validate pipeline.yaml
+
+# Provision transport resources (topics + Debezium connector)
+cdc deploy pipeline.yaml --platform-config platform.yaml
+
+# Run the pipeline
+cdc run pipeline.yaml --platform-config platform.yaml
+
+# Check platform health
+cdc health --platform-config platform.yaml
+
+# Debug: consume raw events from the configured transport
+cdc consume pipeline.yaml`}
+            </CodeBlock>
+
+            {/* ── Exactly-once delivery ── */}
+            <SectionHeading>Exactly-once delivery</SectionHeading>
+            <Prose>
+              <p>
+                Exactly-once in a distributed CDC pipeline is achieved through two mechanisms working
+                together, not one.
+              </p>
+            </Prose>
+
+            <SubHeading>Min-watermark offset commits</SubHeading>
+            <Prose>
+              <p>
+                The platform tracks the highest offset each sink has durably flushed. Offsets are
+                committed to Kafka only at the <em>minimum</em> across all sinks per partition. If
+                the Iceberg sink flushes partition 0 at offset 1000 but the webhook sink has only
+                confirmed offset 950, the committed offset stays at 950.
+              </p>
+              <p>
+                This means a crash and replay will redeliver events that some sinks already saw — which
+                is why idempotent sinks matter.
+              </p>
+            </Prose>
+
+            <SubHeading>Idempotent sink writes</SubHeading>
+            <Prose>
+              <p>
+                Both the PostgreSQL sink (
+                <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">ON CONFLICT DO UPDATE</code>
+                ) and the Iceberg sink (upsert mode) handle redelivered events transparently. A replayed
+                event that was already written produces an identical row — no duplicates, no errors.
+              </p>
+              <p>
+                For non-idempotent sinks (webhooks), keep{" "}
+                <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">commit_interval_seconds</code>{" "}
+                at its default of <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">0.0</code>{" "}
+                (per-event sync commit) to minimise the redelivery window.
+              </p>
+            </Prose>
+
+            <Callout label="DLQ — dead letter routing">
+              Per-sink failures are routed to a dead-letter topic with full diagnostic headers — pipeline
+              ID, sink ID, error message, original partition and offset. Failed events don't block the
+              pipeline; they're quarantined for inspection and replay once the underlying issue is resolved.
             </Callout>
 
-            {/* ── Consumer ── */}
-            <SubHeading>Consumer design: batching and back-pressure</SubHeading>
+            {/* ── Performance ── */}
+            <SectionHeading>The optimization story: six phases</SectionHeading>
             <Prose>
               <p>
-                The consumer does three things in sequence: validate against the schema registry,
-                transform (field renames, type coercions, enrichment), and write to S3 in Parquet-formatted batches
-                that land as Iceberg data files.
+                The platform shipped with safe, correct defaults: single-message polling, synchronous
+                Avro deserialization, per-event offset commits, blocking sink writes. This is the right
+                starting point — easy to reason about, easy to debug. The question was how much headroom
+                we could unlock purely through configuration.
               </p>
               <p>
-                The key to throughput is the batching strategy. Rather than writing one Parquet file per message,
-                we accumulate messages into an in-memory buffer and flush when either a size threshold or a
-                time threshold is crossed — whichever comes first.
+                The benchmark suite runs in process-isolated Python subprocesses (C-extensions like
+                fastavro and confluent-kafka are not safe to tear down and reinitialize in a single
+                process). Most tests use direct Kafka production — bypassing Debezium — for precise
+                control over input rate and data shape. The end-to-end throughput test exercises the
+                full path: PostgreSQL INSERTs → Debezium → Kafka → Consumer → Sink.
               </p>
             </Prose>
 
-            <CodeBlock lang="go — batcher core">
-{`type Batcher struct {
-    buffer   []Event
-    mu       sync.Mutex
-    maxSize  int
-    maxWait  time.Duration
-    flushFn  func([]Event) error
-    ticker   *time.Ticker
-    incoming chan Event
-}
-
-func (b *Batcher) run(ctx context.Context) {
-    for {
-        select {
-        case ev := <-b.incoming:
-            b.mu.Lock()
-            b.buffer = append(b.buffer, ev)
-            shouldFlush := len(b.buffer) >= b.maxSize
-            b.mu.Unlock()
-
-            if shouldFlush {
-                b.flush()
-            }
-
-        case <-b.ticker.C:
-            b.mu.Lock()
-            hasWork := len(b.buffer) > 0
-            b.mu.Unlock()
-
-            if hasWork {
-                b.flush() // time-based flush — keeps latency bounded
-            }
-
-        case <-ctx.Done():
-            b.flush() // drain before shutdown
-            return
-        }
-    }
-}
-
-func (b *Batcher) flush() {
-    b.mu.Lock()
-    batch := b.buffer
-    b.buffer = make([]Event, 0, b.maxSize)
-    b.mu.Unlock()
-
-    if err := b.flushFn(batch); err != nil {
-        // route to DLQ, do not block the hot path
-        dlq.Send(batch, err)
-    }
-}`}
-            </CodeBlock>
-
+            <SubHeading>Phase 1 — Batch polling</SubHeading>
             <Prose>
               <p>
-                The time-based flush matters: without it, a quiet period would leave the last partial batch
-                sitting in memory indefinitely. With a 500 ms max-wait, end-to-end latency is bounded even
-                under low load.
+                The default consumer fetches one message per poll call. Each poll is a round-trip to
+                the Kafka broker. At high message rates, poll overhead dominates. Increasing{" "}
+                <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">poll_batch_size</code>{" "}
+                to 100 amortises that cost across more messages per round-trip.
               </p>
             </Prose>
 
-            {/* ── Schema evolution ── */}
-            <SubHeading>Schema evolution without downtime</SubHeading>
-            <Prose>
-              <p>
-                One of the hardest parts of CDC in production is handling schema changes. A DBA adds a column
-                to a table; ideally, that change flows through to the lakehouse without anyone restarting a service.
-              </p>
-              <p>
-                We handle this with a lightweight schema registry the consumer checks on every message.
-                When a schema change is detected (new field, type widening), the consumer:
-              </p>
-              <ol className="list-decimal list-inside space-y-1 text-muted-foreground">
-                <li>Writes the current in-flight batch to S3 (preserving the old schema)</li>
-                <li>Registers the new schema version</li>
-                <li>Updates the Iceberg table schema via the Iceberg catalog API</li>
-                <li>Continues consuming with the new schema — no restart required</li>
-              </ol>
-            </Prose>
+            <BatchPollingTable />
 
-            <CodeBlock lang="python — iceberg schema update">
-{`from pyiceberg.catalog import load_catalog
-from pyiceberg.schema import Schema
-from pyiceberg.types import NestedField, StringType
-
-catalog = load_catalog("glue", **catalog_config)
-table = catalog.load_table("lakehouse.events")
-
-# Build new schema with the added column
-new_schema = Schema(
-    *table.schema().fields,
-    NestedField(
-        field_id=table.schema().highest_field_id + 1,
-        name="new_column",
-        field_type=StringType(),
-        required=False,  # always optional for additive changes
-    ),
-)
-
-with table.update_schema() as update:
-    update.union_by_name(new_schema)
-
-print(f"Schema updated to version {table.schema().schema_id}")`}
-            </CodeBlock>
-
-            {/* ── Load testing ── */}
-            <SectionHeading>Load testing methodology</SectionHeading>
-            <Prose>
-              <p>
-                We ran 18 distinct load tests across combinations of worker count, batch size, and message
-                payload size. Each test ran for 10 minutes at steady state after a 2-minute warmup, processing
-                a minimum of 100,000 messages.
-              </p>
-              <p>
-                The test harness is also in the repo — it uses a custom PostgreSQL load generator that
-                issues concurrent INSERTs and UPDATEs at a configurable rate, with realistic payload sizes
-                drawn from production-shaped distributions.
-              </p>
-            </Prose>
-
-            <SubHeading>Throughput results</SubHeading>
-            <BenchmarkTable />
-
-            <Callout label="Peak result">
-              8 workers · batch size 5,000 · <strong>38,100 msg/s</strong> sustained · p99 latency 47 ms
+            <Callout label="Finding">
+              Batch polling delivers a <strong>2.1× throughput improvement</strong> over single-poll.
+              Moving from batch-100 to batch-500 shows diminishing returns — the poll overhead is
+              already amortised. Parallel deserialization (4 threads) provides a modest gain on top
+              of batching; the bigger benefit is expected with complex Avro schemas.
             </Callout>
 
+            <SubHeading>Phase 2 — Periodic offset commits</SubHeading>
             <Prose>
               <p>
-                Throughput scales near-linearly with worker count up to the point of CPU saturation on the
-                consumer host. The jump from batch size 1,000 to 5,000 (with the same worker count) gives
-                roughly 25% higher throughput — the S3 PUT overhead amortises across more messages per write.
+                Per-event synchronous commits add a small but consistent overhead — each commit is a
+                blocking call to the Kafka broker. Switching to interval-based commits (
+                <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">commit_interval_seconds: 5.0</code>
+                ) batches this work.
               </p>
             </Prose>
 
-            {/* ── Failure modes ── */}
-            <SectionHeading>Failure modes tested</SectionHeading>
+            <CommitStrategyTable />
+
+            <Callout label="Finding">
+              Periodic commits show marginal improvement at this scale — commit overhead is small
+              relative to poll/deser savings in a local Docker environment. The larger benefit
+              materialises under heavier partition counts and real broker network latency.
+              The tradeoff: events since the last commit may be redelivered on crash. At 5s interval,
+              that's a bounded redelivery window — acceptable for idempotent sinks.
+            </Callout>
+
+            <SubHeading>Phase 3 — Iceberg write executor offloading</SubHeading>
             <Prose>
               <p>
-                Throughput numbers mean nothing if the pipeline loses data when something goes wrong.
-                We tested five failure scenarios explicitly:
+                Iceberg writes — Arrow conversion, Parquet encoding, S3 upload — are blocking I/O
+                that stalls the asyncio event loop. Setting{" "}
+                <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">write_executor_threads: 4</code>{" "}
+                offloads this work to a thread pool. Active processing time improved from 0.78s to
+                0.43s (1.8× faster), while overall throughput is dominated by teardown time in the
+                test environment.
+              </p>
+              <p>
+                At production scale, with persistent connections and no teardown overhead, the
+                executor effect is more significant — it prevents sink writes from blocking the
+                consumer loop during high-volume bursts.
               </p>
             </Prose>
 
-            <FailureModeTable />
-
+            <SubHeading>Phase 4 — Combined at scale</SubHeading>
             <Prose>
               <p>
-                The dead-letter queue (DLQ) is a separate Kafka topic. Failed batches land there with
-                full metadata — consumer offset range, error type, timestamp — making it straightforward
-                to replay them once the underlying issue (e.g., a transient S3 outage) is resolved.
+                The final test ran default config vs. high-throughput config head-to-head at 100,000
+                messages across 8 partitions — a production-representative scale.
               </p>
             </Prose>
 
-            {/* ── Deployment ── */}
-            <SectionHeading>Deployment</SectionHeading>
+            <div className="mt-6 overflow-x-auto rounded-lg border border-border/50">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr className="bg-muted">
+                    <th className="px-4 py-3 text-left font-semibold text-foreground">Configuration</th>
+                    <th className="px-4 py-3 text-left font-semibold text-foreground">Messages</th>
+                    <th className="px-4 py-3 text-left font-semibold text-foreground">Active time</th>
+                    <th className="px-4 py-3 text-left font-semibold text-foreground">Total duration</th>
+                    <th className="px-4 py-3 text-left font-semibold text-foreground">Throughput</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="bg-card text-muted-foreground">
+                    <td className="px-4 py-3 font-mono text-xs">default</td>
+                    <td className="px-4 py-3 font-mono">100,000</td>
+                    <td className="px-4 py-3 font-mono">7.13s</td>
+                    <td className="px-4 py-3 font-mono">10.28s</td>
+                    <td className="px-4 py-3 font-mono">14,968/s</td>
+                  </tr>
+                  <tr className="bg-primary/5 font-medium text-foreground">
+                    <td className="px-4 py-3 font-mono text-xs">high-throughput</td>
+                    <td className="px-4 py-3 font-mono">100,000</td>
+                    <td className="px-4 py-3 font-mono">2.69s</td>
+                    <td className="px-4 py-3 font-mono">5.04s</td>
+                    <td className="px-4 py-3 font-mono text-primary font-semibold">38,647/s</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <Callout label="2.6× improvement — config only">
+              All gains from batch polling, parallel deserialization, periodic commits, and Iceberg
+              write offloading. Default config values preserve existing behaviour — operators opt in
+              to high-throughput mode by setting config values. No code changes, no deployment
+              disruption.
+            </Callout>
+
+            {/* ── High-throughput profile ── */}
+            <SectionHeading>The high-throughput profile</SectionHeading>
             <Prose>
               <p>
-                The platform ships with Docker Compose for local development and Kubernetes manifests for
-                production. The Kubernetes deployment includes:
+                A pre-built profile ships with the platform at{" "}
+                <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">
+                  src/cdc_platform/config/defaults/platform-high-throughput.yaml
+                </code>
+                :
+              </p>
+            </Prose>
+
+            <CodeBlock lang="yaml — platform-high-throughput.yaml">
+{`kafka:
+  topic_num_partitions: 64
+  topic_replication_factor: 3
+  fetch_min_bytes: 1024
+  poll_batch_size: 500
+  deser_pool_size: 4
+  commit_interval_seconds: 5.0
+
+dlq:
+  flush_interval_seconds: 5.0
+
+max_buffered_messages: 10000
+lag_monitor_interval_seconds: 30.0`}
+            </CodeBlock>
+
+            <CodeBlock lang="bash">
+{`cdc run pipeline.yaml --platform-config src/cdc_platform/config/defaults/platform-high-throughput.yaml`}
+            </CodeBlock>
+
+            {/* ── Backpressure ── */}
+            <SectionHeading>Backpressure and memory bounds</SectionHeading>
+            <Prose>
+              <p>
+                Throughput numbers mean little if the pipeline explodes memory when a sink falls
+                behind. Each partition has a bounded queue (
+                <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">max_buffered_messages</code>
+                ). When the queue is full, the consumer loop stops polling — backpressure propagates
+                naturally from sink to queue to poll loop, with no special handling required.
+              </p>
+            </Prose>
+
+            <Callout label="Backpressure test result">
+              With a slow sink (1ms delay per message) and{" "}
+              <code className="font-mono text-xs">max_buffered_messages=100</code>, queue depth
+              never exceeded 101. Throughput correctly throttled to ≈ 1,000 msg/s (matching the
+              sink's capacity). No message loss or overflow under sustained load.
+            </Callout>
+
+            {/* ── Summary table ── */}
+            <SectionHeading>Benchmark summary</SectionHeading>
+            <SummaryTable />
+
+            {/* ── Lakehouse features ── */}
+            <SectionHeading>Lakehouse features: beyond the write</SectionHeading>
+            <Prose>
+              <p>
+                CDC pipelines produce frequent micro-batches. Left unchecked, this creates two problems
+                for Iceberg tables:
               </p>
               <ul className="list-disc list-inside space-y-1 text-muted-foreground">
-                <li>Horizontal Pod Autoscaler on the consumer deployment (CPU target: 70%)</li>
-                <li>PodDisruptionBudget to keep at least one consumer pod available during rollouts</li>
-                <li>Prometheus metrics endpoint on <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">:9090/metrics</code> — lag, throughput, error rate</li>
-                <li>Grafana dashboard included in the repo</li>
+                <li>
+                  <strong className="text-foreground">Small-file accumulation</strong> — each batch
+                  append creates new Parquet files. Hundreds of tiny files degrade query performance.
+                </li>
+                <li>
+                  <strong className="text-foreground">Unbounded metadata growth</strong> — every write
+                  creates a new snapshot. Without expiry, the metadata layer grows indefinitely.
+                </li>
               </ul>
             </Prose>
 
-            <CodeBlock lang="yaml — consumer deployment (excerpt)">
-{`apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: cdc-consumer
-spec:
-  replicas: 4
-  selector:
-    matchLabels:
-      app: cdc-consumer
-  template:
-    spec:
-      containers:
-        - name: consumer
-          image: baselynesystems/cdc-consumer:latest
-          env:
-            - name: KAFKA_BROKERS
-              valueFrom:
-                secretKeyRef:
-                  name: kafka-credentials
-                  key: brokers
-            - name: BATCH_SIZE
-              value: "5000"
-            - name: BATCH_MAX_WAIT_MS
-              value: "500"
-            - name: WORKER_COUNT
-              value: "8"
-          resources:
-            requests:
-              cpu: "500m"
-              memory: "512Mi"
-            limits:
-              cpu: "2"
-              memory: "2Gi"
----
-apiVersion: autoscaling/v2
-kind: HorizontalPodAutoscaler
-metadata:
-  name: cdc-consumer-hpa
-spec:
-  scaleTargetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: cdc-consumer
-  minReplicas: 2
-  maxReplicas: 16
-  metrics:
-    - type: Resource
-      resource:
-        name: cpu
-        target:
-          type: Utilization
-          averageUtilization: 70`}
-            </CodeBlock>
-
-            {/* ── What we learned ── */}
-            <SectionHeading>What we learned</SectionHeading>
+            <SubHeading>Background table maintenance</SubHeading>
             <Prose>
               <p>
-                A few things surprised us during the build:
+                The <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">TableMaintenanceMonitor</code>{" "}
+                is a background async service that runs two independent poll loops alongside the CDC
+                pipeline. It compacts small files and expires old snapshots on configurable intervals —
+                no external scheduler required.
+              </p>
+              <p>
+                Compaction is partition-scoped and memory-bounded. For partitions exceeding the{" "}
+                <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">compaction_max_rows_per_batch</code>{" "}
+                safety limit (default: 500K rows), the service logs a warning and skips — a signal
+                to use Spark or Trino for that partition instead.
               </p>
             </Prose>
 
-            <div className="mt-6 space-y-4">
-              <Callout label="1. Replication slot pressure is real">
-                If the consumer falls significantly behind, the replication slot prevents Postgres from
-                reclaiming WAL segments. This causes disk usage to grow on the source database.
-                Monitor <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">pg_replication_slots</code> and
-                alert on lag exceeding your retention SLO. We set a hard alert at 10 GB of retained WAL.
-              </Callout>
-              <Callout label="2. S3 multipart uploads change the calculus">
-                For Parquet files above ~100 MB, multipart uploads reduce write latency significantly.
-                Below that threshold, a single PUT is faster. Tune your batch size target to stay in the
-                single-PUT sweet spot unless your message sizes are large.
-              </Callout>
-              <Callout label="3. Schema registry is not optional">
-                We initially tried running without a schema registry by relying on message-embedded schemas.
-                Downstream query performance degraded because Iceberg couldn't exploit schema metadata
-                for predicate pushdown. The registry pays for itself in query cost within days.
-              </Callout>
-            </div>
+            <SubHeading>Time travel and rollback</SubHeading>
+            <Prose>
+              <p>
+                The CLI provides first-class time-travel operations. A bad write is recoverable:
+              </p>
+            </Prose>
+
+            <CodeBlock lang="bash — lakehouse CLI">
+{`# List all snapshots with IDs, timestamps, and operation summaries
+cdc lakehouse snapshots pipeline.yaml
+
+# Query data as it existed at a specific snapshot
+cdc lakehouse query pipeline.yaml --snapshot-id 1234567890 --limit 50
+
+# Roll back to a previous snapshot (changes visible state for all readers)
+cdc lakehouse rollback pipeline.yaml --snapshot-id 1234567890 --yes`}
+            </CodeBlock>
+
+            {/* ── Deployment ── */}
+            <SectionHeading>Kubernetes deployment</SectionHeading>
+            <Prose>
+              <p>
+                The platform uses a two-phase deployment model: shared infrastructure (Kafka, Schema
+                Registry, Kafka Connect with Debezium plugins) deployed via Helm, and independent
+                pipeline workers — one Kubernetes Deployment per pipeline.
+              </p>
+            </Prose>
+
+            <SubHeading>Why <code className="text-base font-mono">strategy: Recreate</code></SubHeading>
+            <Prose>
+              <p>
+                This is the most important Kubernetes detail for CDC deployments. RollingUpdate creates
+                a new pod before terminating the old one. Both pods join the same Kafka consumer group
+                simultaneously, causing a <em>rebalance storm</em> — partitions are assigned, revoked,
+                and reassigned repeatedly until the old pod dies. During the storm, no messages are
+                processed.
+              </p>
+              <p>
+                <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">strategy: Recreate</code>{" "}
+                terminates the old pod fully before starting the new one. One clean rebalance, then
+                processing resumes.
+              </p>
+            </Prose>
+
+            <CodeBlock lang="yaml — pipeline Kubernetes Deployment (excerpt)">
+{`apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orders-cdc
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate    # NOT RollingUpdate — avoids consumer group rebalance storms
+  template:
+    spec:
+      containers:
+        - name: pipeline
+          image: ghcr.io/baselyne-systems/cdc-platform:latest
+          ports:
+            - containerPort: 8080
+              name: health
+          envFrom:
+            - secretRef:
+                name: orders-cdc-secrets
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: health
+          readinessProbe:
+            httpGet:
+              path: /readyz
+              port: health
+            initialDelaySeconds: 30
+          resources:
+            requests:
+              cpu: 250m
+              memory: 256Mi
+            limits:
+              cpu: "1"
+              memory: 512Mi`}
+            </CodeBlock>
+
+            <Prose>
+              <p>
+                Each pipeline exposes <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">/healthz</code>{" "}
+                (liveness) and <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">/readyz</code>{" "}
+                (readiness) endpoints. The readiness check queries the Debezium connector state via
+                the Kafka Connect REST API and polls each sink's connection status. If any component
+                reports an error, the probe returns 503 — Kubernetes stops routing traffic to the pod
+                before it can corrupt data.
+              </p>
+            </Prose>
 
             {/* ── Getting started ── */}
             <SectionHeading>Getting started</SectionHeading>
+
+            <CodeBlock lang="bash">
+{`# Clone and install
+git clone https://github.com/Baselyne-Systems/cdc-platform
+cd cdc-platform
+uv sync --extra dev
+
+# Start the full local stack
+# (PostgreSQL, Kafka KRaft, Schema Registry, Debezium Connect, Kafka UI)
+make up
+
+# Verify platform health
+cdc health
+
+# Run the demo pipeline
+cdc run examples/demo-config.yaml
+
+# In another terminal: insert test data
+psql -h localhost -U cdc_user -d cdc_demo -c \\
+  "INSERT INTO public.customers (name, email) VALUES ('test', 'test@example.com');"`}
+            </CodeBlock>
+
             <Prose>
               <p>
-                The platform is open-source and available on GitHub. To run locally:
+                The full benchmark suite is included in the repo. Run it to validate performance in
+                your environment:
               </p>
             </Prose>
 
             <CodeBlock lang="bash">
-{`# Clone the repo
-git clone https://github.com/Baselyne-Systems/cdc-platform
-cd cdc-platform
-
-# Start the full stack locally (Postgres, Kafka, Debezium, consumer)
-docker compose up -d
-
-# Run the load generator against the local stack
-make load-test WORKERS=4 BATCH_SIZE=1000 MESSAGES=100000
-
-# View metrics
-open http://localhost:3000  # Grafana`}
+{`make bench`}
             </CodeBlock>
 
             <Prose>
               <p>
-                The README includes a detailed guide for connecting to an existing Postgres database,
-                configuring the Iceberg catalog (AWS Glue, Hive, or REST), and tuning the consumer
-                for your workload.
+                This starts Docker, runs each benchmark module in process isolation (backpressure,
+                latency, partitions, end-to-end throughput), and shuts down. Results are printed as
+                a consolidated table at the end.
               </p>
             </Prose>
 
@@ -638,8 +800,8 @@ open http://localhost:3000  # Grafana`}
                 Interested in CDC infrastructure for your stack?
               </h2>
               <p className="mt-3 text-muted-foreground">
-                We design and implement production-grade data pipelines — from WAL replication to lakehouse.
-                Book a 30-minute call to talk through your setup.
+                We design and implement production-grade data pipelines — from WAL replication to
+                lakehouse. Book a 30-minute call to talk through your setup.
               </p>
               <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button asChild size="lg">

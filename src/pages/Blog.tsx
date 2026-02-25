@@ -12,7 +12,7 @@ const posts = [
     date: "February 2026",
     tags: ["Case Study", "Open Source"],
     excerpt:
-      "How we built a modular CDC pipeline achieving 38,000 msg/s — and proved it with 18 load tests on 100,000+ messages.",
+      "How we built a modular Python CDC platform achieving 38,647 msg/s with config-driven tuning — exactly-once delivery, multi-source support, and Iceberg lakehouse with time travel.",
     href: "/blog/cdc-platform",
     github: "https://github.com/Baselyne-Systems/cdc-platform",
   },
