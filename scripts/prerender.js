@@ -14,8 +14,8 @@ const routes = [
   '/services/mlops-consulting',
   '/services/data-infrastructure-consulting',
   '/approach',
-  '/blog',
   '/blog/cdc-platform',
+  '/blog',
   '/about',
   '/contact',
 ];
