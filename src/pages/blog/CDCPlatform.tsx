@@ -298,11 +298,11 @@ export default function CDCPlatform() {
 {`name: "pg-source-connector"
 config:
   connector.class: "io.debezium.connector.postgresql.PostgresConnector"
-  database.hostname: "${DB_HOST}"
+  database.hostname: "\${DB_HOST}"
   database.port: "5432"
-  database.user: "${DB_USER}"
-  database.password: "${DB_PASSWORD}"
-  database.dbname: "${DB_NAME}"
+  database.user: "\${DB_USER}"
+  database.password: "\${DB_PASSWORD}"
+  database.dbname: "\${DB_NAME}"
   database.server.name: "baselyne"
 
   # Use pgoutput (native) — avoids wal2json dependency

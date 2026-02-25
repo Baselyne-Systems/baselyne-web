@@ -35,56 +35,85 @@ async function prerender() {
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
 
+  // Read the SPA shell once for use as fallback
+  const spaShell = await fs.readFile(path.join(distPath, 'index.html'), 'utf-8');
+  let failures = 0;
+
   try {
     for (const route of routes) {
       console.log(`Pre-rendering: ${route}`);
 
       const page = await browser.newPage();
-      await page.goto(`http://localhost:3000${route}`, {
-        waitUntil: 'networkidle0',
-        timeout: 30000,
+
+      // Capture page-level JS errors and console errors for diagnostics
+      page.on('pageerror', err => console.log(`  [pageerror] ${err.message}`));
+      page.on('console', msg => {
+        if (msg.type() === 'error') console.log(`  [console.error] ${msg.text()}`);
       });
 
-      // Wait for React to hydrate
-      await page.waitForSelector('#root > *', { timeout: 10000 });
+      try {
+        await page.goto(`http://localhost:3000${route}`, {
+          waitUntil: 'networkidle0',
+          timeout: 30000,
+        });
 
-      // Wait for react-helmet-async to update meta tags
-      await page.waitForFunction(
-        () => {
-          const desc = document.querySelector('meta[name="description"]');
-          const title = document.querySelector('title');
-          // Check if meta tags have been updated from the default
-          return desc && title && !title.textContent.startsWith('Baselyne Systems |');
-        },
-        { timeout: 5000 }
-      ).catch(() => {
-        // Homepage uses default title, so this is expected to timeout
-        console.log(`  (Using default meta for ${route})`);
-      });
+        // Wait for React to hydrate (increased to 30 s)
+        await page.waitForSelector('#root > *', { timeout: 30000 });
 
-      // Small delay to ensure all helmet updates are applied
-      await new Promise(resolve => setTimeout(resolve, 500));
+        // Wait for react-helmet-async to update meta tags
+        await page.waitForFunction(
+          () => {
+            const desc = document.querySelector('meta[name="description"]');
+            const title = document.querySelector('title');
+            return desc && title && !title.textContent.startsWith('Baselyne Systems |');
+          },
+          { timeout: 5000 }
+        ).catch(() => {
+          console.log(`  (Using default meta for ${route})`);
+        });
 
-      // Get the rendered HTML
-      const html = await page.content();
+        // Small delay to ensure all helmet updates are applied
+        await new Promise(resolve => setTimeout(resolve, 500));
 
-      // Determine output path
-      const outputPath = route === '/'
-        ? path.join(distPath, 'index.html')
-        : path.join(distPath, route, 'index.html');
+        // Get the rendered HTML
+        const html = await page.content();
 
-      // Create directory if needed
-      const outputDir = path.dirname(outputPath);
-      await fs.mkdir(outputDir, { recursive: true });
+        // Determine output path
+        const outputPath = route === '/'
+          ? path.join(distPath, 'index.html')
+          : path.join(distPath, route, 'index.html');
 
-      // Write the pre-rendered HTML
-      await fs.writeFile(outputPath, html);
-      console.log(`  Written: ${outputPath}`);
+        // Create directory if needed
+        const outputDir = path.dirname(outputPath);
+        await fs.mkdir(outputDir, { recursive: true });
 
-      await page.close();
+        // Write the pre-rendered HTML
+        await fs.writeFile(outputPath, html);
+        console.log(`  Written: ${outputPath}`);
+
+      } catch (routeErr) {
+        failures++;
+        console.warn(`  WARNING: pre-rendering failed for ${route}: ${routeErr.message}`);
+        console.warn(`  Falling back to SPA shell so GitHub Pages can still serve the route.`);
+
+        // Write the SPA shell as a fallback so the route is not a 404
+        const outputPath = route === '/'
+          ? path.join(distPath, 'index.html')
+          : path.join(distPath, route, 'index.html');
+        const outputDir = path.dirname(outputPath);
+        await fs.mkdir(outputDir, { recursive: true });
+        await fs.writeFile(outputPath, spaShell);
+        console.warn(`  Fallback written: ${outputPath}`);
+      } finally {
+        await page.close();
+      }
     }
 
-    console.log('Pre-rendering complete!');
+    if (failures > 0) {
+      console.warn(`\nPre-rendering complete with ${failures} fallback(s).`);
+    } else {
+      console.log('\nPre-rendering complete!');
+    }
   } finally {
     await browser.close();
     server.httpServer.close();
