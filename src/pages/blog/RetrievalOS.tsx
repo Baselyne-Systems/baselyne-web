@@ -339,8 +339,7 @@ export default function RetrievalOS() {
               <strong>10,785 QPS</strong> on a single node (realistic Zipf workload, 81.4% cache hit rate) ·{" "}
               <strong>0.2 ms p50</strong> on a warm cache hit ·{" "}
               <strong>2.8 ms</strong> rollback propagation to Redis ·{" "}
-              <strong>zero errors</strong> during live config switch under 100 concurrent queries ·
-              470 tests across 4 layers, all assertions on the performance claims
+              <strong>zero errors</strong> during live config switch under 100 concurrent queries
             </Callout>
 
             {/* ── Serving path ── */}
@@ -744,21 +743,19 @@ Recall@5 / MRR / NDCG computed against ground-truth dataset
                 <thead>
                   <tr className="bg-muted">
                     <th className="px-4 py-3 text-left font-semibold text-foreground">Layer</th>
-                    <th className="px-4 py-3 text-left font-semibold text-foreground">Count</th>
                     <th className="px-4 py-3 text-left font-semibold text-foreground">Infra needed</th>
                     <th className="px-4 py-3 text-left font-semibold text-foreground">What it proves</th>
                   </tr>
                 </thead>
                 <tbody>
                   {[
-                    ["Unit", "381", "Nothing", "Logic correctness — state machines, validators, hash computation, metric formulas"],
-                    ["Integration", "51", "Nothing (all I/O mocked)", "Service orchestration — repositories called correctly, typed errors raised correctly"],
-                    ["E2E", "15", "Postgres + Redis", "System behaviour — concurrency safety, cache semantics, watchdog decisions"],
-                    ["Load", "23", "Postgres + Redis + Qdrant", "Operational guarantees — latency, throughput, dedup, timeout, rollback speed"],
-                  ].map(([layer, count, infra, what], i) => (
+                    ["Unit", "Nothing", "Logic correctness — state machines, validators, hash computation, metric formulas"],
+                    ["Integration", "Nothing (all I/O mocked)", "Service orchestration — repositories called correctly, typed errors raised correctly"],
+                    ["E2E", "Postgres + Redis", "System behaviour — concurrency safety, cache semantics, watchdog decisions"],
+                    ["Load", "Postgres + Redis + Qdrant", "Operational guarantees — latency, throughput, dedup, timeout, rollback speed"],
+                  ].map(([layer, infra, what], i) => (
                     <tr key={i} className={i % 2 === 0 ? "bg-card text-muted-foreground" : "bg-muted/30 text-muted-foreground"}>
                       <td className="px-4 py-3 font-semibold text-foreground text-xs">{layer}</td>
-                      <td className="px-4 py-3 font-mono">{count}</td>
                       <td className="px-4 py-3 text-xs">{infra}</td>
                       <td className="px-4 py-3 text-xs">{what}</td>
                     </tr>
@@ -838,7 +835,7 @@ curl -X POST http://localhost:8000/v1/query/docs \
             <SubHeading>Run the full load test suite</SubHeading>
 
             <CodeBlock lang="bash">
-{`# Starts infra, runs all 470 tests, prints benchmark results
+{`# Starts infra, runs all tests, prints benchmark results
 uv run pytest tests/`}
             </CodeBlock>
 
@@ -857,7 +854,7 @@ uv run pytest tests/`}
                 Cache hit rate is the primary lever for end-to-end p50.
               </p>
               <p>
-                <strong className="text-foreground">A single Qdrant node saturates around 10 concurrent ANN queries</strong>{" "}
+                <strong className="text-foreground">A single Qdrant node saturates at 3–5 concurrent ANN queries</strong>{" "}
                 before p99 starts climbing. At scale the right answer is horizontal sharding, not
                 single-node tuning.
               </p>
