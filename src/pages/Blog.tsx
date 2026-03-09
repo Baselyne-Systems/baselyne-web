@@ -17,6 +17,22 @@ type Post = {
 
 const sections: { category: string; description: string; posts: Post[] }[] = [
   {
+    category: "Data Infrastructure",
+    description: "Pipelines, lakehouse architecture, and high-throughput data engineering.",
+    posts: [
+      {
+        title: "Building a High-Throughput CDC Platform",
+        subtitle: "From database change to lakehouse in milliseconds",
+        date: "February 2026",
+        tags: ["Case Study", "Open Source"],
+        excerpt:
+          "How we built a modular Python CDC platform achieving 38,647 msg/s with config-driven tuning — exactly-once delivery, multi-source support, and Iceberg lakehouse with time travel.",
+        href: "/blog/cdc-platform",
+        github: "https://github.com/Baselyne-Systems/cdc-platform",
+      },
+    ],
+  },
+  {
     category: "AI Infrastructure",
     description: "Agent governance, retrieval serving, and production AI systems.",
     posts: [
@@ -39,22 +55,6 @@ const sections: { category: string; description: string; posts: Post[] }[] = [
           "Config versioning, staged rollouts, automatic quality guard-rails, and 2.8 ms rollback propagation — 10,785 QPS on a single node with an 81.4% natural cache hit rate.",
         href: "/blog/retrieval-os",
         github: "https://github.com/Baselyne-Systems/retrieval-os",
-      },
-    ],
-  },
-  {
-    category: "Data Infrastructure",
-    description: "Pipelines, lakehouse architecture, and high-throughput data engineering.",
-    posts: [
-      {
-        title: "Building a High-Throughput CDC Platform",
-        subtitle: "From database change to lakehouse in milliseconds",
-        date: "February 2026",
-        tags: ["Case Study", "Open Source"],
-        excerpt:
-          "How we built a modular Python CDC platform achieving 38,647 msg/s with config-driven tuning — exactly-once delivery, multi-source support, and Iceberg lakehouse with time travel.",
-        href: "/blog/cdc-platform",
-        github: "https://github.com/Baselyne-Systems/cdc-platform",
       },
     ],
   },
