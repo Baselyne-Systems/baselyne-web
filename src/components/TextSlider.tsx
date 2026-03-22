@@ -33,18 +33,30 @@ export function TextSlider({
   }, [advance, interval]);
 
   return (
-    <span className={`relative inline-block overflow-hidden ${className}`}>
-      <span
-        className={`inline-block transition-all duration-500 ease-in-out ${
-          state === "exiting"
-            ? "-translate-y-[110%] opacity-0"
-            : state === "entering"
-              ? "translate-y-0 opacity-100"
+    <span className={`relative block ${className}`}>
+      {/* Hidden texts that reserve the height of the tallest item */}
+      {texts.map((text, i) => (
+        <span
+          key={i}
+          className="block invisible"
+          aria-hidden="true"
+          style={i > 0 ? { position: "absolute", top: 0, left: 0, right: 0 } : undefined}
+        >
+          {text}
+        </span>
+      ))}
+      {/* Visible sliding text */}
+      <span className="absolute inset-0 overflow-hidden">
+        <span
+          className={`block transition-all duration-500 ease-in-out ${
+            state === "exiting"
+              ? "-translate-y-[110%] opacity-0"
               : "translate-y-0 opacity-100"
-        }`}
-        style={state === "entering" ? { animation: "slideUp 500ms ease-out" } : undefined}
-      >
-        {texts[currentIndex]}
+          }`}
+          style={state === "entering" ? { animation: "slideUp 500ms ease-out" } : undefined}
+        >
+          {texts[currentIndex]}
+        </span>
       </span>
     </span>
   );

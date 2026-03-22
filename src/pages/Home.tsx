@@ -79,7 +79,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-30" />
         <div className="container relative mx-auto px-4 py-24 lg:px-8 lg:py-32">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl min-h-[2.4em] sm:min-h-[2.4em] lg:min-h-[2.4em]">
+            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
               <TextSlider
                 texts={heroTaglines}
                 interval={4000}
