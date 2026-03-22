@@ -34,17 +34,19 @@ export function TextSlider({
 
   return (
     <span className={`relative block ${className}`}>
-      {/* Hidden texts that reserve the height of the tallest item */}
-      {texts.map((text, i) => (
-        <span
-          key={i}
-          className="block invisible"
-          aria-hidden="true"
-          style={i > 0 ? { position: "absolute", top: 0, left: 0, right: 0 } : undefined}
-        >
-          {text}
-        </span>
-      ))}
+      {/* Grid: all items overlap in one cell, tallest wins height */}
+      <span className="grid" style={{ gridArea: "1 / 1" }}>
+        {texts.map((text, i) => (
+          <span
+            key={i}
+            className="invisible block"
+            aria-hidden="true"
+            style={{ gridArea: "1 / 1" }}
+          >
+            {text}
+          </span>
+        ))}
+      </span>
       {/* Visible sliding text */}
       <span className="absolute inset-0 overflow-hidden">
         <span
