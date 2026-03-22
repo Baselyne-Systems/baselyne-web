@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Layout } from "@/components/Layout";
 import { SEO, organizationSchema, professionalServiceSchema } from "@/components/SEO";
-import { TypewriterText } from "@/components/TypewriterText";
+import { TextSlider } from "@/components/TextSlider";
 
 const heroTaglines = [
   "Ship AI to production. Cut infrastructure costs in half.",
@@ -79,12 +79,10 @@ export default function Home() {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-30" />
         <div className="container relative mx-auto px-4 py-24 lg:px-8 lg:py-32">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl min-h-[4.8em] sm:min-h-[3.6em] lg:min-h-[3em]">
-              <TypewriterText
+            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl min-h-[2.4em] sm:min-h-[2.4em] lg:min-h-[2.4em]">
+              <TextSlider
                 texts={heroTaglines}
-                typingSpeed={100}
-                deletingSpeed={40}
-                pauseDuration={4000}
+                interval={4000}
               />
             </h1>
             <p className="mt-6 text-lg text-muted-foreground sm:text-xl">
