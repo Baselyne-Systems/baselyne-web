@@ -51,9 +51,9 @@ export default function AIInfrastructureConsulting() {
   return (
     <Layout>
       <SEO
-        title="AI Infrastructure Consulting | Baselyne Systems"
-        description="AI infrastructure consulting for GPU orchestration, LLM serving, and ML platforms. Scalable, cost-controlled compute."
-        keywords="AI infrastructure consulting, GPU orchestration consulting, LLM infrastructure, ML platform consulting, AI compute optimization, machine learning infrastructure"
+        title="Cut GPU Costs 50-80% | AI Infrastructure Consulting | Baselyne Systems"
+        description="GPU utilization from 30% to 80%+. LLM inference costs cut 50-80%. Per-model cost attribution so you know exactly where spend goes. AI infrastructure consulting."
+        keywords="AI infrastructure consulting, GPU cost optimization, reduce AI compute costs, GPU orchestration consulting, LLM infrastructure, ML platform consulting, AI compute optimization, machine learning infrastructure"
         canonical="https://baselynesystems.com/services/ai-infrastructure-consulting"
         structuredData={aiInfraServiceSchema}
       />
@@ -66,12 +66,12 @@ export default function AIInfrastructureConsulting() {
               AI Infrastructure Consulting
             </p>
             <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-              Scalable AI compute with cost control
+              Cut GPU costs 50-80% without slowing your team down
             </h1>
             <p className="mt-6 text-lg text-muted-foreground">
-              GPU and LLM costs can spiral without proper controls. We build AI
-              infrastructure that gives teams the compute they need while
-              maintaining visibility and control over spend.
+              GPU utilization from 30% to 80%+. Per-model cost attribution replacing
+              opaque line items. Spot instances saving 60-70% on training with zero
+              lost work. Infrastructure your ML teams self-serve without bottlenecks.
             </p>
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Button asChild size="lg">

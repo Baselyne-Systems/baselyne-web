@@ -51,9 +51,9 @@ export default function DataInfrastructureConsulting() {
   return (
     <Layout>
       <SEO
-        title="Data Infrastructure Consulting | Baselyne Systems"
-        description="Data infrastructure consulting for lakehouse architecture, pipelines, and governance. Reliable, scalable data platforms."
-        keywords="data infrastructure consulting, data platform consulting, lakehouse consulting, data engineering consulting, data pipeline consulting, data governance consulting"
+        title="Sub-Minute Data Freshness. 10-100x Faster Queries. | Baselyne Systems"
+        description="CDC pipelines delivering sub-minute freshness. Query performance improved 10-100x. Storage costs reduced 40-60%. One lakehouse platform for analytics, ML, and RAG."
+        keywords="data infrastructure consulting, data platform consulting, lakehouse consulting, data pipeline latency reduction, reduce data pipeline costs, data engineering consulting, data pipeline consulting, data governance consulting"
         canonical="https://baselynesystems.com/services/data-infrastructure-consulting"
         structuredData={dataInfraServiceSchema}
       />
@@ -66,12 +66,12 @@ export default function DataInfrastructureConsulting() {
               Data Infrastructure Consulting
             </p>
             <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-              Data infrastructure that powers AI
+              Sub-minute data freshness. 10-100x faster queries. One platform.
             </h1>
             <p className="mt-6 text-lg text-muted-foreground">
-              Modern AI needs more than batch pipelines. We build data platforms
-              that power analytics, ML training, RAG systems, and the next
-              generation of AI applications.
+              CDC pipelines replacing overnight batch jobs. Storage costs down
+              40-60% through Iceberg compaction. Analytics, ML training, and
+              RAG served from the same lakehouse — no duplicate systems.
             </p>
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Button asChild size="lg">

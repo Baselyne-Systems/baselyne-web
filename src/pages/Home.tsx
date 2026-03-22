@@ -7,10 +7,10 @@ import { SEO, organizationSchema, professionalServiceSchema } from "@/components
 import { TypewriterText } from "@/components/TypewriterText";
 
 const heroTaglines = [
-  "AI and data systems that actually run in production.",
-  "Data infra that scales with your ambitions.",
-  "MLOps that gets models out of notebooks.",
-  "AI infrastructure without the runaway costs.",
+  "Ship AI to production. Cut infrastructure costs in half.",
+  "10-100x faster queries. Sub-minute data freshness.",
+  "Deploy models in hours, not weeks.",
+  "GPU costs down 50-80%. Utilization up to 80%+.",
 ];
 
 const failurePoints = [
@@ -68,9 +68,9 @@ export default function Home() {
   return (
     <Layout>
       <SEO
-        title="AI, Data & MLOps Consulting Services | Baselyne Systems"
-        description="AI infrastructure, data platforms, and MLOps consulting. We help data and ML teams move AI from experimentation into reliable production."
-        keywords="AI infrastructure consulting, MLOps consulting, data infrastructure consulting, ML platform, machine learning infrastructure, AI consulting firm, data engineering consulting"
+        title="Ship AI to Production | Cut GPU Costs 50-80% | Baselyne Systems"
+        description="We help ML teams deploy models in hours instead of weeks, cut GPU costs 50-80%, and catch model regressions before production. AI infrastructure, data platforms, and MLOps consulting."
+        keywords="AI infrastructure consulting, MLOps consulting, data infrastructure consulting, reduce AI infrastructure costs, GPU cost optimization, model deployment automation, AI prototype to production, ML production monitoring, data pipeline latency reduction"
         canonical="https://baselynesystems.com"
         structuredData={combinedSchema}
       />
@@ -88,7 +88,7 @@ export default function Home() {
               />
             </h1>
             <p className="mt-6 text-lg text-muted-foreground sm:text-xl">
-              We help data and ML teams move AI from experimentation into production by building reliable, secure, and cost-effective infrastructure.
+              We've helped teams go from notebook prototypes to production ML — reducing GPU spend 50-80% and cutting deployment cycles from weeks to hours.
             </p>
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Button asChild size="lg">
@@ -173,10 +173,10 @@ export default function Home() {
             <div>
               <p className="text-sm font-medium uppercase tracking-wider text-primary">Our Services</p>
               <h2 className="mt-3 text-3xl font-semibold text-foreground sm:text-4xl">
-                End-to-end data and ML infrastructure
+                Faster deployment. Lower costs. Fewer silent failures.
               </h2>
               <p className="mt-4 text-muted-foreground">
-                From data pipelines to model deployment, we handle the infrastructure so your team can focus on the science.
+                Production AI infrastructure that cuts costs, accelerates deployment, and eliminates silent model failures.
               </p>
               <Button asChild className="mt-8">
                 <Link to="/services" className="inline-flex items-center gap-2">

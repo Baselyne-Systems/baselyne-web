@@ -33,9 +33,9 @@ export default function Services() {
   return (
     <Layout>
       <SEO
-        title="AI, MLOps & Data Infrastructure Consulting Services"
-        description="Expert consulting for AI infrastructure, MLOps, and data platforms. We design, build, and operate production-grade systems for data and ML teams."
-        keywords="AI infrastructure consulting, MLOps consulting, data infrastructure consulting, ML platform consulting, machine learning consulting services, data engineering consulting"
+        title="AI, MLOps & Data Infrastructure Consulting | Deploy Faster, Spend Less"
+        description="Deploy models in hours, cut GPU costs 50-80%, and eliminate silent model failures. Production AI infrastructure, MLOps, and data platform consulting."
+        keywords="AI infrastructure consulting, MLOps consulting, data infrastructure consulting, reduce AI infrastructure costs, GPU cost optimization, model deployment automation, ML production monitoring, machine learning consulting services, data engineering consulting"
         canonical="https://baselynesystems.com/services"
         structuredData={professionalServiceSchema}
       />
@@ -45,13 +45,13 @@ export default function Services() {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-              Services
+              Deploy faster. Spend less. Sleep through the night.
             </h1>
             <p className="mt-6 text-lg text-muted-foreground">
-              We design, build, and operate production-grade data platforms and
-              AI systems. Each engagement is scoped to your specific challenges
-              and delivered by engineers who've built these systems at companies
-              like Meta and Alphabet.
+              Production AI infrastructure that cuts costs, accelerates deployment,
+              and eliminates silent failures. Each engagement is scoped to your
+              specific challenges and delivered by engineers who've built these
+              systems at Meta and Alphabet.
             </p>
           </div>
         </div>

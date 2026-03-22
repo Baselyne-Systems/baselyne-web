@@ -51,9 +51,9 @@ export default function MLOpsConsulting() {
   return (
     <Layout>
       <SEO
-        title="MLOps Consulting | Model Deployment & ML Pipeline Experts"
-        description="Expert MLOps consulting to get models from notebooks to production. We build model versioning, deployment infrastructure, and monitoring systems that scale."
-        keywords="MLOps consulting, model deployment consulting, ML pipeline consulting, machine learning operations, model monitoring, ML infrastructure consulting"
+        title="Deploy Models in Hours, Not Weeks | MLOps Consulting | Baselyne Systems"
+        description="Model deployment reduced from weeks to hours. Zero-downtime rollouts with automated rollback. Regressions caught before production, not after. MLOps consulting."
+        keywords="MLOps consulting, model deployment automation, reduce model deployment time, ML pipeline consulting, machine learning operations, model monitoring, ML production monitoring, ML infrastructure consulting"
         canonical="https://baselynesystems.com/services/mlops-consulting"
         structuredData={mlopsServiceSchema}
       />
@@ -66,13 +66,12 @@ export default function MLOpsConsulting() {
               MLOps Consulting
             </p>
             <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-              Get AI from prototype to production
+              Deploy models in hours, not weeks — with automated rollback
             </h1>
             <p className="mt-6 text-lg text-muted-foreground">
-              The gap between a working prototype and a production system is
-              larger than most teams expect. We bridge that gap with
-              infrastructure for deploying, versioning, and monitoring ML
-              models and LLM-powered applications.
+              Zero-downtime deployments with canary analysis. Evaluation gates
+              that catch regressions before production. ML teams shipping
+              independently without infrastructure as the bottleneck.
             </p>
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Button asChild size="lg">
