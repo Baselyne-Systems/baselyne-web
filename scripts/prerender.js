@@ -15,6 +15,7 @@ const routes = [
   '/services/data-infrastructure-consulting',
   '/approach',
   '/blog/bulkhead',
+  '/blog/gatekeeper',
   '/blog/retrieval-os',
   '/blog/cdc-platform',
   '/blog',

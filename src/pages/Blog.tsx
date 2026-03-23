@@ -43,6 +43,22 @@ const sections: { category: string; description: string; posts: Post[] }[] = [
     ],
   },
   {
+    category: "MLOps & Model Platforms",
+    description: "Evaluation pipelines, deployment gates, and production model lifecycle.",
+    posts: [
+      {
+        title: "GateKeeper: Eval-Gated Model Deployment",
+        subtitle: "Every model change runs through quality gates before it touches production traffic",
+        date: "March 2026",
+        tags: ["Case Study", "Open Source"],
+        excerpt:
+          "Config-driven quality gates — accuracy, drift, LLM judge, champion vs. challenger — that block bad models before production. A sentiment classifier with F1 = 0.338 was caught and blocked; v2.2 with F1 = 0.950 was promoted. Fully async, pluggable, with canary traffic management and audit trails.",
+        href: "/blog/gatekeeper",
+        github: "https://github.com/achyuthsamudrala/gatekeeper",
+      },
+    ],
+  },
+  {
     category: "AI Infrastructure",
     description: "Agent governance and production AI systems.",
     posts: [

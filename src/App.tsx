@@ -16,6 +16,7 @@ import Blog from "./pages/Blog";
 import CDCPlatform from "./pages/blog/CDCPlatform";
 import RetrievalOS from "./pages/blog/RetrievalOS";
 import Bulkhead from "./pages/blog/Bulkhead";
+import GateKeeper from "./pages/blog/GateKeeper";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -40,6 +41,7 @@ const App = () => (
           <Route path="/blog/cdc-platform" element={<CDCPlatform />} />
           <Route path="/blog/retrieval-os" element={<RetrievalOS />} />
           <Route path="/blog/bulkhead" element={<Bulkhead />} />
+          <Route path="/blog/gatekeeper" element={<GateKeeper />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
