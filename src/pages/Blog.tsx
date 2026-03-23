@@ -52,7 +52,7 @@ const sections: { category: string; description: string; posts: Post[] }[] = [
         date: "March 2026",
         tags: ["Case Study", "Open Source"],
         excerpt:
-          "Config-driven quality gates — accuracy, drift, LLM judge, champion vs. challenger — that block bad models before production. A sentiment classifier with F1 = 0.338 was caught and blocked; v2.2 with F1 = 0.950 was promoted. Fully async, pluggable, with canary traffic management and audit trails.",
+          "How we built an eval-gated deployment pipeline that caught a sentiment classifier regression (F1 dropped to 0.338) before it reached production — and promoted the fixed version (F1 = 0.950) automatically.",
         href: "/blog/gatekeeper",
         github: "https://github.com/achyuthsamudrala/gatekeeper",
       },
