@@ -127,8 +127,8 @@ export default function Blog() {
     <Layout>
       <SEO
         title="Blog | Baselyne Systems"
-        description="Technical case studies and open-source engineering from Baselyne — AI infrastructure, agent governance, retrieval systems, and data pipelines."
-        keywords="AI infrastructure blog, agent governance, RAG infrastructure, CDC platform, data engineering, open source AI"
+        description="Technical case studies and open-source engineering from Baselyne — MLOps, AI infrastructure, agent governance, retrieval systems, and data pipelines."
+        keywords="AI infrastructure blog, MLOps blog, model deployment, eval pipeline, agent governance, RAG infrastructure, CDC platform, data engineering, open source AI"
         canonical="https://baselynesystems.com/blog"
       />
 
