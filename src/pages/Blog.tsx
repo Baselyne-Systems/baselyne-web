@@ -18,8 +18,18 @@ type Post = {
 const sections: { category: string; description: string; posts: Post[] }[] = [
   {
     category: "Data Infrastructure",
-    description: "Pipelines, lakehouse architecture, and high-throughput data engineering.",
+    description: "Pipelines, lakehouse architecture, retrieval systems, and high-throughput data engineering.",
     posts: [
+      {
+        title: "Retrieval OS: A Production-Grade Retrieval Runtime",
+        subtitle: "How we built a serving layer that makes RAG systems deployable, measurable, and safe to operate",
+        date: "February 2026",
+        tags: ["Case Study", "Open Source"],
+        excerpt:
+          "Config versioning, staged rollouts, automatic quality guard-rails, and 2.8 ms rollback propagation — 10,785 QPS on a single node with an 81.4% natural cache hit rate.",
+        href: "/blog/retrieval-os",
+        github: "https://github.com/Baselyne-Systems/retrieval-os",
+      },
       {
         title: "Building a High-Throughput CDC Platform",
         subtitle: "From database change to lakehouse in milliseconds",
@@ -34,7 +44,7 @@ const sections: { category: string; description: string; posts: Post[] }[] = [
   },
   {
     category: "AI Infrastructure",
-    description: "Agent governance, retrieval serving, and production AI systems.",
+    description: "Agent governance and production AI systems.",
     posts: [
       {
         title: "Bulkhead: Defense in Depth for Autonomous AI Agents",
@@ -45,16 +55,6 @@ const sections: { category: string; description: string; posts: Post[] }[] = [
           "Four independent enforcement layers — compiled guardrails evaluated in 184ns, kernel-level iptables egress, append-only audit trail, and non-blocking human-in-the-loop escalation — all evaluated before a tool call executes.",
         href: "/blog/bulkhead",
         github: "https://github.com/achyuthnsamudrala/bulkhead",
-      },
-      {
-        title: "Retrieval OS: A Production-Grade Retrieval Runtime",
-        subtitle: "How we built a serving layer that makes RAG systems deployable, measurable, and safe to operate",
-        date: "February 2026",
-        tags: ["Case Study", "Open Source"],
-        excerpt:
-          "Config versioning, staged rollouts, automatic quality guard-rails, and 2.8 ms rollback propagation — 10,785 QPS on a single node with an 81.4% natural cache hit rate.",
-        href: "/blog/retrieval-os",
-        github: "https://github.com/Baselyne-Systems/retrieval-os",
       },
     ],
   },
