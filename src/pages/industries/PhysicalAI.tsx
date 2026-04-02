@@ -1,4 +1,4 @@
-import { ArrowRight, Database, GitBranch, Cpu, Radio, Box, BarChart3 } from "lucide-react";
+import { ArrowRight, Database, GitBranch, Cpu, Radio, Shield, BarChart3, Wifi, AlertTriangle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
@@ -8,48 +8,66 @@ import { SEO, physicalAIServiceSchema } from "@/components/SEO";
 const challenges = [
   {
     icon: Database,
-    title: "Data in four formats, no unified query layer",
+    title: "Everything is custom-built because nothing fits",
     description:
-      "RLDS from Open X-Embodiment, LeRobot from HuggingFace, MCAP from your ROS 2 fleet, HDF5 from ALOHA. Each format has its own schema, its own tooling, and its own assumptions about episode boundaries. Finding 'all failed grasps from last month' means writing four separate scripts.",
+      "Every team we've spoken to — from warehouse fleets to construction robots to autonomous kitchens — has built core data infrastructure in-house. Recording catalogs, format converters, training pipelines, evaluation scripts. Not because custom is better, but because nothing on the market fits the robotics workflow.",
   },
   {
-    icon: Radio,
-    title: "Sensor data at different rates with no sync",
+    icon: Wifi,
+    title: "Getting data off the robot is the real bottleneck",
     description:
-      "Cameras at 30Hz, IMU at 1kHz, force sensors at 500Hz, joint states at 50Hz. Each sensor has its own clock with drift and transmission delay. Naive timestamp matching produces misaligned observation-action pairs that silently degrade policy learning.",
+      "Construction sites have no internet. Warehouse robots saturate 5Gbps pipes. A 15-second stereo camera clip is 3GB. Teams store 1% of data through random sampling — and systematically lose the most valuable recordings: failures, edge cases, and rare states.",
   },
   {
-    icon: Box,
-    title: "Episode boundaries are best-effort",
+    icon: AlertTriangle,
+    title: "Failure data is the most valuable and hardest to capture",
     description:
-      "RLDS has explicit markers. LeRobot has episode indices. MCAP recordings from the field have no episode markers at all — you're guessing from temporal gaps. Setup and teardown motion leaks into episodes, corrupting demonstrations.",
+      "When a robot fails, the last 5 minutes of sensor data is worth more than the last 5 hours of routine operation. But failure recording is ad hoc — manual triggers, inconsistent formats, no structured metadata about what went wrong or why. The highest-value training data is the least well-managed.",
   },
   {
     icon: BarChart3,
-    title: "No way to curate what you train on",
+    title: "No systematic evaluation or regression testing",
     description:
-      "Teams with 10,000 episodes sample randomly. The highest-value data — failures, edge cases, novel states — is systematically underrepresented. Training on everything wastes compute. Training on a random subset wastes the best data.",
+      "Evaluating a policy means deploying it on one robot, manually running 20-50 trials, watching the video, and counting successes. Fleet versioning is tracked in spreadsheets. There's no CI/CD for policies — no way to automatically block a regression before it reaches a robot.",
   },
 ];
 
 const capabilities = [
   {
     icon: Database,
-    title: "Sensor Data Pipelines",
+    title: "Sensor Data Lake",
     description:
-      "Multi-format ingestion into Apache Iceberg — RLDS, LeRobot, MCAP, HDF5 into one queryable schema. Episode-centric storage with modality separation. Cross-format queries in milliseconds.",
+      "Multi-format ingestion into Apache Iceberg — RLDS, LeRobot, MCAP, HDF5 normalized into one episode-centric, queryable schema. Cross-format queries in milliseconds. Modality-separated storage so joint-state queries never scan image data.",
   },
   {
     icon: GitBranch,
-    title: "Training Data Infrastructure",
+    title: "Training Data Pipeline",
     description:
-      "From data lake to training loop. Curated episode selection, WebDataset shard export, PyTorch DataLoader integration. Support for behavioral cloning, offline RL, and action-chunking architectures.",
+      "From data lake to training loop. Curated episode selection by task, outcome, robot, and environment. WebDataset shard export with normalization stats. Support for behavioral cloning, diffusion policies, and action-chunking architectures.",
+  },
+  {
+    icon: Shield,
+    title: "Evaluation & Policy Gating",
+    description:
+      "Automated evaluation pipelines that gate deployment. Regression test suites that grow from production failures. Statistical comparison across policy versions. The infrastructure to answer 'is this policy safe to deploy?' with evidence, not intuition.",
+  },
+  {
+    icon: Radio,
+    title: "Edge Data Management",
+    description:
+      "Intelligent on-device data filtering and prioritized sync for robots with limited connectivity. Failure data uploaded first, routine operations downsampled. Offline-first architecture that works on construction sites, farms, and warehouses.",
   },
   {
     icon: Cpu,
-    title: "Fleet Data Management",
+    title: "Fleet Operations",
     description:
-      "Ingestion pipelines for robot fleets generating terabytes of recordings. Per-robot, per-environment, per-task queryability. Provenance tracking from raw recording to trained policy.",
+      "Per-robot policy versioning, deployment monitoring, and performance tracking. Which policy version is running on which robot, when it was last updated, and how it's performing. Not a spreadsheet — a system.",
+  },
+  {
+    icon: BarChart3,
+    title: "Failure-to-Improvement Loop",
+    description:
+      "The closed-loop pipeline from production failure to improved policy: failure detection, intervention recording, structured data capture, retraining set curation, evaluation, and redeployment. Compressing this loop from weeks to hours.",
   },
 ];
 
@@ -58,8 +76,8 @@ export default function PhysicalAI() {
     <Layout>
       <SEO
         title="Physical AI Data Infrastructure | Baselyne Systems"
-        description="Data infrastructure for robotics, autonomous systems, and embodied AI. Sensor data pipelines, episode storage, training data curation — from raw recordings to trained policies."
-        keywords="physical AI data infrastructure, robot data pipeline, robotics data lake, autonomous vehicle data, embodied AI infrastructure, sensor data pipeline, robot episode storage, MCAP pipeline, ROS 2 data infrastructure"
+        description="Data infrastructure for robotics, autonomous systems, and embodied AI. Sensor data pipelines, evaluation, fleet operations, and the failure-to-improvement loop — from raw recordings to deployed policies."
+        keywords="physical AI data infrastructure, robot data pipeline, robotics data lake, robot evaluation infrastructure, robot fleet management, autonomous vehicle data, embodied AI infrastructure, sensor data pipeline, robot episode storage, MCAP pipeline, ROS 2 data infrastructure, robot policy evaluation"
         canonical="https://baselynesystems.com/industries/physical-ai"
         structuredData={physicalAIServiceSchema}
       />
@@ -72,13 +90,13 @@ export default function PhysicalAI() {
               Physical AI Infrastructure
             </p>
             <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-              Data infrastructure for robots, autonomous systems, and embodied AI
+              The infrastructure layer for physical AI is missing
             </h1>
             <p className="mt-6 text-lg text-muted-foreground">
-              Your team has thousands of recordings in mixed formats, no unified query
-              layer, and training pipelines held together with custom scripts. We build
-              the data infrastructure underneath — from sensor ingestion to training-ready
-              datasets.
+              Models are getting better. Deployment, evaluation, and data management
+              are getting harder. We build the infrastructure underneath — from sensor
+              data pipelines to evaluation gates to the failure-to-improvement loop
+              that closes the gap between 99.9% and 99.999%.
             </p>
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Button asChild size="lg">
@@ -88,7 +106,7 @@ export default function PhysicalAI() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2"
                 >
-                  Discuss Your Data Architecture
+                  Discuss Your Infrastructure
                   <ArrowRight className="h-4 w-4" />
                 </a>
               </Button>
@@ -100,20 +118,53 @@ export default function PhysicalAI() {
         </div>
       </section>
 
-      {/* Challenges */}
+      {/* Thesis */}
       <section className="bg-layer-2 py-20 lg:py-28">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="mx-auto max-w-3xl">
+            <p className="text-sm font-medium uppercase tracking-wider text-primary">
+              The Shift
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold text-foreground sm:text-4xl">
+              Better models make engineering harder, not easier
+            </h2>
+            <div className="mt-8 space-y-6 text-muted-foreground">
+              <p>
+                VLAs can follow language instructions across tasks. Diffusion policies
+                handle multi-modal action distributions. Open-source foundation models are
+                approaching proprietary ones. The models are getting good enough. The
+                bottleneck has shifted.
+              </p>
+              <p>
+                Larger models need inference infrastructure — distillation, quantization,
+                dual-system runtimes. More general-purpose models need evaluation across
+                open-ended task spaces. More training data needs pipelines that scale to
+                terabytes from robot fleets. Wider deployment needs operations: monitoring,
+                failure detection, rollback, versioning.
+              </p>
+              <p>
+                As models commoditize, the value shifts from "who has the best model" to
+                "who can deploy, monitor, and continuously improve it reliably." This is
+                the same pattern from every previous ML wave — and it's where we operate.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Challenges */}
+      <section className="bg-layer-1 py-20 lg:py-28">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-sm font-medium uppercase tracking-wider text-primary">
-              The Problem
+              What We've Heard
             </p>
             <h2 className="mt-3 text-3xl font-semibold text-foreground sm:text-4xl">
-              Every physical AI team builds data infrastructure from scratch
+              The same problems from every team we've talked to
             </h2>
             <p className="mt-4 text-muted-foreground">
-              The ML research is cutting-edge. The data infrastructure underneath it is
-              custom scripts, ad hoc metadata CSVs, and Jupyter notebooks that break when
-              the file layout changes.
+              From warehouse fleets to construction robots to autonomous kitchens — the
+              infrastructure pain is consistent.
             </p>
           </div>
           <div className="mt-16 grid gap-6 sm:grid-cols-2">
@@ -133,17 +184,17 @@ export default function PhysicalAI() {
       </section>
 
       {/* Capabilities */}
-      <section className="bg-layer-1 py-20 lg:py-28">
+      <section className="bg-layer-2 py-20 lg:py-28">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-sm font-medium uppercase tracking-wider text-primary">
               What We Build
             </p>
             <h2 className="mt-3 text-3xl font-semibold text-foreground sm:text-4xl">
-              Production data infrastructure for physical AI
+              Infrastructure for the full physical AI lifecycle
             </h2>
           </div>
-          <div className="mt-16 grid gap-6 md:grid-cols-3">
+          <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {capabilities.map((capability) => (
               <Card key={capability.title} className="border-border/50 bg-card">
                 <CardContent className="p-6">
@@ -160,7 +211,7 @@ export default function PhysicalAI() {
       </section>
 
       {/* Background */}
-      <section className="bg-layer-2 py-20 lg:py-28">
+      <section className="bg-layer-1 py-20 lg:py-28">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <p className="text-sm font-medium uppercase tracking-wider text-primary">
@@ -172,19 +223,16 @@ export default function PhysicalAI() {
             <div className="mt-8 space-y-6 text-muted-foreground">
               <p>
                 We spent a decade building data infrastructure at Meta and Alphabet —
-                petabyte-scale pipelines, systems handling 100M+ QPS, GDPR-compliant
-                data platforms. The same infrastructure patterns that power web-scale ML
-                apply to physical AI: format normalization, episode-centric storage,
-                modality-separated partitioning, and training data export pipelines.
+                petabyte-scale pipelines, training data systems, model serving at 100M+ QPS.
+                The same patterns apply to physical AI: format normalization, episode-centric
+                storage, evaluation-gated deployment, and closed-loop data pipelines.
               </p>
               <p>
-                The difference is the domain. Sensor data has time-sync problems that
-                clickstream data doesn't. Episode boundaries are ambiguous in ways that
-                web sessions aren't. Image data is orders of magnitude larger. We've
-                spent the last several months going deep on these domain-specific
-                challenges — building open-source tools, talking to teams at funded
-                physical AI companies, and understanding what the infrastructure layer
-                actually needs to support.
+                The difference is the domain. We've spent the last several months going
+                deep — building open-source tools for robot data, talking to teams at
+                companies deploying physical AI from warehouse floors to construction sites,
+                and understanding the domain-specific challenges that make this infrastructure
+                different from web-scale ML.
               </p>
             </div>
           </div>
@@ -192,7 +240,7 @@ export default function PhysicalAI() {
       </section>
 
       {/* Case Studies */}
-      <section className="bg-layer-1 py-20 lg:py-28">
+      <section className="bg-layer-2 py-20 lg:py-28">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-sm font-medium uppercase tracking-wider text-primary">
@@ -232,12 +280,12 @@ export default function PhysicalAI() {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-semibold text-foreground sm:text-4xl">
-              Building a physical AI data platform?
+              Building physical AI infrastructure?
             </h2>
             <p className="mt-4 text-muted-foreground">
-              We start with a technical conversation about your data architecture — what
-              formats you're dealing with, how your training pipelines consume data, and
-              where the bottlenecks are. No pitch deck.
+              We start with a technical conversation about your data architecture,
+              evaluation pipeline, and deployment workflow. No pitch deck — just a
+              conversation about what's not working and what would.
             </p>
             <Button asChild size="lg" className="mt-8">
               <a
