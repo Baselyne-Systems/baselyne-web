@@ -16,6 +16,7 @@ const routes = [
   '/approach',
   '/blog/bulkhead',
   '/blog/gatekeeper',
+  '/blog/robot-data-lake',
   '/blog/retrieval-os',
   '/blog/cdc-platform',
   '/blog',

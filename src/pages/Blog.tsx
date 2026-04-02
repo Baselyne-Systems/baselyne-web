@@ -59,6 +59,22 @@ const sections: { category: string; description: string; posts: Post[] }[] = [
     ],
   },
   {
+    category: "Physical AI",
+    description: "Data infrastructure, pipelines, and systems for robots, autonomous vehicles, and embodied agents.",
+    posts: [
+      {
+        title: "The Robot Data Lake",
+        subtitle: "From 10,000 recordings in four formats to one queryable schema",
+        date: "April 2026",
+        tags: ["Case Study", "Open Source", "Physical AI"],
+        excerpt:
+          "How we built a format-agnostic data lake for physical AI — ingesting RLDS, LeRobot, MCAP, and HDF5 into Apache Iceberg tables, making 4,321 episodes across 3 formats queryable via SQL in under 5ms.",
+        href: "/blog/robot-data-lake",
+        github: "https://github.com/achyuthsamudrala/robot-data-lake",
+      },
+    ],
+  },
+  {
     category: "AI Infrastructure",
     description: "Agent governance and production AI systems.",
     posts: [
@@ -127,8 +143,8 @@ export default function Blog() {
     <Layout>
       <SEO
         title="Blog | Baselyne Systems"
-        description="Technical case studies and open-source engineering from Baselyne — MLOps, AI infrastructure, agent governance, retrieval systems, and data pipelines."
-        keywords="AI infrastructure blog, MLOps blog, model deployment, eval pipeline, agent governance, RAG infrastructure, CDC platform, data engineering, open source AI"
+        description="Technical case studies and open-source engineering from Baselyne — physical AI data infrastructure, MLOps, agent governance, retrieval systems, and data pipelines."
+        keywords="physical AI data infrastructure, robot data lake, AI infrastructure blog, MLOps blog, model deployment, eval pipeline, agent governance, RAG infrastructure, CDC platform, data engineering, open source AI"
         canonical="https://baselynesystems.com/blog"
       />
 

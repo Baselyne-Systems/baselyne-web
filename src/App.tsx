@@ -17,6 +17,7 @@ import CDCPlatform from "./pages/blog/CDCPlatform";
 import RetrievalOS from "./pages/blog/RetrievalOS";
 import Bulkhead from "./pages/blog/Bulkhead";
 import GateKeeper from "./pages/blog/GateKeeper";
+import RobotDataLake from "./pages/blog/RobotDataLake";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -42,6 +43,7 @@ const App = () => (
           <Route path="/blog/retrieval-os" element={<RetrievalOS />} />
           <Route path="/blog/bulkhead" element={<Bulkhead />} />
           <Route path="/blog/gatekeeper" element={<GateKeeper />} />
+          <Route path="/blog/robot-data-lake" element={<RobotDataLake />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
