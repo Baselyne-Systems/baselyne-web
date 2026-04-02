@@ -1,0 +1,73 @@
+# Baselyne Systems
+
+> AI infrastructure, data engineering, and MLOps consulting. We help teams move AI from experimentation into production.
+
+## About
+
+Baselyne Systems is a founder-led consulting firm focused on AI infrastructure, data engineering, and MLOps. We bring large-scale engineering experience from Meta and Alphabet to companies building production AI systems.
+
+## Services
+
+### Data Infrastructure
+Modern data platforms for AI workloads: lakehouse architecture, real-time and batch pipelines, data governance, semantic data layers, and vector search infrastructure for RAG.
+URL: https://baselynesystems.com/services/data-infrastructure-consulting
+
+### MLOps
+Get AI from prototype to production: model and prompt versioning, deployment infrastructure, evaluation and monitoring, ML pipeline orchestration, and continuous improvement workflows.
+URL: https://baselynesystems.com/services/mlops-consulting
+
+### AI Infrastructure
+Scalable AI compute with cost control: GPU orchestration, cost attribution, LLM serving infrastructure, security and compliance, and AI observability.
+URL: https://baselynesystems.com/services/ai-infrastructure-consulting
+
+## Founder
+
+Achyuth Samudrala - Nearly a decade of infrastructure engineering experience, including six years at Meta and Alphabet. Built petabyte-scale data platforms and systems handling 100M+ queries per second.
+LinkedIn: https://www.linkedin.com/in/achyuthsamudrala/
+
+## Contact
+
+Schedule a 30-minute call to discuss your infrastructure challenges.
+Calendly: https://calendly.com/achyuthsamudrala/30min
+Website: https://baselynesystems.com/contact
+
+## Blog
+
+Technical case studies on open-source infrastructure built by Baselyne.
+
+### Bulkhead: Defense in Depth for Autonomous AI Agents (March 2026)
+Four independent enforcement layers for AI agent governance: compiled guardrails evaluated in 184ns, kernel-level iptables egress, append-only audit trail, and non-blocking human-in-the-loop escalation. Built with Go 1.24, Rust 1.83, PostgreSQL 16, gRPC.
+URL: https://baselynesystems.com/blog/bulkhead
+GitHub: https://github.com/achyuthnsamudrala/bulkhead
+
+### Retrieval OS: A Production-Grade Retrieval Runtime (February 2026)
+Config versioning, staged rollouts, automatic quality guard-rails, and 2.8ms rollback propagation for RAG systems. 10,785 QPS on a single node with 81.4% natural cache hit rate. Built with FastAPI, Redis, Qdrant, PostgreSQL.
+URL: https://baselynesystems.com/blog/retrieval-os
+GitHub: https://github.com/Baselyne-Systems/retrieval-os
+
+### Building a High-Throughput CDC Platform (February 2026)
+Modular Python CDC platform achieving 38,647 msg/s with config-driven tuning, exactly-once delivery, multi-source support, and Apache Iceberg lakehouse with time travel.
+URL: https://baselynesystems.com/blog/cdc-platform
+GitHub: https://github.com/Baselyne-Systems/cdc-platform
+
+## Key Pages
+
+- Home: https://baselynesystems.com/
+- Services: https://baselynesystems.com/services
+- Blog: https://baselynesystems.com/blog
+- Approach: https://baselynesystems.com/approach
+- About: https://baselynesystems.com/about
+- Contact: https://baselynesystems.com/contact
+
+## Topics We Help With
+
+- AI infrastructure consulting
+- MLOps consulting
+- Data infrastructure consulting
+- GPU orchestration and cost optimization
+- LLM serving and inference optimization
+- RAG pipeline architecture
+- Data platform modernization
+- ML model deployment
+- AI observability and monitoring
+- Data governance for AI systems
