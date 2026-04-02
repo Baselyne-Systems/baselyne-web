@@ -29,7 +29,7 @@ const sections: { category: string; description: string; posts: Post[] }[] = [
         date: "April 2026",
         tags: ["Case Study", "Physical AI"],
         excerpt:
-          "How we built a format-agnostic data lake for physical AI — ingesting RLDS, LeRobot, MCAP, and HDF5 into Apache Iceberg tables, making 4,321 episodes across 3 formats queryable via SQL in under 5ms.",
+          "How we built a format-agnostic data lake for physical AI — ingesting RLDS, LeRobot, MCAP, and HDF5 into Apache Iceberg tables, making 5,121 episodes across 3 formats and 3 robot types queryable via SQL.",
         href: "/blog/robot-data-lake",
         github: "",
       },

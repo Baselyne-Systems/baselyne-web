@@ -263,8 +263,8 @@ export default function PhysicalAI() {
               </h3>
               <p className="mt-2 text-muted-foreground">
                 How we built a format-agnostic data lake for physical AI — ingesting RLDS,
-                LeRobot, MCAP, and HDF5 into Apache Iceberg tables, making 4,321 episodes
-                across 3 formats queryable via SQL in under 5ms.
+                LeRobot, MCAP, and HDF5 into Apache Iceberg tables, making 5,121 episodes
+                across 3 formats and 3 robot types queryable via SQL.
               </p>
               <span className="mt-4 inline-flex items-center gap-1.5 text-sm text-primary">
                 Read the case study

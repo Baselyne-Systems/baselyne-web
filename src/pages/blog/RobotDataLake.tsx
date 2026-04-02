@@ -60,10 +60,11 @@ function InlineCode({ children }: { children: React.ReactNode }) {
 
 function IngestionTable() {
   const rows = [
-    { dataset: "LeRobot pusht", format: "lerobot", robot: "pusht_2dof", episodes: "206", observations: "51,300", time: "0.9s", highlight: false },
-    { dataset: "RoboMimic Can (MG dense)", format: "hdf5", robot: "franka_panda", episodes: "3,900", observations: "1,170,000", time: "494s", highlight: true },
-    { dataset: "RoboMimic Lift", format: "hdf5", robot: "franka_panda", episodes: "200", observations: "19,332", time: "2.8s", highlight: false },
-    { dataset: "Synthetic fleet (5 robots)", format: "mcap", robot: "franka_panda", episodes: "15", observations: "3,750,000", time: "856s", highlight: false },
+    { dataset: "LeRobot pusht", format: "lerobot", robot: "pusht_2dof", episodes: "206", observations: "51,300", time: "0.2s", highlight: false },
+    { dataset: "RoboMimic Can (MG dense)", format: "hdf5", robot: "franka_panda", episodes: "3,900", observations: "1,170,000", time: "174s", highlight: true },
+    { dataset: "RoboMimic Lift", format: "hdf5", robot: "franka_panda", episodes: "200", observations: "19,332", time: "2.9s", highlight: false },
+    { dataset: "LeRobot xarm_lift", format: "lerobot", robot: "xarm_6dof", episodes: "800", observations: "69,350", time: "0.6s", highlight: false },
+    { dataset: "Synthetic fleet (5 robots)", format: "mcap", robot: "franka_panda", episodes: "15", observations: "3,750,000", time: "471s", highlight: false },
   ];
   return (
     <div className="mt-6 overflow-x-auto rounded-lg border border-border/50">
@@ -143,7 +144,7 @@ function SchemaTable() {
 function DurationTable() {
   const rows = [
     { format: "hdf5", episodes: "4,100", min: "1.8s", avg: "7.3s", max: "7.5s", total: "8.3h" },
-    { format: "lerobot", episodes: "206", min: "4.9s", avg: "12.5s", max: "24.6s", total: "0.7h" },
+    { format: "lerobot", episodes: "1,006", min: "1.7s", avg: "3.9s", max: "24.6s", total: "1.1h" },
     { format: "mcap", episodes: "15", min: "0.0s", avg: "1,667s", max: "2,500s", total: "6.9h" },
   ];
   return (
@@ -186,7 +187,7 @@ export default function RobotDataLake() {
     <Layout>
       <SEO
         title="The Robot Data Lake: From 10,000 Recordings to One Queryable Schema | Baselyne Systems"
-        description="How we built a format-agnostic data lake for physical AI — ingesting RLDS, LeRobot, MCAP, and HDF5 into Apache Iceberg tables, making 4,321 episodes across 3 formats queryable via SQL."
+        description="How we built a format-agnostic data lake for physical AI — ingesting RLDS, LeRobot, MCAP, and HDF5 into Apache Iceberg tables, making 5,121 episodes across 3 formats queryable via SQL."
         keywords="robot data lake, physical AI data infrastructure, Apache Iceberg robotics, MCAP data pipeline, RLDS ingestion, LeRobot dataset, robot episode storage, open source robot data"
         canonical="https://baselynesystems.com/blog/robot-data-lake"
         ogType="article"
@@ -225,7 +226,7 @@ export default function RobotDataLake() {
                 The Robot Data Lake
               </h1>
               <p className="mt-3 text-xl text-muted-foreground">
-                From 10,000 recordings in four formats to one queryable schema — 4,321 episodes across RLDS, LeRobot, MCAP, and HDF5
+                From 10,000 recordings in four formats to one queryable schema — 5,121 episodes across RLDS, LeRobot, MCAP, and HDF5
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-4">
                 <span className="text-sm text-muted-foreground">April 2026</span>
@@ -262,10 +263,10 @@ export default function RobotDataLake() {
             </Prose>
 
             <Callout label="Key results">
-              <strong>4,321 episodes</strong> across 3 formats in one queryable lake ·{" "}
-              <strong>4.9M scalar observations</strong> indexed ·{" "}
-              <strong>15.9 hours</strong> of robot data ·{" "}
-              Cross-format queries in <strong>4–71ms</strong> ·{" "}
+              <strong>5,121 episodes</strong> across 3 formats and 3 robot types in one queryable lake ·{" "}
+              <strong>5.1M scalar observations</strong> and <strong>60K images</strong> indexed ·{" "}
+              <strong>16.3 hours</strong> of robot data ·{" "}
+              Cross-format queries in <strong>4–74ms</strong> ·{" "}
               Training shard export: 200 episodes → 19,596 samples in 2 WebDataset shards
             </Callout>
 
@@ -431,7 +432,10 @@ lake.ingest("demo.hdf5", format="hdf5",
                 The normalization challenge is in the details. RLDS stores observations as nested
                 TFRecord features — flattened into topic-keyed scalar maps. LeRobot uses Parquet
                 with an <InlineCode>episode_index</InlineCode> column — mapped to our episode table
-                with marker-based detection. MCAP contains serialized ROS 2 messages — deserialized
+                with marker-based detection. For LeRobot datasets with embedded images (like
+                xarm_lift), the ingestor reads only scalar columns from Parquet and catalogs
+                image columns as URI references — no pixel data loaded into memory during
+                ingestion. MCAP contains serialized ROS 2 messages — deserialized
                 via CDR encoding into typed observations. HDF5 organizes data under{" "}
                 <InlineCode>/data/demo_N</InlineCode> groups — each group becomes an episode.
               </p>
@@ -449,9 +453,10 @@ lake.ingest("demo.hdf5", format="hdf5",
             <SectionHeading>Demo: three formats, one lake</SectionHeading>
             <Prose>
               <p>
-                We ingested three real public datasets — LeRobot pusht (HuggingFace), RoboMimic
-                Can and Lift (HDF5), and a synthetic MCAP fleet (5 robots, 250K steps each) — into
-                a single lake and ran queries across all of them.
+                We ingested five datasets across three formats and three robot types — LeRobot
+                pusht and xarm_lift (HuggingFace), RoboMimic Can and Lift (HDF5), and a
+                synthetic MCAP fleet (5 robots, 250K steps each) — into a single lake and ran
+                queries across all of them.
               </p>
             </Prose>
 
@@ -459,9 +464,10 @@ lake.ingest("demo.hdf5", format="hdf5",
 
             <Prose>
               <p>
-                Total: <strong>4,321 episodes</strong>, <strong>4.9 million scalar
-                observations</strong>, <strong>15.9 hours</strong> of robot data from 8 recordings
-                across 3 formats. All queryable through the same SQL interface.
+                Total: <strong>5,121 episodes</strong>, <strong>5.1 million scalar
+                observations</strong>, <strong>60K images</strong>, <strong>16.3 hours</strong> of
+                robot data from 9 recordings across 3 formats and 3 robot types. All queryable
+                through the same SQL interface.
               </p>
             </Prose>
 
@@ -496,10 +502,10 @@ GROUP BY r.source_format`}
 
             <Prose>
               <p>
-                3.9ms. The format differences are immediately visible — HDF5 episodes are short
-                and uniform (scripted demonstrations), LeRobot episodes are medium-length with
-                high variance (human teleoperation), and MCAP episodes are long continuous
-                recordings segmented by gap heuristics.
+                4.4ms. The format differences are immediately visible — HDF5 episodes are short
+                and uniform (scripted demonstrations), LeRobot episodes vary widely (1.7s to 24.6s
+                across pusht teleoperation and xarm pick-and-place), and MCAP episodes are long
+                continuous recordings segmented by gap heuristics.
               </p>
             </Prose>
 
