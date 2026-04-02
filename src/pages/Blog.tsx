@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { ArrowRight, Github } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
@@ -15,7 +16,25 @@ type Post = {
   github: string;
 };
 
+const ALL = "All";
+
 const sections: { category: string; description: string; posts: Post[] }[] = [
+  {
+    category: "Physical AI",
+    description: "Data infrastructure, pipelines, and systems for robots, autonomous vehicles, and embodied agents.",
+    posts: [
+      {
+        title: "The Robot Data Lake",
+        subtitle: "From 10,000 recordings in four formats to one queryable schema",
+        date: "April 2026",
+        tags: ["Case Study", "Physical AI"],
+        excerpt:
+          "How we built a format-agnostic data lake for physical AI — ingesting RLDS, LeRobot, MCAP, and HDF5 into Apache Iceberg tables, making 4,321 episodes across 3 formats queryable via SQL in under 5ms.",
+        href: "/blog/robot-data-lake",
+        github: "",
+      },
+    ],
+  },
   {
     category: "Data Infrastructure",
     description: "Pipelines, lakehouse architecture, retrieval systems, and high-throughput data engineering.",
@@ -59,22 +78,6 @@ const sections: { category: string; description: string; posts: Post[] }[] = [
     ],
   },
   {
-    category: "Physical AI",
-    description: "Data infrastructure, pipelines, and systems for robots, autonomous vehicles, and embodied agents.",
-    posts: [
-      {
-        title: "The Robot Data Lake",
-        subtitle: "From 10,000 recordings in four formats to one queryable schema",
-        date: "April 2026",
-        tags: ["Case Study", "Open Source", "Physical AI"],
-        excerpt:
-          "How we built a format-agnostic data lake for physical AI — ingesting RLDS, LeRobot, MCAP, and HDF5 into Apache Iceberg tables, making 4,321 episodes across 3 formats queryable via SQL in under 5ms.",
-        href: "/blog/robot-data-lake",
-        github: "",
-      },
-    ],
-  },
-  {
     category: "AI Infrastructure",
     description: "Agent governance and production AI systems.",
     posts: [
@@ -91,6 +94,8 @@ const sections: { category: string; description: string; posts: Post[] }[] = [
     ],
   },
 ];
+
+const categories = [ALL, ...sections.map((s) => s.category)];
 
 function PostCard({ post }: { post: Post }) {
   return (
@@ -141,6 +146,13 @@ function PostCard({ post }: { post: Post }) {
 }
 
 export default function Blog() {
+  const [activeTab, setActiveTab] = useState(ALL);
+
+  const filteredSections =
+    activeTab === ALL
+      ? sections
+      : sections.filter((s) => s.category === activeTab);
+
   return (
     <Layout>
       <SEO
@@ -164,27 +176,49 @@ export default function Blog() {
         </div>
       </section>
 
-      {/* Sections */}
-      {sections.map((section, i) => (
-        <section
-          key={section.category}
-          className={`py-20 lg:py-28 ${i % 2 === 0 ? "bg-layer-1" : "bg-layer-2"}`}
-        >
-          <div className="container mx-auto px-4 lg:px-8">
-            <div className="mx-auto max-w-3xl">
-              <p className="text-sm font-medium uppercase tracking-wider text-primary">
-                {section.category}
-              </p>
-              <p className="mt-1 text-muted-foreground">{section.description}</p>
-              <div className="mt-8 grid gap-8">
-                {section.posts.map((post) => (
-                  <PostCard key={post.href} post={post} />
-                ))}
-              </div>
+      {/* Tabs */}
+      <section className="bg-layer-1 border-b border-border/50">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="mx-auto max-w-3xl">
+            <div className="flex gap-1 overflow-x-auto py-4 -mb-px">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveTab(cat)}
+                  className={`whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium transition-colors ${
+                    activeTab === cat
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
             </div>
           </div>
-        </section>
-      ))}
+        </div>
+      </section>
+
+      {/* Posts */}
+      <section className="bg-layer-1 py-16 lg:py-24">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="mx-auto max-w-3xl">
+            {filteredSections.map((section) => (
+              <div key={section.category} className="mb-16 last:mb-0">
+                <p className="text-sm font-medium uppercase tracking-wider text-primary">
+                  {section.category}
+                </p>
+                <p className="mt-1 text-muted-foreground">{section.description}</p>
+                <div className="mt-8 grid gap-8">
+                  {section.posts.map((post) => (
+                    <PostCard key={post.href} post={post} />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </Layout>
   );
 }
