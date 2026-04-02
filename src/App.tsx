@@ -45,7 +45,7 @@ const App = () => (
           <Route path="/blog/bulkhead" element={<Bulkhead />} />
           <Route path="/blog/gatekeeper" element={<GateKeeper />} />
           <Route path="/blog/robot-data-lake" element={<RobotDataLake />} />
-          <Route path="/industries/physical-ai" element={<PhysicalAI />} />
+          <Route path="/physical-ai" element={<PhysicalAI />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

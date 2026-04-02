@@ -78,7 +78,7 @@ export default function PhysicalAI() {
         title="Physical AI Data Infrastructure | Baselyne Systems"
         description="Data infrastructure for robotics, autonomous systems, and embodied AI. Sensor data pipelines, evaluation, fleet operations, and the failure-to-improvement loop — from raw recordings to deployed policies."
         keywords="physical AI data infrastructure, robot data pipeline, robotics data lake, robot evaluation infrastructure, robot fleet management, autonomous vehicle data, embodied AI infrastructure, sensor data pipeline, robot episode storage, MCAP pipeline, ROS 2 data infrastructure, robot policy evaluation"
-        canonical="https://baselynesystems.com/industries/physical-ai"
+        canonical="https://baselynesystems.com/physical-ai"
         structuredData={physicalAIServiceSchema}
       />
 

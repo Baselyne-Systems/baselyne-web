@@ -226,7 +226,7 @@ export const physicalAIServiceSchema = {
     "Data infrastructure for robotics, autonomous systems, and embodied AI. Sensor data pipelines, episode storage, and training data curation from raw recordings to trained policies.",
   serviceType: "Consulting",
   areaServed: "United States",
-  url: "https://baselynesystems.com/industries/physical-ai",
+  url: "https://baselynesystems.com/physical-ai",
 };
 
 export const dataInfraServiceSchema = {

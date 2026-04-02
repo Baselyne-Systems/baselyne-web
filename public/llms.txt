@@ -24,7 +24,7 @@ URL: https://baselynesystems.com/services/ai-infrastructure-consulting
 
 ### Physical AI
 Data infrastructure for robotics, autonomous systems, and embodied AI. Sensor data pipelines, episode storage, training data curation — from raw recordings to trained policies. We ingest RLDS, LeRobot, MCAP, and HDF5 into Apache Iceberg tables queryable via SQL.
-URL: https://baselynesystems.com/industries/physical-ai
+URL: https://baselynesystems.com/physical-ai
 
 ## Founder
 
@@ -69,7 +69,7 @@ GitHub: https://github.com/Baselyne-Systems/cdc-platform
 
 - Home: https://baselynesystems.com/
 - Services: https://baselynesystems.com/services
-- Physical AI: https://baselynesystems.com/industries/physical-ai
+- Physical AI: https://baselynesystems.com/physical-ai
 - Blog: https://baselynesystems.com/blog
 - Approach: https://baselynesystems.com/approach
 - About: https://baselynesystems.com/about
