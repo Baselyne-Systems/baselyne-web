@@ -185,13 +185,20 @@ export default function Blog() {
                 <button
                   key={cat}
                   onClick={() => setActiveTab(cat)}
-                  className={`whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium transition-colors ${
+                  className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium transition-colors ${
                     activeTab === cat
                       ? "bg-primary text-primary-foreground"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                      : cat === "Physical AI"
+                        ? "text-primary border border-primary/30 hover:bg-primary/5"
+                        : "text-muted-foreground hover:text-foreground hover:bg-muted"
                   }`}
                 >
                   {cat}
+                  {cat === "Physical AI" && activeTab !== cat && (
+                    <span className="rounded-full bg-primary px-1.5 py-0.5 text-[10px] font-semibold leading-none text-primary-foreground">
+                      New
+                    </span>
+                  )}
                 </button>
               ))}
             </div>

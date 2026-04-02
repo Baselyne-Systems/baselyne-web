@@ -6,13 +6,13 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import logo from "@/assets/baselyne-logo.jpg";
 
 const navigation = [
-  { name: "Home", href: "/" },
-  { name: "Services", href: "/services" },
-  { name: "Physical AI", href: "/physical-ai" },
-  { name: "Approach", href: "/approach" },
-  { name: "Blog", href: "/blog" },
-  { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
+  { name: "Home", href: "/", badge: null },
+  { name: "Services", href: "/services", badge: null },
+  { name: "Physical AI", href: "/physical-ai", badge: "New" },
+  { name: "Approach", href: "/approach", badge: null },
+  { name: "Blog", href: "/blog", badge: null },
+  { name: "About", href: "/about", badge: null },
+  { name: "Contact", href: "/contact", badge: null },
 ];
 
 const serviceLinks = [
@@ -86,13 +86,18 @@ export function Header() {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`px-4 py-2 text-sm font-medium transition-colors rounded-md ${
+                className={`inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium transition-colors rounded-md ${
                   location.pathname === item.href
                     ? "text-primary bg-primary/5"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted"
                 }`}
               >
                 {item.name}
+                {item.badge && (
+                  <span className="rounded-full bg-primary px-1.5 py-0.5 text-[10px] font-semibold leading-none text-primary-foreground">
+                    {item.badge}
+                  </span>
+                )}
               </Link>
             )
           )}
@@ -167,13 +172,18 @@ export function Header() {
                     key={item.name}
                     to={item.href}
                     onClick={() => setOpen(false)}
-                    className={`px-4 py-2 text-base font-medium transition-colors rounded-md ${
+                    className={`inline-flex items-center gap-1.5 px-4 py-2 text-base font-medium transition-colors rounded-md ${
                       location.pathname === item.href
                         ? "text-primary bg-primary/5"
                         : "text-muted-foreground hover:text-foreground hover:bg-muted"
                     }`}
                   >
                     {item.name}
+                    {item.badge && (
+                      <span className="rounded-full bg-primary px-1.5 py-0.5 text-[10px] font-semibold leading-none text-primary-foreground">
+                        {item.badge}
+                      </span>
+                    )}
                   </Link>
                 )
               )}
