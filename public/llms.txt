@@ -20,6 +20,12 @@ URL: https://baselynesystems.com/services/mlops-consulting
 Scalable AI compute with cost control: GPU orchestration, cost attribution, LLM serving infrastructure, security and compliance, and AI observability.
 URL: https://baselynesystems.com/services/ai-infrastructure-consulting
 
+## Industries
+
+### Physical AI
+Data infrastructure for robotics, autonomous systems, and embodied AI. Sensor data pipelines, episode storage, training data curation — from raw recordings to trained policies. We ingest RLDS, LeRobot, MCAP, and HDF5 into Apache Iceberg tables queryable via SQL.
+URL: https://baselynesystems.com/industries/physical-ai
+
 ## Founder
 
 Achyuth Samudrala - Nearly a decade of infrastructure engineering experience, including six years at Meta and Alphabet. Built petabyte-scale data platforms and systems handling 100M+ queries per second.
@@ -34,6 +40,15 @@ Website: https://baselynesystems.com/contact
 ## Blog
 
 Technical case studies on open-source infrastructure built by Baselyne.
+
+### The Robot Data Lake (April 2026)
+Format-agnostic data lake for physical AI — ingesting RLDS, LeRobot, MCAP, and HDF5 into Apache Iceberg tables. 4,321 episodes across 3 formats queryable in 4-71ms. Episode-centric schema with modality separation and reference-based image storage.
+URL: https://baselynesystems.com/blog/robot-data-lake
+
+### GateKeeper: Eval-Gated Model Deployment (March 2026)
+Eval-gated deployment pipeline that blocks bad models before production. Config-driven quality gates — accuracy, drift, LLM judge, champion vs. challenger. Caught a sentiment classifier regression (F1 = 0.338) before production. Canary traffic management with auto-rollback.
+URL: https://baselynesystems.com/blog/gatekeeper
+GitHub: https://github.com/achyuthsamudrala/gatekeeper
 
 ### Bulkhead: Defense in Depth for Autonomous AI Agents (March 2026)
 Four independent enforcement layers for AI agent governance: compiled guardrails evaluated in 184ns, kernel-level iptables egress, append-only audit trail, and non-blocking human-in-the-loop escalation. Built with Go 1.24, Rust 1.83, PostgreSQL 16, gRPC.
@@ -54,6 +69,7 @@ GitHub: https://github.com/Baselyne-Systems/cdc-platform
 
 - Home: https://baselynesystems.com/
 - Services: https://baselynesystems.com/services
+- Physical AI: https://baselynesystems.com/industries/physical-ai
 - Blog: https://baselynesystems.com/blog
 - Approach: https://baselynesystems.com/approach
 - About: https://baselynesystems.com/about
@@ -61,6 +77,9 @@ GitHub: https://github.com/Baselyne-Systems/cdc-platform
 
 ## Topics We Help With
 
+- Physical AI data infrastructure
+- Robot data pipelines and episode storage
+- Sensor data ingestion (MCAP, RLDS, LeRobot, HDF5)
 - AI infrastructure consulting
 - MLOps consulting
 - Data infrastructure consulting

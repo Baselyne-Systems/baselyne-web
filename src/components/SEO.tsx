@@ -213,6 +213,22 @@ export const mlopsServiceSchema = {
   url: "https://baselynesystems.com/services/mlops-consulting",
 };
 
+export const physicalAIServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Physical AI Data Infrastructure",
+  provider: {
+    "@type": "Organization",
+    name: "Baselyne Systems",
+    url: "https://baselynesystems.com",
+  },
+  description:
+    "Data infrastructure for robotics, autonomous systems, and embodied AI. Sensor data pipelines, episode storage, and training data curation from raw recordings to trained policies.",
+  serviceType: "Consulting",
+  areaServed: "United States",
+  url: "https://baselynesystems.com/industries/physical-ai",
+};
+
 export const dataInfraServiceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",

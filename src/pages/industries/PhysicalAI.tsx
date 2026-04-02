@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { SEO } from "@/components/SEO";
+import { SEO, physicalAIServiceSchema } from "@/components/SEO";
 
 const challenges = [
   {
@@ -61,6 +61,7 @@ export default function PhysicalAI() {
         description="Data infrastructure for robotics, autonomous systems, and embodied AI. Sensor data pipelines, episode storage, training data curation — from raw recordings to trained policies."
         keywords="physical AI data infrastructure, robot data pipeline, robotics data lake, autonomous vehicle data, embodied AI infrastructure, sensor data pipeline, robot episode storage, MCAP pipeline, ROS 2 data infrastructure"
         canonical="https://baselynesystems.com/industries/physical-ai"
+        structuredData={physicalAIServiceSchema}
       />
 
       {/* Hero */}
