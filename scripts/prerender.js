@@ -13,6 +13,7 @@ const routes = [
   '/services/ai-infrastructure-consulting',
   '/services/mlops-consulting',
   '/services/data-infrastructure-consulting',
+  '/industries/physical-ai',
   '/approach',
   '/blog/bulkhead',
   '/blog/gatekeeper',

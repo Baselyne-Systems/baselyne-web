@@ -229,15 +229,6 @@ export default function RobotDataLake() {
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-4">
                 <span className="text-sm text-muted-foreground">April 2026</span>
-                <a
-                  href="https://github.com/achyuthsamudrala/robot-data-lake"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  <Github className="h-4 w-4" />
-                  achyuthsamudrala/robot-data-lake
-                </a>
               </div>
               <div className="mt-8 border-t border-border" />
             </div>
@@ -656,15 +647,6 @@ python demo/demo.py`}
                     <ArrowRight className="h-4 w-4" />
                   </a>
                 </Button>
-                <a
-                  href="https://github.com/achyuthsamudrala/robot-data-lake"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  <Github className="h-4 w-4" />
-                  View on GitHub
-                </a>
               </div>
             </div>
 

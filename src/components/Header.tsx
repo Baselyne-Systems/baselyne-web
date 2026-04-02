@@ -8,6 +8,7 @@ import logo from "@/assets/baselyne-logo.jpg";
 const navigation = [
   { name: "Home", href: "/" },
   { name: "Services", href: "/services" },
+  { name: "Physical AI", href: "/industries/physical-ai" },
   { name: "Approach", href: "/approach" },
   { name: "Blog", href: "/blog" },
   { name: "About", href: "/about" },

@@ -70,7 +70,7 @@ const sections: { category: string; description: string; posts: Post[] }[] = [
         excerpt:
           "How we built a format-agnostic data lake for physical AI — ingesting RLDS, LeRobot, MCAP, and HDF5 into Apache Iceberg tables, making 4,321 episodes across 3 formats queryable via SQL in under 5ms.",
         href: "/blog/robot-data-lake",
-        github: "https://github.com/achyuthsamudrala/robot-data-lake",
+        github: "",
       },
     ],
   },
@@ -116,15 +116,17 @@ function PostCard({ post }: { post: Post }) {
         <div className="mt-6 flex flex-wrap items-center gap-4">
           <span className="text-xs text-muted-foreground/70">{post.date}</span>
           <div className="flex items-center gap-3 ml-auto">
-            <a
-              href={post.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              <Github className="h-4 w-4" />
-              GitHub
-            </a>
+            {post.github && (
+              <a
+                href={post.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
+                <Github className="h-4 w-4" />
+                GitHub
+              </a>
+            )}
             <Button asChild size="sm">
               <Link to={post.href} className="inline-flex items-center gap-1.5">
                 Read Post
