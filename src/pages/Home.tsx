@@ -69,7 +69,7 @@ export default function Home() {
     <Layout>
       <SEO
         title="Ship AI to Production | Cut GPU Costs 50-80% | Baselyne Systems"
-        description="We help ML teams deploy models in hours instead of weeks, cut GPU costs 50-80%, and catch model regressions before production. AI infrastructure, data platforms, and MLOps consulting."
+        description="AI infrastructure, data platforms, and MLOps consulting. Production data pipelines, evaluation-gated deployment, GPU cost optimization, and physical AI data infrastructure."
         keywords="AI infrastructure consulting, MLOps consulting, data infrastructure consulting, reduce AI infrastructure costs, GPU cost optimization, model deployment automation, AI prototype to production, ML production monitoring, data pipeline latency reduction"
         canonical="https://baselynesystems.com"
         structuredData={combinedSchema}
@@ -86,7 +86,7 @@ export default function Home() {
               />
             </h1>
             <p className="mt-6 text-lg text-muted-foreground sm:text-xl">
-              We've helped teams go from notebook prototypes to production ML — reducing GPU spend 50-80% and cutting deployment cycles from weeks to hours.
+              We build the infrastructure that moves AI from prototype to production — data pipelines, deployment gates, cost controls, and the systems that keep models running reliably.
             </p>
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Button asChild size="lg">
