@@ -1,4 +1,4 @@
-import { ArrowRight, Database, GitBranch, Cpu, Radio, Shield, BarChart3, Wifi, AlertTriangle } from "lucide-react";
+import { ArrowRight, Database, GitBranch, Cpu, Radio, Shield, BarChart3, Wifi, AlertTriangle, FileCheck } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
@@ -43,13 +43,19 @@ const capabilities = [
     icon: GitBranch,
     title: "Training Data Pipeline",
     description:
-      "From data lake to training loop. Curated episode selection by task, outcome, robot, and environment. WebDataset shard export with normalization stats. Support for behavioral cloning, diffusion policies, and action-chunking architectures.",
+      "From data lake to training loop. Curated episode selection by task, outcome, robot, and environment. Export to any training format your team uses. The bridge between 'data exists' and 'data is ready to train on.'",
   },
   {
     icon: Shield,
     title: "Evaluation & Policy Gating",
     description:
       "Automated evaluation pipelines that gate deployment. Regression test suites that grow from production failures. Statistical comparison across policy versions. The infrastructure to answer 'is this policy safe to deploy?' with evidence, not intuition.",
+  },
+  {
+    icon: FileCheck,
+    title: "Compliance & Audit Trail",
+    description:
+      "Immutable data lineage from sensor input to model decision to physical action. When an auditor asks why the robot made that choice, you can trace it to the exact model version, training data, and sensor state. Built for EU AI Act, ISO 42001, and safety certification.",
   },
   {
     icon: Radio,
