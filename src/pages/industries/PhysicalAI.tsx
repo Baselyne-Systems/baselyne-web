@@ -1,4 +1,4 @@
-import { ArrowRight, Database, GitBranch, Cpu, Radio, Shield, BarChart3, Wifi, AlertTriangle, FileCheck } from "lucide-react";
+import { ArrowRight, Database, Radio, Shield, BarChart3, Wifi, AlertTriangle, FileCheck } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
@@ -37,13 +37,7 @@ const capabilities = [
     icon: Database,
     title: "Sensor Data Lake",
     description:
-      "Multi-format ingestion into Apache Iceberg — RLDS, LeRobot, MCAP, HDF5 normalized into one episode-centric, queryable schema. Cross-format queries in milliseconds. Modality-separated storage so joint-state queries never scan image data.",
-  },
-  {
-    icon: GitBranch,
-    title: "Training Data Pipeline",
-    description:
-      "From data lake to training loop. Curated episode selection by task, outcome, robot, and environment. Export to any training format your team uses. The bridge between 'data exists' and 'data is ready to train on.'",
+      "Multi-format ingestion into Apache Iceberg — RLDS, LeRobot, MCAP, HDF5 normalized into one episode-centric schema. Cross-format SQL queries in milliseconds. Curate by task, outcome, robot, and environment. Export to any training format.",
   },
   {
     icon: Shield,
@@ -62,18 +56,6 @@ const capabilities = [
     title: "Edge Data Management",
     description:
       "Intelligent on-device data filtering and prioritized sync for robots with limited connectivity. Failure data uploaded first, routine operations downsampled. Offline-first architecture that works on construction sites, farms, and warehouses.",
-  },
-  {
-    icon: Cpu,
-    title: "Fleet Operations",
-    description:
-      "Per-robot policy versioning, deployment monitoring, and performance tracking. Which policy version is running on which robot, when it was last updated, and how it's performing. Not a spreadsheet — a system.",
-  },
-  {
-    icon: BarChart3,
-    title: "Failure-to-Improvement Loop",
-    description:
-      "The closed-loop pipeline from production failure to improved policy: failure detection, intervention recording, structured data capture, retraining set curation, evaluation, and redeployment. Compressing this loop from weeks to hours.",
   },
 ];
 
@@ -200,7 +182,7 @@ export default function PhysicalAI() {
               Infrastructure for the full physical AI lifecycle
             </h2>
           </div>
-          <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-16 grid gap-6 sm:grid-cols-2">
             {capabilities.map((capability) => (
               <Card key={capability.title} className="border-border/50 bg-card">
                 <CardContent className="p-6">
