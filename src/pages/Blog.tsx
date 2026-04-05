@@ -42,6 +42,16 @@ const sections: { category: string; description: string; posts: Post[] }[] = [
         href: "/blog/edge-sync",
         github: "",
       },
+      {
+        title: "MLOps for Robot Policies",
+        subtitle: "The infrastructure that makes robot policy training versioned, auditable, and reproducible",
+        date: "April 2026",
+        tags: ["Case Study", "Physical AI"],
+        excerpt:
+          "How we built a training pipeline that traces every model back to its exact training data, compares 3 policy architectures on the same versioned dataset, and registers evaluated models with full reproducibility records.",
+        href: "/blog/training-pipeline",
+        github: "",
+      },
     ],
   },
   {

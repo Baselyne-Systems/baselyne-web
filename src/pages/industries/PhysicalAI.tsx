@@ -240,6 +240,26 @@ export default function PhysicalAI() {
           </div>
           <div className="mt-12 mx-auto max-w-3xl space-y-6">
             <Link
+              to="/blog/training-pipeline"
+              className="block rounded-lg border border-border bg-card p-8 transition-colors hover:border-primary/50 hover:bg-accent/50"
+            >
+              <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+                Case Study
+              </span>
+              <h3 className="mt-4 text-xl font-semibold text-foreground">
+                MLOps for Robot Policies
+              </h3>
+              <p className="mt-2 text-muted-foreground">
+                Data lineage, experiment comparison, and model registry for physical AI —
+                3 policy architectures compared on the same versioned dataset with full
+                reproducibility records.
+              </p>
+              <span className="mt-4 inline-flex items-center gap-1.5 text-sm text-primary">
+                Read the case study
+                <ArrowRight className="h-3.5 w-3.5" />
+              </span>
+            </Link>
+            <Link
               to="/blog/robot-data-lake"
               className="block rounded-lg border border-border bg-card p-8 transition-colors hover:border-primary/50 hover:bg-accent/50"
             >

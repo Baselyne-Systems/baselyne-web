@@ -19,6 +19,7 @@ const routes = [
   '/blog/gatekeeper',
   '/blog/robot-data-lake',
   '/blog/edge-sync',
+  '/blog/training-pipeline',
   '/blog/retrieval-os',
   '/blog/cdc-platform',
   '/blog',
