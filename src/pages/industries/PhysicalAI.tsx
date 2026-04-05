@@ -1,4 +1,4 @@
-import { ArrowRight, Database, Radio, Shield, BarChart3, Wifi, AlertTriangle, FileCheck } from "lucide-react";
+import { ArrowRight, Database, GitBranch, Radio, Shield, BarChart3, Wifi, AlertTriangle, FileCheck } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
@@ -30,6 +30,12 @@ const challenges = [
     description:
       "Evaluating a policy means deploying it on one robot, manually running 20-50 trials, watching the video, and counting successes. Fleet versioning is tracked in spreadsheets. There's no CI/CD for policies — no way to automatically block a regression before it reaches a robot.",
   },
+  {
+    icon: GitBranch,
+    title: "Training runs can't be traced back to their data",
+    description:
+      "When a new policy performs worse than the last one, the first question is 'what changed?' Nobody can answer it. The model was trained in a notebook, the data was a folder on someone's machine, and there's no record of which episodes produced which checkpoint. Training history is stored in DVC or not at all.",
+  },
 ];
 
 const capabilities = [
@@ -50,6 +56,12 @@ const capabilities = [
     title: "Compliance & Audit Trail",
     description:
       "Immutable data lineage from sensor input to model decision to physical action. When an auditor asks why the robot made that choice, you can trace it to the exact model version, training data, and sensor state. Built for EU AI Act, ISO 42001, and safety certification.",
+  },
+  {
+    icon: GitBranch,
+    title: "Training Infrastructure",
+    description:
+      "Data lineage tracing every model to its exact training episodes. Experiment comparison across policy architectures on the same versioned data. Model registry with eval results and reproducibility records. The infrastructure to answer 'what changed between v2 and v3.'",
   },
   {
     icon: Radio,
@@ -240,26 +252,6 @@ export default function PhysicalAI() {
           </div>
           <div className="mt-12 mx-auto max-w-3xl space-y-6">
             <Link
-              to="/blog/training-pipeline"
-              className="block rounded-lg border border-border bg-card p-8 transition-colors hover:border-primary/50 hover:bg-accent/50"
-            >
-              <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
-                Case Study
-              </span>
-              <h3 className="mt-4 text-xl font-semibold text-foreground">
-                MLOps for Robot Policies
-              </h3>
-              <p className="mt-2 text-muted-foreground">
-                Data lineage, experiment comparison, and model registry for physical AI —
-                3 policy architectures compared on the same versioned dataset with full
-                reproducibility records.
-              </p>
-              <span className="mt-4 inline-flex items-center gap-1.5 text-sm text-primary">
-                Read the case study
-                <ArrowRight className="h-3.5 w-3.5" />
-              </span>
-            </Link>
-            <Link
               to="/blog/robot-data-lake"
               className="block rounded-lg border border-border bg-card p-8 transition-colors hover:border-primary/50 hover:bg-accent/50"
             >
@@ -293,6 +285,26 @@ export default function PhysicalAI() {
                 100% failure data survival while dropping half of all episodes — priority
                 scoring, bounded buffer eviction, and resumable upload over intermittent
                 connectivity.
+              </p>
+              <span className="mt-4 inline-flex items-center gap-1.5 text-sm text-primary">
+                Read the case study
+                <ArrowRight className="h-3.5 w-3.5" />
+              </span>
+            </Link>
+            <Link
+              to="/blog/training-pipeline"
+              className="block rounded-lg border border-border bg-card p-8 transition-colors hover:border-primary/50 hover:bg-accent/50"
+            >
+              <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+                Case Study
+              </span>
+              <h3 className="mt-4 text-xl font-semibold text-foreground">
+                MLOps for Robot Policies
+              </h3>
+              <p className="mt-2 text-muted-foreground">
+                Data lineage, experiment comparison, and model registry for physical AI —
+                3 policy architectures compared on the same versioned dataset with full
+                reproducibility records.
               </p>
               <span className="mt-4 inline-flex items-center gap-1.5 text-sm text-primary">
                 Read the case study
