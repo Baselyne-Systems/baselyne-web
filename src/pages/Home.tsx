@@ -10,7 +10,7 @@ const heroTaglines = [
   "Ship AI to production. Cut infrastructure costs in half.",
   "10-100x faster queries. Sub-minute data freshness.",
   "Deploy models in hours, not weeks.",
-  "GPU costs down 50-80%. Utilization up to 80%+.",
+  "From raw sensor data to trained robot policy. One pipeline.",
 ];
 
 const failurePoints = [
