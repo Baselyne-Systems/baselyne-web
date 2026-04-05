@@ -32,6 +32,16 @@ const sections: { category: string; description: string; posts: Post[] }[] = [
         href: "/blog/robot-data-lake",
         github: "",
       },
+      {
+        title: "Edge Sync: Offline-First Data Sync for Field Robots",
+        subtitle: "Priority scoring, bounded eviction, and resumable upload over intermittent connectivity",
+        date: "April 2026",
+        tags: ["Case Study", "Physical AI"],
+        excerpt:
+          "How we built an offline-first sync daemon that preserves 100% of failure data while dropping half of all episodes — with priority scoring, bounded buffer eviction, and resumable upload over intermittent connectivity.",
+        href: "/blog/edge-sync",
+        github: "",
+      },
     ],
   },
   {
