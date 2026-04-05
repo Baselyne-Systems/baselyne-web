@@ -16,7 +16,6 @@ type Post = {
   github: string;
 };
 
-const ALL = "All";
 
 const sections: { category: string; description: string; posts: Post[] }[] = [
   {
@@ -95,7 +94,7 @@ const sections: { category: string; description: string; posts: Post[] }[] = [
   },
 ];
 
-const categories = [ALL, ...sections.map((s) => s.category)];
+const categories = sections.map((s) => s.category);
 
 function PostCard({ post }: { post: Post }) {
   return (
@@ -146,12 +145,9 @@ function PostCard({ post }: { post: Post }) {
 }
 
 export default function Blog() {
-  const [activeTab, setActiveTab] = useState(ALL);
+  const [activeTab, setActiveTab] = useState("Physical AI");
 
-  const filteredSections =
-    activeTab === ALL
-      ? sections
-      : sections.filter((s) => s.category === activeTab);
+  const filteredSections = sections.filter((s) => s.category === activeTab);
 
   return (
     <Layout>
@@ -185,20 +181,13 @@ export default function Blog() {
                 <button
                   key={cat}
                   onClick={() => setActiveTab(cat)}
-                  className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium transition-colors ${
+                  className={`whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium transition-colors ${
                     activeTab === cat
                       ? "bg-primary text-primary-foreground"
-                      : cat === "Physical AI"
-                        ? "text-primary border border-primary/30 hover:bg-primary/5"
-                        : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
                   }`}
                 >
                   {cat}
-                  {cat === "Physical AI" && activeTab !== cat && (
-                    <span className="rounded-full bg-primary px-1.5 py-0.5 text-[10px] font-semibold leading-none text-primary-foreground">
-                      New
-                    </span>
-                  )}
                 </button>
               ))}
             </div>
