@@ -186,7 +186,7 @@ export default function RobotDataLake() {
   return (
     <Layout>
       <SEO
-        title="The Robot Data Lake: From 10,000 Recordings to One Queryable Schema | Baselyne Systems"
+        title="The Robot Data Lake: A Format-Agnostic Data Lake for Physical AI | Baselyne Systems"
         description="How we built a format-agnostic data lake for physical AI — ingesting RLDS, LeRobot, MCAP, and HDF5 into Apache Iceberg tables, making 5,121 episodes across 3 formats queryable via SQL."
         keywords="robot data lake, physical AI data infrastructure, Apache Iceberg robotics, MCAP data pipeline, RLDS ingestion, LeRobot dataset, robot episode storage, open source robot data"
         canonical="https://baselynesystems.com/blog/robot-data-lake"
@@ -194,7 +194,7 @@ export default function RobotDataLake() {
         publishedTime="2026-04-02"
         author="Achyuth Samudrala"
         structuredData={articleSchema({
-          title: "The Robot Data Lake: From 10,000 Recordings to One Queryable Schema",
+          title: "The Robot Data Lake: A Format-Agnostic Data Lake for Physical AI",
           description: "How we built a format-agnostic data lake for physical AI — ingesting RLDS, LeRobot, MCAP, and HDF5 into Apache Iceberg tables queryable via SQL.",
           url: "https://baselynesystems.com/blog/robot-data-lake",
           datePublished: "2026-04-02",
@@ -226,7 +226,7 @@ export default function RobotDataLake() {
                 The Robot Data Lake
               </h1>
               <p className="mt-3 text-xl text-muted-foreground">
-                From 10,000 recordings in four formats to one queryable schema — 5,121 episodes across RLDS, LeRobot, MCAP, and HDF5
+                A format-agnostic data lake for physical AI — 5,121 episodes across RLDS, LeRobot, MCAP, and HDF5 in one queryable schema
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-4">
                 <span className="text-sm text-muted-foreground">April 2026</span>
@@ -238,10 +238,10 @@ export default function RobotDataLake() {
             <SectionHeading>Why we built this</SectionHeading>
             <Prose>
               <p>
-                A physical AI team has 10,000 recordings from 50 robots across 6 months. The
-                data is in four different formats — RLDS from Open X-Embodiment, LeRobot from
-                HuggingFace, MCAP from their ROS 2 fleet, HDF5 from ALOHA and RoboMimic. They
-                need to answer one question:
+                A physical AI team has recordings from dozens of robots across months of
+                operation. The data is in four different formats — RLDS from Open X-Embodiment,
+                LeRobot from HuggingFace, MCAP from their ROS 2 fleet, HDF5 from ALOHA and
+                RoboMimic. They need to answer one question:
               </p>
               <p>
                 <em>"Give me every failed grasp episode from the last 30 days where the robot was
@@ -606,27 +606,6 @@ dataset = lake.to_pytorch_dataset(
                 <em>t + prediction_horizon</em>.
               </p>
             </Prose>
-
-            {/* ── Running it ── */}
-            <SectionHeading>Running it</SectionHeading>
-
-            <CodeBlock lang="bash">
-{`pip install robot-data-lake[all]
-
-# Or with specific format support
-pip install robot-data-lake[lerobot]   # LeRobot/HuggingFace
-pip install robot-data-lake[hdf5]      # ALOHA, RoboMimic
-pip install robot-data-lake[rlds]      # Open X-Embodiment
-
-# CLI
-robot-lake ingest recording.mcap --format mcap --robot-id franka_01
-robot-lake episodes --success false
-robot-lake sql "SELECT COUNT(*) FROM episodes WHERE success = true"
-robot-lake export-shards --episodes ep1,ep2,ep3 -o ./shards/
-
-# Run the full demo
-python demo/demo.py`}
-            </CodeBlock>
 
             {/* ── Divider ── */}
             <div className="mt-16 border-t border-border" />
