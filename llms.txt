@@ -41,8 +41,16 @@ Website: https://baselynesystems.com/contact
 
 Technical case studies on open-source infrastructure built by Baselyne.
 
+### MLOps for Robot Policies (April 2026)
+Training pipeline infrastructure for physical AI — data lineage tracing every model to its exact training episodes, experiment comparison across policy architectures (MLP 59s/100% vs diffusion 509s/99% vs flow 522s/100% on same versioned data), model registry with stage lifecycle, and full reproducibility records.
+URL: https://baselynesystems.com/blog/training-pipeline
+
+### Edge Sync: Offline-First Data Sync for Field Robots (April 2026)
+Offline-first sync daemon for field robots with intermittent connectivity. Priority scoring by training value (failures > novel > routine), bounded buffer eviction, resumable chunked upload, two-phase completion. 100% failure data survival while dropping half of all episodes. 9 identified race conditions with specific mitigations.
+URL: https://baselynesystems.com/blog/edge-sync
+
 ### The Robot Data Lake (April 2026)
-Format-agnostic data lake for physical AI — ingesting RLDS, LeRobot, MCAP, and HDF5 into Apache Iceberg tables. 4,321 episodes across 3 formats queryable in 4-71ms. Episode-centric schema with modality separation and reference-based image storage.
+Format-agnostic data lake for physical AI — ingesting RLDS, LeRobot, MCAP, and HDF5 into Apache Iceberg tables. 5,121 episodes across 3 formats and 3 robot types queryable in 4-74ms. Episode-centric schema with modality separation and reference-based image storage.
 URL: https://baselynesystems.com/blog/robot-data-lake
 
 ### GateKeeper: Eval-Gated Model Deployment (March 2026)
@@ -80,6 +88,10 @@ GitHub: https://github.com/Baselyne-Systems/cdc-platform
 - Physical AI data infrastructure
 - Robot data pipelines and episode storage
 - Sensor data ingestion (MCAP, RLDS, LeRobot, HDF5)
+- Offline-first edge data sync for field robots
+- Robot policy training infrastructure and MLOps
+- Data lineage and reproducibility for robot training
+- Experiment comparison across policy architectures
 - AI infrastructure consulting
 - MLOps consulting
 - Data infrastructure consulting
