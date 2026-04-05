@@ -90,7 +90,7 @@ export default function Approach() {
               How We Work
             </h1>
             <p className="mt-6 text-lg text-muted-foreground">
-              Our approach is built around production readiness, not impressive demos. Every engagement follows a structured process designed to deliver working systems your team can operate.
+              Every engagement follows a structured process designed to deliver working systems your team can operate.
             </p>
           </div>
         </div>

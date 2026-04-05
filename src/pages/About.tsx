@@ -130,7 +130,7 @@ export default function About() {
               Philosophy
             </p>
             <h2 className="mt-3 text-3xl font-semibold text-foreground sm:text-4xl">
-              Systems thinking, not feature shipping
+              Systems thinking
             </h2>
             
             <div className="mt-8 space-y-6 text-muted-foreground">

@@ -117,7 +117,7 @@ export default function Home() {
               Where AI projects get stuck
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Most teams don't lack ML talent. They lack the infrastructure to make that talent effective.
+              The infrastructure gap is where AI projects stall.
             </p>
           </div>
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -145,7 +145,7 @@ export default function Home() {
               Infrastructure that enables your team
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Systems designed for the operational reality of running ML in production, not just the happy path.
+              Systems designed for the operational reality of running ML in production.
             </p>
           </div>
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -219,7 +219,7 @@ export default function Home() {
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-sm font-medium uppercase tracking-wider text-primary">How We Work</p>
             <h2 className="mt-3 text-3xl font-semibold text-foreground sm:text-4xl">
-              Engineering-led, not sales-led
+              Engineering-led
             </h2>
             <p className="mt-4 text-muted-foreground">
               Every engagement starts with understanding your system. We assess your current state, identify the critical path, and focus on what matters for production readiness.

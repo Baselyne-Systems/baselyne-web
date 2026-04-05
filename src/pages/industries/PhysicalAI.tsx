@@ -49,7 +49,7 @@ const capabilities = [
     icon: Shield,
     title: "Evaluation & Policy Gating",
     description:
-      "Automated evaluation pipelines that gate deployment. Regression test suites that grow from production failures. Statistical comparison across policy versions. The infrastructure to answer 'is this policy safe to deploy?' with evidence, not intuition.",
+      "Automated evaluation pipelines that gate deployment. Regression test suites that grow from production failures. Statistical comparison across policy versions. Blocks a regression before it reaches a robot.",
   },
   {
     icon: FileCheck,
@@ -126,7 +126,7 @@ export default function PhysicalAI() {
               The Shift
             </p>
             <h2 className="mt-3 text-3xl font-semibold text-foreground sm:text-4xl">
-              Better models make engineering harder, not easier
+              Better models create more engineering problems
             </h2>
             <div className="mt-8 space-y-6 text-muted-foreground">
               <p>
