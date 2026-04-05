@@ -44,7 +44,7 @@ const sections: { category: string; description: string; posts: Post[] }[] = [
       },
       {
         title: "MLOps for Robot Policies",
-        subtitle: "The infrastructure that makes robot policy training versioned, auditable, and reproducible",
+        subtitle: "Data lineage, experiment comparison, and model registry for physical AI training pipelines",
         date: "April 2026",
         tags: ["Case Study", "Physical AI"],
         excerpt:

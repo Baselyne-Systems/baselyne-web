@@ -221,7 +221,7 @@ export default function TrainingPipeline() {
                 MLOps for Robot Policies
               </h1>
               <p className="mt-3 text-xl text-muted-foreground">
-                The infrastructure that makes robot policy training versioned, auditable, and reproducible
+                Data lineage, experiment comparison, and model registry for physical AI training pipelines
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-4">
                 <span className="text-sm text-muted-foreground">April 2026</span>
@@ -328,7 +328,7 @@ norm stats hash ─┘     3. Evaluate (offline/sim)     ──► eval report
             </Prose>
 
             {/* ── Comparison ── */}
-            <SectionHeading>Experiment comparison: evidence, not intuition</SectionHeading>
+            <SectionHeading>Experiment comparison</SectionHeading>
             <Prose>
               <p>
                 We ran three policy architectures through the pipeline — MLP (simple baseline),
@@ -454,8 +454,8 @@ norm stats hash ─┘     3. Evaluate (offline/sim)     ──► eval report
               <p>
                 <strong>Typed data structures throughout.</strong> Every artifact — manifest,
                 eval report, reproducibility record, model version — is a typed dataclass
-                with validation on construction. No loose dictionaries. Corrupt manifests
-                are caught at load time, not during training.
+                with validation on construction. Corrupt manifests are caught at load time,
+                not during training.
               </p>
             </Prose>
 
