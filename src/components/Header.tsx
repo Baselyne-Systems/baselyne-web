@@ -7,8 +7,8 @@ import logo from "@/assets/baselyne-logo.jpg";
 
 const navigation = [
   { name: "Home", href: "/", badge: null },
-  { name: "Services", href: "/services", badge: null },
   { name: "Physical AI", href: "/physical-ai", badge: "New" },
+  { name: "Services", href: "/services", badge: null },
   { name: "Approach", href: "/approach", badge: null },
   { name: "Blog", href: "/blog", badge: null },
   { name: "About", href: "/about", badge: null },
