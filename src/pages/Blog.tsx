@@ -24,7 +24,7 @@ const sections: { category: string; description: string; posts: Post[] }[] = [
     posts: [
       {
         title: "The Robot Data Lake",
-        subtitle: "From 10,000 recordings in four formats to one queryable schema",
+        subtitle: "A format-agnostic data lake for physical AI",
         date: "April 2026",
         tags: ["Case Study", "Physical AI"],
         excerpt:
