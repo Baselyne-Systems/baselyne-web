@@ -114,7 +114,7 @@ const sections: { category: string; description: string; posts: Post[] }[] = [
   },
 ];
 
-const categories = sections.map((s) => s.category);
+const categories = ["All", ...sections.map((s) => s.category)];
 
 function PostCard({ post }: { post: Post }) {
   return (
@@ -165,9 +165,12 @@ function PostCard({ post }: { post: Post }) {
 }
 
 export default function Blog() {
-  const [activeTab, setActiveTab] = useState("Physical AI");
+  const ALL = "All";
+  const [activeTab, setActiveTab] = useState(ALL);
 
-  const filteredSections = sections.filter((s) => s.category === activeTab);
+  const filteredSections = activeTab === ALL
+    ? sections
+    : sections.filter((s) => s.category === activeTab);
 
   return (
     <Layout>

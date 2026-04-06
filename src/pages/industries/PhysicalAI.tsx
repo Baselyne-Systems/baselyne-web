@@ -323,9 +323,9 @@ export default function PhysicalAI() {
               Building physical AI infrastructure?
             </h2>
             <p className="mt-4 text-muted-foreground">
-              We start with a technical conversation about your data architecture,
-              evaluation pipeline, and deployment workflow. No pitch deck — just a
-              conversation about what's not working and what would.
+              Typical engagements run 6-12 weeks with defined deliverables. Most
+              start with a 2-week architecture review of your data pipeline,
+              training workflow, and deployment process.
             </p>
             <Button asChild size="lg" className="mt-8">
               <a

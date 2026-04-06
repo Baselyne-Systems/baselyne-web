@@ -173,9 +173,9 @@ export default function Services() {
               Not sure where to start?
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Most engagements start with a 30-minute call to understand your
-              current stack and challenges. No pitch deck—just a technical
-              conversation about what's not working and what would.
+              Typical engagements run 6-12 weeks with defined deliverables.
+              Most start with a 2-week architecture review. Book a 30-minute
+              call to discuss your stack and challenges.
             </p>
             <Button asChild size="lg" className="mt-8">
               <a
