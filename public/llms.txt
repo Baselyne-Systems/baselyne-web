@@ -23,7 +23,7 @@ URL: https://baselynesystems.com/services/ai-infrastructure-consulting
 ## Industries
 
 ### Physical AI
-Data infrastructure for robotics, autonomous systems, and embodied AI. Sensor data pipelines, episode storage, training data curation — from raw recordings to trained policies. We ingest RLDS, LeRobot, MCAP, and HDF5 into Apache Iceberg tables queryable via SQL.
+Data infrastructure for physical AI — robotics, autonomous systems, embodied agents, and world models. Sensor data pipelines, training infrastructure, evaluation gates, and edge data management. We ingest RLDS, LeRobot, MCAP, and HDF5 into Apache Iceberg tables queryable via SQL.
 URL: https://baselynesystems.com/physical-ai
 
 ## Founder

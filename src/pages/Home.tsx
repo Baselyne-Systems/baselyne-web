@@ -187,7 +187,7 @@ export default function Home() {
               <Link to="/physical-ai" className="block rounded-lg border border-primary/30 bg-card p-6 transition-colors hover:border-primary/50 hover:bg-accent/50">
                 <h3 className="font-semibold text-foreground">Physical AI</h3>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Sensor data lakes, evaluation gates, edge data management, and compliance infrastructure for robotics, autonomous systems, and embodied AI.
+                  Sensor data pipelines, training infrastructure, evaluation gates, and edge data management for robotics, autonomous systems, and embodied AI.
                 </p>
               </Link>
               <Link to="/services/data-infrastructure-consulting" className="block rounded-lg border border-border bg-card p-6 transition-colors hover:border-primary/50 hover:bg-accent/50">

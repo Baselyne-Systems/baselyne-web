@@ -20,7 +20,7 @@ type Post = {
 const sections: { category: string; description: string; posts: Post[] }[] = [
   {
     category: "Physical AI",
-    description: "Data infrastructure, pipelines, and systems for robots, autonomous vehicles, and embodied agents.",
+    description: "Data infrastructure, pipelines, and systems for robotics, autonomous systems, and embodied AI.",
     posts: [
       {
         title: "The Robot Data Lake",

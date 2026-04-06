@@ -10,25 +10,25 @@ const challenges = [
     icon: Database,
     title: "Everything is custom-built because nothing fits",
     description:
-      "Every team we've spoken to — from warehouse fleets to construction robots to autonomous kitchens — has built core data infrastructure in-house. Recording catalogs, format converters, training pipelines, evaluation scripts. Not because custom is better, but because nothing on the market fits the robotics workflow.",
+      "Every team we've spoken to — from warehouse automation to construction sites to autonomous kitchens — has built core data infrastructure in-house. Recording catalogs, format converters, training pipelines, evaluation scripts. Not because custom is better, but because nothing on the market fits the physical AI workflow.",
   },
   {
     icon: Wifi,
-    title: "Getting data off the robot is the real bottleneck",
+    title: "Getting data from the physical world is the real bottleneck",
     description:
-      "Construction sites have no internet. Warehouse robots saturate 5Gbps pipes. A 15-second stereo camera clip is 3GB. Teams store 1% of data through random sampling — and systematically lose the most valuable recordings: failures, edge cases, and rare states.",
+      "Construction sites have no internet. Warehouse systems saturate 5Gbps pipes. A 15-second stereo camera clip is 3GB. Teams store 1% of data through random sampling — and systematically lose the most valuable recordings: failures, edge cases, and rare states.",
   },
   {
     icon: AlertTriangle,
     title: "Failure data is the most valuable and hardest to capture",
     description:
-      "When a robot fails, the last 5 minutes of sensor data is worth more than the last 5 hours of routine operation. But failure recording is ad hoc — manual triggers, inconsistent formats, no structured metadata about what went wrong or why. The highest-value training data is the least well-managed.",
+      "When an autonomous system fails, the last 5 minutes of sensor data is worth more than the last 5 hours of routine operation. But failure recording is ad hoc — manual triggers, inconsistent formats, no structured metadata about what went wrong or why. The highest-value training data is the least well-managed.",
   },
   {
     icon: BarChart3,
     title: "No systematic evaluation or regression testing",
     description:
-      "Evaluating a policy means deploying it on one robot, manually running 20-50 trials, watching the video, and counting successes. Fleet versioning is tracked in spreadsheets. There's no CI/CD for policies — no way to automatically block a regression before it reaches a robot.",
+      "Evaluating a model means manually running 20-50 trials, watching the video, and counting successes. Versioning is tracked in spreadsheets. There's no CI/CD for physical AI — no way to automatically block a regression before it reaches deployment.",
   },
   {
     icon: GitBranch,
@@ -43,31 +43,31 @@ const capabilities = [
     icon: Database,
     title: "Sensor Data Lake",
     description:
-      "Multi-format ingestion into Apache Iceberg — RLDS, LeRobot, MCAP, HDF5 normalized into one episode-centric schema. Cross-format SQL queries in milliseconds. Curate by task, outcome, robot, and environment. Export to any training format.",
+      "Multi-format ingestion into Apache Iceberg — RLDS, LeRobot, MCAP, HDF5 normalized into one queryable schema. Cross-format SQL queries in milliseconds. Curate by task, outcome, source, and environment. Export to any training format.",
   },
   {
     icon: Shield,
     title: "Evaluation & Policy Gating",
     description:
-      "Automated evaluation pipelines that gate deployment. Regression test suites that grow from production failures. Statistical comparison across policy versions. Blocks a regression before it reaches a robot.",
+      "Automated evaluation pipelines that gate deployment. Regression test suites that grow from production failures. Statistical comparison across model versions. Blocks a regression before it reaches deployment.",
   },
   {
     icon: FileCheck,
     title: "Compliance & Audit Trail",
     description:
-      "Immutable data lineage from sensor input to model decision to physical action. When an auditor asks why the robot made that choice, you can trace it to the exact model version, training data, and sensor state. Built for EU AI Act, ISO 42001, and safety certification.",
+      "Immutable data lineage from sensor input to model decision to physical action. When an auditor asks why the system made that choice, you can trace it to the exact model version, training data, and sensor state. Built for EU AI Act, ISO 42001, and safety certification.",
   },
   {
     icon: GitBranch,
     title: "Training Infrastructure",
     description:
-      "Data lineage tracing every model to its exact training episodes. Experiment comparison across policy architectures on the same versioned data. Model registry with eval results and reproducibility records. The infrastructure to answer 'what changed between v2 and v3.'",
+      "Data lineage tracing every model to its exact training data. Experiment comparison across architectures on the same versioned dataset. Model registry with eval results and reproducibility records. The infrastructure to answer 'what changed between v2 and v3.'",
   },
   {
     icon: Radio,
     title: "Edge Data Management",
     description:
-      "Intelligent on-device data filtering and prioritized sync for robots with limited connectivity. Failure data uploaded first, routine operations downsampled. Offline-first architecture that works on construction sites, farms, and warehouses.",
+      "Intelligent on-device data filtering and prioritized sync for systems with limited connectivity. Failure data uploaded first, routine operations downsampled. Offline-first architecture that works in disconnected and bandwidth-constrained environments.",
   },
 ];
 
@@ -76,8 +76,8 @@ export default function PhysicalAI() {
     <Layout>
       <SEO
         title="Physical AI Data Infrastructure | Baselyne Systems"
-        description="Data infrastructure for robotics, autonomous systems, and embodied AI. Sensor data pipelines, evaluation, fleet operations, and the failure-to-improvement loop — from raw recordings to deployed policies."
-        keywords="physical AI data infrastructure, robot data pipeline, robotics data lake, robot evaluation infrastructure, robot fleet management, autonomous vehicle data, embodied AI infrastructure, sensor data pipeline, robot episode storage, MCAP pipeline, ROS 2 data infrastructure, robot policy evaluation"
+        description="Data infrastructure for physical AI — robotics, autonomous systems, embodied agents, and world models. Sensor data pipelines, training infrastructure, evaluation gates, and edge data management."
+        keywords="physical AI data infrastructure, embodied AI infrastructure, world model data pipeline, autonomous systems data, sensor data pipeline, 3D scene data, robot data lake, training data lineage, model evaluation physical AI"
         canonical="https://baselynesystems.com/physical-ai"
         structuredData={physicalAIServiceSchema}
       />
@@ -94,9 +94,9 @@ export default function PhysicalAI() {
             </h1>
             <p className="mt-6 text-lg text-muted-foreground">
               Models are getting better. Deployment, evaluation, and data management
-              are getting harder. We build the infrastructure underneath — from sensor
-              data pipelines to evaluation gates to the failure-to-improvement loop
-              that closes the gap between 99.9% and 99.999%.
+              are getting harder. We build the infrastructure underneath — sensor
+              data pipelines, training systems, evaluation gates, and the data
+              layer that connects the physical world to model development.
             </p>
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Button asChild size="lg">
@@ -139,7 +139,7 @@ export default function PhysicalAI() {
                 Larger models need inference infrastructure — distillation, quantization,
                 dual-system runtimes. More general-purpose models need evaluation across
                 open-ended task spaces. More training data needs pipelines that scale to
-                terabytes from robot fleets. Wider deployment needs operations: monitoring,
+                terabytes from fleets and simulation. Wider deployment needs operations: monitoring,
                 failure detection, rollback, versioning.
               </p>
               <p>
@@ -163,7 +163,7 @@ export default function PhysicalAI() {
               The same problems from every team we've talked to
             </h2>
             <p className="mt-4 text-muted-foreground">
-              From warehouse fleets to construction robots to autonomous kitchens — the
+              From warehouse automation to autonomous vehicles to embodied AI research — the
               infrastructure pain is consistent.
             </p>
           </div>
@@ -229,10 +229,10 @@ export default function PhysicalAI() {
               </p>
               <p>
                 The difference is the domain. We've spent the last several months going
-                deep — building open-source tools for robot data, talking to teams at
-                companies deploying physical AI from warehouse floors to construction sites,
-                and understanding the domain-specific challenges that make this infrastructure
-                different from web-scale ML.
+                deep — building tools for physical AI data, talking to teams across
+                robotics, autonomous systems, and embodied AI, and understanding the
+                domain-specific challenges that make this infrastructure different from
+                web-scale ML.
               </p>
             </div>
           </div>
