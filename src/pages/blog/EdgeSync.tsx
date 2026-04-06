@@ -60,11 +60,11 @@ function InlineCode({ children }: { children: React.ReactNode }) {
 
 function ScoringTable() {
   const rows = [
-    { outcome: "Failure", priority: "4.0", range: "4.0 – 4.5", highlight: true },
-    { outcome: "Novel state", priority: "3.0", range: "3.0 – 3.5", highlight: false },
-    { outcome: "Unknown", priority: "2.5", range: "2.5 – 3.0", highlight: false },
-    { outcome: "Sensor anomaly", priority: "2.0", range: "2.0 – 2.5", highlight: false },
-    { outcome: "Routine success", priority: "1.0", range: "1.0 – 1.5", highlight: false },
+    { outcome: "Failure", priority: "1.0", range: "1.0 – 1.05", highlight: true },
+    { outcome: "Novel state", priority: "0.75", range: "0.75 – 0.80", highlight: false },
+    { outcome: "Sensor anomaly", priority: "0.5", range: "0.5 – 0.55", highlight: false },
+    { outcome: "Unknown", priority: "0.4", range: "0.4 – 0.45", highlight: false },
+    { outcome: "Routine success", priority: "0.0", range: "0.0 – 0.05", highlight: false },
   ];
   return (
     <div className="mt-6 overflow-x-auto rounded-lg border border-border/50">
@@ -72,8 +72,8 @@ function ScoringTable() {
         <thead>
           <tr className="bg-muted">
             <th className="px-4 py-3 text-left font-semibold text-foreground">Outcome</th>
-            <th className="px-4 py-3 text-left font-semibold text-foreground">Base priority</th>
-            <th className="px-4 py-3 text-left font-semibold text-foreground">Score range</th>
+            <th className="px-4 py-3 text-left font-semibold text-foreground">Tier score</th>
+            <th className="px-4 py-3 text-left font-semibold text-foreground">Composite range</th>
           </tr>
         </thead>
         <tbody>
@@ -361,28 +361,42 @@ export default function EdgeSync() {
             <SectionHeading>Scoring: what data is worth keeping</SectionHeading>
             <Prose>
               <p>
-                Every episode gets a composite score: outcome priority plus a novelty term.
-                The outcome comes from the MCAP file's task result topic. Novelty is measured
-                by embedding distance from a set of reference centroids — how different is this
-                episode from what the model has already seen.
+                Every episode gets a composite score from independent signals combined as a
+                weighted sum. The primary signal is the task outcome, extracted from
+                the <InlineCode>/task/result</InlineCode> topic in the MCAP file. Additional
+                signals — sensor quality, novelty detection, policy uncertainty — can be
+                plugged in without changing the scorer.
               </p>
             </Prose>
 
             <CodeBlock lang="python — composite scoring">
-{`composite = outcome_priority + 0.5 * novelty_score`}
+{`score = outcome_weight * outcome_score
+     + sum(signal.weight * signal.score for each enabled signal)`}
             </CodeBlock>
 
             <ScoringTable />
 
             <Prose>
               <p>
-                The 0.5 novelty multiplier breaks ties within a tier — a failure with high
-                novelty (4.5) uploads before a failure with low novelty (4.0). But any failure
-                always scores above any novel episode. The tier boundaries never cross.
+                The tier invariant is the key design constraint: the outcome signal's weight
+                (1.0) and tier spacing (0.25 between adjacent tiers) ensure that all other
+                signals combined (max total weight 0.2) cannot cross tier boundaries. A routine
+                success with maximum novelty and maximum sensor anomaly still scores below an
+                unknown episode. The scorer validates this invariant on initialization and warns
+                if signal weights could violate it.
+              </p>
+              <p>
+                Two signals ship by default: <InlineCode>OutcomeSignal</InlineCode> reads the
+                task result from MCAP, and <InlineCode>SensorQualitySignal</InlineCode> detects
+                camera frame dropouts using interval consistency checks. Additional signals
+                like novelty detection (embedding distance from training distribution) and
+                policy uncertainty require a trained encoder and calibration data — they're
+                documented but disabled by default, because a random encoder against random
+                centroids produces noise, not useful scores.
               </p>
               <p>
                 If scoring takes longer than 10 seconds (large MCAP file, slow encoder), the
-                episode is assigned <InlineCode>PRIORITY_UNKNOWN</InlineCode> at score 2.5 and
+                episode is assigned <InlineCode>UNKNOWN</InlineCode> at score 0.4 and
                 inserted into the buffer immediately. A background thread re-scores it when
                 the scorer pool is idle.
               </p>
