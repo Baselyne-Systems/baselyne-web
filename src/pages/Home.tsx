@@ -39,23 +39,23 @@ const failurePoints = [
 const outcomes = [
   {
     icon: Layers,
-    title: "AI-ready data",
-    description: "Lakehouse storage with incremental reads, CDC from operational databases, and embedding pipelines that stay current—not overnight batch jobs feeding yesterday's data to today's models.",
+    title: "Data-to-model cycle in days, not months",
+    description: "Unified data lakes that make terabytes of multi-format recordings queryable via SQL. Curated training exports in minutes. Data lineage tracing every model back to its exact training set.",
   },
   {
     icon: Cpu,
-    title: "Reliable AI deployment",
-    description: "Models and LLM applications deployed with evaluation gates, canary rollouts, and automated rollback. Defined SLOs for latency and quality, not just uptime.",
+    title: "Models deployed with evidence, not hope",
+    description: "Evaluation gates that block regressions before deployment. Automated comparison across model versions on the same versioned data. Registry with full audit trail from training data to production.",
   },
   {
     icon: Database,
-    title: "Cost-controlled infrastructure",
-    description: "Per-model cost attribution, spot instances for training with checkpointing, right-sized serving infrastructure. You know exactly what each use case costs and why.",
+    title: "Infrastructure that works without internet",
+    description: "Edge-first data pipelines for environments with limited or no connectivity. Priority-based sync that preserves failure data while dropping routine recordings. Offline-first by design.",
   },
   {
     icon: CheckCircle2,
-    title: "Operational maturity",
-    description: "Prediction distribution monitoring, alerting on data quality shifts, and incident runbooks written by the people who built the system. Your team operates independently from day one of handover.",
+    title: "Your team owns it on day one",
+    description: "Fixed-outcome engagements with defined deliverables. We build alongside your engineers, document everything, and hand over systems your team can operate and extend independently.",
   },
 ];
 
@@ -142,10 +142,10 @@ export default function Home() {
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-sm font-medium uppercase tracking-wider text-primary">What We Deliver</p>
             <h2 className="mt-3 text-3xl font-semibold text-foreground sm:text-4xl">
-              Infrastructure that enables your team
+              Hard infrastructure problems, measurable outcomes
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Systems designed for the operational reality of running ML in production.
+              We take on the engineering challenges that don't have off-the-shelf solutions — and deliver defined results in fixed timelines.
             </p>
           </div>
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -171,10 +171,10 @@ export default function Home() {
             <div>
               <p className="text-sm font-medium uppercase tracking-wider text-primary">Our Services</p>
               <h2 className="mt-3 text-3xl font-semibold text-foreground sm:text-4xl">
-                Faster deployment. Lower costs. Fewer silent failures.
+                Fixed-outcome engagements across the AI stack
               </h2>
               <p className="mt-4 text-muted-foreground">
-                Production AI infrastructure that cuts costs, accelerates deployment, and eliminates silent model failures.
+                Every engagement is scoped around a specific result. We agree on the outcome, the timeline, and the deliverables upfront.
               </p>
               <Button asChild className="mt-8">
                 <Link to="/services" className="inline-flex items-center gap-2">
