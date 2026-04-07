@@ -77,8 +77,8 @@ export default function Approach() {
   return (
     <Layout>
       <SEO
-        title="Our Approach | How We Deliver AI Projects"
-        description="Structured AI and MLOps consulting: from assessment to handover, we deliver production-ready systems with knowledge transfer."
+        title="Our Approach | Fixed-Outcome AI Infrastructure Engagements"
+        description="Fixed-outcome engagements with defined deliverables. You pay for results — a working system your team can operate — not for hours. Typical engagements run 6-12 weeks."
         keywords="AI consulting process, MLOps implementation methodology, data infrastructure project delivery, ML platform consulting approach"
         canonical="https://baselynesystems.com/approach"
       />

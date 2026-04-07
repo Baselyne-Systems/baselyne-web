@@ -33,7 +33,7 @@ export default function Services() {
   return (
     <Layout>
       <SEO
-        title="AI, MLOps & Data Infrastructure Consulting | Deploy Faster, Spend Less"
+        title="AI, MLOps & Data Infrastructure | Fixed-Outcome Engagements | Baselyne Systems"
         description="Deploy models in hours, cut GPU costs 50-80%, and eliminate silent model failures. Production AI infrastructure, MLOps, and data platform consulting."
         keywords="AI infrastructure consulting, MLOps consulting, data infrastructure consulting, reduce AI infrastructure costs, GPU cost optimization, model deployment automation, ML production monitoring, machine learning consulting services, data engineering consulting"
         canonical="https://baselynesystems.com/services"

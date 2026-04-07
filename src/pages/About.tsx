@@ -35,7 +35,7 @@ export default function About() {
   return (
     <Layout>
       <SEO
-        title="About Baselyne Systems | AI & Data Consulting"
+        title="About Baselyne Systems | Physical AI & Data Infrastructure"
         description="Founder-led AI and data infrastructure consulting with experience from Meta and Alphabet. Production-grade ML and data systems."
         keywords="AI infrastructure consulting firm, MLOps consultants, data engineering experts, ML platform consulting, machine learning infrastructure company"
         canonical="https://baselynesystems.com/about"
