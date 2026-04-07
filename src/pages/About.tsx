@@ -141,7 +141,7 @@ export default function About() {
                 The goal is never to be clever. It's to build systems that are boring in the best way: predictable, observable, and recoverable. Systems that let your team sleep through the night and focus on work that matters.
               </p>
               <p>
-                We're selective about the engagements we take on. We work best with teams that have real infrastructure challenges, leadership that understands the value of doing it right, and engineers who want to learn and own what we build together.
+                Every engagement is scoped around a specific outcome — a measurable improvement to your infrastructure, delivered in a fixed timeline at a fixed price. We work best with teams that have real infrastructure challenges and engineers who want to own what we build together.
               </p>
             </div>
           </div>

@@ -20,21 +20,21 @@ const phases = [
   {
     step: "02",
     icon: Target,
-    title: "Scope Definition",
+    title: "Scope & Outcome",
     duration: "Collaborative",
-    description: "Based on the assessment, we define a focused scope. We're explicit about what's in and out, what success looks like, and the trade-offs involved in different approaches.",
+    description: "We agree on a specific outcome — for example, reduce data-to-policy cycle time from weeks to days, or scale the training pipeline to handle 10x more episodes. Fixed scope, fixed timeline, fixed price.",
     outputs: [
-      "Detailed scope document",
-      "Success criteria and acceptance tests",
-      "Timeline and resource requirements",
+      "Defined outcome with measurable success criteria",
+      "Fixed-price proposal with timeline",
+      "Clear boundaries — what's in and what's out",
     ],
   },
   {
     step: "03",
     icon: Wrench,
     title: "Implementation",
-    duration: "Varies by scope",
-    description: "We build alongside your team, not in isolation. Weekly syncs, shared code repositories, and continuous documentation ensure knowledge transfer happens naturally.",
+    duration: "6-12 weeks typical",
+    description: "We build alongside your team. Weekly syncs, shared code repositories, and continuous documentation. The deliverable is the agreed outcome, not a timesheet.",
     outputs: [
       "Production-ready infrastructure",
       "Comprehensive documentation",
@@ -90,7 +90,7 @@ export default function Approach() {
               How We Work
             </h1>
             <p className="mt-6 text-lg text-muted-foreground">
-              Every engagement follows a structured process designed to deliver working systems your team can operate.
+              We scope fixed-outcome engagements with defined deliverables. You pay for results — a working system your team can operate — not for hours.
             </p>
           </div>
         </div>
