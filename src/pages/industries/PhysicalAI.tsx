@@ -112,7 +112,7 @@ export default function PhysicalAI() {
                 </a>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link to="/blog">Read the Case Studies</Link>
+                <Link to="/blog">See Our Work</Link>
               </Button>
             </div>
           </div>
