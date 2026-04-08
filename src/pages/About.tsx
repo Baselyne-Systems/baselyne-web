@@ -36,7 +36,7 @@ export default function About() {
     <Layout>
       <SEO
         title="About Baselyne Systems | Physical AI & Data Infrastructure"
-        description="Founder-led physical AI and ML infrastructure firm. Fixed-outcome engagements delivered by an engineer with a decade at Meta and Alphabet."
+        description="Founder-led physical AI and ML infrastructure firm. Fixed-outcome engagements for hard infrastructure problems. Experience from Meta, Alphabet, and Booking.com."
         keywords="AI infrastructure consulting firm, MLOps consultants, data engineering experts, ML platform consulting, machine learning infrastructure company"
         canonical="https://baselynesystems.com/about"
         structuredData={organizationSchema}
@@ -71,7 +71,7 @@ export default function About() {
                 Baselyne Systems takes on infrastructure problems that don't have off-the-shelf solutions. We scope every engagement around a specific, measurable outcome — reducing data-to-model cycle time, scaling training pipelines, building evaluation infrastructure — and deliver it in a fixed timeline at a fixed price.
               </p>
               <p>
-                The founder brings nearly a decade of infrastructure engineering experience, including six years at Meta and Alphabet working on the kind of systems most companies only read about: petabyte-scale data platforms, systems handling 100M+ queries per second, and the complex data governance work required for GDPR compliance at Meta.
+                The founder has built infrastructure at Meta, Isomorphic Labs (Alphabet), and Booking.com — petabyte-scale data platforms, systems handling 100M+ queries per second, ML observability, and GDPR compliance at scale.
               </p>
               <p>
                 When we recommend an architecture, it's because we've seen what works and what breaks at scale. When we suggest a particular approach to monitoring or governance, it's grounded in real operational experience.
