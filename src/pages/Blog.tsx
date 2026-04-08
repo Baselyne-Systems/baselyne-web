@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { PHYSICAL_AI_MODE } from "@/config";
 import { ArrowRight, Github } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
@@ -20,8 +19,8 @@ type Post = {
 
 const sections: { category: string; description: string; posts: Post[] }[] = [
   {
-    category: "Physical AI",
-    description: "Data infrastructure, pipelines, and systems for robotics, autonomous systems, and embodied AI.",
+    category: "Data Infrastructure",
+    description: "Sensor data lakes, pipelines, lakehouse architecture, retrieval systems, and high-throughput data engineering.",
     posts: [
       {
         title: "The Robot Data Lake",
@@ -33,32 +32,6 @@ const sections: { category: string; description: string; posts: Post[] }[] = [
         href: "/blog/robot-data-lake",
         github: "",
       },
-      {
-        title: "Edge Sync: Offline-First Data Sync for Field Robots",
-        subtitle: "Priority scoring, bounded eviction, and resumable upload over intermittent connectivity",
-        date: "April 2026",
-        tags: ["Case Study", "Physical AI"],
-        excerpt:
-          "How we built an offline-first sync daemon that preserves 100% of failure data while dropping half of all episodes — with priority scoring, bounded buffer eviction, and resumable upload over intermittent connectivity.",
-        href: "/blog/edge-sync",
-        github: "",
-      },
-      {
-        title: "MLOps for Robot Policies",
-        subtitle: "Data lineage, experiment comparison, and model registry for physical AI training pipelines",
-        date: "April 2026",
-        tags: ["Case Study", "Physical AI"],
-        excerpt:
-          "How we built a training pipeline that traces every model back to its exact training data, compares 3 policy architectures on the same versioned dataset, and registers evaluated models with full reproducibility records.",
-        href: "/blog/training-pipeline",
-        github: "",
-      },
-    ],
-  },
-  {
-    category: "Data Infrastructure",
-    description: "Pipelines, lakehouse architecture, retrieval systems, and high-throughput data engineering.",
-    posts: [
       {
         title: "Building a High-Throughput CDC Platform",
         subtitle: "From database change to lakehouse in milliseconds",
@@ -83,8 +56,18 @@ const sections: { category: string; description: string; posts: Post[] }[] = [
   },
   {
     category: "MLOps & Model Platforms",
-    description: "Evaluation pipelines, deployment gates, and production model lifecycle.",
+    description: "Training pipelines, evaluation gates, deployment, and production model lifecycle.",
     posts: [
+      {
+        title: "MLOps for Robot Policies",
+        subtitle: "Data lineage, experiment comparison, and model registry for physical AI training pipelines",
+        date: "April 2026",
+        tags: ["Case Study", "Physical AI"],
+        excerpt:
+          "How we built a training pipeline that traces every model back to its exact training data, compares 3 policy architectures on the same versioned dataset, and registers evaluated models with full reproducibility records.",
+        href: "/blog/training-pipeline",
+        github: "",
+      },
       {
         title: "GateKeeper: Eval-Gated Model Deployment",
         subtitle: "Every model change runs through quality gates before it touches production traffic",
@@ -99,8 +82,18 @@ const sections: { category: string; description: string; posts: Post[] }[] = [
   },
   {
     category: "AI Infrastructure",
-    description: "Agent governance and production AI systems.",
+    description: "Edge data management, agent governance, and production AI systems.",
     posts: [
+      {
+        title: "Edge Sync: Offline-First Data Sync for Field Robots",
+        subtitle: "Priority scoring, bounded eviction, and resumable upload over intermittent connectivity",
+        date: "April 2026",
+        tags: ["Case Study", "Physical AI"],
+        excerpt:
+          "How we built an offline-first sync daemon that preserves 100% of failure data while dropping half of all episodes — with priority scoring, bounded buffer eviction, and resumable upload over intermittent connectivity.",
+        href: "/blog/edge-sync",
+        github: "",
+      },
       {
         title: "Bulkhead: Defense in Depth for Autonomous AI Agents",
         subtitle: "How we enforce AI agent guardrails at the infrastructure level, not the prompt level",
@@ -167,7 +160,7 @@ function PostCard({ post }: { post: Post }) {
 
 export default function Blog() {
   const ALL = "All";
-  const [activeTab, setActiveTab] = useState(PHYSICAL_AI_MODE ? "Physical AI" : ALL);
+  const [activeTab, setActiveTab] = useState(ALL);
 
   const filteredSections = activeTab === ALL
     ? sections
