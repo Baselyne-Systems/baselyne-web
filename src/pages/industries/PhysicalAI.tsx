@@ -84,7 +84,7 @@ export default function PhysicalAI() {
       />
 
       {/* Hero */}
-      <section className="bg-gradient-to-b from-layer-1 to-layer-2 py-20 lg:py-28">
+      <section className="bg-gradient-to-b from-layer-1 to-layer-2 py-28 lg:py-40">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-sm font-medium uppercase tracking-wider text-primary">
