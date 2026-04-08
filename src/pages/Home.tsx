@@ -49,8 +49,8 @@ const outcomes = [
   },
   {
     icon: Database,
-    title: "Infrastructure that works without internet",
-    description: "Edge-first data pipelines for environments with limited or no connectivity. Priority-based sync that preserves failure data while dropping routine recordings. Offline-first by design.",
+    title: "GPU and inference costs under control",
+    description: "Per-model cost attribution, right-sized serving infrastructure, and edge inference optimization. You know exactly what each workload costs and where the waste is.",
   },
   {
     icon: CheckCircle2,
