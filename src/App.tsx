@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ScrollToTop } from "./components/ScrollToTop";
+import { PHYSICAL_AI_MODE } from "./config";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
 import AIInfrastructureConsulting from "./pages/services/AIInfrastructureConsulting";
@@ -32,7 +33,7 @@ const App = () => (
       <BrowserRouter basename="/">
         <ScrollToTop />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={PHYSICAL_AI_MODE ? <PhysicalAI /> : <Home />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/ai-infrastructure-consulting" element={<AIInfrastructureConsulting />} />
           <Route path="/services/mlops-consulting" element={<MLOpsConsulting />} />

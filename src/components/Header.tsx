@@ -4,8 +4,9 @@ import { Menu, Database, GitBranch, Cpu, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import logo from "@/assets/baselyne-logo.jpg";
+import { PHYSICAL_AI_MODE } from "@/config";
 
-const navigation = [
+const allNavigation = [
   { name: "Home", href: "/", badge: null },
   { name: "Physical AI", href: "/physical-ai", badge: null },
   { name: "Services", href: "/services", badge: null },
@@ -13,6 +14,15 @@ const navigation = [
   { name: "About", href: "/about", badge: null },
   { name: "Contact", href: "/contact", badge: null },
 ];
+
+const physicalAINavigation = [
+  { name: "Home", href: "/", badge: null },
+  { name: "Blog", href: "/blog", badge: null },
+  { name: "About", href: "/about", badge: null },
+  { name: "Contact", href: "/contact", badge: null },
+];
+
+const navigation = PHYSICAL_AI_MODE ? physicalAINavigation : allNavigation;
 
 const serviceLinks = [
   { name: "Data Infrastructure", href: "/services/data-infrastructure-consulting", icon: Database },

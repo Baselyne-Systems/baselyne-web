@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { PHYSICAL_AI_MODE } from "@/config";
 import { ArrowRight, Github } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
@@ -166,7 +167,7 @@ function PostCard({ post }: { post: Post }) {
 
 export default function Blog() {
   const ALL = "All";
-  const [activeTab, setActiveTab] = useState(ALL);
+  const [activeTab, setActiveTab] = useState(PHYSICAL_AI_MODE ? "Physical AI" : ALL);
 
   const filteredSections = activeTab === ALL
     ? sections
