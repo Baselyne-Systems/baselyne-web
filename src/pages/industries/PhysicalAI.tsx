@@ -1,4 +1,4 @@
-import { ArrowRight, Database, GitBranch, Radio, Shield, BarChart3, Wifi, AlertTriangle, FileCheck } from "lucide-react";
+import { ArrowRight, Cpu, Database, GitBranch, Radio, Shield, BarChart3, Wifi, AlertTriangle, FileCheck } from "lucide-react";
 import { PHYSICAL_AI_MODE } from "@/config";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
@@ -37,6 +37,12 @@ const challenges = [
     description:
       "When a new policy performs worse than the last one, the first question is 'what changed?' Nobody can answer it. The model was trained in a notebook, the data was a folder on someone's machine, and there's no record of which episodes produced which checkpoint. Training history is stored in DVC or not at all.",
   },
+  {
+    icon: Cpu,
+    title: "Fleet deployment is duct tape and spreadsheets",
+    description:
+      "Which model version is running on which robot? When was it last updated? How is it performing compared to the others? At one of the most advanced deployed fleets in Europe, the answer was an Excel spreadsheet. Inference latency varies by hardware, model updates require downtime, and rollback means SSH-ing into each machine.",
+  },
 ];
 
 const capabilities = [
@@ -69,6 +75,12 @@ const capabilities = [
     title: "Edge Data Management",
     description:
       "Intelligent on-device data filtering and prioritized sync for systems with limited connectivity. Failure data uploaded first, routine operations downsampled. Offline-first architecture that works in disconnected and bandwidth-constrained environments.",
+  },
+  {
+    icon: Cpu,
+    title: "Fleet Deployment & Inference",
+    description:
+      "Per-system model versioning, deployment monitoring, and performance tracking. Inference optimization for edge hardware. Model updates without downtime, instant rollback when something goes wrong. A system, not a spreadsheet.",
   },
 ];
 
@@ -168,7 +180,7 @@ export default function PhysicalAI() {
               infrastructure pain is consistent.
             </p>
           </div>
-          <div className="mt-16 grid gap-6 sm:grid-cols-2">
+          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {challenges.map((item) => (
               <Card key={item.title} className="border-border/50 bg-card/50">
                 <CardContent className="p-6">
@@ -195,7 +207,7 @@ export default function PhysicalAI() {
               Infrastructure for the full physical AI lifecycle
             </h2>
           </div>
-          <div className="mt-16 grid gap-6 sm:grid-cols-2">
+          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {capabilities.map((capability) => (
               <Card key={capability.title} className="border-border/50 bg-card">
                 <CardContent className="p-6">
