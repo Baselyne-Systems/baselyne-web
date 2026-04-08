@@ -1,4 +1,5 @@
 import { ArrowRight, Database, GitBranch, Radio, Shield, BarChart3, Wifi, AlertTriangle, FileCheck } from "lucide-react";
+import { PHYSICAL_AI_MODE } from "@/config";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
@@ -75,7 +76,7 @@ export default function PhysicalAI() {
   return (
     <Layout>
       <SEO
-        title="Physical AI Data Infrastructure | Baselyne Systems"
+        title="Physical AI & ML Infrastructure | Baselyne Systems"
         description="Data infrastructure for physical AI — robotics, autonomous systems, embodied agents, and world models. Sensor data pipelines, training infrastructure, evaluation gates, and edge data management."
         keywords="physical AI data infrastructure, embodied AI infrastructure, world model data pipeline, autonomous systems data, sensor data pipeline, 3D scene data, robot data lake, training data lineage, model evaluation physical AI"
         canonical="https://baselynesystems.com/physical-ai"
@@ -315,8 +316,8 @@ export default function PhysicalAI() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-layer-3 py-20 lg:py-28">
+      {/* CTA — hidden in physical AI mode since footer has one */}
+      {!PHYSICAL_AI_MODE && <section className="bg-layer-3 py-20 lg:py-28">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-semibold text-foreground sm:text-4xl">
@@ -340,7 +341,7 @@ export default function PhysicalAI() {
             </Button>
           </div>
         </div>
-      </section>
+      </section>}
     </Layout>
   );
 }
