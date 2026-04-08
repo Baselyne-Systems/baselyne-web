@@ -36,7 +36,7 @@ export default function About() {
     <Layout>
       <SEO
         title="About Baselyne Systems | Physical AI & Data Infrastructure"
-        description="Founder-led AI and data infrastructure consulting with experience from Meta and Alphabet. Production-grade ML and data systems."
+        description="Founder-led physical AI and ML infrastructure firm. Fixed-outcome engagements delivered by an engineer with a decade at Meta and Alphabet."
         keywords="AI infrastructure consulting firm, MLOps consultants, data engineering experts, ML platform consulting, machine learning infrastructure company"
         canonical="https://baselynesystems.com/about"
         structuredData={organizationSchema}
@@ -49,7 +49,7 @@ export default function About() {
               About Baselyne Systems
             </h1>
             <p className="mt-6 text-lg text-muted-foreground">
-              A founder-led consultancy focused on AI infrastructure, data engineering, and MLOps. We bring deep engineering experience to teams building production ML systems.
+              A founder-led infrastructure firm focused on physical AI and ML systems. We take on hard engineering problems and deliver defined outcomes in fixed timelines.
             </p>
           </div>
         </div>
@@ -68,16 +68,16 @@ export default function About() {
             
             <div className="mt-8 space-y-6 text-muted-foreground">
               <p>
-                Baselyne Systems was founded with a simple observation: most companies struggling with ML infrastructure aren't facing novel technical problems. They're facing problems that have been solved at larger scales—but those solutions aren't accessible without the right experience.
+                Baselyne Systems takes on infrastructure problems that don't have off-the-shelf solutions. We scope every engagement around a specific, measurable outcome — reducing data-to-model cycle time, scaling training pipelines, building evaluation infrastructure — and deliver it in a fixed timeline at a fixed price.
               </p>
               <p>
                 The founder brings nearly a decade of infrastructure engineering experience, including six years at Meta and Alphabet working on the kind of systems most companies only read about: petabyte-scale data platforms, systems handling 100M+ queries per second, and the complex data governance work required for GDPR compliance at Meta.
               </p>
               <p>
-                This isn't a personal résumé—it's operating credibility. When we recommend an architecture, it's because we've seen what works and what breaks at scale. When we suggest a particular approach to monitoring or governance, it's grounded in real operational experience.
+                When we recommend an architecture, it's because we've seen what works and what breaks at scale. When we suggest a particular approach to monitoring or governance, it's grounded in real operational experience.
               </p>
               <p>
-                We take that experience and apply it to companies at earlier stages, helping them build infrastructure that will scale with their ambitions rather than becoming a bottleneck.
+                We apply that experience to companies building physical AI and production ML — helping them solve the specific infrastructure problem that's blocking them, with a defined outcome and a handover that leaves their team independent.
               </p>
               <a
                 href="https://www.linkedin.com/in/achyuthsamudrala/"
@@ -156,7 +156,7 @@ export default function About() {
               Let's talk about your infrastructure
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Schedule a conversation to discuss your challenges and see if we're the right fit.
+              We'll discuss your infrastructure challenges and scope an outcome. Typical engagements run 6-12 weeks.
             </p>
             <Button asChild size="lg" className="mt-8">
               <a
