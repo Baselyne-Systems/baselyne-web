@@ -69,7 +69,7 @@ export default function Home() {
     <Layout>
       <SEO
         title="Physical AI & ML Infrastructure | Fixed-Outcome Engagements | Baselyne Systems"
-        description="Fixed-outcome engagements for physical AI and ML infrastructure. Sensor data pipelines, training systems, evaluation gates, and edge data management. We scope around specific results, not hours."
+        description="Fixed-outcome engagements for physical AI and ML infrastructure. Data pipelines, training systems, evaluation gates, and edge data management."
         keywords="AI infrastructure consulting, MLOps consulting, data infrastructure consulting, reduce AI infrastructure costs, GPU cost optimization, model deployment automation, AI prototype to production, ML production monitoring, data pipeline latency reduction"
         canonical="https://baselynesystems.com"
         structuredData={combinedSchema}
