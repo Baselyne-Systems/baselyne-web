@@ -68,7 +68,7 @@ export default function Home() {
   return (
     <Layout>
       <SEO
-        title="Ship AI to Production | Cut GPU Costs 50-80% | Baselyne Systems"
+        title="Physical AI & ML Infrastructure | Fixed-Outcome Engagements | Baselyne Systems"
         description="AI infrastructure, data platforms, and MLOps consulting. Production data pipelines, evaluation-gated deployment, GPU cost optimization, and physical AI data infrastructure."
         keywords="AI infrastructure consulting, MLOps consulting, data infrastructure consulting, reduce AI infrastructure costs, GPU cost optimization, model deployment automation, AI prototype to production, ML production monitoring, data pipeline latency reduction"
         canonical="https://baselynesystems.com"
