@@ -76,7 +76,7 @@ export default function PhysicalAI() {
   return (
     <Layout>
       <SEO
-        title="Physical AI & ML Infrastructure | Baselyne Systems"
+        title="Physical AI Infrastructure | Baselyne Systems"
         description="Data infrastructure for physical AI — robotics, autonomous systems, embodied agents, and world models. Sensor data pipelines, training infrastructure, evaluation gates, and edge data management."
         keywords="physical AI data infrastructure, embodied AI infrastructure, world model data pipeline, autonomous systems data, sensor data pipeline, 3D scene data, robot data lake, training data lineage, model evaluation physical AI"
         canonical="https://baselynesystems.com/physical-ai"
