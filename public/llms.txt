@@ -1,10 +1,10 @@
 # Baselyne Systems
 
-> AI infrastructure, data engineering, and MLOps consulting. We help teams move AI from experimentation into production.
+> ML and data infrastructure for physical AI. Fixed-outcome engagements for sensor data pipelines, training systems, evaluation gates, GPU optimization, and edge inference.
 
 ## About
 
-Baselyne Systems is a founder-led consulting firm focused on AI infrastructure, data engineering, and MLOps. We bring large-scale engineering experience from Meta and Alphabet to companies building production AI systems.
+Baselyne Systems is a founder-led infrastructure firm focused on physical AI — robotics, autonomous systems, embodied agents, and world models. We take on hard engineering problems and deliver defined outcomes in fixed timelines. The founder has built infrastructure at Meta, Isomorphic Labs (Alphabet), and Booking.com.
 
 ## Services
 
