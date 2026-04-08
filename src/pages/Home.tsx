@@ -225,8 +225,8 @@ export default function Home() {
               Every engagement starts with understanding your system. We assess your current state, identify the critical path, and focus on what matters for production readiness.
             </p>
             <Button asChild variant="outline" className="mt-8">
-              <Link to="/approach" className="inline-flex items-center gap-2">
-                Learn About Our Approach
+              <Link to="/about" className="inline-flex items-center gap-2">
+                About Us
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>

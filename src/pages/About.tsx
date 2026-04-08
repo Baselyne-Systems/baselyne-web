@@ -1,4 +1,4 @@
-import { ArrowRight, Building2, Database, Linkedin, Shield, Users, Zap } from "lucide-react";
+import { ArrowRight, Building2, CheckCircle2, Database, FileText, Linkedin, Search, Shield, Target, Users, Wrench, Zap } from "lucide-react";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -25,9 +25,74 @@ const experience = [
   },
   {
     icon: Building2,
-    metric: "Nearly a decade",
+    metric: "Meta · Alphabet · Booking",
     title: "Engineering depth",
-    description: "Infrastructure experience including six years at Meta and Alphabet, building systems that serve billions of users.",
+    description: "Infrastructure experience across Meta, Isomorphic Labs (Alphabet), and Booking.com.",
+  },
+];
+
+const phases = [
+  {
+    step: "01",
+    icon: Search,
+    title: "Assessment",
+    duration: "1-2 weeks",
+    description: "We review your architecture, talk to your team, and identify the critical gap between where you are and where you need to be.",
+    outputs: [
+      "Architecture review and gap analysis",
+      "Prioritised roadmap with milestones",
+    ],
+  },
+  {
+    step: "02",
+    icon: Target,
+    title: "Scope & Outcome",
+    duration: "Collaborative",
+    description: "We agree on a specific outcome — for example, reduce data-to-policy cycle time from weeks to days. Fixed scope, fixed timeline, fixed price.",
+    outputs: [
+      "Defined outcome with measurable success criteria",
+      "Fixed-price proposal with timeline",
+    ],
+  },
+  {
+    step: "03",
+    icon: Wrench,
+    title: "Implementation",
+    duration: "6-12 weeks typical",
+    description: "We build alongside your team. Weekly syncs, shared code repositories, and continuous documentation. The deliverable is the agreed outcome.",
+    outputs: [
+      "Production-ready infrastructure",
+      "Documentation and runbooks",
+    ],
+  },
+  {
+    step: "04",
+    icon: CheckCircle2,
+    title: "Handover",
+    duration: "Included",
+    description: "Your team can operate and extend what we built independently. Training, shadowed operations, and a support window during transition.",
+    outputs: [
+      "Team training and operational handover",
+      "Post-engagement support window",
+    ],
+  },
+];
+
+const principles = [
+  {
+    icon: Target,
+    title: "Production first",
+    description: "Everything we build is designed for production from day one. No prototypes that need to be rewritten.",
+  },
+  {
+    icon: FileText,
+    title: "Documentation as deliverable",
+    description: "We deliver systems your team can understand, operate, and extend without us.",
+  },
+  {
+    icon: Users,
+    title: "Knowledge transfer built-in",
+    description: "We work alongside your engineers. Skills transfer happens through pairing, reviews, and shared decision-making.",
   },
 ];
 
@@ -35,12 +100,13 @@ export default function About() {
   return (
     <Layout>
       <SEO
-        title="About Baselyne Systems | Physical AI & Data Infrastructure"
+        title="About & Approach | Baselyne Systems"
         description="Founder-led physical AI and ML infrastructure firm. Fixed-outcome engagements for hard infrastructure problems. Experience from Meta, Alphabet, and Booking.com."
-        keywords="AI infrastructure consulting firm, MLOps consultants, data engineering experts, ML platform consulting, machine learning infrastructure company"
+        keywords="AI infrastructure consulting, physical AI consulting, fixed-outcome engagements, ML infrastructure, data engineering"
         canonical="https://baselynesystems.com/about"
         structuredData={organizationSchema}
       />
+
       {/* Hero */}
       <section className="bg-gradient-to-b from-layer-1 to-layer-2 py-20 lg:py-28">
         <div className="container mx-auto px-4 lg:px-8">
@@ -65,16 +131,12 @@ export default function About() {
             <h2 className="mt-3 text-3xl font-semibold text-foreground sm:text-4xl">
               Built at scale, delivered at your scale
             </h2>
-            
             <div className="mt-8 space-y-6 text-muted-foreground">
               <p>
                 Baselyne Systems takes on infrastructure problems that don't have off-the-shelf solutions. We scope every engagement around a specific, measurable outcome — reducing data-to-model cycle time, scaling training pipelines, building evaluation infrastructure — and deliver it in a fixed timeline at a fixed price.
               </p>
               <p>
                 The founder has built infrastructure at Meta, Isomorphic Labs (Alphabet), and Booking.com — petabyte-scale data platforms, systems handling 100M+ queries per second, ML observability, and GDPR compliance at scale.
-              </p>
-              <p>
-                When we recommend an architecture, it's because we've seen what works and what breaks at scale. When we suggest a particular approach to monitoring or governance, it's grounded in real operational experience.
               </p>
               <p>
                 We apply that experience to companies building physical AI and production ML — helping them solve the specific infrastructure problem that's blocking them, with a defined outcome and a handover that leaves their team independent.
@@ -98,13 +160,12 @@ export default function About() {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-sm font-medium uppercase tracking-wider text-primary">
-              Operating Experience
+              Experience
             </p>
             <h2 className="mt-3 text-3xl font-semibold text-foreground sm:text-4xl">
               Engineering credibility that transfers
             </h2>
           </div>
-
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {experience.map((item) => (
               <Card key={item.title} className="border-border/50 bg-card">
@@ -122,28 +183,79 @@ export default function About() {
         </div>
       </section>
 
-      {/* Philosophy */}
+      {/* How We Work */}
       <section className="bg-layer-1 py-20 lg:py-28">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="mx-auto max-w-3xl">
+          <div className="mx-auto max-w-2xl text-center">
             <p className="text-sm font-medium uppercase tracking-wider text-primary">
-              Philosophy
+              How We Work
             </p>
             <h2 className="mt-3 text-3xl font-semibold text-foreground sm:text-4xl">
-              Systems thinking
+              Fixed-outcome engagements
             </h2>
-            
-            <div className="mt-8 space-y-6 text-muted-foreground">
-              <p>
-                We approach every engagement as systems engineers. That means thinking about failure modes, operational burden, and long-term maintainability—not just whether something works in a demo.
-              </p>
-              <p>
-                The goal is never to be clever. It's to build systems that are boring in the best way: predictable, observable, and recoverable. Systems that let your team sleep through the night and focus on work that matters.
-              </p>
-              <p>
-                Every engagement is scoped around a specific outcome — a measurable improvement to your infrastructure, delivered in a fixed timeline at a fixed price. We work best with teams that have real infrastructure challenges and engineers who want to own what we build together.
-              </p>
-            </div>
+            <p className="mt-4 text-muted-foreground">
+              You pay for results — a working system your team can operate — not for hours.
+            </p>
+          </div>
+
+          <div className="mt-16 space-y-6 mx-auto max-w-3xl">
+            {phases.map((phase) => (
+              <div
+                key={phase.step}
+                className="flex gap-6"
+              >
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground">
+                  {phase.step}
+                </div>
+                <div>
+                  <div className="flex items-center gap-3">
+                    <h3 className="font-semibold text-foreground">{phase.title}</h3>
+                    <span className="text-xs text-muted-foreground">{phase.duration}</span>
+                  </div>
+                  <p className="mt-2 text-sm text-muted-foreground">{phase.description}</p>
+                  <ul className="mt-3 space-y-1">
+                    {phase.outputs.map((output) => (
+                      <li
+                        key={output}
+                        className="flex items-center gap-2 text-sm text-muted-foreground"
+                      >
+                        <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0" />
+                        {output}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Principles */}
+      <section className="bg-layer-2 py-20 lg:py-28">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="text-sm font-medium uppercase tracking-wider text-primary">
+              Principles
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold text-foreground sm:text-4xl">
+              What guides our work
+            </h2>
+          </div>
+          <div className="mt-16 grid gap-8 md:grid-cols-3 mx-auto max-w-4xl">
+            {principles.map((principle) => (
+              <Card key={principle.title} className="border-border/50 bg-card">
+                <CardContent className="p-6">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
+                    <principle.icon className="h-5 w-5 text-primary" />
+                  </div>
+                  <h3 className="mt-4 font-semibold text-foreground">{principle.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    {principle.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -153,10 +265,10 @@ export default function About() {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-semibold text-foreground sm:text-4xl">
-              Let's talk about your infrastructure
+              Let's scope an outcome
             </h2>
             <p className="mt-4 text-muted-foreground">
-              We'll discuss your infrastructure challenges and scope an outcome. Typical engagements run 6-12 weeks.
+              We'll discuss your infrastructure challenges and define a specific result. Typical engagements run 6-12 weeks.
             </p>
             <Button asChild size="lg" className="mt-8">
               <a
@@ -175,4 +287,3 @@ export default function About() {
     </Layout>
   );
 }
-

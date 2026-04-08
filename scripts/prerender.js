@@ -14,7 +14,6 @@ const routes = [
   '/services/mlops-consulting',
   '/services/data-infrastructure-consulting',
   '/physical-ai',
-  '/approach',
   '/blog/bulkhead',
   '/blog/gatekeeper',
   '/blog/robot-data-lake',

@@ -9,7 +9,6 @@ import Services from "./pages/Services";
 import AIInfrastructureConsulting from "./pages/services/AIInfrastructureConsulting";
 import MLOpsConsulting from "./pages/services/MLOpsConsulting";
 import DataInfrastructureConsulting from "./pages/services/DataInfrastructureConsulting";
-import Approach from "./pages/Approach";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
@@ -38,7 +37,6 @@ const App = () => (
           <Route path="/services/ai-infrastructure-consulting" element={<AIInfrastructureConsulting />} />
           <Route path="/services/mlops-consulting" element={<MLOpsConsulting />} />
           <Route path="/services/data-infrastructure-consulting" element={<DataInfrastructureConsulting />} />
-          <Route path="/approach" element={<Approach />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/blog" element={<Blog />} />

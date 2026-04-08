@@ -79,7 +79,6 @@ GitHub: https://github.com/Baselyne-Systems/cdc-platform
 - Services: https://baselynesystems.com/services
 - Physical AI: https://baselynesystems.com/physical-ai
 - Blog: https://baselynesystems.com/blog
-- Approach: https://baselynesystems.com/approach
 - About: https://baselynesystems.com/about
 - Contact: https://baselynesystems.com/contact
 
