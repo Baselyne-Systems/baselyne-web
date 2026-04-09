@@ -109,8 +109,7 @@ export default function PhysicalAI() {
               Models are getting better. Deployment, evaluation, and data management
               are getting harder. We build the infrastructure underneath — sensor
               data pipelines, training systems, evaluation gates, inference
-              optimization, and the data layer that connects the physical world
-              to model development.
+              optimization, and fleet deployment.
             </p>
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Button asChild size="lg">
