@@ -80,7 +80,7 @@ const capabilities = [
     icon: Cpu,
     title: "Fleet Deployment & Inference",
     description:
-      "Per-system model versioning, deployment monitoring, and performance tracking. Inference optimization for edge hardware. Model updates without downtime, instant rollback when something goes wrong. A system, not a spreadsheet.",
+      "Per-system model versioning, deployment monitoring, and performance tracking. Inference optimization for edge hardware. Model updates without downtime and instant rollback when something goes wrong.",
   },
 ];
 
