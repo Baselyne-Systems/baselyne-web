@@ -107,7 +107,7 @@ export default function PhysicalAI() {
               Your models are ready to deploy. Your infrastructure isn't.
             </h1>
             <p className="mt-6 text-lg text-muted-foreground">
-              We build in 6–8 weeks what would take your team 6 months — sensor
+              We build in weeks what would take your team months — sensor
               data pipelines, evaluation gates, training traceability, and edge
               deployment. Fixed scope. Defined outcome. No retainer.
             </p>
