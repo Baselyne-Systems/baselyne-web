@@ -65,7 +65,7 @@ export function Footer() {
             </Link>
             <p className="mt-4 max-w-sm text-sm text-muted-foreground">
               {PHYSICAL_AI_MODE
-                ? "ML and data infrastructure for physical AI. Fixed-outcome engagements for sensor data pipelines, training systems, evaluation gates, GPU optimization, and edge inference."
+                ? "We take on 2–3 engagements at a time. If you're scaling a physical AI system and hitting infrastructure limits, we want to hear from you."
                 : "AI infrastructure, data engineering, and MLOps consulting. We design, build, and operate production-grade data platforms and AI systems."}
             </p>
             <a
