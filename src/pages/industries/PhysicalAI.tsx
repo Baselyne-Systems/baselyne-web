@@ -1,5 +1,6 @@
-import { ArrowRight, Cpu, Database, GitBranch, Radio, Shield, BarChart3, Wifi, AlertTriangle, FileCheck } from "lucide-react";
+import { ArrowRight, Cpu, Database, GitBranch, Linkedin, Radio, Shield, BarChart3, Wifi, AlertTriangle, FileCheck } from "lucide-react";
 import { PHYSICAL_AI_MODE } from "@/config";
+import founderPhoto from "@/assets/achyuth.jpeg";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
@@ -222,30 +223,37 @@ export default function PhysicalAI() {
         </div>
       </section>
 
-      {/* Background */}
+      {/* Founder */}
       <section className="bg-layer-1 py-20 lg:py-28">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <p className="text-sm font-medium uppercase tracking-wider text-primary">
-              Why Us
-            </p>
-            <h2 className="mt-3 text-3xl font-semibold text-foreground sm:text-4xl">
-              Infrastructure experience applied to physical AI
-            </h2>
-            <div className="mt-8 space-y-6 text-muted-foreground">
-              <p>
-                We spent a decade building data infrastructure at Meta and Alphabet —
-                petabyte-scale pipelines, training data systems, model serving at 100M+ QPS.
-                The same patterns apply to physical AI: format normalization, episode-centric
-                storage, evaluation-gated deployment, and closed-loop data pipelines.
-              </p>
-              <p>
-                The difference is the domain. We've spent the last several months going
-                deep — building tools for physical AI data, talking to teams across
-                robotics, autonomous systems, and embodied AI, and understanding the
-                domain-specific challenges that make this infrastructure different from
-                web-scale ML.
-              </p>
+            <div className="flex flex-col sm:flex-row gap-8 items-start">
+              <img
+                src={founderPhoto}
+                alt="Achyuth Samudrala"
+                className="h-28 w-28 rounded-xl object-cover shrink-0"
+              />
+              <div>
+                <h2 className="text-2xl font-semibold text-foreground">
+                  Achyuth Samudrala
+                </h2>
+                <p className="mt-1 text-sm text-primary">Founder & Principal Engineer</p>
+                <p className="mt-4 text-muted-foreground">
+                  Built ML infrastructure at Meta, Isomorphic Labs (Alphabet), and
+                  Booking.com — petabyte-scale data platforms, model serving at 100M+ QPS,
+                  and ML observability that cut incident detection from days to seconds.
+                  Now building infrastructure for physical AI.
+                </p>
+                <a
+                  href="https://www.linkedin.com/in/achyuthsamudrala/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  <Linkedin className="h-4 w-4" />
+                  LinkedIn
+                </a>
+              </div>
             </div>
           </div>
         </div>
