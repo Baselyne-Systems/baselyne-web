@@ -103,13 +103,12 @@ export default function PhysicalAI() {
               Physical AI Infrastructure
             </p>
             <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-              The infrastructure layer for physical AI is missing
+              Your models are ready to deploy. Your infrastructure isn't.
             </h1>
             <p className="mt-6 text-lg text-muted-foreground">
-              Models are getting better. Deployment, evaluation, and data management
-              are getting harder. We build the infrastructure underneath — sensor
-              data pipelines, training systems, evaluation gates, inference
-              optimization, and fleet deployment.
+              We build in 6–8 weeks what would take your team 6 months — sensor
+              data pipelines, evaluation gates, training traceability, and edge
+              deployment. Fixed scope. Defined outcome. No retainer.
             </p>
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Button asChild size="lg">
