@@ -107,8 +107,8 @@ export default function PhysicalAI() {
               Your models are ready to deploy. Your infrastructure isn't.
             </h1>
             <p className="mt-6 text-lg text-muted-foreground">
-              We build in weeks what would take your team months — sensor
-              data pipelines, evaluation gates, training traceability, and edge
+              We build in weeks what would take your team months — from data
+              pipelines and training systems to inference optimization and fleet
               deployment. Fixed scope. Defined outcome. No retainer.
             </p>
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
