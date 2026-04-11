@@ -1,103 +1,86 @@
 # Baselyne Systems
 
-> ML and data infrastructure for physical AI. Fixed-outcome engagements for sensor data pipelines, training systems, evaluation gates, GPU optimization, and edge inference.
+> ML and data infrastructure for physical AI. We build in weeks what would take your team months — data pipelines, training systems, inference optimization, and fleet deployment. Fixed scope. Defined outcome.
 
 ## About
 
-Baselyne Systems is a founder-led infrastructure firm focused on physical AI — robotics, autonomous systems, embodied agents, and world models. We take on hard engineering problems and deliver defined outcomes in fixed timelines. The founder has built infrastructure at Meta, Isomorphic Labs (Alphabet), and Booking.com.
-
-## Services
-
-### Data Infrastructure
-Modern data platforms for AI workloads: lakehouse architecture, real-time and batch pipelines, data governance, semantic data layers, and vector search infrastructure for RAG.
-URL: https://baselynesystems.com/services/data-infrastructure-consulting
-
-### MLOps
-Get AI from prototype to production: model and prompt versioning, deployment infrastructure, evaluation and monitoring, ML pipeline orchestration, and continuous improvement workflows.
-URL: https://baselynesystems.com/services/mlops-consulting
-
-### AI Infrastructure
-Scalable AI compute with cost control: GPU orchestration, cost attribution, LLM serving infrastructure, security and compliance, and AI observability.
-URL: https://baselynesystems.com/services/ai-infrastructure-consulting
-
-## Industries
-
-### Physical AI
-Data infrastructure for physical AI — robotics, autonomous systems, embodied agents, and world models. Sensor data pipelines, training infrastructure, evaluation gates, and edge data management. We ingest RLDS, LeRobot, MCAP, and HDF5 into Apache Iceberg tables queryable via SQL.
-URL: https://baselynesystems.com/physical-ai
+Baselyne Systems is a founder-led infrastructure firm focused on physical AI — robotics, autonomous systems, embodied agents, and world models. We take on hard engineering problems and deliver defined outcomes in fixed timelines.
 
 ## Founder
 
-Achyuth Samudrala - Nearly a decade of infrastructure engineering experience, including six years at Meta and Alphabet. Built petabyte-scale data platforms and systems handling 100M+ queries per second.
+Achyuth Samudrala — Founder & Principal Engineer. Built ML infrastructure at Meta, Isomorphic Labs (Alphabet), and Booking.com — petabyte-scale data platforms, model serving at 100M+ QPS, and ML observability that cut incident detection from days to seconds. Now building infrastructure for physical AI.
 LinkedIn: https://www.linkedin.com/in/achyuthsamudrala/
+
+## What We Build
+
+- Sensor data lakes — multi-format ingestion (RLDS, LeRobot, MCAP, HDF5), episode-centric schema, cross-format SQL queries
+- Training infrastructure — data lineage, experiment comparison, model registry, reproducibility
+- Evaluation & policy gating — automated eval pipelines, regression testing, deployment gates
+- Inference optimization — GPU scheduling, model serving, latency profiling
+- Edge data management — offline-first sync, priority scoring, resumable upload over intermittent connectivity
+- Fleet deployment — model versioning, monitoring, updates without downtime, rollback
+- Compliance & audit trail — data lineage from sensor input to model decision, EU AI Act, ISO 42001
 
 ## Contact
 
-Schedule a 30-minute call to discuss your infrastructure challenges.
+Schedule a 30-minute call to discuss your physical AI infrastructure challenges.
 Calendly: https://calendly.com/achyuthsamudrala/30min
 Website: https://baselynesystems.com/contact
 
 ## Blog
 
-Technical case studies on open-source infrastructure built by Baselyne.
+Technical case studies on infrastructure built by Baselyne.
 
-### MLOps for Robot Policies (April 2026)
-Training pipeline infrastructure for physical AI — data lineage tracing every model to its exact training episodes, experiment comparison across policy architectures (MLP 59s/100% vs diffusion 509s/99% vs flow 522s/100% on same versioned data), model registry with stage lifecycle, and full reproducibility records.
-URL: https://baselynesystems.com/blog/training-pipeline
+### Data Infrastructure
 
-### Edge Sync: Offline-First Data Sync for Field Robots (April 2026)
-Offline-first sync daemon for field robots with intermittent connectivity. Priority scoring by training value (failures > novel > routine), bounded buffer eviction, resumable chunked upload, two-phase completion. 100% failure data survival while dropping half of all episodes. 9 identified race conditions with specific mitigations.
-URL: https://baselynesystems.com/blog/edge-sync
-
-### The Robot Data Lake (April 2026)
-Format-agnostic data lake for physical AI — ingesting RLDS, LeRobot, MCAP, and HDF5 into Apache Iceberg tables. 5,121 episodes across 3 formats and 3 robot types queryable in 4-74ms. Episode-centric schema with modality separation and reference-based image storage.
+#### The Robot Data Lake (April 2026)
+Format-agnostic data lake for physical AI — ingesting RLDS, LeRobot, MCAP, and HDF5 into Apache Iceberg tables. 5,121 episodes across 3 formats and 3 robot types queryable in 4-74ms.
 URL: https://baselynesystems.com/blog/robot-data-lake
 
-### GateKeeper: Eval-Gated Model Deployment (March 2026)
-Eval-gated deployment pipeline that blocks bad models before production. Config-driven quality gates — accuracy, drift, LLM judge, champion vs. challenger. Caught a sentiment classifier regression (F1 = 0.338) before production. Canary traffic management with auto-rollback.
-URL: https://baselynesystems.com/blog/gatekeeper
-GitHub: https://github.com/achyuthsamudrala/gatekeeper
-
-### Bulkhead: Defense in Depth for Autonomous AI Agents (March 2026)
-Four independent enforcement layers for AI agent governance: compiled guardrails evaluated in 184ns, kernel-level iptables egress, append-only audit trail, and non-blocking human-in-the-loop escalation. Built with Go 1.24, Rust 1.83, PostgreSQL 16, gRPC.
-URL: https://baselynesystems.com/blog/bulkhead
-GitHub: https://github.com/achyuthnsamudrala/bulkhead
-
-### Retrieval OS: A Production-Grade Retrieval Runtime (February 2026)
-Config versioning, staged rollouts, automatic quality guard-rails, and 2.8ms rollback propagation for RAG systems. 10,785 QPS on a single node with 81.4% natural cache hit rate. Built with FastAPI, Redis, Qdrant, PostgreSQL.
-URL: https://baselynesystems.com/blog/retrieval-os
-GitHub: https://github.com/Baselyne-Systems/retrieval-os
-
-### Building a High-Throughput CDC Platform (February 2026)
+#### Building a High-Throughput CDC Platform (February 2026)
 Modular Python CDC platform achieving 38,647 msg/s with config-driven tuning, exactly-once delivery, multi-source support, and Apache Iceberg lakehouse with time travel.
 URL: https://baselynesystems.com/blog/cdc-platform
-GitHub: https://github.com/Baselyne-Systems/cdc-platform
+
+#### Retrieval OS: A Production-Grade Retrieval Runtime (February 2026)
+Config versioning, staged rollouts, automatic quality guard-rails, and 2.8ms rollback propagation for RAG systems. 10,785 QPS on a single node with 81.4% natural cache hit rate.
+URL: https://baselynesystems.com/blog/retrieval-os
+
+### MLOps & Model Platforms
+
+#### MLOps for Robot Policies (April 2026)
+Training pipeline infrastructure for physical AI — data lineage, experiment comparison across policy architectures (MLP 59s/100% vs diffusion 509s/99% vs flow 522s/100% on same versioned data), model registry with stage lifecycle, and full reproducibility records.
+URL: https://baselynesystems.com/blog/training-pipeline
+
+#### GateKeeper: Eval-Gated Model Deployment (March 2026)
+Eval-gated deployment pipeline that blocks bad models before production. Config-driven quality gates — accuracy, drift, LLM judge, champion vs. challenger. Canary traffic management with auto-rollback.
+URL: https://baselynesystems.com/blog/gatekeeper
+
+### AI Infrastructure
+
+#### Edge Sync: Offline-First Data Sync (April 2026)
+Offline-first sync daemon with intermittent connectivity. Priority scoring by training value, bounded buffer eviction, resumable chunked upload, two-phase completion. 100% failure data survival while dropping half of all episodes. 9 identified race conditions with specific mitigations.
+URL: https://baselynesystems.com/blog/edge-sync
+
+#### Bulkhead: Defense in Depth for Autonomous AI Agents (March 2026)
+Four independent enforcement layers for AI agent governance: compiled guardrails evaluated in 184ns, kernel-level iptables egress, append-only audit trail, and non-blocking human-in-the-loop escalation.
+URL: https://baselynesystems.com/blog/bulkhead
 
 ## Key Pages
 
 - Home: https://baselynesystems.com/
-- Services: https://baselynesystems.com/services
-- Physical AI: https://baselynesystems.com/physical-ai
 - Blog: https://baselynesystems.com/blog
 - About: https://baselynesystems.com/about
 - Contact: https://baselynesystems.com/contact
 
 ## Topics We Help With
 
-- Physical AI data infrastructure
-- Robot data pipelines and episode storage
-- Sensor data ingestion (MCAP, RLDS, LeRobot, HDF5)
-- Offline-first edge data sync for field robots
-- Robot policy training infrastructure and MLOps
-- Data lineage and reproducibility for robot training
-- Experiment comparison across policy architectures
-- AI infrastructure consulting
-- MLOps consulting
-- Data infrastructure consulting
-- GPU orchestration and cost optimization
-- LLM serving and inference optimization
-- RAG pipeline architecture
-- Data platform modernization
-- ML model deployment
-- AI observability and monitoring
-- Data governance for AI systems
+- Physical AI infrastructure (robotics, autonomous systems, embodied AI, world models)
+- Sensor data pipelines and episode storage
+- Training infrastructure, data lineage, and reproducibility
+- Model evaluation and deployment gating
+- Inference optimization and GPU scheduling
+- Edge data management and offline-first sync
+- Fleet deployment, versioning, and monitoring
+- Compliance and audit trails (EU AI Act, ISO 42001)
+- Data lake architecture (Apache Iceberg)
+- MLOps for physical AI
