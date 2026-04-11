@@ -26,9 +26,9 @@ export default function Contact() {
   return (
     <Layout>
       <SEO
-        title="Contact Baselyne Systems - Schedule a Consulting Call"
-        description="Schedule a 30-minute call to discuss your AI infrastructure, MLOps, or data platform challenges. No sales pitch - just a conversation about your needs."
-        keywords="AI infrastructure consultation, MLOps consulting call, data platform assessment, ML consulting inquiry"
+        title="Contact Baselyne Systems | Physical AI Infrastructure"
+        description="Schedule a 30-minute call to discuss your physical AI infrastructure challenges. Fixed-outcome engagements for data pipelines, training systems, inference, and deployment."
+        keywords="physical AI consulting, ML infrastructure consultation, physical AI data pipeline, inference optimization, fixed-outcome engagement"
         canonical="https://baselynesystems.com/contact"
       />
       {/* Hero */}
