@@ -107,7 +107,7 @@ export default function PhysicalAI() {
               Your models are ready to deploy. Your infrastructure isn't.
             </h1>
             <p className="mt-6 text-lg text-muted-foreground">
-              We build in weeks what would take your team months — from data
+              We build production-grade infrastructure in weeks — from data
               pipelines and training systems to inference optimization and fleet
               deployment. Fixed scope. Defined outcome. No retainer.
             </p>
