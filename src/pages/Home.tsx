@@ -145,7 +145,7 @@ export default function Home() {
               Hard infrastructure problems, measurable outcomes
             </h2>
             <p className="mt-4 text-muted-foreground">
-              We take on the engineering challenges that don't have off-the-shelf solutions — and deliver defined results in fixed timelines.
+              We take on infrastructure bottlenecks that stop AI systems from scaling or deploying — and deliver defined results in fixed timelines.
             </p>
           </div>
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
