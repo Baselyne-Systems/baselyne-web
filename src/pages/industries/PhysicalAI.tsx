@@ -264,7 +264,7 @@ export default function PhysicalAI() {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-muted-foreground">
-              7 technical case studies covering data infrastructure, MLOps, and AI systems.
+              Technical case studies covering data infrastructure, MLOps, and AI systems.
             </p>
             <Button asChild variant="outline" size="lg" className="mt-6">
               <Link to="/blog" className="inline-flex items-center gap-2">
