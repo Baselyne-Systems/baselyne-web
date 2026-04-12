@@ -259,78 +259,19 @@ export default function PhysicalAI() {
         </div>
       </section>
 
-      {/* Case Studies */}
-      <section className="bg-layer-2 py-20 lg:py-28">
+      {/* Blog Link */}
+      <section className="bg-layer-2 py-16 lg:py-20">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-sm font-medium uppercase tracking-wider text-primary">
-              Technical Writing
+            <p className="text-muted-foreground">
+              7 technical case studies covering data infrastructure, MLOps, and AI systems.
             </p>
-            <h2 className="mt-3 text-3xl font-semibold text-foreground sm:text-4xl">
-              From our Physical AI blog
-            </h2>
-          </div>
-          <div className="mt-12 mx-auto max-w-3xl space-y-6">
-            <Link
-              to="/blog/robot-data-lake"
-              className="block rounded-lg border border-border bg-card p-8 transition-colors hover:border-primary/50 hover:bg-accent/50"
-            >
-              <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
-                Case Study
-              </span>
-              <h3 className="mt-4 text-xl font-semibold text-foreground">
-                The Robot Data Lake
-              </h3>
-              <p className="mt-2 text-muted-foreground">
-                A format-agnostic data lake for physical AI — ingesting RLDS, LeRobot,
-                MCAP, and HDF5 into Apache Iceberg tables, making 5,121 episodes across
-                3 formats and 3 robot types queryable via SQL.
-              </p>
-              <span className="mt-4 inline-flex items-center gap-1.5 text-sm text-primary">
-                Read the case study
-                <ArrowRight className="h-3.5 w-3.5" />
-              </span>
-            </Link>
-            <Link
-              to="/blog/edge-sync"
-              className="block rounded-lg border border-border bg-card p-8 transition-colors hover:border-primary/50 hover:bg-accent/50"
-            >
-              <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
-                Case Study
-              </span>
-              <h3 className="mt-4 text-xl font-semibold text-foreground">
-                Edge Sync: Offline-First Data Sync for Field Robots
-              </h3>
-              <p className="mt-2 text-muted-foreground">
-                100% failure data survival while dropping half of all episodes — priority
-                scoring, bounded buffer eviction, and resumable upload over intermittent
-                connectivity.
-              </p>
-              <span className="mt-4 inline-flex items-center gap-1.5 text-sm text-primary">
-                Read the case study
-                <ArrowRight className="h-3.5 w-3.5" />
-              </span>
-            </Link>
-            <Link
-              to="/blog/training-pipeline"
-              className="block rounded-lg border border-border bg-card p-8 transition-colors hover:border-primary/50 hover:bg-accent/50"
-            >
-              <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
-                Case Study
-              </span>
-              <h3 className="mt-4 text-xl font-semibold text-foreground">
-                MLOps for Robot Policies
-              </h3>
-              <p className="mt-2 text-muted-foreground">
-                Data lineage, experiment comparison, and model registry for physical AI —
-                3 policy architectures compared on the same versioned dataset with full
-                reproducibility records.
-              </p>
-              <span className="mt-4 inline-flex items-center gap-1.5 text-sm text-primary">
-                Read the case study
-                <ArrowRight className="h-3.5 w-3.5" />
-              </span>
-            </Link>
+            <Button asChild variant="outline" size="lg" className="mt-6">
+              <Link to="/blog" className="inline-flex items-center gap-2">
+                Read the Blog
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
