@@ -237,7 +237,7 @@ export default function PhysicalAI() {
                 <h2 className="text-2xl font-semibold text-foreground">
                   Achyuth Samudrala
                 </h2>
-                <p className="mt-1 text-sm text-primary">Founder & Principal Engineer</p>
+                <p className="mt-1 text-sm text-primary">Founder</p>
                 <p className="mt-4 text-muted-foreground">
                   Built ML infrastructure at Meta, Isomorphic Labs (Alphabet), and
                   Booking.com — petabyte-scale data platforms, model serving at 100M+ QPS,
