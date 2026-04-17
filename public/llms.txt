@@ -13,13 +13,22 @@ LinkedIn: https://www.linkedin.com/in/achyuthsamudrala/
 
 ## What We Build
 
-- Sensor data lakes — multi-format ingestion (RLDS, LeRobot, MCAP, HDF5), episode-centric schema, cross-format SQL queries
-- Training infrastructure — data lineage, experiment comparison, model registry, reproducibility
-- Evaluation & policy gating — automated eval pipelines, regression testing, deployment gates
-- Inference optimization — GPU scheduling, model serving, latency profiling
-- Edge data management — offline-first sync, priority scoring, resumable upload over intermittent connectivity
-- Fleet deployment — model versioning, monitoring, updates without downtime, rollback
-- Compliance & audit trail — data lineage from sensor input to model decision, EU AI Act, ISO 42001
+Three layers across the physical AI lifecycle:
+
+### Data — getting it in, making it useful
+
+- Edge Data Management — on-device scoring and bandwidth-aware sync; failure data uploads first, routine operations downsample; offline-first for disconnected and constrained environments
+- Sensor Data Lake — multi-format ingestion (RLDS, LeRobot, MCAP, HDF5) normalized into one queryable schema on Apache Iceberg; cross-format SQL in milliseconds
+
+### Models — turning data into deployable policies
+
+- Training Infrastructure — lineage from every model back to its exact training data; experiment comparison on versioned datasets; model registry with reproducibility records
+- Evaluation & Policy Gating — automated eval pipelines that gate deployment; regression suites that grow from production failures; block regressions before they reach the fleet
+
+### Fleet — running in production, safely
+
+- Fleet Deployment & Inference — per-system model versioning, deployment monitoring, performance tracking; inference optimization for edge hardware; updates without downtime, instant rollback
+- Compliance & Audit Trail — immutable lineage from sensor input to physical action; trace any decision to the exact model version, training data, and sensor state; EU AI Act and ISO 42001 ready
 
 ## Contact
 

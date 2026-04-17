@@ -97,10 +97,7 @@ export const professionalServiceSchema = {
   description:
     "Expert AI infrastructure, MLOps, and data infrastructure consulting services for data and ML teams.",
   priceRange: "$$$",
-  areaServed: {
-    "@type": "Country",
-    name: "United States",
-  },
+  areaServed: "Worldwide",
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Consulting Services",
@@ -193,7 +190,7 @@ export const aiInfraServiceSchema = {
   description:
     "Expert consulting for building production AI infrastructure including GPU orchestration, cost optimization, and security compliance.",
   serviceType: "Consulting",
-  areaServed: "United States",
+  areaServed: "Worldwide",
   url: "https://baselynesystems.com/services/ai-infrastructure-consulting",
 };
 
@@ -209,7 +206,7 @@ export const mlopsServiceSchema = {
   description:
     "Expert MLOps consulting to get models from notebooks to production with proper versioning, deployment infrastructure, and monitoring.",
   serviceType: "Consulting",
-  areaServed: "United States",
+  areaServed: "Worldwide",
   url: "https://baselynesystems.com/services/mlops-consulting",
 };
 
@@ -223,9 +220,9 @@ export const physicalAIServiceSchema = {
     url: "https://baselynesystems.com",
   },
   description:
-    "Data infrastructure for physical AI — robotics, autonomous systems, embodied agents, and world models. Sensor data pipelines, training infrastructure, evaluation gates, and edge data management.",
+    "Infrastructure for physical AI across the full lifecycle — edge data capture, sensor data lakes, training pipelines, evaluation gates, fleet deployment, and compliance for robotics, autonomous systems, embodied agents, and world models.",
   serviceType: "Consulting",
-  areaServed: "United States",
+  areaServed: "Worldwide",
   url: "https://baselynesystems.com/physical-ai",
 };
 
@@ -241,6 +238,6 @@ export const dataInfraServiceSchema = {
   description:
     "Expert data infrastructure consulting for building reliable, scalable data platforms including lakehouse architecture, pipeline orchestration, and governance.",
   serviceType: "Consulting",
-  areaServed: "United States",
+  areaServed: "Worldwide",
   url: "https://baselynesystems.com/services/data-infrastructure-consulting",
 };
