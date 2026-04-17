@@ -46,42 +46,60 @@ const challenges = [
   },
 ];
 
-const capabilities = [
+const pillars = [
   {
-    icon: Database,
-    title: "Sensor Data Lake",
-    description:
-      "Multi-format ingestion into Apache Iceberg — RLDS, LeRobot, MCAP, HDF5 normalized into one queryable schema. Cross-format SQL queries in milliseconds. Curate by task, outcome, source, and environment. Export to any training format.",
+    name: "Data",
+    tagline: "Getting it in, making it useful",
+    capabilities: [
+      {
+        icon: Radio,
+        title: "Edge Data Management",
+        description:
+          "On-device scoring and bandwidth-aware sync. Failure data uploads first, routine operations downsample. Offline-first architecture for disconnected and constrained environments.",
+      },
+      {
+        icon: Database,
+        title: "Sensor Data Lake",
+        description:
+          "Multi-format ingestion (RLDS, LeRobot, MCAP, HDF5) normalized into one queryable schema on Apache Iceberg. Cross-format SQL in milliseconds. Curate by task, outcome, source.",
+      },
+    ],
   },
   {
-    icon: Shield,
-    title: "Evaluation & Policy Gating",
-    description:
-      "Automated evaluation pipelines that gate deployment. Regression test suites that grow from production failures. Statistical comparison across model versions. Blocks a regression before it reaches deployment.",
+    name: "Models",
+    tagline: "Turning data into deployable policies",
+    capabilities: [
+      {
+        icon: GitBranch,
+        title: "Training Infrastructure",
+        description:
+          "Lineage from every model back to its exact training data. Experiment comparison across architectures on versioned datasets. Model registry with reproducibility records.",
+      },
+      {
+        icon: Shield,
+        title: "Evaluation & Policy Gating",
+        description:
+          "Automated evaluation pipelines that gate deployment. Regression test suites that grow from production failures. Block a regression before it reaches the fleet.",
+      },
+    ],
   },
   {
-    icon: FileCheck,
-    title: "Compliance & Audit Trail",
-    description:
-      "Immutable data lineage from sensor input to model decision to physical action. When an auditor asks why the system made that choice, you can trace it to the exact model version, training data, and sensor state. Built for EU AI Act, ISO 42001, and safety certification.",
-  },
-  {
-    icon: GitBranch,
-    title: "Training Infrastructure",
-    description:
-      "Data lineage tracing every model to its exact training data. Experiment comparison across architectures on the same versioned dataset. Model registry with eval results and reproducibility records. The infrastructure to answer 'what changed between v2 and v3.'",
-  },
-  {
-    icon: Radio,
-    title: "Edge Data Management",
-    description:
-      "Intelligent on-device data filtering and prioritized sync for systems with limited connectivity. Failure data uploaded first, routine operations downsampled. Offline-first architecture that works in disconnected and bandwidth-constrained environments.",
-  },
-  {
-    icon: Cpu,
-    title: "Fleet Deployment & Inference",
-    description:
-      "Per-system model versioning, deployment monitoring, and performance tracking. Inference optimization for edge hardware. Model updates without downtime and instant rollback when something goes wrong.",
+    name: "Fleet",
+    tagline: "Running in production, safely",
+    capabilities: [
+      {
+        icon: Cpu,
+        title: "Fleet Deployment & Inference",
+        description:
+          "Per-system model versioning, deployment monitoring, and performance tracking. Inference optimization for edge hardware. Updates without downtime; instant rollback.",
+      },
+      {
+        icon: FileCheck,
+        title: "Compliance & Audit Trail",
+        description:
+          "Immutable lineage from sensor input to physical action. Trace any decision to the exact model version, training data, and sensor state. EU AI Act and ISO 42001 ready.",
+      },
+    ],
   },
 ];
 
@@ -206,16 +224,35 @@ export default function PhysicalAI() {
             <h2 className="mt-3 text-3xl font-semibold text-foreground sm:text-4xl">
               Infrastructure for the full physical AI lifecycle
             </h2>
+            <p className="mt-4 text-muted-foreground">
+              Three layers: data, models, fleet.
+            </p>
           </div>
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {capabilities.map((capability) => (
-              <Card key={capability.title} className="border-border/50 bg-card">
-                <CardContent className="p-6">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
-                    <capability.icon className="h-5 w-5 text-primary" />
+          <div className="mt-16 grid gap-6 lg:grid-cols-3">
+            {pillars.map((pillar) => (
+              <Card key={pillar.name} className="border-border/50 bg-card">
+                <CardContent className="flex flex-col gap-6 p-6">
+                  <div>
+                    <p className="text-xs font-medium uppercase tracking-wider text-primary">
+                      {pillar.name}
+                    </p>
+                    <h3 className="mt-1 text-xl font-semibold text-foreground">
+                      {pillar.tagline}
+                    </h3>
                   </div>
-                  <h3 className="mt-4 font-semibold text-foreground">{capability.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{capability.description}</p>
+                  <div className="flex flex-col gap-5">
+                    {pillar.capabilities.map((capability) => (
+                      <div key={capability.title} className="flex gap-3">
+                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                          <capability.icon className="h-4 w-4 text-primary" />
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-foreground">{capability.title}</h4>
+                          <p className="mt-1 text-sm text-muted-foreground">{capability.description}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </CardContent>
               </Card>
             ))}
