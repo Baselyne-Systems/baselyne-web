@@ -151,7 +151,7 @@ export default function PhysicalAI() {
       </section>
 
       {/* Thesis */}
-      <section className="bg-layer-2 py-20 lg:py-28">
+      <section className="bg-layer-2 pt-32 pb-20 lg:pt-40 lg:pb-28">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <p className="text-sm font-medium uppercase tracking-wider text-primary">
