@@ -18,7 +18,7 @@ Three layers across the physical AI lifecycle:
 ### Data — getting it in, making it useful
 
 - Edge Data Management — on-device scoring and bandwidth-aware sync; failure data uploads first, routine operations downsample; offline-first for disconnected and constrained environments
-- Sensor Data Lake — multi-format ingestion (RLDS, LeRobot, MCAP, HDF5) normalized into one queryable schema on Apache Iceberg; cross-format SQL in milliseconds
+- Sensor Data Lake — multi-format ingestion (RLDS, LeRobot, MCAP, HDF5) normalized into one queryable schema; cross-format SQL in milliseconds
 
 ### Models — turning data into deployable policies
 
