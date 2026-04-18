@@ -196,7 +196,7 @@ export default function PhysicalAI() {
               The same problems from every team we've talked to
             </h2>
             <p className="mt-4 text-muted-foreground">
-              From warehouse automation to autonomous vehicles to embodied AI research — the
+              From warehouse automation to autonomous systems to embodied AI research — the
               infrastructure pain is consistent.
             </p>
           </div>
