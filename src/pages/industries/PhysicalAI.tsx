@@ -128,7 +128,7 @@ export default function PhysicalAI() {
               From fleet failure to retrained model in hours — not months.
             </p>
             <p className="mt-4 text-lg text-muted-foreground">
-              We build the infrastructure to close that loop. Fixed scope. Defined outcome. No retainer.
+              We build the infrastructure to close that loop. Fixed scope. Defined outcome.
             </p>
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Button asChild size="lg">
