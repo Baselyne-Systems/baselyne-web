@@ -101,7 +101,7 @@ export default function About() {
     <Layout>
       <SEO
         title="About & Approach | Baselyne Systems"
-        description="Founder-led physical AI and ML infrastructure firm. Fixed-outcome engagements for hard infrastructure problems. Experience from Meta, Alphabet, and Booking.com."
+        description="Founder-led physical AI infrastructure firm improving iteration velocity for teams deploying autonomy. Fixed-outcome engagements, solo-founded, with experience from Meta, Alphabet, and Booking.com."
         keywords="AI infrastructure consulting, physical AI consulting, fixed-outcome engagements, ML infrastructure, data engineering"
         canonical="https://baselynesystems.com/about"
         structuredData={organizationSchema}
