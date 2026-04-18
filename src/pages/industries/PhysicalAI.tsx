@@ -61,7 +61,7 @@ const pillars = [
         icon: Database,
         title: "Sensor Data Lake",
         description:
-          "Multi-format ingestion (RLDS, LeRobot, MCAP, HDF5) normalized into one queryable schema on Apache Iceberg. Cross-format SQL in milliseconds. Curate by task, outcome, source.",
+          "Multi-format ingestion (RLDS, LeRobot, MCAP, HDF5) normalized into one queryable schema. Cross-format SQL in milliseconds. Curate by task, outcome, source.",
       },
     ],
   },
