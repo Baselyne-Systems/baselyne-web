@@ -108,7 +108,7 @@ export default function PhysicalAI() {
     <Layout>
       <SEO
         title="Physical AI Infrastructure | Baselyne Systems"
-        description="ML and data infrastructure for physical AI. We build in weeks what would take your team months — data pipelines, training systems, inference optimization, and fleet deployment. Fixed scope. Defined outcome."
+        description="Infrastructure for physical AI teams — from fleet failure to retrained model in hours, not months. Data, models, fleet. Fixed scope. Defined outcome."
         keywords="physical AI infrastructure, embodied AI infrastructure, physical AI consulting, sensor data pipeline, training data lineage, model evaluation, edge inference, GPU optimization, fixed-outcome AI engagements, robot data lake, autonomous systems data"
         canonical="https://baselynesystems.com/physical-ai"
         structuredData={physicalAIServiceSchema}
@@ -176,8 +176,9 @@ export default function PhysicalAI() {
               </p>
               <p>
                 As models commoditize, the value shifts from "who has the best model" to
-                "who can deploy, monitor, and continuously improve it reliably." This is
-                the same pattern from every previous ML wave — and it's where we operate.
+                "who can close the loop fastest — from production failure to retrained,
+                redeployed model." Iteration velocity becomes the compounding advantage.
+                That's where we operate.
               </p>
             </div>
           </div>
