@@ -1,6 +1,6 @@
 # Baselyne Systems
 
-> ML and data infrastructure for physical AI. We build in weeks what would take your team months — data pipelines, training systems, inference optimization, and fleet deployment. Fixed scope. Defined outcome.
+> Infrastructure for physical AI teams — from fleet failure to retrained model in hours, not months. Data pipelines, training systems, and fleet operations built as a closed loop. Fixed scope. Defined outcome.
 
 ## About
 
