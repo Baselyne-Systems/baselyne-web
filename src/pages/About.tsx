@@ -142,7 +142,7 @@ export default function About() {
                 The founder has built infrastructure at Meta, Isomorphic Labs (Alphabet), and Booking.com — petabyte-scale data platforms, systems handling 100M+ queries per second, ML observability, and GDPR compliance at scale.
               </p>
               <p>
-                We apply that experience to teams building physical AI systems — robotics, autonomous vehicles, and embodied AI — helping them compress the iteration loop from months to hours. Fixed outcome. Defined handover. Your team operates and extends what we built.
+                We apply that experience to teams building physical AI systems — robotics, autonomous systems, and embodied AI — helping them compress the iteration loop from months to hours. Fixed outcome. Defined handover. Your team operates and extends what we built.
               </p>
               <a
                 href="https://www.linkedin.com/in/achyuthsamudrala/"
