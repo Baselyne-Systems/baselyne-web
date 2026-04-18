@@ -136,13 +136,13 @@ export default function About() {
             </h2>
             <div className="mt-8 space-y-6 text-muted-foreground">
               <p>
-                Baselyne Systems takes on infrastructure bottlenecks that stop AI systems from scaling or deploying. We scope every engagement around a specific, measurable outcome — reducing data-to-model cycle time, scaling training pipelines, building evaluation infrastructure — and deliver it in a fixed timeline at a fixed price.
+                Baselyne Systems builds the infrastructure that closes the iteration loop for physical AI teams — the gap between a production failure and the next retrained model. We scope every engagement around a specific, measurable outcome — compressing retrain cycles, automating fleet curation, building evaluation gates — and deliver it in a fixed timeline at a fixed price.
               </p>
               <p>
                 The founder has built infrastructure at Meta, Isomorphic Labs (Alphabet), and Booking.com — petabyte-scale data platforms, systems handling 100M+ queries per second, ML observability, and GDPR compliance at scale.
               </p>
               <p>
-                We apply that experience to companies building physical AI and production ML — helping them solve the specific infrastructure problem that's blocking them, with a defined outcome and a handover that leaves their team independent.
+                We apply that experience to teams building physical AI systems — robotics, autonomous vehicles, and embodied AI — helping them compress the iteration loop from months to hours. Fixed outcome. Defined handover. Your team operates and extends what we built.
               </p>
               <a
                 href="https://www.linkedin.com/in/achyuthsamudrala/"
