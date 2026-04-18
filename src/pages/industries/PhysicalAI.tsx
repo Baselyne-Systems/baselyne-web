@@ -124,7 +124,10 @@ export default function PhysicalAI() {
             <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
               Your models are ready to deploy. Your infrastructure isn't.
             </h1>
-            <p className="mt-6 text-lg text-muted-foreground">
+            <p className="mt-6 text-xl font-semibold text-foreground sm:text-2xl">
+              From fleet failure to retrained model in hours — not months.
+            </p>
+            <p className="mt-4 text-lg text-muted-foreground">
               We build production-grade infrastructure in weeks — from data
               pipelines and training systems to inference optimization and fleet
               deployment. Fixed scope. Defined outcome. No retainer.
