@@ -111,11 +111,14 @@ export default function About() {
       <section className="bg-gradient-to-b from-layer-1 to-layer-2 py-20 lg:py-28">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+            <p className="text-sm font-medium uppercase tracking-wider text-primary">
+              Accelerate autonomy
+            </p>
+            <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
               About Baselyne Systems
             </h1>
             <p className="mt-6 text-lg text-muted-foreground">
-              A founder-led infrastructure firm focused on physical AI and ML systems. We take on hard engineering problems and deliver defined outcomes in fixed timelines.
+              Improving iteration velocity for teams deploying physical AI. A founder-led infrastructure firm that takes on hard engineering problems and delivers defined outcomes in fixed timelines.
             </p>
           </div>
         </div>

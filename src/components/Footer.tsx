@@ -63,7 +63,12 @@ export function Footer() {
               <img src={logo} alt="Baselyne Systems" className="h-10 w-10 rounded-lg" />
               <span className="text-lg font-semibold text-foreground">Baselyne Systems</span>
             </Link>
-            <p className="mt-4 max-w-sm text-sm text-muted-foreground">
+            {PHYSICAL_AI_MODE && (
+              <p className="mt-4 text-sm font-medium text-foreground">
+                Accelerate autonomy.
+              </p>
+            )}
+            <p className="mt-2 max-w-sm text-sm text-muted-foreground">
               {PHYSICAL_AI_MODE
                 ? "We take on 2–3 engagements at a time. If you're scaling a physical AI system and hitting infrastructure limits, we want to hear from you."
                 : "AI infrastructure, data engineering, and MLOps consulting. We design, build, and operate production-grade data platforms and AI systems."}
