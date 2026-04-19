@@ -50,10 +50,6 @@ URL: https://baselynesystems.com/blog/robot-data-lake
 Modular Python CDC platform achieving 38,647 msg/s with config-driven tuning, exactly-once delivery, multi-source support, and Apache Iceberg lakehouse with time travel.
 URL: https://baselynesystems.com/blog/cdc-platform
 
-#### Retrieval OS: A Production-Grade Retrieval Runtime (February 2026)
-Config versioning, staged rollouts, automatic quality guard-rails, and 2.8ms rollback propagation for RAG systems. 10,785 QPS on a single node with 81.4% natural cache hit rate.
-URL: https://baselynesystems.com/blog/retrieval-os
-
 ### MLOps & Model Platforms
 
 #### MLOps for Robot Policies (April 2026)

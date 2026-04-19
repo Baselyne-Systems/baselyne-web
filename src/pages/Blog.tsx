@@ -20,7 +20,7 @@ type Post = {
 const sections: { category: string; description: string; posts: Post[] }[] = [
   {
     category: "Data Infrastructure",
-    description: "Sensor data lakes, pipelines, lakehouse architecture, retrieval systems, and high-throughput data engineering.",
+    description: "Sensor data lakes, pipelines, lakehouse architecture, and high-throughput data engineering.",
     posts: [
       {
         title: "The Robot Data Lake",
@@ -41,16 +41,6 @@ const sections: { category: string; description: string; posts: Post[] }[] = [
           "How we built a modular Python CDC platform achieving 38,647 msg/s with config-driven tuning — exactly-once delivery, multi-source support, and Iceberg lakehouse with time travel.",
         href: "/blog/cdc-platform",
         github: "https://github.com/Baselyne-Systems/cdc-platform",
-      },
-      {
-        title: "Retrieval OS: A Production-Grade Retrieval Runtime",
-        subtitle: "How we built a serving layer that makes RAG systems deployable, measurable, and safe to operate",
-        date: "February 2026",
-        tags: ["Case Study", "Open Source"],
-        excerpt:
-          "Config versioning, staged rollouts, automatic quality guard-rails, and 2.8 ms rollback propagation — 10,785 QPS on a single node with an 81.4% natural cache hit rate.",
-        href: "/blog/retrieval-os",
-        github: "https://github.com/Baselyne-Systems/retrieval-os",
       },
     ],
   },
@@ -170,8 +160,8 @@ export default function Blog() {
     <Layout>
       <SEO
         title="Blog | Baselyne Systems"
-        description="Technical case studies and open-source engineering from Baselyne — physical AI data infrastructure, MLOps, agent governance, retrieval systems, and data pipelines."
-        keywords="physical AI data infrastructure, robot data lake, AI infrastructure blog, MLOps blog, model deployment, eval pipeline, agent governance, RAG infrastructure, CDC platform, data engineering, open source AI"
+        description="Technical case studies and open-source engineering from Baselyne — physical AI data infrastructure, MLOps, agent governance, and data pipelines."
+        keywords="physical AI data infrastructure, robot data lake, AI infrastructure blog, MLOps blog, model deployment, eval pipeline, agent governance, CDC platform, data engineering, open source AI"
         canonical="https://baselynesystems.com/blog"
       />
 
