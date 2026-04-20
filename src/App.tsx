@@ -21,6 +21,7 @@ import RobotDataLake from "./pages/blog/RobotDataLake";
 import EdgeSync from "./pages/blog/EdgeSync";
 import TrainingPipeline from "./pages/blog/TrainingPipeline";
 import PhysicalAI from "./pages/industries/PhysicalAI";
+import Solutions from "./pages/Solutions";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -49,6 +50,7 @@ const App = () => (
           <Route path="/blog/edge-sync" element={<EdgeSync />} />
           <Route path="/blog/training-pipeline" element={<TrainingPipeline />} />
           <Route path="/physical-ai" element={<PhysicalAI />} />
+          <Route path="/solutions" element={<Solutions />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

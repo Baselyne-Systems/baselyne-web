@@ -17,6 +17,7 @@ const allNavigation = [
 
 const physicalAINavigation = [
   { name: "Home", href: "/", badge: null },
+  { name: "Solutions", href: "/solutions", badge: null },
   { name: "Blog", href: "/blog", badge: null },
   { name: "About", href: "/about", badge: null },
   { name: "Contact", href: "/contact", badge: null },
