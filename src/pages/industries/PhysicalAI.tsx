@@ -53,9 +53,9 @@ const pillars = [
     capabilities: [
       {
         icon: Radio,
-        title: "Edge Data Management",
+        title: "Edge Data Management & Scoring",
         description:
-          "On-device scoring and bandwidth-aware sync. Failure data uploads first, routine operations downsample. Offline-first architecture for disconnected and constrained environments.",
+          "Declarative scoring policies for on-device curation. Bandwidth-aware sync — failure data uploads first, routine operations downsample. Offline-first architecture for disconnected and constrained environments.",
       },
       {
         icon: Database,
@@ -71,9 +71,9 @@ const pillars = [
     capabilities: [
       {
         icon: GitBranch,
-        title: "Training Infrastructure",
+        title: "Training Infrastructure & Experimentation",
         description:
-          "Lineage from every model back to its exact training data. Experiment comparison across architectures on versioned datasets. Model registry with reproducibility records.",
+          "Systematic experiment tracking and head-to-head comparison across architectures on versioned datasets. Lineage from every model back to its exact training data. Model registry with reproducibility records.",
       },
       {
         icon: Shield,
@@ -258,6 +258,15 @@ export default function PhysicalAI() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+          <div className="mx-auto mt-12 max-w-2xl text-center">
+            <p className="text-muted-foreground">
+              Each capability maps to a fixed-scope engagement.{" "}
+              <Link to="/solutions" className="inline-flex items-center gap-1 font-medium text-primary hover:underline">
+                See our engagements
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </p>
           </div>
         </div>
       </section>
