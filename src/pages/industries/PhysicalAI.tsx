@@ -89,9 +89,9 @@ const pillars = [
     capabilities: [
       {
         icon: Cpu,
-        title: "Fleet Deployment & Inference",
+        title: "Fleet Deployment",
         description:
-          "Per-system model versioning, deployment monitoring, and performance tracking. Inference optimization for edge hardware. Updates without downtime; instant rollback.",
+          "Per-system model versioning, deployment monitoring, and performance tracking. Updates without downtime; instant rollback on regression.",
       },
       {
         icon: FileCheck,
