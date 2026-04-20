@@ -103,7 +103,7 @@ const solutions: Solution[] = [
     audience:
       "For teams whose retrained model looks better in eval but keeps regressing in production.",
     outcome:
-      "Automated comparison gates, canary deployment, and rollback on regression. Stop shipping on vibes.",
+      "Block regressions before they reach the fleet. Automated comparison gates, canary deployment, and rollback on regression.",
     build: [
       "Config-driven eval pipeline with statistical comparison",
       "Regression suite that grows from production failures",
