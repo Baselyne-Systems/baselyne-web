@@ -13,6 +13,7 @@ type Solution = {
   outcome: string;
   build: string[];
   dontDo: string[];
+  ctaLabel: string;
 };
 
 const entryPoint: Solution = {
@@ -30,11 +31,12 @@ const entryPoint: Solution = {
     "Optional follow-on into any of the solutions below",
   ],
   dontDo: ["Implement fixes in this engagement — diagnostic only"],
+  ctaLabel: "Start with an assessment",
 };
 
 const solutions: Solution[] = [
   {
-    stage: "STAGE 1",
+    stage: "CAPTURE",
     duration: "6–8 weeks",
     icon: Database,
     title: "Fleet Data Capture",
@@ -51,9 +53,10 @@ const solutions: Solution[] = [
     dontDo: [
       "Modify your robot's on-device code — your engineers integrate against our ingestion API",
     ],
+    ctaLabel: "Discuss data capture",
   },
   {
-    stage: "STAGE 2",
+    stage: "CURATE",
     duration: "4–6 weeks",
     icon: Filter,
     title: "Retrain-Ready Curation",
@@ -64,13 +67,14 @@ const solutions: Solution[] = [
     build: [
       "Declarative scoring policies (diversity, outcome, novelty, difficulty)",
       "Curated training set export in your preferred format",
-      "Integration hooks for Pi-0, OpenVLA, or custom fine-tuning",
+      "Integration with your fine-tuning workflow (Pi-0, OpenVLA, or custom)",
       "Reproducible slice definitions tied to model versions",
     ],
     dontDo: ["Fine-tune the model — your ML engineers run the actual training"],
+    ctaLabel: "Discuss curation",
   },
   {
-    stage: "STAGE 2.5",
+    stage: "EXPERIMENT",
     duration: "6–8 weeks",
     icon: FlaskConical,
     title: "Training Experimentation",
@@ -89,9 +93,10 @@ const solutions: Solution[] = [
       "Write your training loop or build custom architectures",
       "Manage your GPU cluster — uses your existing infrastructure",
     ],
+    ctaLabel: "Discuss experimentation",
   },
   {
-    stage: "STAGE 3",
+    stage: "SHIP",
     duration: "6–8 weeks",
     icon: Rocket,
     title: "Ship-Safe Deployment",
@@ -108,9 +113,10 @@ const solutions: Solution[] = [
     dontDo: [
       "Build simulation environments from scratch — we integrate with your existing sim or offline eval on real data",
     ],
+    ctaLabel: "Discuss deployment gates",
   },
   {
-    stage: "STAGE 4",
+    stage: "TRACE",
     duration: "6–10 weeks",
     icon: ShieldCheck,
     title: "Audit-Ready Lineage",
@@ -127,16 +133,11 @@ const solutions: Solution[] = [
     dontDo: [
       "Certify compliance with EU AI Act or ISO 42001 — we build the evidence; your compliance team certifies",
     ],
+    ctaLabel: "Discuss audit lineage",
   },
 ];
 
-const journeyStages = [
-  { label: "Stage 1", name: "Capture" },
-  { label: "Stage 2", name: "Curation" },
-  { label: "Stage 2.5", name: "Experiment" },
-  { label: "Stage 3", name: "Ship Safe" },
-  { label: "Stage 4", name: "Lineage" },
-];
+const journeyStages = ["Capture", "Curate", "Experiment", "Ship", "Trace"];
 
 function SolutionCard({ solution, highlighted = false }: { solution: Solution; highlighted?: boolean }) {
   const Icon = solution.icon;
@@ -187,7 +188,7 @@ function SolutionCard({ solution, highlighted = false }: { solution: Solution; h
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2"
             >
-              {highlighted ? "Start here" : "Book a scoping call"}
+              {solution.ctaLabel}
               <ArrowRight className="h-4 w-4" />
             </a>
           </Button>
@@ -202,7 +203,7 @@ export default function Solutions() {
     <Layout>
       <SEO
         title="Solutions | Baselyne Systems"
-        description="Fixed-scope engagements for physical AI teams — from first deployed robot to closed iteration loop. Data capture, curation, experimentation, deployment, and lineage."
+        description="Fixed-scope engagements for physical AI teams — capture, curate, experiment, ship, and trace. Each stage is a standalone engagement."
         keywords="physical AI consulting engagements, robot data infrastructure, training pipeline consulting, eval gates, fleet deployment, audit lineage, iteration velocity"
         canonical="https://baselynesystems.com/solutions"
       />
@@ -216,7 +217,7 @@ export default function Solutions() {
               Where you are, what we build
             </h1>
             <p className="mt-6 text-lg text-muted-foreground">
-              Fixed-scope engagements mapped to where you are in the journey — from first deployed robot to closed iteration loop.
+              Fixed-scope engagements for the physical AI iteration loop. Each stage is a standalone engagement — enter at the one that matches your current bottleneck, not necessarily the beginning.
             </p>
             <Button asChild size="lg" className="mt-10">
               <a
@@ -237,13 +238,13 @@ export default function Solutions() {
       <section className="border-y border-border/50 bg-layer-2 py-12">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="mx-auto max-w-4xl">
-            <div className="flex items-center justify-center gap-3 overflow-x-auto pb-2 lg:gap-6">
+            <p className="text-center text-xs font-medium uppercase tracking-wider text-muted-foreground">
+              Typical flow
+            </p>
+            <div className="mt-4 flex items-center justify-center gap-3 overflow-x-auto pb-2 lg:gap-6">
               {journeyStages.map((stage, i) => (
-                <div key={stage.label} className="flex flex-shrink-0 items-center gap-3 lg:gap-6">
-                  <div className="flex flex-col items-center">
-                    <span className="text-xs font-medium uppercase tracking-wider text-primary">{stage.label}</span>
-                    <span className="mt-1 text-sm font-semibold text-foreground">{stage.name}</span>
-                  </div>
+                <div key={stage} className="flex flex-shrink-0 items-center gap-3 lg:gap-6">
+                  <span className="text-sm font-semibold uppercase tracking-wider text-foreground">{stage}</span>
                   {i < journeyStages.length - 1 && (
                     <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground/50" />
                   )}
