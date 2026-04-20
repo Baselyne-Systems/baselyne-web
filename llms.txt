@@ -17,12 +17,12 @@ Three layers across the physical AI lifecycle:
 
 ### Data — getting it in, making it useful
 
-- Edge Data Management — on-device scoring and bandwidth-aware sync; failure data uploads first, routine operations downsample; offline-first for disconnected and constrained environments
+- Edge Data Management & Scoring — declarative scoring policies for on-device curation; bandwidth-aware sync with failure data uploaded first, routine operations downsampled; offline-first for disconnected and constrained environments
 - Sensor Data Lake — multi-format ingestion (RLDS, LeRobot, MCAP, HDF5) normalized into one queryable schema; cross-format SQL in milliseconds
 
 ### Models — turning data into deployable policies
 
-- Training Infrastructure — lineage from every model back to its exact training data; experiment comparison on versioned datasets; model registry with reproducibility records
+- Training Infrastructure & Experimentation — systematic experiment tracking and head-to-head comparison on versioned datasets; lineage from every model back to its exact training data; model registry with reproducibility records
 - Evaluation & Policy Gating — automated eval pipelines that gate deployment; regression suites that grow from production failures; block regressions before they reach the fleet
 
 ### Fleet — running in production, safely
