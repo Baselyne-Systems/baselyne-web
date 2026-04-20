@@ -1,4 +1,5 @@
 import { ArrowRight, Building2, CheckCircle2, Database, FileText, Linkedin, Search, Shield, Target, Users, Wrench, Zap } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -35,7 +36,7 @@ const phases = [
   {
     step: "01",
     icon: Search,
-    title: "Assessment",
+    title: "Discovery",
     duration: "1-2 weeks",
     description: "We review your architecture, talk to your team, and identify the critical gap between where you are and where you need to be.",
     outputs: [
@@ -58,7 +59,7 @@ const phases = [
     step: "03",
     icon: Wrench,
     title: "Implementation",
-    duration: "6-12 weeks typical",
+    duration: "4-10 weeks typical",
     description: "We build alongside your team. Weekly syncs, shared code repositories, and continuous documentation. The deliverable is the agreed outcome.",
     outputs: [
       "Production-ready infrastructure",
@@ -144,11 +145,18 @@ export default function About() {
               <p>
                 We apply that experience to teams building physical AI systems — robotics, autonomous systems, and embodied AI — helping them compress the iteration loop from months to hours. Fixed outcome. Defined handover. Your team operates and extends what we built.
               </p>
+              <Link
+                to="/solutions"
+                className="mt-6 inline-flex items-center gap-2 text-primary transition-colors hover:text-primary/80"
+              >
+                See specific engagements
+                <ArrowRight className="h-4 w-4" />
+              </Link>
               <a
                 href="https://www.linkedin.com/in/achyuthsamudrala/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex items-center gap-2 text-primary transition-colors hover:text-primary/80"
+                className="mt-4 inline-flex items-center gap-2 text-primary transition-colors hover:text-primary/80"
               >
                 <Linkedin className="h-5 w-5" />
                 <span>Connect with the founder on LinkedIn</span>
