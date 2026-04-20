@@ -27,7 +27,7 @@ Three layers across the physical AI lifecycle:
 
 ### Fleet — running in production, safely
 
-- Fleet Deployment & Inference — per-system model versioning, deployment monitoring, performance tracking; inference optimization for edge hardware; updates without downtime, instant rollback
+- Fleet Deployment — per-system model versioning, deployment monitoring, performance tracking; updates without downtime, instant rollback on regression
 - Compliance & Audit Trail — immutable lineage from sensor input to physical action; trace any decision to the exact model version, training data, and sensor state; EU AI Act and ISO 42001 ready
 
 ## Contact
@@ -83,7 +83,6 @@ URL: https://baselynesystems.com/blog/bulkhead
 - Sensor data pipelines and episode storage
 - Training infrastructure, data lineage, and reproducibility
 - Model evaluation and deployment gating
-- Inference optimization and GPU scheduling
 - Edge data management and offline-first sync
 - Fleet deployment, versioning, and monitoring
 - Compliance and audit trails (EU AI Act, ISO 42001)
