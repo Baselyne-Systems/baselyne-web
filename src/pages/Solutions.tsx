@@ -23,12 +23,12 @@ const entryPoint: Solution = {
   title: "Iteration Velocity Assessment",
   audience: "For teams who want a sharp outside view before committing to a bigger engagement.",
   outcome:
-    "A written assessment of where time actually goes between a production failure and a redeployed fix. Bottlenecks, dependencies, concrete recommendations.",
+    "Know where your iteration cycle actually breaks — specific bottlenecks, their cost, and a prioritized path to fixing them.",
   build: [
-    "15–25 page written assessment",
-    "Stage-by-stage pipeline analysis",
-    "Specific recommendations, ranked by priority",
-    "Optional follow-on into any of the solutions below",
+    "Bottleneck map — where your cycle time is actually going",
+    "Cost of each bottleneck (cycle time, engineering hours, GPU waste)",
+    "Prioritized recommendations with estimated impact",
+    "Scoped follow-on engagement options, if you want them",
   ],
   dontDo: ["Implement fixes in this engagement — diagnostic only"],
   ctaLabel: "Start with an assessment",
