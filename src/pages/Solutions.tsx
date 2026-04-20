@@ -83,11 +83,11 @@ const solutions: Solution[] = [
     outcome:
       "Run experiments against your curated data. Compare training approaches head-to-head. Know which wins before you ship.",
     build: [
-      "Experiment tracking with full metadata (data slice, config, eval results)",
-      "Reproducibility — re-run any past experiment",
-      "Head-to-head comparison on the same eval set",
-      "Sweep orchestration for parameter exploration",
-      "Integration with PyTorch, JAX, or custom training stack",
+      "Track every experiment with full context (data slice, config, eval results)",
+      "Re-run any past experiment exactly",
+      "Compare training approaches head-to-head on the same eval set",
+      "Run parameter sweeps without writing orchestration code",
+      "Integrate with PyTorch, JAX, or your custom training stack",
     ],
     dontDo: [
       "Write your training loop or build custom architectures",
