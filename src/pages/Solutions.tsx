@@ -142,7 +142,7 @@ const journeyStages = ["Capture", "Curate", "Experiment", "Ship", "Trace"];
 function SolutionCard({ solution, highlighted = false }: { solution: Solution; highlighted?: boolean }) {
   const Icon = solution.icon;
   return (
-    <Card className={highlighted ? "border-primary/40 bg-primary/5" : "border-border/50 bg-card"}>
+    <Card className={`h-full ${highlighted ? "border-primary/40 bg-primary/5" : "border-border/50 bg-card"}`}>
       <CardContent className="flex h-full flex-col gap-5 p-6">
         <div className="flex items-center justify-between text-xs font-medium uppercase tracking-wider">
           <span className="text-primary">{solution.stage}</span>
@@ -273,9 +273,11 @@ export default function Solutions() {
       <section className="bg-layer-1 py-16 lg:py-20">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="mx-auto max-w-6xl">
-            <div className="grid gap-6 md:grid-cols-2">
+            <div className="flex flex-wrap justify-center gap-6">
               {solutions.map((solution) => (
-                <SolutionCard key={solution.title} solution={solution} />
+                <div key={solution.title} className="w-full md:w-[calc(50%-12px)]">
+                  <SolutionCard solution={solution} />
+                </div>
               ))}
             </div>
           </div>
