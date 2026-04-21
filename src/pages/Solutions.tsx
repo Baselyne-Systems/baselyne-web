@@ -289,10 +289,10 @@ export default function Solutions() {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-2xl font-semibold text-foreground sm:text-3xl">
-              Not sure which stage you're at?
+              Don't see the right fit?
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Book a 30-minute scoping call. We'll walk through your current pipeline and identify where bottlenecks actually are. No obligation.
+              Some teams aren't sure which stage applies. Others have a specific problem that doesn't map cleanly to these five. Either way — book a 30-minute scoping call. We'll walk through your pipeline and scope whatever makes sense. No obligation.
             </p>
             <Button asChild size="lg" className="mt-8">
               <a
