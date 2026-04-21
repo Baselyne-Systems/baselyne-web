@@ -147,7 +147,7 @@ export default function About() {
               </p>
               <Link
                 to="/solutions"
-                className="mt-6 inline-flex items-center gap-2 text-primary transition-colors hover:text-primary/80"
+                className="mt-6 flex w-fit items-center gap-2 text-primary transition-colors hover:text-primary/80"
               >
                 See specific engagements
                 <ArrowRight className="h-4 w-4" />
@@ -156,7 +156,7 @@ export default function About() {
                 href="https://www.linkedin.com/in/achyuthsamudrala/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center gap-2 text-primary transition-colors hover:text-primary/80"
+                className="mt-4 flex w-fit items-center gap-2 text-primary transition-colors hover:text-primary/80"
               >
                 <Linkedin className="h-5 w-5" />
                 <span>Connect with the founder on LinkedIn</span>
