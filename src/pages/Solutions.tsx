@@ -7,6 +7,7 @@ import { SEO } from "@/components/SEO";
 type Solution = {
   stage: string;
   duration: string;
+  price: string;
   icon: typeof Database;
   title: string;
   audience: string;
@@ -19,6 +20,7 @@ type Solution = {
 const entryPoint: Solution = {
   stage: "ENTRY POINT",
   duration: "2–3 weeks",
+  price: "From £10k",
   icon: Target,
   title: "Iteration Velocity Assessment",
   audience: "For teams who want a sharp outside view before committing to a bigger engagement.",
@@ -38,6 +40,7 @@ const solutions: Solution[] = [
   {
     stage: "CAPTURE",
     duration: "6–8 weeks",
+    price: "From £40k",
     icon: Database,
     title: "Fleet Data Capture",
     audience:
@@ -58,6 +61,7 @@ const solutions: Solution[] = [
   {
     stage: "CURATE",
     duration: "4–6 weeks",
+    price: "From £30k",
     icon: Filter,
     title: "Retrain-Ready Curation",
     audience:
@@ -76,6 +80,7 @@ const solutions: Solution[] = [
   {
     stage: "EXPERIMENT",
     duration: "6–8 weeks",
+    price: "From £40k",
     icon: FlaskConical,
     title: "Training Experimentation",
     audience:
@@ -98,6 +103,7 @@ const solutions: Solution[] = [
   {
     stage: "SHIP",
     duration: "6–8 weeks",
+    price: "From £40k",
     icon: Rocket,
     title: "Ship-Safe Deployment",
     audience:
@@ -118,6 +124,7 @@ const solutions: Solution[] = [
   {
     stage: "TRACE",
     duration: "6–10 weeks",
+    price: "From £50k",
     icon: ShieldCheck,
     title: "Audit-Ready Lineage",
     audience:
@@ -146,7 +153,7 @@ function SolutionCard({ solution, highlighted = false }: { solution: Solution; h
       <CardContent className="flex h-full flex-col gap-5 p-6">
         <div className="flex items-center justify-between text-xs font-medium uppercase tracking-wider">
           <span className="text-primary">{solution.stage}</span>
-          <span className="text-muted-foreground">{solution.duration}</span>
+          <span className="text-muted-foreground">{solution.duration} · {solution.price}</span>
         </div>
         <div className="flex items-start gap-4">
           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
@@ -280,6 +287,9 @@ export default function Solutions() {
                 </div>
               ))}
             </div>
+            <p className="mt-12 text-center text-sm text-muted-foreground">
+              Prices shown are for typical scope. Exact scope and final pricing set in the discovery call.
+            </p>
           </div>
         </div>
       </section>
