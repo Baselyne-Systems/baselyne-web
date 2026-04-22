@@ -1,34 +1,34 @@
 # Baselyne Systems
 
-> Infrastructure for physical AI teams — from fleet failure to retrained model in hours, not months. Data pipelines, training systems, and fleet operations built as a closed loop. Fixed scope. Defined outcome.
+> Infrastructure for physical AI teams - from fleet failure to retrained model in hours, not months. Data pipelines, training systems, and fleet operations built as a closed loop. Fixed scope. Defined outcome.
 
 ## About
 
-Baselyne Systems is a founder-led infrastructure firm focused on physical AI — robotics, autonomous systems, embodied agents, and world models. We take on hard engineering problems and deliver defined outcomes in fixed timelines.
+Baselyne Systems is a founder-led infrastructure firm focused on physical AI - robotics, autonomous systems, embodied agents, and world models. We take on hard engineering problems and deliver defined outcomes in fixed timelines.
 
 ## Founder
 
-Achyuth Samudrala — Founder & Principal Engineer. Built ML infrastructure at Meta, Isomorphic Labs (Alphabet), and Booking.com — petabyte-scale data platforms, model serving at 100M+ QPS, and ML observability that cut incident detection from days to seconds. Now building infrastructure for physical AI.
+Achyuth Samudrala - Founder & Principal Engineer. Built ML infrastructure at Meta, Isomorphic Labs (Alphabet), and Booking.com - petabyte-scale data platforms, model serving at 100M+ QPS, and ML observability that cut incident detection from days to seconds. Now building infrastructure for physical AI.
 LinkedIn: https://www.linkedin.com/in/achyuthsamudrala/
 
 ## What We Build
 
 Three layers across the physical AI lifecycle:
 
-### Data — getting it in, making it useful
+### Data - getting it in, making it useful
 
-- Edge Data Management & Scoring — declarative scoring policies for on-device curation; bandwidth-aware sync with failure data uploaded first, routine operations downsampled; offline-first for disconnected and constrained environments
-- Sensor Data Lake — multi-format ingestion (RLDS, LeRobot, MCAP, HDF5) normalized into one queryable schema; cross-format SQL in milliseconds
+- Edge Data Management & Scoring - declarative scoring policies for on-device curation; bandwidth-aware sync with failure data uploaded first, routine operations downsampled; offline-first for disconnected and constrained environments
+- Sensor Data Lake - multi-format ingestion (RLDS, LeRobot, MCAP, HDF5) normalized into one queryable schema; cross-format SQL in milliseconds
 
-### Models — turning data into deployable policies
+### Models - turning data into deployable policies
 
-- Training Infrastructure & Experimentation — systematic experiment tracking and head-to-head comparison on versioned datasets; lineage from every model back to its exact training data; model registry with reproducibility records
-- Evaluation & Policy Gating — automated eval pipelines that gate deployment; regression suites that grow from production failures; block regressions before they reach the fleet
+- Training Infrastructure & Experimentation - systematic experiment tracking and head-to-head comparison on versioned datasets; lineage from every model back to its exact training data; model registry with reproducibility records
+- Evaluation & Policy Gating - automated eval pipelines that gate deployment; regression suites that grow from production failures; block regressions before they reach the fleet
 
-### Fleet — running in production, safely
+### Fleet - running in production, safely
 
-- Fleet Deployment — per-system model versioning, deployment monitoring, performance tracking; updates without downtime, instant rollback on regression
-- Compliance & Audit Trail — immutable lineage from sensor input to physical action; trace any decision to the exact model version, training data, and sensor state; EU AI Act and ISO 42001 ready
+- Fleet Deployment - per-system model versioning, deployment monitoring, performance tracking; updates without downtime, instant rollback on regression
+- Compliance & Audit Trail - immutable lineage from sensor input to physical action; trace any decision to the exact model version, training data, and sensor state; EU AI Act and ISO 42001 ready
 
 ## Contact
 
@@ -43,7 +43,7 @@ Technical case studies on infrastructure built by Baselyne.
 ### Data Infrastructure
 
 #### The Robot Data Lake (April 2026)
-Format-agnostic data lake for physical AI — ingesting RLDS, LeRobot, MCAP, and HDF5 into Apache Iceberg tables. 5,121 episodes across 3 formats and 3 robot types queryable in 4-74ms.
+Format-agnostic data lake for physical AI - ingesting RLDS, LeRobot, MCAP, and HDF5 into Apache Iceberg tables. 5,121 episodes across 3 formats and 3 robot types queryable in 4-74ms.
 URL: https://baselynesystems.com/blog/robot-data-lake
 
 #### Building a High-Throughput CDC Platform (February 2026)
@@ -53,11 +53,11 @@ URL: https://baselynesystems.com/blog/cdc-platform
 ### MLOps & Model Platforms
 
 #### MLOps for Robot Policies (April 2026)
-Training pipeline infrastructure for physical AI — data lineage, experiment comparison across policy architectures (MLP 59s/100% vs diffusion 509s/99% vs flow 522s/100% on same versioned data), model registry with stage lifecycle, and full reproducibility records.
+Training pipeline infrastructure for physical AI - data lineage, experiment comparison across policy architectures (MLP 59s/100% vs diffusion 509s/99% vs flow 522s/100% on same versioned data), model registry with stage lifecycle, and full reproducibility records.
 URL: https://baselynesystems.com/blog/training-pipeline
 
 #### GateKeeper: Eval-Gated Model Deployment (March 2026)
-Eval-gated deployment pipeline that blocks bad models before production. Config-driven quality gates — accuracy, drift, LLM judge, champion vs. challenger. Canary traffic management with auto-rollback.
+Eval-gated deployment pipeline that blocks bad models before production. Config-driven quality gates - accuracy, drift, LLM judge, champion vs. challenger. Canary traffic management with auto-rollback.
 URL: https://baselynesystems.com/blog/gatekeeper
 
 ### AI Infrastructure
