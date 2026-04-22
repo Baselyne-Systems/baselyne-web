@@ -55,8 +55,8 @@ function Callout({ label, children }: { label: string; children: React.ReactNode
 function QueryLatencyTable() {
   const rows = [
     { path: "Qdrant ANN (10k vectors, top_k=10)", p50: "1.7 ms", p95: "2.3 ms", p99: "10.5 ms", n: "100", highlight: false },
-    { path: "Full stack — cache miss (embed → Qdrant → Redis SET)", p50: "2.1 ms", p95: "2.4 ms", p99: "2.7 ms", n: "50", highlight: false },
-    { path: "Full stack — cache hit (Redis GET only)", p50: "0.2 ms", p95: "0.2 ms", p99: "0.3 ms", n: "100", highlight: true },
+    { path: "Full stack - cache miss (embed → Qdrant → Redis SET)", p50: "2.1 ms", p95: "2.4 ms", p99: "2.7 ms", n: "50", highlight: false },
+    { path: "Full stack - cache hit (Redis GET only)", p50: "0.2 ms", p95: "0.2 ms", p99: "0.3 ms", n: "100", highlight: true },
   ];
   return (
     <div className="mt-6 overflow-x-auto rounded-lg border border-border/50">
@@ -142,12 +142,12 @@ function ThroughputTable() {
 
 function FailureModeTable() {
   const rows = [
-    { scenario: "Unknown project name", behaviour: "ProjectNotFoundError — fast-fail before the vector index is reached" },
-    { scenario: "Project exists, no active deployment", behaviour: "ProjectNotFoundError with message 'no active deployment' — never serves stale results" },
-    { scenario: "5 concurrent IndexConfig creates, same hash", behaviour: "Exactly 1 succeeds, 4 get DuplicateConfigError — unique constraint enforced at DB level" },
-    { scenario: "2 workers compete for same ingestion job", behaviour: "SELECT FOR UPDATE SKIP LOCKED — each claims a different job, no blocking, no race" },
-    { scenario: "Cold Redis, 20 concurrent queries", behaviour: "All 20 fall back to Postgres independently, zero errors — no distributed lock on the read path" },
-    { scenario: "Rollback while queries are in flight", behaviour: "Both Redis keys deleted atomically, next query returns clean 404 — no stale results served" },
+    { scenario: "Unknown project name", behaviour: "ProjectNotFoundError - fast-fail before the vector index is reached" },
+    { scenario: "Project exists, no active deployment", behaviour: "ProjectNotFoundError with message 'no active deployment' - never serves stale results" },
+    { scenario: "5 concurrent IndexConfig creates, same hash", behaviour: "Exactly 1 succeeds, 4 get DuplicateConfigError - unique constraint enforced at DB level" },
+    { scenario: "2 workers compete for same ingestion job", behaviour: "SELECT FOR UPDATE SKIP LOCKED - each claims a different job, no blocking, no race" },
+    { scenario: "Cold Redis, 20 concurrent queries", behaviour: "All 20 fall back to Postgres independently, zero errors - no distributed lock on the read path" },
+    { scenario: "Rollback while queries are in flight", behaviour: "Both Redis keys deleted atomically, next query returns clean 404 - no stale results served" },
   ];
   return (
     <div className="mt-6 overflow-x-auto rounded-lg border border-border/50">
@@ -216,7 +216,7 @@ export default function RetrievalOS() {
     <Layout>
       <SEO
         title="Retrieval OS: A Production-Grade Retrieval Runtime | Baselyne Systems Blog"
-        description="How we built a serving layer that makes RAG systems deployable, measurable, and safe to operate — 10,785 QPS on a single node, 2.8ms rollback propagation, automatic quality guard-rails."
+        description="How we built a serving layer that makes RAG systems deployable, measurable, and safe to operate - 10,785 QPS on a single node, 2.8ms rollback propagation, automatic quality guard-rails."
         keywords="RAG infrastructure, retrieval augmented generation, vector search, embedding versioning, production RAG, semantic search platform"
         canonical="https://baselynesystems.com/blog/retrieval-os"
         ogType="article"
@@ -224,7 +224,7 @@ export default function RetrievalOS() {
         author="Achyuth Samudrala"
         structuredData={articleSchema({
           title: "Retrieval OS: A Production-Grade Retrieval Runtime",
-          description: "How we built a serving layer that makes RAG systems deployable, measurable, and safe to operate — 10,785 QPS on a single node, 2.8ms rollback propagation, automatic quality guard-rails.",
+          description: "How we built a serving layer that makes RAG systems deployable, measurable, and safe to operate - 10,785 QPS on a single node, 2.8ms rollback propagation, automatic quality guard-rails.",
           url: "https://baselynesystems.com/blog/retrieval-os",
           datePublished: "2026-02-01",
           keywords: ["RAG infrastructure", "retrieval augmented generation", "vector search", "embedding versioning", "production RAG", "semantic search platform"],
@@ -283,7 +283,7 @@ export default function RetrievalOS() {
               </p>
               <p>
                 Three weeks later, someone changes the embedding model because a newer one scores
-                better on your eval set. You swap it in, re-run ingestion, flip the serving endpoint —
+                better on your eval set. You swap it in, re-run ingestion, flip the serving endpoint -
                 and immediately your support queue lights up. The new model changed the vector space.
                 Your entire cache is now serving results from the old index. There is no rollback path.
                 You do not know exactly when quality degraded. You have no record of which documents
@@ -327,7 +327,7 @@ export default function RetrievalOS() {
                   Deployments move through a state machine:{" "}
                   <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">PENDING → ROLLING_OUT → ACTIVE → ROLLED_BACK</code>.
                   Gradual rollouts increment traffic weight on a schedule you define (e.g., 10%
-                  every 60 seconds). A second deployment cannot go live while the first is active —
+                  every 60 seconds). A second deployment cannot go live while the first is active -
                   enforced at the database row level with{" "}
                   <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">SELECT FOR UPDATE</code>.
                 </p>
@@ -339,7 +339,7 @@ export default function RetrievalOS() {
                   <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">rollback_recall_threshold</code>.
                   A background watchdog polls completed eval jobs and triggers automatic rollback if
                   Recall@5 drops below that threshold. Activation auto-queues an eval job against a
-                  ground-truth dataset you provide — closing the deploy → eval → rollback loop without
+                  ground-truth dataset you provide - closing the deploy → eval → rollback loop without
                   any human in it.
                 </p>
               </div>
@@ -361,16 +361,16 @@ export default function RetrievalOS() {
                 <em>"NEVER reads Postgres on the hot path."</em>
               </p>
               <p>
-                On deployment activation, the full serving config — merged from{" "}
+                On deployment activation, the full serving config - merged from{" "}
                 <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">IndexConfig</code>{" "}
                 and <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">Deployment</code>{" "}
-                — is written to Redis as a single JSON blob under the key{" "}
+                - is written to Redis as a single JSON blob under the key{" "}
                 <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">ros:project:{"{name}"}:active</code>.
                 Every query is:
               </p>
             </Prose>
 
-            <CodeBlock lang="ascii — hot path (embedding stubbed)">
+            <CodeBlock lang="ascii - hot path (embedding stubbed)">
 {`Redis GET ros:project:{name}:active   →  serving config (JSON blob)
         │
         ├─ cache hit?  →  return cached results immediately
@@ -383,7 +383,7 @@ export default function RetrievalOS() {
 
             <Prose>
               <p>
-                Postgres is only read when Redis is cold — TTL expiry or a fresh deployment. At that
+                Postgres is only read when Redis is cold - TTL expiry or a fresh deployment. At that
                 point the config is re-materialized from Postgres and Redis is re-warmed. A rolled-back
                 deployment removes both Redis keys atomically. The next query finds no active deployment
                 and returns a clean 404. No stale results. No distributed lock needed on the read path.
@@ -403,20 +403,20 @@ export default function RetrievalOS() {
                 An <strong>IndexConfig</strong> captures everything that determines how the index was
                 built: embedding provider, model, dimensions, modalities, collection, distance metric,
                 quantization. It is immutable and fingerprinted with a SHA-256 hash of those eight
-                fields. Changing any single field — switching from cosine to dot product distance,
-                for example — always produces a new, distinct hash and therefore a new config version.
+                fields. Changing any single field - switching from cosine to dot product distance,
+                for example - always produces a new, distinct hash and therefore a new config version.
                 The previous version remains intact and queryable.
               </p>
               <p>
                 A <strong>Deployment</strong> captures everything that is runtime-tunable without
                 re-indexing: top_k, reranker, rerank_top_k, cache settings, metadata filters,
                 traffic weight, and rollback thresholds. You can create 200 differently-tuned
-                deployments on the same IndexConfig — all 200 collapse to the same hash, meaning no
+                deployments on the same IndexConfig - all 200 collapse to the same hash, meaning no
                 re-ingestion is triggered.
               </p>
             </Prose>
 
-            <CodeBlock lang="python — Deployment model (fields)">
+            <CodeBlock lang="python - Deployment model (fields)">
 {`class DeploymentStatus(StrEnum):
     PENDING      = "PENDING"
     ROLLING_OUT  = "ROLLING_OUT"
@@ -457,7 +457,7 @@ class Deployment(Base):
               <p>
                 The benchmark exercises 200 combinations of search config variants (5 top_k values ×
                 2 reranker options × 4 cache TTLs × 5 hybrid alpha values) against the same index
-                config. All 200 collapse to exactly one hash — meaning you can create 200
+                config. All 200 collapse to exactly one hash - meaning you can create 200
                 differently-tuned deployments on the same index without triggering a re-index.
               </p>
               <p>
@@ -474,11 +474,11 @@ class Deployment(Base):
                 deployment POST. Attach an{" "}
                 <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">eval_dataset_uri</code>{" "}
                 and a <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">rollback_recall_threshold</code>{" "}
-                to the deployment — the rest is automatic.
+                to the deployment - the rest is automatic.
               </p>
             </Prose>
 
-            <CodeBlock lang="ascii — auto-eval lifecycle">
+            <CodeBlock lang="ascii - auto-eval lifecycle">
 {`POST /v1/projects/{name}/deployments
   { "index_config_version": 2,
     "eval_dataset_uri": "s3://bucket/ground-truth.jsonl",
@@ -502,7 +502,7 @@ Recall@5 / MRR / NDCG computed against ground-truth dataset
 
             <Prose>
               <p>
-                The watchdog is conservative — it only acts when there is completed eval data that
+                The watchdog is conservative - it only acts when there is completed eval data that
                 actually breaches the threshold. A deployment with no eval history is left alone.
                 This prevents false-positive rollbacks during the window between activation and the
                 first eval completing.
@@ -534,7 +534,7 @@ Recall@5 / MRR / NDCG computed against ground-truth dataset
                   </tr>
                   <tr className="bg-card text-muted-foreground">
                     <td className="px-4 py-3">No eval data yet</td>
-                    <td className="px-4 py-3 font-mono">—</td>
+                    <td className="px-4 py-3 font-mono">-</td>
                     <td className="px-4 py-3 font-mono">0.80</td>
                     <td className="px-4 py-3">No rollback</td>
                   </tr>
@@ -560,7 +560,7 @@ Recall@5 / MRR / NDCG computed against ground-truth dataset
                 No vectors are re-upserted.
               </p>
               <p>
-                This matters for CI/CD pipelines that re-submit ingestion jobs on every deploy — a
+                This matters for CI/CD pipelines that re-submit ingestion jobs on every deploy - a
                 common pattern. If the index config has not changed, no re-embedding costs are
                 incurred. The load test confirms this by wrapping a counter around the embed function:
                 after the second job completes, the embed call count is exactly zero.
@@ -572,7 +572,7 @@ Recall@5 / MRR / NDCG computed against ground-truth dataset
             <Prose>
               <p>
                 All measurements ran on an Apple M4 MacBook (16 GB RAM) with Postgres, Redis, and
-                Qdrant in Docker containers on the same host — no WAN latency between services.
+                Qdrant in Docker containers on the same host - no WAN latency between services.
                 Embedding latency is excluded from all latency figures and noted separately; it is
                 additive and hardware-dependent. Production deployments across separate hosts will see
                 higher absolute latencies, but the relative ratios hold.
@@ -587,14 +587,14 @@ Recall@5 / MRR / NDCG computed against ground-truth dataset
               The serving infrastructure adds sub-millisecond overhead to a warm query.
             </Callout>
 
-            <SubHeading>Throughput under concurrency — single node</SubHeading>
+            <SubHeading>Throughput under concurrency - single node</SubHeading>
             <ThroughputTable />
 
             <Prose>
               <p>
                 The <strong>realistic Zipf workload</strong> number is the one that matters.
-                With a Zipf(s=1.2) query distribution — modelling typical search traffic where a
-                power-law minority of queries account for most volume — the system measured an{" "}
+                With a Zipf(s=1.2) query distribution - modelling typical search traffic where a
+                power-law minority of queries account for most volume - the system measured an{" "}
                 <strong>81.4% natural cache hit rate</strong> and{" "}
                 <strong>10,785 QPS at 50 concurrent workers</strong>, with zero errors. That cache
                 hit rate translates directly to OpenAI/Cohere API cost reduction: 81.4% of queries
@@ -651,7 +651,7 @@ Recall@5 / MRR / NDCG computed against ground-truth dataset
             <SubHeading>Hot-path Python overhead</SubHeading>
             <Prose>
               <p>
-                These are pure CPU measurements — no I/O, no containers. The fixed overhead that runs
+                These are pure CPU measurements - no I/O, no containers. The fixed overhead that runs
                 on every query regardless of embedding or ANN latency.
               </p>
             </Prose>
@@ -659,7 +659,7 @@ Recall@5 / MRR / NDCG computed against ground-truth dataset
 
             <Callout label="Total hot-path Python overhead">
               Serving config merge + cache key generation together add under 0.4 µs of Python CPU
-              per request — equivalent to less than 4 ms of aggregate CPU cost at 10,000 QPS.
+              per request - equivalent to less than 4 ms of aggregate CPU cost at 10,000 QPS.
             </Callout>
 
             <SubHeading>Operational events</SubHeading>
@@ -700,7 +700,7 @@ Recall@5 / MRR / NDCG computed against ground-truth dataset
             <SectionHeading>What embedding latency adds</SectionHeading>
             <Prose>
               <p>
-                Every measurement above used a stubbed embedding function. This is intentional —
+                Every measurement above used a stubbed embedding function. This is intentional -
                 it isolates the serving infrastructure cost from model inference cost, which varies
                 by three orders of magnitude depending on hardware and model choice.
               </p>
@@ -759,10 +759,10 @@ Recall@5 / MRR / NDCG computed against ground-truth dataset
                 </thead>
                 <tbody>
                   {[
-                    ["Unit", "Nothing", "Logic correctness — state machines, validators, hash computation, metric formulas"],
-                    ["Integration", "Nothing (all I/O mocked)", "Service orchestration — repositories called correctly, typed errors raised correctly"],
-                    ["E2E", "Postgres + Redis", "System behaviour — concurrency safety, cache semantics, watchdog decisions"],
-                    ["Load", "Postgres + Redis + Qdrant", "Operational guarantees — latency, throughput, dedup, timeout, rollback speed"],
+                    ["Unit", "Nothing", "Logic correctness - state machines, validators, hash computation, metric formulas"],
+                    ["Integration", "Nothing (all I/O mocked)", "Service orchestration - repositories called correctly, typed errors raised correctly"],
+                    ["E2E", "Postgres + Redis", "System behaviour - concurrency safety, cache semantics, watchdog decisions"],
+                    ["Load", "Postgres + Redis + Qdrant", "Operational guarantees - latency, throughput, dedup, timeout, rollback speed"],
                   ].map(([layer, infra, what], i) => (
                     <tr key={i} className={i % 2 === 0 ? "bg-card text-muted-foreground" : "bg-muted/30 text-muted-foreground"}>
                       <td className="px-4 py-3 font-semibold text-foreground text-xs">{layer}</td>
@@ -880,7 +880,7 @@ uv run pytest tests/`}
                 Building a RAG system that needs to be production-grade?
               </h2>
               <p className="mt-3 text-muted-foreground">
-                We design and implement retrieval infrastructure — from embedding pipelines to serving
+                We design and implement retrieval infrastructure - from embedding pipelines to serving
                 layers with rollback guarantees. Book a 30-minute call to talk through your setup.
               </p>
               <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4">

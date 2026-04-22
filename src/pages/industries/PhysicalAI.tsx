@@ -12,25 +12,25 @@ const challenges = [
     icon: Database,
     title: "Everything is custom-built because nothing fits",
     description:
-      "Every team we've spoken to — from warehouse automation to construction sites to autonomous kitchens — has built core data infrastructure in-house. Recording catalogs, format converters, training pipelines, evaluation scripts. Not because custom is better, but because nothing on the market fits the physical AI workflow.",
+      "Every team we've spoken to - from warehouse automation to construction sites to autonomous kitchens - has built core data infrastructure in-house. Recording catalogs, format converters, training pipelines, evaluation scripts. Not because custom is better, but because nothing on the market fits the physical AI workflow.",
   },
   {
     icon: Wifi,
     title: "Getting data from the physical world is the real bottleneck",
     description:
-      "Construction sites have no internet. Warehouse systems saturate 5Gbps pipes. A 15-second stereo camera clip is 3GB. Teams store 1% of data through random sampling — and systematically lose the most valuable recordings: failures, edge cases, and rare states.",
+      "Construction sites have no internet. Warehouse systems saturate 5Gbps pipes. A 15-second stereo camera clip is 3GB. Teams store 1% of data through random sampling - and systematically lose the most valuable recordings: failures, edge cases, and rare states.",
   },
   {
     icon: AlertTriangle,
     title: "Failure data is the most valuable and hardest to capture",
     description:
-      "When an autonomous system fails, the last 5 minutes of sensor data is worth more than the last 5 hours of routine operation. But failure recording is ad hoc — manual triggers, inconsistent formats, no structured metadata about what went wrong or why. The highest-value training data is the least well-managed.",
+      "When an autonomous system fails, the last 5 minutes of sensor data is worth more than the last 5 hours of routine operation. But failure recording is ad hoc - manual triggers, inconsistent formats, no structured metadata about what went wrong or why. The highest-value training data is the least well-managed.",
   },
   {
     icon: BarChart3,
     title: "No systematic evaluation or regression testing",
     description:
-      "Evaluating a model means manually running 20-50 trials, watching the video, and counting successes. Versioning is tracked in spreadsheets. There's no CI/CD for physical AI — no way to automatically block a regression before it reaches deployment.",
+      "Evaluating a model means manually running 20-50 trials, watching the video, and counting successes. Versioning is tracked in spreadsheets. There's no CI/CD for physical AI - no way to automatically block a regression before it reaches deployment.",
   },
   {
     icon: GitBranch,
@@ -55,7 +55,7 @@ const pillars = [
         icon: Radio,
         title: "Edge Data Management & Scoring",
         description:
-          "Declarative scoring policies for on-device curation. Bandwidth-aware sync — failure data uploads first, routine operations downsample. Offline-first architecture for disconnected and constrained environments.",
+          "Declarative scoring policies for on-device curation. Bandwidth-aware sync - failure data uploads first, routine operations downsample. Offline-first architecture for disconnected and constrained environments.",
       },
       {
         icon: Database,
@@ -108,7 +108,7 @@ export default function PhysicalAI() {
     <Layout>
       <SEO
         title="Physical AI Infrastructure | Baselyne Systems"
-        description="Infrastructure for physical AI teams — from fleet failure to retrained model in hours, not months. Data, models, fleet. Fixed scope. Defined outcome."
+        description="Infrastructure for physical AI teams - from fleet failure to retrained model in hours, not months. Data, models, fleet. Fixed scope. Defined outcome."
         keywords="physical AI infrastructure, embodied AI infrastructure, physical AI consulting, sensor data pipeline, training data lineage, model evaluation, edge inference, GPU optimization, fixed-outcome AI engagements, robot data lake, autonomous systems data"
         canonical="https://baselynesystems.com/physical-ai"
         structuredData={physicalAIServiceSchema}
@@ -125,7 +125,7 @@ export default function PhysicalAI() {
               Your models are ready to deploy. Your infrastructure isn't.
             </h1>
             <p className="mt-6 text-xl font-semibold text-foreground sm:text-2xl">
-              From fleet failure to retrained model in hours — not months.
+              From fleet failure to retrained model in hours - not months.
             </p>
             <p className="mt-4 text-lg text-muted-foreground">
               We build the infrastructure to close that loop. Fixed scope. Defined outcome.
@@ -168,7 +168,7 @@ export default function PhysicalAI() {
                 bottleneck has shifted.
               </p>
               <p>
-                Larger models need inference infrastructure — distillation, quantization,
+                Larger models need inference infrastructure - distillation, quantization,
                 dual-system runtimes. More general-purpose models need evaluation across
                 open-ended task spaces. More training data needs pipelines that scale to
                 terabytes from fleets and simulation. Wider deployment needs operations: monitoring,
@@ -176,7 +176,7 @@ export default function PhysicalAI() {
               </p>
               <p>
                 As models commoditize, the value shifts from "who has the best model" to
-                "who can close the loop fastest — from production failure to retrained,
+                "who can close the loop fastest - from production failure to retrained,
                 redeployed model." Iteration velocity becomes the compounding advantage.
                 That's where we operate.
               </p>
@@ -196,7 +196,7 @@ export default function PhysicalAI() {
               The same problems from every team we've talked to
             </h2>
             <p className="mt-4 text-muted-foreground">
-              From warehouse automation to autonomous systems to embodied AI research — the
+              From warehouse automation to autonomous systems to embodied AI research - the
               infrastructure pain is consistent.
             </p>
           </div>
@@ -288,7 +288,7 @@ export default function PhysicalAI() {
                 <p className="mt-1 text-sm text-primary">Founder</p>
                 <p className="mt-4 text-muted-foreground">
                   Built ML infrastructure at Meta, Isomorphic Labs (Alphabet), and
-                  Booking.com — petabyte-scale data platforms, model serving at 100M+ QPS,
+                  Booking.com - petabyte-scale data platforms, model serving at 100M+ QPS,
                   and ML observability that cut incident detection from days to seconds.
                   Now building infrastructure for physical AI.
                 </p>
@@ -324,7 +324,7 @@ export default function PhysicalAI() {
         </div>
       </section>
 
-      {/* CTA — hidden in physical AI mode since footer has one */}
+      {/* CTA - hidden in physical AI mode since footer has one */}
       {!PHYSICAL_AI_MODE && <section className="bg-layer-3 py-20 lg:py-28">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">

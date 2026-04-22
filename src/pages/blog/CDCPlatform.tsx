@@ -195,7 +195,7 @@ export default function CDCPlatform() {
     <Layout>
       <SEO
         title="Building a High-Throughput CDC Platform | Baselyne Systems Blog"
-        description="How we built a modular Python CDC platform achieving 38,647 msg/s — with config-driven tuning, exactly-once delivery, and Iceberg lakehouse support."
+        description="How we built a modular Python CDC platform achieving 38,647 msg/s - with config-driven tuning, exactly-once delivery, and Iceberg lakehouse support."
         keywords="change data capture, CDC platform, Debezium, Kafka, Apache Iceberg, Python asyncio, open source data pipeline"
         canonical="https://baselynesystems.com/blog/cdc-platform"
         ogType="article"
@@ -203,7 +203,7 @@ export default function CDCPlatform() {
         author="Achyuth Samudrala"
         structuredData={articleSchema({
           title: "Building a High-Throughput CDC Platform",
-          description: "How we built a modular Python CDC platform achieving 38,647 msg/s — with config-driven tuning, exactly-once delivery, and Iceberg lakehouse support.",
+          description: "How we built a modular Python CDC platform achieving 38,647 msg/s - with config-driven tuning, exactly-once delivery, and Iceberg lakehouse support.",
           url: "https://baselynesystems.com/blog/cdc-platform",
           datePublished: "2026-02-01",
           keywords: ["change data capture", "CDC platform", "Debezium", "Kafka", "Apache Iceberg", "Python asyncio", "open source data pipeline"],
@@ -233,7 +233,7 @@ export default function CDCPlatform() {
                 Building a High-Throughput CDC Platform
               </h1>
               <p className="mt-3 text-xl text-muted-foreground">
-                From database change to lakehouse in milliseconds — 38,647 msg/s with config alone
+                From database change to lakehouse in milliseconds - 38,647 msg/s with config alone
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-4">
                 <span className="text-sm text-muted-foreground">February 2026</span>
@@ -262,7 +262,7 @@ export default function CDCPlatform() {
               </p>
               <p>
                 We built the Baselyne CDC Platform as an open-source reference implementation that takes
-                responsibility for the full pipeline — source database to sink destination. Not a connector
+                responsibility for the full pipeline - source database to sink destination. Not a connector
                 framework, not a thin wrapper around Debezium. An end-to-end system that handles
                 provisioning, consumption, delivery guarantees, schema monitoring, error routing, and
                 lakehouse maintenance.
@@ -286,7 +286,7 @@ export default function CDCPlatform() {
               <p>
                 The platform owns the full pipeline. It provisions transport resources (Kafka topics,
                 Debezium connector), manages consumer groups and offset lifecycle, monitors schemas,
-                and routes events to configurable sinks — webhooks, PostgreSQL replicas, and Apache
+                and routes events to configurable sinks - webhooks, PostgreSQL replicas, and Apache
                 Iceberg lakehouse tables.
               </p>
               <p>
@@ -299,11 +299,11 @@ export default function CDCPlatform() {
                 (with MSK IAM and GCP Managed Kafka auth built-in), with{" "}
                 <strong>Google Pub/Sub</strong> and <strong>Amazon Kinesis</strong> as additional
                 supported transports. Non-Kafka transports use a direct PostgreSQL WAL reader in
-                place of Debezium — no Connect cluster required.
+                place of Debezium - no Connect cluster required.
               </p>
             </Prose>
 
-            <CodeBlock lang="ascii — platform architecture">
+            <CodeBlock lang="ascii - platform architecture">
 {` ┌─────────────────── CDC Platform ──────────────────────────────┐
  │                                                               │
  │  ┌─────────────┐   ┌──────────────────────────────┐           │
@@ -332,7 +332,7 @@ export default function CDCPlatform() {
             <Prose>
               <p>
                 Per-partition async workers process events independently within a single Python asyncio
-                process. Bounded queues between the consumer and the workers enforce backpressure — when
+                process. Bounded queues between the consumer and the workers enforce backpressure - when
                 sinks are slow, the queue fills and the poll loop naturally slows down. No message loss,
                 no unbounded memory growth.
               </p>
@@ -341,7 +341,7 @@ export default function CDCPlatform() {
                 <strong>MySQL</strong> (binlog), <strong>MongoDB</strong> (change streams), and{" "}
                 <strong>SQL Server</strong> (CDC tables). All four are configured with a single{" "}
                 <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">source_type</code>{" "}
-                field — the platform handles connector deployment, topic naming, and snapshot behavior
+                field - the platform handles connector deployment, topic naming, and snapshot behavior
                 automatically.
               </p>
             </Prose>
@@ -355,7 +355,7 @@ export default function CDCPlatform() {
               </p>
             </Prose>
 
-            <CodeBlock lang="yaml — pipeline.yaml">
+            <CodeBlock lang="yaml - pipeline.yaml">
 {`pipeline_id: orders-cdc
 topic_prefix: cdc
 
@@ -391,11 +391,11 @@ sinks:
               <p>
                 Platform config (<code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">platform.yaml</code>)
                 controls transport settings, consumer tuning, retry behaviour, and health probes. Most
-                fields have safe defaults — you only override what differs from your environment.
+                fields have safe defaults - you only override what differs from your environment.
               </p>
             </Prose>
 
-            <CodeBlock lang="bash — CLI">
+            <CodeBlock lang="bash - CLI">
 {`# Validate config
 cdc validate pipeline.yaml
 
@@ -430,7 +430,7 @@ cdc consume pipeline.yaml`}
                 confirmed offset 950, the committed offset stays at 950.
               </p>
               <p>
-                This means a crash and replay will redeliver events that some sinks already saw — which
+                This means a crash and replay will redeliver events that some sinks already saw - which
                 is why idempotent sinks matter.
               </p>
             </Prose>
@@ -441,7 +441,7 @@ cdc consume pipeline.yaml`}
                 Both the PostgreSQL sink (
                 <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">ON CONFLICT DO UPDATE</code>
                 ) and the Iceberg sink (upsert mode) handle redelivered events transparently. A replayed
-                event that was already written produces an identical row — no duplicates, no errors.
+                event that was already written produces an identical row - no duplicates, no errors.
               </p>
               <p>
                 For non-idempotent sinks (webhooks), keep{" "}
@@ -451,8 +451,8 @@ cdc consume pipeline.yaml`}
               </p>
             </Prose>
 
-            <Callout label="DLQ — dead letter routing">
-              Per-sink failures are routed to a dead-letter topic with full diagnostic headers — pipeline
+            <Callout label="DLQ - dead letter routing">
+              Per-sink failures are routed to a dead-letter topic with full diagnostic headers - pipeline
               ID, sink ID, error message, original partition and offset. Failed events don't block the
               pipeline; they're quarantined for inspection and replay once the underlying issue is resolved.
             </Callout>
@@ -463,19 +463,19 @@ cdc consume pipeline.yaml`}
               <p>
                 The platform shipped with safe, correct defaults: single-message polling, synchronous
                 Avro deserialization, per-event offset commits, blocking sink writes. This is the right
-                starting point — easy to reason about, easy to debug. The question was how much headroom
+                starting point - easy to reason about, easy to debug. The question was how much headroom
                 we could unlock purely through configuration.
               </p>
               <p>
                 The benchmark suite runs in process-isolated Python subprocesses (C-extensions like
                 fastavro and confluent-kafka are not safe to tear down and reinitialize in a single
-                process). Most tests use direct Kafka production — bypassing Debezium — for precise
+                process). Most tests use direct Kafka production - bypassing Debezium - for precise
                 control over input rate and data shape. The end-to-end throughput test exercises the
                 full path: PostgreSQL INSERTs → Debezium → Kafka → Consumer → Sink.
               </p>
             </Prose>
 
-            <SubHeading>Phase 1 — Batch polling</SubHeading>
+            <SubHeading>Phase 1 - Batch polling</SubHeading>
             <Prose>
               <p>
                 The default consumer fetches one message per poll call. Each poll is a round-trip to
@@ -489,15 +489,15 @@ cdc consume pipeline.yaml`}
 
             <Callout label="Finding">
               Batch polling delivers a <strong>2.1× throughput improvement</strong> over single-poll.
-              Moving from batch-100 to batch-500 shows diminishing returns — the poll overhead is
+              Moving from batch-100 to batch-500 shows diminishing returns - the poll overhead is
               already amortised. Parallel deserialization (4 threads) provides a modest gain on top
               of batching; the bigger benefit is expected with complex Avro schemas.
             </Callout>
 
-            <SubHeading>Phase 2 — Periodic offset commits</SubHeading>
+            <SubHeading>Phase 2 - Periodic offset commits</SubHeading>
             <Prose>
               <p>
-                Per-event synchronous commits add a small but consistent overhead — each commit is a
+                Per-event synchronous commits add a small but consistent overhead - each commit is a
                 blocking call to the Kafka broker. Switching to interval-based commits (
                 <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">commit_interval_seconds: 5.0</code>
                 ) batches this work.
@@ -507,17 +507,17 @@ cdc consume pipeline.yaml`}
             <CommitStrategyTable />
 
             <Callout label="Finding">
-              Periodic commits show marginal improvement at this scale — commit overhead is small
+              Periodic commits show marginal improvement at this scale - commit overhead is small
               relative to poll/deser savings in a local Docker environment. The larger benefit
               materialises under heavier partition counts and real broker network latency.
               The tradeoff: events since the last commit may be redelivered on crash. At 5s interval,
-              that's a bounded redelivery window — acceptable for idempotent sinks.
+              that's a bounded redelivery window - acceptable for idempotent sinks.
             </Callout>
 
-            <SubHeading>Phase 3 — Iceberg write executor offloading</SubHeading>
+            <SubHeading>Phase 3 - Iceberg write executor offloading</SubHeading>
             <Prose>
               <p>
-                Iceberg writes — Arrow conversion, Parquet encoding, S3 upload — are blocking I/O
+                Iceberg writes - Arrow conversion, Parquet encoding, S3 upload - are blocking I/O
                 that stalls the asyncio event loop. Setting{" "}
                 <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">write_executor_threads: 4</code>{" "}
                 offloads this work to a thread pool. Active processing time improved from 0.78s to
@@ -526,16 +526,16 @@ cdc consume pipeline.yaml`}
               </p>
               <p>
                 At production scale, with persistent connections and no teardown overhead, the
-                executor effect is more significant — it prevents sink writes from blocking the
+                executor effect is more significant - it prevents sink writes from blocking the
                 consumer loop during high-volume bursts.
               </p>
             </Prose>
 
-            <SubHeading>Phase 4 — Combined at scale</SubHeading>
+            <SubHeading>Phase 4 - Combined at scale</SubHeading>
             <Prose>
               <p>
                 The final test ran default config vs. high-throughput config head-to-head at 100,000
-                messages across 8 partitions — a production-representative scale.
+                messages across 8 partitions - a production-representative scale.
               </p>
             </Prose>
 
@@ -569,9 +569,9 @@ cdc consume pipeline.yaml`}
               </table>
             </div>
 
-            <Callout label="2.6× improvement — config only">
+            <Callout label="2.6× improvement - config only">
               All gains from batch polling, parallel deserialization, periodic commits, and Iceberg
-              write offloading. Default config values preserve existing behaviour — operators opt in
+              write offloading. Default config values preserve existing behaviour - operators opt in
               to high-throughput mode by setting config values. No code changes, no deployment
               disruption.
             </Callout>
@@ -588,7 +588,7 @@ cdc consume pipeline.yaml`}
               </p>
             </Prose>
 
-            <CodeBlock lang="yaml — platform-high-throughput.yaml">
+            <CodeBlock lang="yaml - platform-high-throughput.yaml">
 {`kafka:
   topic_num_partitions: 64
   topic_replication_factor: 3
@@ -615,7 +615,7 @@ lag_monitor_interval_seconds: 30.0`}
                 Throughput numbers mean little if the pipeline explodes memory when a sink falls
                 behind. Each partition has a bounded queue (
                 <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">max_buffered_messages</code>
-                ). When the queue is full, the consumer loop stops polling — backpressure propagates
+                ). When the queue is full, the consumer loop stops polling - backpressure propagates
                 naturally from sink to queue to poll loop, with no special handling required.
               </p>
             </Prose>
@@ -640,11 +640,11 @@ lag_monitor_interval_seconds: 30.0`}
               </p>
               <ul className="list-disc list-inside space-y-1 text-muted-foreground">
                 <li>
-                  <strong className="text-foreground">Small-file accumulation</strong> — each batch
+                  <strong className="text-foreground">Small-file accumulation</strong> - each batch
                   append creates new Parquet files. Hundreds of tiny files degrade query performance.
                 </li>
                 <li>
-                  <strong className="text-foreground">Unbounded metadata growth</strong> — every write
+                  <strong className="text-foreground">Unbounded metadata growth</strong> - every write
                   creates a new snapshot. Without expiry, the metadata layer grows indefinitely.
                 </li>
               </ul>
@@ -655,13 +655,13 @@ lag_monitor_interval_seconds: 30.0`}
               <p>
                 The <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">TableMaintenanceMonitor</code>{" "}
                 is a background async service that runs two independent poll loops alongside the CDC
-                pipeline. It compacts small files and expires old snapshots on configurable intervals —
+                pipeline. It compacts small files and expires old snapshots on configurable intervals -
                 no external scheduler required.
               </p>
               <p>
                 Compaction is partition-scoped and memory-bounded. For partitions exceeding the{" "}
                 <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">compaction_max_rows_per_batch</code>{" "}
-                safety limit (default: 500K rows), the service logs a warning and skips — a signal
+                safety limit (default: 500K rows), the service logs a warning and skips - a signal
                 to use Spark or Trino for that partition instead.
               </p>
             </Prose>
@@ -673,7 +673,7 @@ lag_monitor_interval_seconds: 30.0`}
               </p>
             </Prose>
 
-            <CodeBlock lang="bash — lakehouse CLI">
+            <CodeBlock lang="bash - lakehouse CLI">
 {`# List all snapshots with IDs, timestamps, and operation summaries
 cdc lakehouse snapshots pipeline.yaml
 
@@ -690,7 +690,7 @@ cdc lakehouse rollback pipeline.yaml --snapshot-id 1234567890 --yes`}
               <p>
                 The platform uses a two-phase deployment model: shared infrastructure (Kafka, Schema
                 Registry, Kafka Connect with Debezium plugins) deployed via Helm, and independent
-                pipeline workers — one Kubernetes Deployment per pipeline.
+                pipeline workers - one Kubernetes Deployment per pipeline.
               </p>
             </Prose>
 
@@ -699,7 +699,7 @@ cdc lakehouse rollback pipeline.yaml --snapshot-id 1234567890 --yes`}
               <p>
                 This is the most important Kubernetes detail for CDC deployments. RollingUpdate creates
                 a new pod before terminating the old one. Both pods join the same Kafka consumer group
-                simultaneously, causing a <em>rebalance storm</em> — partitions are assigned, revoked,
+                simultaneously, causing a <em>rebalance storm</em> - partitions are assigned, revoked,
                 and reassigned repeatedly until the old pod dies. During the storm, no messages are
                 processed.
               </p>
@@ -710,7 +710,7 @@ cdc lakehouse rollback pipeline.yaml --snapshot-id 1234567890 --yes`}
               </p>
             </Prose>
 
-            <CodeBlock lang="yaml — pipeline Kubernetes Deployment (excerpt)">
+            <CodeBlock lang="yaml - pipeline Kubernetes Deployment (excerpt)">
 {`apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -718,7 +718,7 @@ metadata:
 spec:
   replicas: 1
   strategy:
-    type: Recreate    # NOT RollingUpdate — avoids consumer group rebalance storms
+    type: Recreate    # NOT RollingUpdate - avoids consumer group rebalance storms
   template:
     spec:
       containers:
@@ -754,7 +754,7 @@ spec:
                 (liveness) and <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">/readyz</code>{" "}
                 (readiness) endpoints. The readiness check queries the Debezium connector state via
                 the Kafka Connect REST API and polls each sink's connection status. If any component
-                reports an error, the probe returns 503 — Kubernetes stops routing traffic to the pod
+                reports an error, the probe returns 503 - Kubernetes stops routing traffic to the pod
                 before it can corrupt data.
               </p>
             </Prose>
@@ -812,7 +812,7 @@ psql -h localhost -U cdc_user -d cdc_demo -c \\
                 Interested in CDC infrastructure for your stack?
               </h2>
               <p className="mt-3 text-muted-foreground">
-                We design and implement production-grade data pipelines — from WAL replication to
+                We design and implement production-grade data pipelines - from WAL replication to
                 lakehouse. Book a 30-minute call to talk through your setup.
               </p>
               <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4">

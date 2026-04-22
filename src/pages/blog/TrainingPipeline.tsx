@@ -235,12 +235,12 @@ export default function TrainingPipeline() {
               <p>
                 A robotics team trains a new policy. It works worse than the last one. The
                 first question is always: "what changed?" Was it the data? A hyperparameter?
-                A different subset of episodes? Nobody knows — because the training ran in a
+                A different subset of episodes? Nobody knows - because the training ran in a
                 notebook, the data was a folder on someone's machine, and the model was
                 saved as <InlineCode>model_final_v2_FIXED.pt</InlineCode>.
               </p>
               <p>
-                This isn't a tooling problem — MLflow and Weights & Biases exist. It's a
+                This isn't a tooling problem - MLflow and Weights & Biases exist. It's a
                 physical AI-specific problem. Robot training data comes from episode recordings
                 across multiple formats and robots. The curation query ("only successful grasps
                 from warehouse B") is as important as the hyperparameters. And the model
@@ -250,7 +250,7 @@ export default function TrainingPipeline() {
               <p>
                 We built a training pipeline that wraps existing training loops with the
                 infrastructure that makes every decision traceable. It's not a training
-                framework — it's the lineage, versioning, evaluation, and comparison layer
+                framework - it's the lineage, versioning, evaluation, and comparison layer
                 around whatever training code your team already uses.
               </p>
             </Prose>
@@ -268,13 +268,13 @@ export default function TrainingPipeline() {
             <SectionHeading>The pipeline</SectionHeading>
             <Prose>
               <p>
-                Four steps, one config, one command. Each step is independently runnable —
+                Four steps, one config, one command. Each step is independently runnable -
                 you can evaluate an existing checkpoint without retraining, or register a
                 model without re-evaluating.
               </p>
             </Prose>
 
-            <CodeBlock lang="ascii — pipeline flow">
+            <CodeBlock lang="ascii - pipeline flow">
 {`Data Manifest          Pipeline                    Model Registry
 ─────────────          ────────                    ──────────────
 
@@ -314,7 +314,7 @@ norm stats hash ─┘     3. Evaluate (offline/sim)     ──► eval report
             <Prose>
               <p>
                 The data hash is computed from a canonical JSON serialization of the episode
-                IDs, curation query, and normalization stats. Same data, same hash — regardless
+                IDs, curation query, and normalization stats. Same data, same hash - regardless
                 of when or where the export ran. When the pipeline starts, it reads this
                 manifest and logs it as a training artifact. Every model in the registry
                 links back to this hash.
@@ -331,9 +331,9 @@ norm stats hash ─┘     3. Evaluate (offline/sim)     ──► eval report
             <SectionHeading>Experiment comparison</SectionHeading>
             <Prose>
               <p>
-                We ran three policy architectures through the pipeline — MLP (simple baseline),
+                We ran three policy architectures through the pipeline - MLP (simple baseline),
                 diffusion policy (generative, handles multi-modal actions), and flow matching
-                (faster inference variant of diffusion) — all on the same 206-episode PushT
+                (faster inference variant of diffusion) - all on the same 206-episode PushT
                 dataset. The comparison is structured: same data version, same eval protocol,
                 same registration process.
               </p>
@@ -344,12 +344,12 @@ norm stats hash ─┘     3. Evaluate (offline/sim)     ──► eval report
             <Prose>
               <p>
                 The MLP trains in 59 seconds with 70K parameters and hits 100% offline eval
-                success. Diffusion and flow matching take 9x longer with 20x more parameters —
+                success. Diffusion and flow matching take 9x longer with 20x more parameters -
                 and diffusion actually scores slightly lower at 99%. On this task, the simplest
                 architecture wins.
               </p>
               <p>
-                That's not always the case — diffusion policies excel on multi-modal action
+                That's not always the case - diffusion policies excel on multi-modal action
                 distributions where the same observation can map to multiple valid actions.
                 The point isn't which architecture is best. The point is that the infrastructure
                 produces this comparison automatically. Three YAML configs, one command, a
@@ -364,7 +364,7 @@ norm stats hash ─┘     3. Evaluate (offline/sim)     ──► eval report
               <p>
                 After training and evaluation, models are registered with their full context:
                 policy type, data manifest hash, eval results, parameter count, and training
-                wall time. The registry supports a stage lifecycle — models enter as{" "}
+                wall time. The registry supports a stage lifecycle - models enter as{" "}
                 <InlineCode>staging</InlineCode> and are promoted to{" "}
                 <InlineCode>production</InlineCode> only if eval passes the configured
                 thresholds.
@@ -377,13 +377,13 @@ norm stats hash ─┘     3. Evaluate (offline/sim)     ──► eval report
               <p>
                 Every version links to the same data hash (<InlineCode>69a2cbd3</InlineCode>)
                 because they were trained on the same export. When the next training run uses
-                a different curation query — say, adding episodes from a new robot — the data
+                a different curation query - say, adding episodes from a new robot - the data
                 hash changes, and the registry makes it visible: "v4 was trained on different
                 data than v1-v3."
               </p>
               <p>
                 The registry wraps MLflow when available and falls back to a local JSON file
-                when it's not. The interface is the same either way — register, load by version
+                when it's not. The interface is the same either way - register, load by version
                 or stage, set stage. No hard dependency on any tracking server.
               </p>
             </Prose>
@@ -397,7 +397,7 @@ norm stats hash ─┘     3. Evaluate (offline/sim)     ──► eval report
               </p>
             </Prose>
 
-            <CodeBlock lang="json — reproducibility record (excerpt)">
+            <CodeBlock lang="json - reproducibility record (excerpt)">
 {`{
   "git_sha": "e9f6d9d7595d...",
   "git_dirty": true,
@@ -421,7 +421,7 @@ norm stats hash ─┘     3. Evaluate (offline/sim)     ──► eval report
             <Prose>
               <p>
                 The resolved config is the full config after YAML loading with all defaults
-                filled — not the user-provided partial config. The python environment hash
+                filled - not the user-provided partial config. The python environment hash
                 is computed from <InlineCode>pip freeze</InlineCode>. The git SHA links to
                 the exact code version, with a diff hash if there are uncommitted changes.
               </p>
@@ -439,7 +439,7 @@ norm stats hash ─┘     3. Evaluate (offline/sim)     ──► eval report
             <Prose>
               <p>
                 <strong>MLflow is optional.</strong> The pipeline works without a tracking
-                server — it falls back to local file storage for the registry, comparison,
+                server - it falls back to local file storage for the registry, comparison,
                 and reproducibility records. This matters for physical AI teams that train
                 on edge devices or air-gapped environments. MLflow adds value when it's
                 available but isn't a hard dependency.
@@ -452,8 +452,8 @@ norm stats hash ─┘     3. Evaluate (offline/sim)     ──► eval report
                 runner composes them but they don't depend on each other.
               </p>
               <p>
-                <strong>Typed data structures throughout.</strong> Every artifact — manifest,
-                eval report, reproducibility record, model version — is a typed dataclass
+                <strong>Typed data structures throughout.</strong> Every artifact - manifest,
+                eval report, reproducibility record, model version - is a typed dataclass
                 with validation on construction. Corrupt manifests are caught at load time,
                 not during training.
               </p>

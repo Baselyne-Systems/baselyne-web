@@ -10,25 +10,25 @@ const capabilities = [
     icon: Database,
     title: "Lakehouse Architecture",
     description:
-      "We default to Apache Iceberg—it's catalog-agnostic, handles schema evolution without rewriting data, and the ecosystem is converging around it. Both analytical queries and ML training reads work against the same tables, with time-travel for reproducible feature extraction.",
+      "We default to Apache Iceberg-it's catalog-agnostic, handles schema evolution without rewriting data, and the ecosystem is converging around it. Both analytical queries and ML training reads work against the same tables, with time-travel for reproducible feature extraction.",
   },
   {
     icon: Workflow,
     title: "Real-time & Batch Pipelines",
     description:
-      "CDC pipelines from your operational databases via Debezium, feeding a streaming layer on Kafka or Flink for sub-minute freshness. Batch processing coexists on the same storage layer—the lakehouse format handles both access patterns without separate systems.",
+      "CDC pipelines from your operational databases via Debezium, feeding a streaming layer on Kafka or Flink for sub-minute freshness. Batch processing coexists on the same storage layer-the lakehouse format handles both access patterns without separate systems.",
   },
   {
     icon: Shield,
     title: "AI-ready Governance",
     description:
-      "Column-level access controls and data quality contracts enforced at pipeline write time—not checked after the fact. Lineage that tracks data from source databases through transformations, embeddings, and model training, so you can answer 'what data went into this model' on demand.",
+      "Column-level access controls and data quality contracts enforced at pipeline write time-not checked after the fact. Lineage that tracks data from source databases through transformations, embeddings, and model training, so you can answer 'what data went into this model' on demand.",
   },
   {
     icon: Layers,
     title: "Semantic Data Layer",
     description:
-      "A metadata layer that makes your data discoverable by both analysts writing SQL and AI systems generating embeddings. Descriptions, relationships, and quality metrics attached to datasets—so your RAG pipeline knows what to trust and what to exclude.",
+      "A metadata layer that makes your data discoverable by both analysts writing SQL and AI systems generating embeddings. Descriptions, relationships, and quality metrics attached to datasets-so your RAG pipeline knows what to trust and what to exclude.",
   },
   {
     icon: Search,
@@ -71,7 +71,7 @@ export default function DataInfrastructureConsulting() {
             <p className="mt-6 text-lg text-muted-foreground">
               CDC pipelines replacing overnight batch jobs. Storage costs down
               40-60% through Iceberg compaction. Analytics, ML training, and
-              RAG served from the same lakehouse — no duplicate systems.
+              RAG served from the same lakehouse - no duplicate systems.
             </p>
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Button asChild size="lg">
@@ -113,14 +113,14 @@ export default function DataInfrastructureConsulting() {
               </p>
               <p>
                 The fix isn't bolting a streaming layer onto the side of your
-                batch pipeline. It's rethinking the storage layer—moving to a
+                batch pipeline. It's rethinking the storage layer-moving to a
                 lakehouse format that supports both batch and incremental reads,
                 adding CDC from your operational databases, and building a
                 semantic layer that makes data discoverable to both analysts and
                 AI systems.
               </p>
               <p>
-                We've built platforms at this inflection point at Meta—where the
+                We've built platforms at this inflection point at Meta-where the
                 same data had to serve dashboards, ML training, and real-time
                 serving with different freshness and access patterns. We know
                 where the abstractions should sit.
@@ -225,8 +225,8 @@ export default function DataInfrastructureConsulting() {
                 <div>
                   <h3 className="font-semibold text-foreground">Build & migrate</h3>
                   <p className="mt-1 text-sm text-muted-foreground">
-                    We implement the highest-priority changes—lakehouse migration,
-                    CDC setup, governance layer—in focused sprints. Most data
+                    We implement the highest-priority changes-lakehouse migration,
+                    CDC setup, governance layer-in focused sprints. Most data
                     infrastructure projects run 8–12 weeks.
                   </p>
                 </div>
@@ -259,7 +259,7 @@ export default function DataInfrastructureConsulting() {
             <p className="mt-4 text-muted-foreground">
               Most engagements start with a 30-minute call to understand your
               current stack and where the bottlenecks are. No pitch
-              deck—just a technical conversation.
+              deck-just a technical conversation.
             </p>
             <Button asChild size="lg" className="mt-8">
               <a

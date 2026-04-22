@@ -25,14 +25,14 @@ const entryPoint: Solution = {
   title: "Iteration Velocity Assessment",
   audience: "For teams who want a sharp outside view before committing to a bigger engagement.",
   outcome:
-    "Know where your iteration cycle actually breaks — specific bottlenecks, their cost, and a prioritized path to fixing them.",
+    "Know where your iteration cycle actually breaks - specific bottlenecks, their cost, and a prioritized path to fixing them.",
   build: [
-    "Bottleneck map — where your cycle time is actually going",
+    "Bottleneck map - where your cycle time is actually going",
     "Cost of each bottleneck (cycle time, engineering hours, GPU waste)",
     "Prioritized recommendations with estimated impact",
     "Scoped follow-on engagement options, if you want them",
   ],
-  dontDo: ["Implement fixes in this engagement — diagnostic only"],
+  dontDo: ["Implement fixes in this engagement - diagnostic only"],
   ctaLabel: "Start with an assessment",
 };
 
@@ -51,10 +51,10 @@ const solutions: Solution[] = [
       "Your fleet data, ingested in whatever format it arrives (MCAP, RLDS, LeRobot, HDF5)",
       "One queryable schema across your entire robot fleet",
       "Interventions, failures, and successes tagged for later retrieval",
-      "Query episodes by task, outcome, source, environment — whatever matters",
+      "Query episodes by task, outcome, source, environment - whatever matters",
     ],
     dontDo: [
-      "Modify your robot's on-device code — your engineers integrate against our ingestion API",
+      "Modify your robot's on-device code - your engineers integrate against our ingestion API",
     ],
     ctaLabel: "Discuss data capture",
   },
@@ -67,14 +67,14 @@ const solutions: Solution[] = [
     audience:
       "For teams with fleet data who realize retraining on everything is infeasible and retraining on random 1% is losing the signal.",
     outcome:
-      "Score which episodes matter — failures, edge cases, novel states — and export curated training slices to your fine-tuning workflow.",
+      "Score which episodes matter - failures, edge cases, novel states - and export curated training slices to your fine-tuning workflow.",
     build: [
       "Declarative scoring policies (diversity, outcome, novelty, difficulty)",
       "Curated training set export in your preferred format",
       "Integration with your fine-tuning workflow (Pi-0, OpenVLA, or custom)",
       "Reproducible slice definitions tied to model versions",
     ],
-    dontDo: ["Fine-tune the model — your ML engineers run the actual training"],
+    dontDo: ["Fine-tune the model - your ML engineers run the actual training"],
     ctaLabel: "Discuss curation",
   },
   {
@@ -96,7 +96,7 @@ const solutions: Solution[] = [
     ],
     dontDo: [
       "Write your training loop or build custom architectures",
-      "Manage your GPU cluster — uses your existing infrastructure",
+      "Manage your GPU cluster - uses your existing infrastructure",
     ],
     ctaLabel: "Discuss experimentation",
   },
@@ -117,7 +117,7 @@ const solutions: Solution[] = [
       "Automatic rollback on eval regression",
     ],
     dontDo: [
-      "Build simulation environments from scratch — we integrate with your existing sim or offline eval on real data",
+      "Build simulation environments from scratch - we integrate with your existing sim or offline eval on real data",
     ],
     ctaLabel: "Discuss deployment gates",
   },
@@ -138,7 +138,7 @@ const solutions: Solution[] = [
       "Integration with existing logging and deployment systems",
     ],
     dontDo: [
-      "Certify compliance with EU AI Act or ISO 42001 — we build the evidence; your compliance team certifies",
+      "Certify compliance with EU AI Act or ISO 42001 - we build the evidence; your compliance team certifies",
     ],
     ctaLabel: "Discuss audit lineage",
   },
@@ -210,7 +210,7 @@ export default function Solutions() {
     <Layout>
       <SEO
         title="Solutions | Baselyne Systems"
-        description="Fixed-scope engagements for physical AI teams — capture, curate, experiment, ship, and trace. Each stage is a standalone engagement."
+        description="Fixed-scope engagements for physical AI teams - capture, curate, experiment, ship, and trace. Each stage is a standalone engagement."
         keywords="physical AI consulting engagements, robot data infrastructure, training pipeline consulting, eval gates, fleet deployment, audit lineage, iteration velocity"
         canonical="https://baselynesystems.com/solutions"
       />
@@ -224,7 +224,7 @@ export default function Solutions() {
               Where you are, what we build
             </h1>
             <p className="mt-6 text-lg text-muted-foreground">
-              Fixed-scope engagements for the physical AI iteration loop. Each stage is a standalone engagement — enter at the one that matches your current bottleneck, not necessarily the beginning.
+              Fixed-scope engagements for the physical AI iteration loop. Each stage is a standalone engagement - enter at the one that matches your current bottleneck, not necessarily the beginning.
             </p>
             <Button asChild size="lg" className="mt-10">
               <a
@@ -302,7 +302,7 @@ export default function Solutions() {
               Don't see the right fit?
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Some teams aren't sure which stage applies. Others have a specific problem that doesn't map cleanly to these five. Either way — book a 30-minute scoping call. We'll walk through your pipeline and scope whatever makes sense. No obligation.
+              Some teams aren't sure which stage applies. Others have a specific problem that doesn't map cleanly to these five. Either way - book a 30-minute scoping call. We'll walk through your pipeline and scope whatever makes sense. No obligation.
             </p>
             <Button asChild size="lg" className="mt-8">
               <a

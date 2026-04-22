@@ -187,7 +187,7 @@ export default function RobotDataLake() {
     <Layout>
       <SEO
         title="The Robot Data Lake: A Format-Agnostic Data Lake for Physical AI | Baselyne Systems"
-        description="How we built a format-agnostic data lake for physical AI — ingesting RLDS, LeRobot, MCAP, and HDF5 into Apache Iceberg tables, making 5,121 episodes across 3 formats queryable via SQL."
+        description="How we built a format-agnostic data lake for physical AI - ingesting RLDS, LeRobot, MCAP, and HDF5 into Apache Iceberg tables, making 5,121 episodes across 3 formats queryable via SQL."
         keywords="robot data lake, physical AI data infrastructure, Apache Iceberg robotics, MCAP data pipeline, RLDS ingestion, LeRobot dataset, robot episode storage, open source robot data"
         canonical="https://baselynesystems.com/blog/robot-data-lake"
         ogType="article"
@@ -195,7 +195,7 @@ export default function RobotDataLake() {
         author="Achyuth Samudrala"
         structuredData={articleSchema({
           title: "The Robot Data Lake: A Format-Agnostic Data Lake for Physical AI",
-          description: "How we built a format-agnostic data lake for physical AI — ingesting RLDS, LeRobot, MCAP, and HDF5 into Apache Iceberg tables queryable via SQL.",
+          description: "How we built a format-agnostic data lake for physical AI - ingesting RLDS, LeRobot, MCAP, and HDF5 into Apache Iceberg tables queryable via SQL.",
           url: "https://baselynesystems.com/blog/robot-data-lake",
           datePublished: "2026-04-02",
           keywords: ["robot data lake", "physical AI", "Apache Iceberg", "MCAP", "RLDS", "LeRobot", "robot data infrastructure"],
@@ -226,7 +226,7 @@ export default function RobotDataLake() {
                 The Robot Data Lake
               </h1>
               <p className="mt-3 text-xl text-muted-foreground">
-                A format-agnostic data lake for physical AI — 5,121 episodes across RLDS, LeRobot, MCAP, and HDF5 in one queryable schema
+                A format-agnostic data lake for physical AI - 5,121 episodes across RLDS, LeRobot, MCAP, and HDF5 in one queryable schema
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-4">
                 <span className="text-sm text-muted-foreground">April 2026</span>
@@ -239,7 +239,7 @@ export default function RobotDataLake() {
             <Prose>
               <p>
                 A physical AI team has recordings from dozens of robots across months of
-                operation. The data is in four different formats — RLDS from Open X-Embodiment,
+                operation. The data is in four different formats - RLDS from Open X-Embodiment,
                 LeRobot from HuggingFace, MCAP from their ROS 2 fleet, HDF5 from ALOHA and
                 RoboMimic. They need to answer one question:
               </p>
@@ -250,7 +250,7 @@ export default function RobotDataLake() {
               <p>
                 Without a unified data layer, this means writing custom scripts for each format,
                 manually tracking which files contain what, and hoping nothing is missed. Every
-                team we've talked to builds this from scratch — a collection of format-specific
+                team we've talked to builds this from scratch - a collection of format-specific
                 parsers, ad hoc metadata CSVs, and Jupyter notebooks that break when the file
                 layout changes.
               </p>
@@ -277,12 +277,12 @@ export default function RobotDataLake() {
                 The system has three phases: <strong>ingest</strong> (catalog and index
                 recordings), <strong>curate</strong> (query and select episodes),
                 and <strong>export</strong> (materialize training data). Each phase is
-                independently useful — you can ingest and query without ever exporting, or
+                independently useful - you can ingest and query without ever exporting, or
                 re-export from the same lake with different selection criteria.
               </p>
             </Prose>
 
-            <CodeBlock lang="ascii — three-phase architecture">
+            <CodeBlock lang="ascii - three-phase architecture">
 {`Source Formats               Apache Iceberg Tables         Training Formats
 ─────────────               ─────────────────────         ────────────────
 
@@ -307,7 +307,7 @@ HDF5         ──┘                                          DataFrame
                 single result set. No format-specific code paths at query time.
               </p>
               <p>
-                <strong>Episode-centric.</strong> Episodes — bounded task attempts — are first-class
+                <strong>Episode-centric.</strong> Episodes - bounded task attempts - are first-class
                 entities, not derived views. This lets us partition and filter by success/failure,
                 task type, and time range, which are the three most common training data selection
                 criteria.
@@ -320,7 +320,7 @@ HDF5         ──┘                                          DataFrame
               </p>
               <p>
                 <strong>Reference-based images.</strong> Image and point cloud data is cataloged as
-                URI references back to source files — not copied. Ingest is lightweight (metadata
+                URI references back to source files - not copied. Ingest is lightweight (metadata
                 only), and a separate export step materializes training shards on demand. Metadata
                 queries stay fast even over terabytes of image data.
               </p>
@@ -341,7 +341,7 @@ HDF5         ──┘                                          DataFrame
             <Prose>
               <p>
                 Robot ML trains on episodes, not individual timesteps. An episode is a contiguous
-                sequence where a robot attempts a task — a grasp, a navigation run, a manipulation
+                sequence where a robot attempts a task - a grasp, a navigation run, a manipulation
                 sequence. The most common query in imitation learning is "give me only successful
                 demonstrations." The most common query in failure analysis is "give me every
                 episode where the robot failed and the episode lasted more than 5 seconds."
@@ -358,7 +358,7 @@ HDF5         ──┘                                          DataFrame
             <Prose>
               <p>
                 This was one of the first things we learned building this system. Different formats
-                define episode boundaries differently — RLDS has explicit{" "}
+                define episode boundaries differently - RLDS has explicit{" "}
                 <InlineCode>is_first</InlineCode>/<InlineCode>is_last</InlineCode> markers, LeRobot
                 has an <InlineCode>episode_index</InlineCode> column, but MCAP files from ROS 2
                 often have no episode markers at all. For those, we fall back to gap-based
@@ -370,7 +370,7 @@ HDF5         ──┘                                          DataFrame
                 <InlineCode>detection_method</InlineCode> field ("marker", "gap_heuristic",
                 "manual") and a <InlineCode>label_confidence</InlineCode> score. A marker-based
                 episode from RLDS has crisp boundaries with confidence 1.0. A gap-heuristic
-                episode from MCAP may include setup or teardown motion — the confidence is lower,
+                episode from MCAP may include setup or teardown motion - the confidence is lower,
                 and downstream consumers can filter accordingly.
               </p>
             </Prose>
@@ -389,7 +389,7 @@ HDF5         ──┘                                          DataFrame
                 <InlineCode>{"Map<String, Double>"}</InlineCode> column. Any sensor writes any fields
                 without schema changes. DuckDB can still query individual fields
                 via <InlineCode>{"map_extract(data, 'joint_position_0')"}</InlineCode>. The tradeoff
-                is query convenience — you lose typed columns and autocomplete. In practice, training
+                is query convenience - you lose typed columns and autocomplete. In practice, training
                 pipelines access scalars by episode and topic, not by individual field names, so the
                 map approach fits the access pattern.
               </p>
@@ -405,7 +405,7 @@ HDF5         ──┘                                          DataFrame
               </p>
             </Prose>
 
-            <CodeBlock lang="python — ingesting three formats into one lake">
+            <CodeBlock lang="python - ingesting three formats into one lake">
 {`from robot_data_lake import RobotDataLake
 
 lake = RobotDataLake("./my-robot-lake")
@@ -430,20 +430,20 @@ lake.ingest("demo.hdf5", format="hdf5",
             <Prose>
               <p>
                 The normalization challenge is in the details. RLDS stores observations as nested
-                TFRecord features — flattened into topic-keyed scalar maps. LeRobot uses Parquet
-                with an <InlineCode>episode_index</InlineCode> column — mapped to our episode table
+                TFRecord features - flattened into topic-keyed scalar maps. LeRobot uses Parquet
+                with an <InlineCode>episode_index</InlineCode> column - mapped to our episode table
                 with marker-based detection. For LeRobot datasets with embedded images (like
                 xarm_lift), the ingestor reads only scalar columns from Parquet and catalogs
-                image columns as URI references — no pixel data loaded into memory during
-                ingestion. MCAP contains serialized ROS 2 messages — deserialized
+                image columns as URI references - no pixel data loaded into memory during
+                ingestion. MCAP contains serialized ROS 2 messages - deserialized
                 via CDR encoding into typed observations. HDF5 organizes data under{" "}
-                <InlineCode>/data/demo_N</InlineCode> groups — each group becomes an episode.
+                <InlineCode>/data/demo_N</InlineCode> groups - each group becomes an episode.
               </p>
               <p>
                 What each format calls "time" also differs. MCAP has nanosecond-precision{" "}
                 <InlineCode>header.stamp</InlineCode> and separate{" "}
                 <InlineCode>log_time</InlineCode>. RLDS has integer step indices. LeRobot has
-                frame indices at a fixed FPS. HDF5 has no timestamps at all — just array
+                frame indices at a fixed FPS. HDF5 has no timestamps at all - just array
                 indices. The ingestors normalize all of these to nanosecond epoch timestamps,
                 synthesizing them from step indices and frame rates where necessary.
               </p>
@@ -453,9 +453,9 @@ lake.ingest("demo.hdf5", format="hdf5",
             <SectionHeading>Demo: three formats, one lake</SectionHeading>
             <Prose>
               <p>
-                We ingested five datasets across three formats and three robot types — LeRobot
+                We ingested five datasets across three formats and three robot types - LeRobot
                 pusht and xarm_lift (HuggingFace), RoboMimic Can and Lift (HDF5), and a
-                synthetic MCAP fleet (5 robots, 250K steps each) — into a single lake and ran
+                synthetic MCAP fleet (5 robots, 250K steps each) - into a single lake and ran
                 queries across all of them.
               </p>
             </Prose>
@@ -476,7 +476,7 @@ lake.ingest("demo.hdf5", format="hdf5",
             <Prose>
               <p>
                 Once data is in the lake, the queries that training teams actually need become
-                straightforward SQL. These ran against the demo lake above — all times are measured,
+                straightforward SQL. These ran against the demo lake above - all times are measured,
                 not estimated.
               </p>
             </Prose>
@@ -502,7 +502,7 @@ GROUP BY r.source_format`}
 
             <Prose>
               <p>
-                4.4ms. The format differences are immediately visible — HDF5 episodes are short
+                4.4ms. The format differences are immediately visible - HDF5 episodes are short
                 and uniform (scripted demonstrations), LeRobot episodes vary widely (1.7s to 24.6s
                 across pusht teleoperation and xarm pick-and-place), and MCAP episodes are long
                 continuous recordings segmented by gap heuristics.
@@ -522,7 +522,7 @@ ORDER BY e.duration_s DESC`}
 
             <Prose>
               <p>
-                315 failed episodes longer than 5 seconds — returned in 4.2ms. Results span
+                315 failed episodes longer than 5 seconds - returned in 4.2ms. Results span
                 both LeRobot (pusht failures with marker-based detection, confidence 1.0) and
                 HDF5 (RoboMimic failures with auto-labeled outcomes). Without the unified schema,
                 this query would require two separate scripts reading two different formats and
@@ -549,7 +549,7 @@ GROUP BY r.robot_type, r.source_format`}
               <p>
                 This reveals something every team with mixed-format data hits: label availability
                 varies by format. RoboMimic episodes have explicit success labels. MCAP episodes
-                from the synthetic fleet have no outcome labels at all — they show as{" "}
+                from the synthetic fleet have no outcome labels at all - they show as{" "}
                 <InlineCode>unlabeled</InlineCode>. The schema makes this visible rather than
                 hiding it behind a <InlineCode>NullPointerException</InlineCode> in a training
                 script.
@@ -566,7 +566,7 @@ GROUP BY r.robot_type, r.source_format`}
               </p>
             </Prose>
 
-            <CodeBlock lang="python — curate and export">
+            <CodeBlock lang="python - curate and export">
 {`# Curate: successful Franka demonstrations
 episodes = lake.query_episodes(success=True, robot_type="franka_panda", limit=200)
 episode_ids = episodes.to_pandas()["episode_id"].tolist()
@@ -594,14 +594,14 @@ dataset = lake.to_pytorch_dataset(
                 The demo exported 200 successful episodes → 19,596 training samples across 2
                 WebDataset shards (12.4 MB). The curation query
                 (<InlineCode>success=true, robot_type="franka_panda"</InlineCode>) selected
-                from the combined lake — the exported shards contain data from both RoboMimic
+                from the combined lake - the exported shards contain data from both RoboMimic
                 datasets, seamlessly mixed because the schema normalized them at ingest time.
               </p>
               <p>
                 The <InlineCode>prediction_horizon</InlineCode> parameter matters for modern
                 robot policies. Action-chunking architectures like Diffusion Policy and ACT
                 predict sequences of future actions, not single next actions. The export layer
-                handles the windowing — each sample includes the observation at time{" "}
+                handles the windowing - each sample includes the observation at time{" "}
                 <em>t</em> and the action sequence from <em>t</em> to{" "}
                 <em>t + prediction_horizon</em>.
               </p>

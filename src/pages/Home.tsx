@@ -86,7 +86,7 @@ export default function Home() {
               />
             </h1>
             <p className="mt-6 text-lg text-muted-foreground sm:text-xl">
-              We build the infrastructure that moves AI from prototype to production — data pipelines, deployment gates, cost controls, and the systems that keep models running reliably.
+              We build the infrastructure that moves AI from prototype to production - data pipelines, deployment gates, cost controls, and the systems that keep models running reliably.
             </p>
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Button asChild size="lg">
@@ -145,7 +145,7 @@ export default function Home() {
               Hard infrastructure problems, measurable outcomes
             </h2>
             <p className="mt-4 text-muted-foreground">
-              We take on infrastructure bottlenecks that stop AI systems from scaling or deploying — and deliver defined results in fixed timelines.
+              We take on infrastructure bottlenecks that stop AI systems from scaling or deploying - and deliver defined results in fixed timelines.
             </p>
           </div>
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

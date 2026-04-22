@@ -10,7 +10,7 @@ const capabilities = [
     icon: Cpu,
     title: "GPU Orchestration",
     description:
-      "Kubernetes with the NVIDIA GPU Operator and time-sliced MIG for fractional GPU allocation. Cluster autoscaler configured for GPU-aware scaling with appropriate spin-up tolerances—not the defaults, which are calibrated for CPU workloads and too slow for bursty inference.",
+      "Kubernetes with the NVIDIA GPU Operator and time-sliced MIG for fractional GPU allocation. Cluster autoscaler configured for GPU-aware scaling with appropriate spin-up tolerances-not the defaults, which are calibrated for CPU workloads and too slow for bursty inference.",
   },
   {
     icon: Gauge,
@@ -122,12 +122,12 @@ export default function AIInfrastructureConsulting() {
               </p>
               <p>
                 We've operated GPU infrastructure at scale where utilization
-                and cost control weren't optional—they were the difference
+                and cost control weren't optional-they were the difference
                 between a viable product and an unsustainable cost center.
               </p>
               <p>
                 Agentic workflows introduce a separate failure surface. A
-                single-step LLM call is easy to reason about—it either returns
+                single-step LLM call is easy to reason about-it either returns
                 or it doesn't. Multi-step agents interleave model calls, tool
                 executions, and state transitions across seconds or minutes. A
                 tool call failure on step 4 of 7 leaves partial state. Retry
@@ -236,7 +236,7 @@ export default function AIInfrastructureConsulting() {
                 <div>
                   <h3 className="font-semibold text-foreground">Optimize & build</h3>
                   <p className="mt-1 text-sm text-muted-foreground">
-                    We implement the highest-impact changes—autoscaling tuning,
+                    We implement the highest-impact changes-autoscaling tuning,
                     fractional GPU allocation, cost attribution, security
                     hardening. Most AI infrastructure projects run 4–8 weeks.
                   </p>
@@ -270,7 +270,7 @@ export default function AIInfrastructureConsulting() {
             </h2>
             <p className="mt-4 text-muted-foreground">
               Most engagements start with a 30-minute call to understand your
-              GPU workloads and cost profile. No pitch deck—just a technical
+              GPU workloads and cost profile. No pitch deck-just a technical
               conversation.
             </p>
             <Button asChild size="lg" className="mt-8">

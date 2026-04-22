@@ -10,13 +10,13 @@ const capabilities = [
     icon: GitBranch,
     title: "Model & Prompt Versioning",
     description:
-      "MLflow for model registry and experiment tracking—it's the closest thing to a standard. Git for prompt templates and configuration. The real value is the evaluation pipeline wired into CI: every model and prompt change runs against a held-out set before it can be promoted.",
+      "MLflow for model registry and experiment tracking-it's the closest thing to a standard. Git for prompt templates and configuration. The real value is the evaluation pipeline wired into CI: every model and prompt change runs against a held-out set before it can be promoted.",
   },
   {
     icon: Server,
     title: "Deployment Infrastructure",
     description:
-      "vLLM for LLM serving—continuous batching, KV-cache management, and quantized inference out of the box. For traditional ML, a straightforward FastAPI or Triton service behind a Kubernetes autoscaler. We avoid heavy frameworks like KServe or Seldon unless you need multi-model routing.",
+      "vLLM for LLM serving-continuous batching, KV-cache management, and quantized inference out of the box. For traditional ML, a straightforward FastAPI or Triton service behind a Kubernetes autoscaler. We avoid heavy frameworks like KServe or Seldon unless you need multi-model routing.",
   },
   {
     icon: BarChart3,
@@ -34,7 +34,7 @@ const capabilities = [
     icon: RefreshCw,
     title: "Continuous Improvement",
     description:
-      "Structured feedback collection from production—failed predictions, user corrections, low-confidence outputs—routed back into evaluation datasets. A/B testing infrastructure to compare model versions on live traffic with statistical rigor, not eyeballing dashboards.",
+      "Structured feedback collection from production-failed predictions, user corrections, low-confidence outputs-routed back into evaluation datasets. A/B testing infrastructure to compare model versions on live traffic with statistical rigor, not eyeballing dashboards.",
   },
 ];
 
@@ -66,7 +66,7 @@ export default function MLOpsConsulting() {
               MLOps Consulting
             </p>
             <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-              Deploy models in hours, not weeks — with automated rollback
+              Deploy models in hours, not weeks - with automated rollback
             </h1>
             <p className="mt-6 text-lg text-muted-foreground">
               Zero-downtime deployments with canary analysis. Evaluation gates
@@ -110,7 +110,7 @@ export default function MLOpsConsulting() {
                 write a serving endpoint, set up health checks, configure
                 autoscaling, build an evaluation pipeline, implement canary
                 deployment logic, and instrument monitoring. That's not ML
-                work—that's infrastructure work.
+                work-that's infrastructure work.
               </p>
               <p>
                 Most teams try to solve this with a platform like Kubeflow or
@@ -215,7 +215,7 @@ export default function MLOpsConsulting() {
                 <div>
                   <h3 className="font-semibold text-foreground">ML workflow audit</h3>
                   <p className="mt-1 text-sm text-muted-foreground">
-                    We review your current model lifecycle—from training notebooks
+                    We review your current model lifecycle-from training notebooks
                     through deployment to monitoring. We identify where the
                     bottlenecks are and what's needed to ship models reliably.
                     Typically 1–2 weeks.
@@ -229,7 +229,7 @@ export default function MLOpsConsulting() {
                 <div>
                   <h3 className="font-semibold text-foreground">Platform build</h3>
                   <p className="mt-1 text-sm text-muted-foreground">
-                    We build the minimum viable ML platform—registry, CI/CD with
+                    We build the minimum viable ML platform-registry, CI/CD with
                     evaluation gates, serving infrastructure, monitoring. Scoped
                     to your actual bottlenecks, not a generic MLOps stack. Most
                     implementations take 6–10 weeks.
@@ -264,7 +264,7 @@ export default function MLOpsConsulting() {
             </h2>
             <p className="mt-4 text-muted-foreground">
               Most engagements start with a 30-minute call to understand your
-              model lifecycle and where the gaps are. No pitch deck—just a
+              model lifecycle and where the gaps are. No pitch deck-just a
               technical conversation.
             </p>
             <Button asChild size="lg" className="mt-8">

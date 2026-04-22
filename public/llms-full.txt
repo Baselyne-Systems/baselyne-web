@@ -28,7 +28,7 @@ AI workloads need fresh data, not overnight ETL. They need vector search and emb
 - Lakehouse Architecture: Modern data platforms on Delta Lake, Iceberg, or Hudi. Designed for analytics, ML training, and AI workloads with governance from day one.
 - Real-time & Batch Pipelines: Streaming pipelines for real-time AI access alongside batch processing. Sub-second freshness where needed, cost-efficient batch where not.
 - AI-ready Governance: Lineage tracking, access controls, and quality metrics that extend to AI systems. Meet GDPR, SOC2, and HIPAA without slowing down your team.
-- Semantic Data Layer: Metadata, descriptions, and relationships that make data discoverable and usable—by both humans and AI systems.
+- Semantic Data Layer: Metadata, descriptions, and relationships that make data discoverable and usable-by both humans and AI systems.
 - Vector & Hybrid Search: Vector stores, embedding pipelines, and hybrid search for RAG and semantic search. Infrastructure that makes retrieval actually work.
 
 **Outcomes:**
@@ -49,7 +49,7 @@ AI workloads need fresh data, not overnight ETL. They need vector search and emb
 Get AI from prototype to production. The gap between a working prototype and a production system is larger than most teams expect. We bridge that gap with infrastructure for deploying, versioning, and monitoring ML models and LLM-powered applications.
 
 **The problem we solve:**
-Your team has built models that work in development. But getting them into production—with proper versioning, monitoring, and the ability to roll back when things go wrong—is a different challenge entirely.
+Your team has built models that work in development. But getting them into production-with proper versioning, monitoring, and the ability to roll back when things go wrong-is a different challenge entirely.
 
 Most organizations underestimate the operational complexity. Building a working model is maybe 20% of the work. The rest is infrastructure: versioning, evaluation pipelines, serving infrastructure, observability, and processes for continuous improvement.
 
@@ -80,13 +80,13 @@ Scalable AI compute with cost control. GPU and LLM costs can spiral without prop
 **The problem we solve:**
 Most teams start AI projects with managed APIs or a few GPUs. As usage grows, so do problems: costs spike unpredictably, GPU utilization hovers at 30%, and there's no visibility into what's driving spend or why systems fail.
 
-The transition from prototypes to production AI requires infrastructure expertise that most teams lack. Self-hosted models, GPU orchestration, LLM serving, cost attribution—each domain has its own complexity.
+The transition from prototypes to production AI requires infrastructure expertise that most teams lack. Self-hosted models, GPU orchestration, LLM serving, cost attribution-each domain has its own complexity.
 
 **Capabilities:**
 - GPU Orchestration: Kubernetes-based platforms for training and inference. Right-sized clusters with autoscaling that responds to actual demand.
 - Cost Attribution & Control: Clear visibility into cost per team, project, and model. Budgets, alerts, and optimization recommendations before costs spiral.
 - Security & Compliance: Network isolation, secrets management, and audit logging. Infrastructure that passes security reviews the first time.
-- LLM Serving Infrastructure: Production-grade infrastructure for serving LLMs. vLLM, TensorRT-LLM, or managed endpoints—optimized for your latency and cost requirements.
+- LLM Serving Infrastructure: Production-grade infrastructure for serving LLMs. vLLM, TensorRT-LLM, or managed endpoints-optimized for your latency and cost requirements.
 - AI Observability: Tracing, logging, and monitoring for AI systems. Debug failures, track behavior, and understand why models perform the way they do.
 
 **Outcomes:**

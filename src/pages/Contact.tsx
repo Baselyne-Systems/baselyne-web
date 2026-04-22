@@ -120,7 +120,7 @@ export default function Contact() {
             
             <div className="mt-8 space-y-6 text-muted-foreground">
               <p>
-                We'll start by understanding your current situation: what systems you have, what you're trying to build, and what's getting in the way. This isn't a discovery call designed to qualify you as a lead—it's a genuine conversation about your infrastructure.
+                We'll start by understanding your current situation: what systems you have, what you're trying to build, and what's getting in the way. This isn't a discovery call designed to qualify you as a lead-it's a genuine conversation about your infrastructure.
               </p>
               <p>
                 If there's an obvious area where we can help, we'll discuss what an engagement might look like. If we're not the right fit, we'll tell you directly and, where possible, point you toward resources or approaches that might help.

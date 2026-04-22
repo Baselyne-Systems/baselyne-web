@@ -28,7 +28,7 @@ const sections: { category: string; description: string; posts: Post[] }[] = [
         date: "April 2026",
         tags: ["Case Study", "Physical AI"],
         excerpt:
-          "How we built a format-agnostic data lake for physical AI — ingesting RLDS, LeRobot, MCAP, and HDF5 into Apache Iceberg tables, making 5,121 episodes across 3 formats and 3 robot types queryable via SQL.",
+          "How we built a format-agnostic data lake for physical AI - ingesting RLDS, LeRobot, MCAP, and HDF5 into Apache Iceberg tables, making 5,121 episodes across 3 formats and 3 robot types queryable via SQL.",
         href: "/blog/robot-data-lake",
         github: "",
       },
@@ -38,7 +38,7 @@ const sections: { category: string; description: string; posts: Post[] }[] = [
         date: "February 2026",
         tags: ["Case Study", "Open Source"],
         excerpt:
-          "How we built a modular Python CDC platform achieving 38,647 msg/s with config-driven tuning — exactly-once delivery, multi-source support, and Iceberg lakehouse with time travel.",
+          "How we built a modular Python CDC platform achieving 38,647 msg/s with config-driven tuning - exactly-once delivery, multi-source support, and Iceberg lakehouse with time travel.",
         href: "/blog/cdc-platform",
         github: "https://github.com/Baselyne-Systems/cdc-platform",
       },
@@ -64,7 +64,7 @@ const sections: { category: string; description: string; posts: Post[] }[] = [
         date: "March 2026",
         tags: ["Case Study", "Open Source"],
         excerpt:
-          "How we built an eval-gated deployment pipeline that caught a sentiment classifier regression (F1 dropped to 0.338) before it reached production — and promoted the fixed version (F1 = 0.950) automatically.",
+          "How we built an eval-gated deployment pipeline that caught a sentiment classifier regression (F1 dropped to 0.338) before it reached production - and promoted the fixed version (F1 = 0.950) automatically.",
         href: "/blog/gatekeeper",
         github: "https://github.com/achyuthsamudrala/gatekeeper",
       },
@@ -80,7 +80,7 @@ const sections: { category: string; description: string; posts: Post[] }[] = [
         date: "April 2026",
         tags: ["Case Study", "Physical AI"],
         excerpt:
-          "How we built an offline-first sync daemon that preserves 100% of failure data while dropping half of all episodes — with priority scoring, bounded buffer eviction, and resumable upload over intermittent connectivity.",
+          "How we built an offline-first sync daemon that preserves 100% of failure data while dropping half of all episodes - with priority scoring, bounded buffer eviction, and resumable upload over intermittent connectivity.",
         href: "/blog/edge-sync",
         github: "",
       },
@@ -90,7 +90,7 @@ const sections: { category: string; description: string; posts: Post[] }[] = [
         date: "March 2026",
         tags: ["Case Study", "Open Source"],
         excerpt:
-          "Four independent enforcement layers — compiled guardrails evaluated in 184ns, kernel-level iptables egress, append-only audit trail, and non-blocking human-in-the-loop escalation — all evaluated before a tool call executes.",
+          "Four independent enforcement layers - compiled guardrails evaluated in 184ns, kernel-level iptables egress, append-only audit trail, and non-blocking human-in-the-loop escalation - all evaluated before a tool call executes.",
         href: "/blog/bulkhead",
         github: "https://github.com/achyuthnsamudrala/bulkhead",
       },
@@ -160,7 +160,7 @@ export default function Blog() {
     <Layout>
       <SEO
         title="Blog | Baselyne Systems"
-        description="Technical case studies and open-source engineering from Baselyne — physical AI data infrastructure, MLOps, agent governance, and data pipelines."
+        description="Technical case studies and open-source engineering from Baselyne - physical AI data infrastructure, MLOps, agent governance, and data pipelines."
         keywords="physical AI data infrastructure, robot data lake, AI infrastructure blog, MLOps blog, model deployment, eval pipeline, agent governance, CDC platform, data engineering, open source AI"
         canonical="https://baselynesystems.com/blog"
       />

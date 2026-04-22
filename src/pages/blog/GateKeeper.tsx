@@ -198,7 +198,7 @@ export default function GateKeeper() {
     <Layout>
       <SEO
         title="GateKeeper: Eval-Gated Model Deployment | Baselyne Systems Blog"
-        description="How we built an eval-gated deployment pipeline that blocks bad models before production — with accuracy gates, drift detection, canary traffic, and a full audit trail."
+        description="How we built an eval-gated deployment pipeline that blocks bad models before production - with accuracy gates, drift detection, canary traffic, and a full audit trail."
         keywords="MLOps, model deployment, eval pipeline, model evaluation, canary deployment, model registry, ML CI/CD, model monitoring, drift detection, open source MLOps"
         canonical="https://baselynesystems.com/blog/gatekeeper"
         ogType="article"
@@ -206,7 +206,7 @@ export default function GateKeeper() {
         author="Achyuth Samudrala"
         structuredData={articleSchema({
           title: "GateKeeper: Eval-Gated Model Deployment",
-          description: "How we built an eval-gated deployment pipeline that blocks bad models before production — with accuracy gates, drift detection, canary traffic, and a full audit trail.",
+          description: "How we built an eval-gated deployment pipeline that blocks bad models before production - with accuracy gates, drift detection, canary traffic, and a full audit trail.",
           url: "https://baselynesystems.com/blog/gatekeeper",
           datePublished: "2026-03-23",
           keywords: ["MLOps", "model deployment", "eval pipeline", "canary deployment", "drift detection", "ML CI/CD", "open source MLOps"],
@@ -259,7 +259,7 @@ export default function GateKeeper() {
               <p>
                 The model works in the notebook. The team packages it into a container, writes a
                 serving endpoint, and deploys. Three days later, accuracy has degraded 15% and
-                nobody noticed — because the only check was "did the endpoint start."
+                nobody noticed - because the only check was "did the endpoint start."
               </p>
               <p>
                 The gap between "model artifact exists" and "model is safely serving production
@@ -270,8 +270,8 @@ export default function GateKeeper() {
               </p>
               <p>
                 We built GateKeeper as an open-source eval-gated deployment pipeline. It sits
-                between your model registry and your serving infrastructure. Every model change —
-                new weights, prompt update, config change — runs through a configurable set of
+                between your model registry and your serving infrastructure. Every model change -
+                new weights, prompt update, config change - runs through a configurable set of
                 quality gates before it can reach production. If any blocking gate fails, the
                 deployment is stopped and the team sees exactly why.
               </p>
@@ -279,7 +279,7 @@ export default function GateKeeper() {
 
             <Callout label="Key result">
               A sentiment classifier candidate with F1 = 0.338 was blocked before production.
-              The same pipeline promoted a v2.2 candidate with F1 = 0.950 — both decisions
+              The same pipeline promoted a v2.2 candidate with F1 = 0.950 - both decisions
               fully auditable, config-driven, with no manual review required.
             </Callout>
 
@@ -287,8 +287,8 @@ export default function GateKeeper() {
             <SectionHeading>Architecture</SectionHeading>
             <Prose>
               <p>
-                GateKeeper has two independently optional phases — <strong>offline</strong> and{" "}
-                <strong>online</strong> — that can be composed in any combination.
+                GateKeeper has two independently optional phases - <strong>offline</strong> and{" "}
+                <strong>online</strong> - that can be composed in any combination.
               </p>
               <p>
                 <strong>Offline gates</strong> evaluate model quality without a live serving endpoint.
@@ -308,7 +308,7 @@ export default function GateKeeper() {
               </p>
             </Prose>
 
-            <CodeBlock lang="ascii — pipeline flow">
+            <CodeBlock lang="ascii - pipeline flow">
 {`Trigger                    GateKeeper Server                External
 ───────                    ─────────────────                ────────
 
@@ -336,10 +336,10 @@ GitHub Action ──┐
 
             <Prose>
               <p>
-                The system is fully async — every I/O operation (database, HTTP calls to model
+                The system is fully async - every I/O operation (database, HTTP calls to model
                 endpoints, file downloads, LLM judge API calls) is non-blocking. Evaluators
                 within a phase run concurrently. If one evaluator fails, the others still complete
-                and produce results — failures are isolated per gate, not per pipeline.
+                and produce results - failures are isolated per gate, not per pipeline.
               </p>
             </Prose>
 
@@ -348,13 +348,13 @@ GitHub Action ──┐
             <Prose>
               <p>
                 Every model repo contains a <InlineCode>gatekeeper.yaml</InlineCode> that defines
-                what gates must pass before deployment. The config is declarative — you specify
+                what gates must pass before deployment. The config is declarative - you specify
                 the evaluator, the metric, the threshold, and whether the gate is blocking.
                 GateKeeper handles the execution, comparison, and policy evaluation.
               </p>
             </Prose>
 
-            <CodeBlock lang="yaml — gatekeeper.yaml">
+            <CodeBlock lang="yaml - gatekeeper.yaml">
 {`version: "1.0"
 model_type: llm
 eval_dataset:
@@ -396,7 +396,7 @@ gates:
               <p>
                 The config lives in the model repo, versioned alongside the model code. Different
                 models can have different gates, different thresholds, different evaluators. The
-                server doesn't need to know about your model — it reads the config at trigger time.
+                server doesn't need to know about your model - it reads the config at trigger time.
               </p>
             </Prose>
 
@@ -406,7 +406,7 @@ gates:
               <p>
                 GateKeeper ships with five evaluators that cover the most common gate patterns.
                 Each evaluator is async-native, reports a primary metric, and handles errors
-                gracefully — a failing evaluator produces an error result, not a crashed pipeline.
+                gracefully - a failing evaluator produces an error result, not a crashed pipeline.
               </p>
             </Prose>
 
@@ -456,8 +456,8 @@ gates:
 
             <Prose>
               <p>
-                The accuracy gate fails — F1 of 0.338 is well below the 0.85 threshold. The drift
-                gate passes — PSI of 0.143 is within the 0.25 limit, meaning the input data
+                The accuracy gate fails - F1 of 0.338 is well below the 0.85 threshold. The drift
+                gate passes - PSI of 0.143 is within the 0.25 limit, meaning the input data
                 distribution hasn't shifted. The problem is the model, not the data.
               </p>
               <p>
@@ -465,12 +465,12 @@ gates:
                 <InlineCode>blocking: true</InlineCode>, the pipeline status is set to{" "}
                 <strong>failed</strong>. The deployment is stopped. The audit log records the
                 trigger, the gate results, and the verdict. The team sees exactly what failed
-                and by how much — no manual review needed.
+                and by how much - no manual review needed.
               </p>
             </Prose>
 
             <Callout label="What the team sees">
-              <strong>Pipeline: FAILED</strong> — sentiment-classifier v2.1-rc1 blocked by
+              <strong>Pipeline: FAILED</strong> - sentiment-classifier v2.1-rc1 blocked by
               accuracy_gate. F1 = 0.338, required ≥ 0.85. Drift within normal range (PSI = 0.143).
               Model regression confirmed, data distribution unchanged.
             </Callout>
@@ -493,7 +493,7 @@ gates:
                 promotion to production.
               </p>
               <p>
-                The same config, the same infrastructure, two different outcomes — one blocked,
+                The same config, the same infrastructure, two different outcomes - one blocked,
                 one promoted. The decision is fully automated, fully auditable, and took seconds
                 instead of a manual review cycle.
               </p>
@@ -509,7 +509,7 @@ gates:
               </p>
             </Prose>
 
-            <CodeBlock lang="python — gate policy evaluation">
+            <CodeBlock lang="python - gate policy evaluation">
 {`# For each gate: compare metric_value against threshold
 ops = {
     ">=": lambda v, t: v >= t,
@@ -529,7 +529,7 @@ overall_passed = all(
             <Prose>
               <p>
                 No weighted scoring, no complex decision trees. A blocking gate either passes
-                or it doesn't. This is deliberate — when a deployment is blocked at 2 AM, the
+                or it doesn't. This is deliberate - when a deployment is blocked at 2 AM, the
                 on-call engineer needs to understand exactly why in seconds, not interpret a
                 composite score.
               </p>
@@ -546,7 +546,7 @@ overall_passed = all(
               </p>
             </Prose>
 
-            <CodeBlock lang="yaml — canary config">
+            <CodeBlock lang="yaml - canary config">
 {`canary:
   traffic_percent: 10
   observation_window_minutes: 30
@@ -573,13 +573,13 @@ overall_passed = all(
             <SectionHeading>Plugin system</SectionHeading>
             <Prose>
               <p>
-                GateKeeper has six plugin registries — evaluators, model types, dataset formats,
+                GateKeeper has six plugin registries - evaluators, model types, dataset formats,
                 drift methods, inference encodings, and judge modalities. All follow the same
                 pattern: implement a base class, register via Python entry points.
               </p>
             </Prose>
 
-            <CodeBlock lang="python — custom evaluator">
+            <CodeBlock lang="python - custom evaluator">
 {`class MyEvaluator(BaseEvaluator):
     @property
     def name(self) -> str:
@@ -610,7 +610,7 @@ overall_passed = all(
         )`}
             </CodeBlock>
 
-            <CodeBlock lang="toml — pyproject.toml entry point">
+            <CodeBlock lang="toml - pyproject.toml entry point">
 {`[project.entry-points."gatekeeper.evaluators"]
 my_eval = "my_package.evaluators:MyEvaluator"`}
             </CodeBlock>
@@ -636,7 +636,7 @@ my_eval = "my_package.evaluators:MyEvaluator"`}
               </p>
             </Prose>
 
-            <CodeBlock lang="yaml — GitHub Actions workflow">
+            <CodeBlock lang="yaml - GitHub Actions workflow">
 {`- uses: your-org/gatekeeper/action@main
   with:
     gatekeeper_url: \${{ secrets.GATEKEEPER_URL }}
@@ -648,7 +648,7 @@ my_eval = "my_package.evaluators:MyEvaluator"`}
 
             <Prose>
               <p>
-                The action is implemented as a bash + curl + jq script — no Node.js runtime, no
+                The action is implemented as a bash + curl + jq script - no Node.js runtime, no
                 compiled binary. It triggers the pipeline, polls the run status endpoint, and
                 exits with a non-zero code if any blocking gate fails. The gate report is printed
                 to the workflow log so reviewers can see exactly what passed and what didn't.
@@ -663,20 +663,20 @@ my_eval = "my_package.evaluators:MyEvaluator"`}
               </p>
             </Prose>
 
-            <CodeBlock lang="text — workflow patterns">
-{`Pattern A — Offline only
+            <CodeBlock lang="text - workflow patterns">
+{`Pattern A - Offline only
   Prompt change or serverless model. No deployment step needed.
   Run accuracy, drift, LLM judge gates against eval data.
 
-Pattern B — Online only
+Pattern B - Online only
   Team has existing eval suite. GateKeeper for canary only.
   Deploy challenger, run latency gates, manage canary traffic.
 
-Pattern C — Chained (offline → deploy → online)
+Pattern C - Chained (offline → deploy → online)
   Full pipeline. Offline gates must pass before online phase starts.
   If offline fails, online is skipped automatically.
 
-Pattern D — Custom evaluator
+Pattern D - Custom evaluator
   Extend with domain-specific evaluation logic via plugins.
   Same pipeline, your metric, your threshold.`}
             </CodeBlock>
@@ -685,7 +685,7 @@ Pattern D — Custom evaluator
             <SectionHeading>Running it</SectionHeading>
             <Prose>
               <p>
-                The full stack runs via Docker Compose — FastAPI backend, Postgres, and a React
+                The full stack runs via Docker Compose - FastAPI backend, Postgres, and a React
                 dashboard for viewing pipeline runs, gate results, and canary snapshots.
               </p>
             </Prose>
@@ -722,7 +722,7 @@ make health
                 Need eval gates for your model deployment?
               </h2>
               <p className="mt-3 text-muted-foreground">
-                We build MLOps infrastructure — from evaluation pipelines to production serving.
+                We build MLOps infrastructure - from evaluation pipelines to production serving.
                 Book a 30-minute call to talk through your model lifecycle.
               </p>
               <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4">

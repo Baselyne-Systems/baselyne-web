@@ -233,7 +233,7 @@ export default function EdgeSync() {
     <Layout>
       <SEO
         title="Edge Sync: Offline-First Data Pipeline for Field Robots | Baselyne Systems"
-        description="How we built an offline-first sync daemon for field robots — priority scoring, bounded buffer eviction, and resumable upload over intermittent connectivity. 100% failure data survival while dropping half of all episodes."
+        description="How we built an offline-first sync daemon for field robots - priority scoring, bounded buffer eviction, and resumable upload over intermittent connectivity. 100% failure data survival while dropping half of all episodes."
         keywords="edge sync, offline-first robot data, field robotics data pipeline, robot data upload, edge data management, physical AI edge, intermittent connectivity robot, priority data sync, robot failure data"
         canonical="https://baselynesystems.com/blog/edge-sync"
         ogType="article"
@@ -241,7 +241,7 @@ export default function EdgeSync() {
         author="Achyuth Samudrala"
         structuredData={articleSchema({
           title: "Edge Sync: Offline-First Data Pipeline for Field Robots",
-          description: "How we built an offline-first sync daemon for field robots — priority scoring, bounded buffer eviction, and resumable upload over intermittent connectivity.",
+          description: "How we built an offline-first sync daemon for field robots - priority scoring, bounded buffer eviction, and resumable upload over intermittent connectivity.",
           url: "https://baselynesystems.com/blog/edge-sync",
           datePublished: "2026-04-05",
           keywords: ["edge sync", "offline-first", "field robotics", "robot data pipeline", "physical AI", "edge data management", "intermittent connectivity"],
@@ -271,7 +271,7 @@ export default function EdgeSync() {
                 Edge Sync: Offline-First Data Sync for Field Robots
               </h1>
               <p className="mt-3 text-xl text-muted-foreground">
-                100% failure data survival while dropping half of all episodes — priority scoring, bounded eviction, and resumable upload over intermittent connectivity
+                100% failure data survival while dropping half of all episodes - priority scoring, bounded eviction, and resumable upload over intermittent connectivity
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-4">
                 <span className="text-sm text-muted-foreground">April 2026</span>
@@ -286,8 +286,8 @@ export default function EdgeSync() {
                 Construction sites have no internet. Warehouse robots saturate 5Gbps pipes.
                 A 15-second stereo camera clip generates 3GB of data. Every field robotics
                 team hits the same wall: the robot collects far more data than it can upload,
-                and the most valuable recordings — task failures, novel states, sensor
-                anomalies — are exactly the ones most likely to be lost.
+                and the most valuable recordings - task failures, novel states, sensor
+                anomalies - are exactly the ones most likely to be lost.
               </p>
               <p>
                 The common solution is random sampling: store 1% of everything and hope the
@@ -307,7 +307,7 @@ export default function EdgeSync() {
             <Callout label="Key results">
               <strong>100% failure survival</strong> with a 100MB buffer while dropping 101
               of 200 episodes · <strong>Priority ordering preserved</strong> across all 6
-              benchmark scenarios · <strong>100% drop record completeness</strong> — nothing
+              benchmark scenarios · <strong>100% drop record completeness</strong> - nothing
               disappears without an audit trail · <strong>9 race conditions</strong> identified
               and mitigated · Resumable chunked upload with two-phase completion
             </Callout>
@@ -320,7 +320,7 @@ export default function EdgeSync() {
               </p>
             </Prose>
 
-            <CodeBlock lang="ascii — component architecture">
+            <CodeBlock lang="ascii - component architecture">
 {`Recording process
        |
        v
@@ -335,7 +335,7 @@ export default function EdgeSync() {
                 <InlineCode>.done</InlineCode> sentinel files. The sentinel contract is
                 simple: the recording process writes the MCAP file, calls fsync, then writes
                 a <InlineCode>.done</InlineCode> file. The daemon never touches an MCAP
-                without a matching sentinel — no partial file processing.
+                without a matching sentinel - no partial file processing.
               </p>
               <p>
                 <strong>Scorer</strong> reads the MCAP file, extracts the task outcome, computes
@@ -345,7 +345,7 @@ export default function EdgeSync() {
               <p>
                 <strong>Buffer Manager</strong> holds scored episodes in a priority queue. When
                 the buffer is full, it evicts the lowest-scored episode that isn't currently being
-                uploaded. Every eviction writes a drop record before deleting the file — nothing
+                uploaded. Every eviction writes a drop record before deleting the file - nothing
                 disappears silently.
               </p>
               <p>
@@ -364,12 +364,12 @@ export default function EdgeSync() {
                 Every episode gets a composite score from independent signals combined as a
                 weighted sum. The primary signal is the task outcome, extracted from
                 the <InlineCode>/task/result</InlineCode> topic in the MCAP file. Additional
-                signals — sensor quality, novelty detection, policy uncertainty — can be
+                signals - sensor quality, novelty detection, policy uncertainty - can be
                 plugged in without changing the scorer.
               </p>
             </Prose>
 
-            <CodeBlock lang="python — composite scoring">
+            <CodeBlock lang="python - composite scoring">
 {`score = outcome_weight * outcome_score
      + sum(signal.weight * signal.score for each enabled signal)`}
             </CodeBlock>
@@ -390,7 +390,7 @@ export default function EdgeSync() {
                 task result from MCAP, and <InlineCode>SensorQualitySignal</InlineCode> detects
                 camera frame dropouts using interval consistency checks. Additional signals
                 like novelty detection (embedding distance from training distribution) and
-                policy uncertainty require a trained encoder and calibration data — they're
+                policy uncertainty require a trained encoder and calibration data - they're
                 documented but disabled by default, because a random encoder against random
                 centroids produces noise, not useful scores.
               </p>
@@ -410,7 +410,7 @@ export default function EdgeSync() {
               </p>
             </Prose>
 
-            <CodeBlock lang="text — eviction sequence">
+            <CodeBlock lang="text - eviction sequence">
 {`1. Select lowest-scored episode not currently being uploaded
 2. Mark as DROPPED in SQLite (under buffer_write_lock)
 3. Write drop record: episode ID, score, outcome, reason, size, timestamp
@@ -435,7 +435,7 @@ export default function EdgeSync() {
               <p>
                 The daemon runs 5-7 threads depending on configuration. The concurrency
                 model is designed for a Jetson Orin sharing CPU and RAM with the robot's
-                policy stack — no thread pool explosion, no unbounded queues.
+                policy stack - no thread pool explosion, no unbounded queues.
               </p>
             </Prose>
 
@@ -449,7 +449,7 @@ export default function EdgeSync() {
                 concern: buffer writes, database access, processing dedup, and cloud state.
               </p>
               <p>
-                We identified 9 race conditions during design — episode arriving during eviction,
+                We identified 9 race conditions during design - episode arriving during eviction,
                 upload/eviction collision, simultaneous arrivals, connectivity returning during
                 eviction, scoring timeout, power loss mid-upload, manifest divergence, partial
                 MCAP write, and crash before scoring completes. Each has a specific mitigation
@@ -461,8 +461,8 @@ export default function EdgeSync() {
             <SectionHeading>Benchmark: 6 scenarios, 200 episodes</SectionHeading>
             <Prose>
               <p>
-                200 synthetic MCAP episodes — 60 failures, 40 novel states, 20 sensor anomalies,
-                80 routine successes — totaling 234.5 MB. Each scenario varies the buffer size,
+                200 synthetic MCAP episodes - 60 failures, 40 novel states, 20 sensor anomalies,
+                80 routine successes - totaling 234.5 MB. Each scenario varies the buffer size,
                 LTE connectivity duration, and dead zone length. Connectivity follows a three-phase
                 schedule: LTE connected → dead zone (no connectivity) → dock WiFi reconnected.
               </p>
@@ -471,7 +471,7 @@ export default function EdgeSync() {
             <SubHeading>Baseline: 100MB buffer, 5s LTE, 20s dead zone</SubHeading>
             <Prose>
               <p>
-                The interesting scenario — enough data pressure to force evictions, but enough
+                The interesting scenario - enough data pressure to force evictions, but enough
                 connectivity to upload the highest-priority episodes.
               </p>
             </Prose>
@@ -480,7 +480,7 @@ export default function EdgeSync() {
 
             <Prose>
               <p>
-                99 synced, 101 dropped. Every failure episode survived — 100% survival for the
+                99 synced, 101 dropped. Every failure episode survived - 100% survival for the
                 highest-value tier. The 20-second dead zone creates sustained pressure: episodes
                 arrive at 10/sec but no uploads can happen, so the buffer fills to capacity and
                 evictions begin. The scoring algorithm ensures that when something has to go,
@@ -494,14 +494,14 @@ export default function EdgeSync() {
 
             <Prose>
               <p>
-                The tight buffer scenario is the stress test — halving the buffer to 50MB drops
+                The tight buffer scenario is the stress test - halving the buffer to 50MB drops
                 failure survival from 100% to 65%. The buffer can hold about 25 failure-sized
                 episodes at 2MB each, but 60 failures compete for space during the dead zone.
                 Even under this extreme pressure, the priority gradient holds: failures still
                 survive at a higher rate than every other tier.
               </p>
               <p>
-                The remaining four scenarios show no evictions — the buffer, connectivity, or
+                The remaining four scenarios show no evictions - the buffer, connectivity, or
                 both are sufficient to absorb all 200 episodes. These serve as control cases:
                 they prove the upload mechanism works correctly when buffer pressure is absent.
               </p>
@@ -518,8 +518,8 @@ export default function EdgeSync() {
               </p>
               <p>
                 The 1MB chunk size balances three concerns. At 5 Mbps (LTE), one chunk takes
-                1.6 seconds — connectivity is checked every 1.6s with at most 1MB of wasted
-                transfer on disconnect. At 100 Mbps (dock WiFi), one chunk takes 0.08s —
+                1.6 seconds - connectivity is checked every 1.6s with at most 1MB of wasted
+                transfer on disconnect. At 100 Mbps (dock WiFi), one chunk takes 0.08s -
                 per-chunk overhead is about 10% of transfer time, which is acceptable.
               </p>
               <p>
@@ -540,7 +540,7 @@ export default function EdgeSync() {
               </p>
             </Prose>
 
-            <CodeBlock lang="text — reconciliation protocol">
+            <CodeBlock lang="text - reconciliation protocol">
 {`1. Daemon builds manifest: all episode IDs with sync status, score, size
 2. POST /sync/reconcile sends manifest to cloud
 3. Cloud returns:
@@ -558,12 +558,12 @@ export default function EdgeSync() {
             <Prose>
               <p>
                 Every episode follows a deterministic state machine from detection to final
-                disposition. There are no ambiguous states — at any point, the system knows
+                disposition. There are no ambiguous states - at any point, the system knows
                 exactly where every episode is and why.
               </p>
             </Prose>
 
-            <CodeBlock lang="text — state machine">
+            <CodeBlock lang="text - state machine">
 {`.done sentinel detected
        |
        v
@@ -608,7 +608,7 @@ export default function EdgeSync() {
               <p>
                 Every evicted episode has a corresponding drop record: episode ID, score,
                 outcome, reason, file size, and timestamp. This is enforced by the eviction
-                algorithm — <InlineCode>mark_dropped()</InlineCode> writes the drop record
+                algorithm - <InlineCode>mark_dropped()</InlineCode> writes the drop record
                 in the same database transaction that updates the episode status. The file
                 is deleted afterward on a background thread.
               </p>

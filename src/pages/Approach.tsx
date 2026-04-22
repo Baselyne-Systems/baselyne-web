@@ -22,11 +22,11 @@ const phases = [
     icon: Target,
     title: "Scope & Outcome",
     duration: "Collaborative",
-    description: "We agree on a specific outcome — for example, reduce data-to-policy cycle time from weeks to days, or scale the training pipeline to handle 10x more episodes. Fixed scope, fixed timeline, fixed price.",
+    description: "We agree on a specific outcome - for example, reduce data-to-policy cycle time from weeks to days, or scale the training pipeline to handle 10x more episodes. Fixed scope, fixed timeline, fixed price.",
     outputs: [
       "Defined outcome with measurable success criteria",
       "Fixed-price proposal with timeline",
-      "Clear boundaries — what's in and what's out",
+      "Clear boundaries - what's in and what's out",
     ],
   },
   {
@@ -78,7 +78,7 @@ export default function Approach() {
     <Layout>
       <SEO
         title="Our Approach | Fixed-Outcome AI Infrastructure Engagements"
-        description="Fixed-outcome engagements with defined deliverables. You pay for results — a working system your team can operate — not for hours. Typical engagements run 6-12 weeks."
+        description="Fixed-outcome engagements with defined deliverables. You pay for results - a working system your team can operate - not for hours. Typical engagements run 6-12 weeks."
         keywords="AI consulting process, MLOps implementation methodology, data infrastructure project delivery, ML platform consulting approach"
         canonical="https://baselynesystems.com/approach"
       />
@@ -90,7 +90,7 @@ export default function Approach() {
               How We Work
             </h1>
             <p className="mt-6 text-lg text-muted-foreground">
-              We scope fixed-outcome engagements with defined deliverables. You pay for results — a working system your team can operate — not for hours.
+              We scope fixed-outcome engagements with defined deliverables. You pay for results - a working system your team can operate - not for hours.
             </p>
           </div>
         </div>

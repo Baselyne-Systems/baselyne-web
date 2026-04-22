@@ -10,21 +10,21 @@ const services = [
     icon: Database,
     title: "Data Infrastructure",
     description:
-      "Lakehouse architecture, real-time and batch pipelines, governance, and vector search—built for AI workloads, not just dashboards.",
+      "Lakehouse architecture, real-time and batch pipelines, governance, and vector search-built for AI workloads, not just dashboards.",
     link: "/services/data-infrastructure-consulting",
   },
   {
     icon: GitBranch,
     title: "MLOps & Model Platforms",
     description:
-      "Model registry, evaluation-gated CI/CD, serving infrastructure, and production monitoring—the minimum viable platform that actually works.",
+      "Model registry, evaluation-gated CI/CD, serving infrastructure, and production monitoring-the minimum viable platform that actually works.",
     link: "/services/mlops-consulting",
   },
   {
     icon: Cpu,
     title: "AI Infrastructure",
     description:
-      "GPU orchestration, fractional allocation, cost attribution, and autoscaling tuned for inference—so your bill reflects usage, not idle capacity.",
+      "GPU orchestration, fractional allocation, cost attribution, and autoscaling tuned for inference-so your bill reflects usage, not idle capacity.",
     link: "/services/ai-infrastructure-consulting",
   },
 ];
@@ -140,7 +140,7 @@ export default function Services() {
                 <p className="mt-1 text-xs font-medium text-primary">6–12 weeks</p>
                 <p className="mt-3 text-sm text-muted-foreground">
                   Scoped projects with defined deliverables. We design, build,
-                  and hand off production-ready infrastructure—with documentation
+                  and hand off production-ready infrastructure-with documentation
                   and knowledge transfer so your team can operate it independently.
                 </p>
               </CardContent>
@@ -156,7 +156,7 @@ export default function Services() {
                 <p className="mt-3 text-sm text-muted-foreground">
                   For teams that want ongoing access to expert guidance. Monthly
                   retainer for architecture reviews, design consultations, and
-                  technical advisory as your systems evolve—your team builds, we
+                  technical advisory as your systems evolve-your team builds, we
                   advise.
                 </p>
               </CardContent>

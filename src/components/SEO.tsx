@@ -220,7 +220,7 @@ export const physicalAIServiceSchema = {
     url: "https://baselynesystems.com",
   },
   description:
-    "Infrastructure for physical AI across the full lifecycle — edge data capture, sensor data lakes, training pipelines, evaluation gates, fleet deployment, and compliance for robotics, autonomous systems, embodied agents, and world models.",
+    "Infrastructure for physical AI across the full lifecycle - edge data capture, sensor data lakes, training pipelines, evaluation gates, fleet deployment, and compliance for robotics, autonomous systems, embodied agents, and world models.",
   serviceType: "Consulting",
   areaServed: "Worldwide",
   url: "https://baselynesystems.com/physical-ai",
