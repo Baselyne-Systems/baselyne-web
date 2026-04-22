@@ -48,10 +48,10 @@ const solutions: Solution[] = [
     outcome:
       "Turn teleop interventions, failures, and routine operations into a queryable dataset your ML team can actually use.",
     build: [
-      "Multi-format sensor data ingestion (MCAP, RLDS, LeRobot, HDF5)",
-      "Unified schema across your robot fleet",
-      "Event tagging for interventions, failures, successes",
-      "Episode-centric query interface",
+      "Your fleet data, ingested in whatever format it arrives (MCAP, RLDS, LeRobot, HDF5)",
+      "One queryable schema across your entire robot fleet",
+      "Interventions, failures, and successes tagged for later retrieval",
+      "Query episodes by task, outcome, source, environment — whatever matters",
     ],
     dontDo: [
       "Modify your robot's on-device code — your engineers integrate against our ingestion API",
