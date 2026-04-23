@@ -224,7 +224,7 @@ export default function Solutions() {
               Where you are, what we build
             </h1>
             <p className="mt-6 text-lg text-muted-foreground">
-              Fixed-scope engagements for the physical AI iteration loop. Each stage is a standalone engagement - enter at the one that matches your current bottleneck, not necessarily the beginning.
+              Fixed-scope engagements for the physical AI iteration loop. Each stage is a standalone engagement - enter at the one that matches your current bottleneck, not necessarily the beginning. Custom scope available for problems that don't fit cleanly.
             </p>
             <Button asChild size="lg" className="mt-10">
               <a
@@ -280,6 +280,9 @@ export default function Solutions() {
       <section className="bg-layer-1 py-16 lg:py-20">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="mx-auto max-w-6xl">
+            <p className="mb-10 text-center text-sm text-muted-foreground">
+              Below are the most common engagement shapes. If your problem doesn't fit cleanly, book a scoping call and we'll scope custom.
+            </p>
             <div className="flex flex-wrap justify-center gap-6">
               {solutions.map((solution) => (
                 <div key={solution.title} className="w-full md:w-[calc(50%-12px)]">
