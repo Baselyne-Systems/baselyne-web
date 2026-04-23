@@ -1,4 +1,4 @@
-import { ArrowRight, Database, Filter, FlaskConical, Rocket, ShieldCheck, Target } from "lucide-react";
+import { ArrowRight, Database, Filter, FlaskConical, Lightbulb, Rocket, ShieldCheck, Target } from "lucide-react";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -17,13 +17,36 @@ type Solution = {
   ctaLabel: string;
 };
 
+const advisorySprint: Solution = {
+  stage: "ADVISORY",
+  duration: "2-3 weeks",
+  price: "From £5k",
+  icon: Lightbulb,
+  title: "Advisory Sprint",
+  audience:
+    "For teams who want focused senior input on a specific infrastructure question - lighter than a full Assessment, more structured than a scoping call.",
+  outcome:
+    "A time-boxed advisory engagement on the topic you pick. Structured discussion, offline analysis, written recommendations.",
+  build: [
+    "3-5 scheduled discussion sessions with your team",
+    "Offline research and analysis between sessions",
+    "Written notes and observations after each session",
+    "Final summary with concrete recommendations",
+  ],
+  dontDo: [
+    "Implement technical fixes - advisory only",
+    "Replace a full Assessment if what you need is systematic bottleneck diagnosis",
+  ],
+  ctaLabel: "Book an advisory sprint",
+};
+
 const entryPoint: Solution = {
-  stage: "ENTRY POINT",
-  duration: "2–3 weeks",
+  stage: "ASSESSMENT",
+  duration: "2-3 weeks",
   price: "From £10k",
   icon: Target,
   title: "Iteration Velocity Assessment",
-  audience: "For teams who want a sharp outside view before committing to a bigger engagement.",
+  audience: "For teams who want a sharp outside view of where their iteration cycle breaks, with a structured diagnostic.",
   outcome:
     "Know where your iteration cycle actually breaks - specific bottlenecks, their cost, and a prioritized path to fixing them.",
   build: [
@@ -262,14 +285,15 @@ export default function Solutions() {
         </div>
       </section>
 
-      {/* Entry point card */}
+      {/* Entry point cards */}
       <section className="bg-layer-1 pt-16 lg:pt-20">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="mx-auto max-w-2xl">
+          <div className="mx-auto max-w-5xl">
             <p className="text-center text-sm font-medium uppercase tracking-wider text-primary">
-              Start here if you're not sure where to start
+              Start with a lighter entry point
             </p>
-            <div className="mt-6">
+            <div className="mt-6 grid gap-6 md:grid-cols-2">
+              <SolutionCard solution={advisorySprint} highlighted />
               <SolutionCard solution={entryPoint} highlighted />
             </div>
           </div>
