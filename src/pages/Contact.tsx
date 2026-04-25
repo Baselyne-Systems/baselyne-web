@@ -1,4 +1,4 @@
-import { ArrowRight, Calendar, Clock, MessageSquare } from "lucide-react";
+import { ArrowRight, Calendar, Clock, Mail, MessageSquare } from "lucide-react";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -100,6 +100,14 @@ export default function Contact() {
                       <ArrowRight className="h-4 w-4" />
                     </a>
                   </Button>
+                  <p className="mt-6 text-sm text-muted-foreground">Or email directly</p>
+                  <a
+                    href="mailto:achyuth@baselynesystems.com"
+                    className="mt-2 inline-flex items-center gap-2 text-sm text-primary transition-colors hover:text-primary/80"
+                  >
+                    <Mail className="h-4 w-4" />
+                    achyuth@baselynesystems.com
+                  </a>
                 </CardContent>
               </Card>
             </div>

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Linkedin } from "lucide-react";
+import { ArrowRight, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/baselyne-logo.jpg";
 import { PHYSICAL_AI_MODE } from "@/config";
@@ -81,6 +81,13 @@ export function Footer() {
             >
               <Linkedin className="h-5 w-5" />
               <span>Connect on LinkedIn</span>
+            </a>
+            <a
+              href="mailto:achyuth@baselynesystems.com"
+              className="mt-2 flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              <Mail className="h-5 w-5" />
+              <span>achyuth@baselynesystems.com</span>
             </a>
           </div>
 

@@ -1,4 +1,4 @@
-import { ArrowRight, Building2, CheckCircle2, Database, FileText, Linkedin, Search, Shield, Target, Users, Wrench, Zap } from "lucide-react";
+import { ArrowRight, Building2, CheckCircle2, Database, FileText, Linkedin, Mail, Search, Shield, Target, Users, Wrench, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
@@ -160,6 +160,13 @@ export default function About() {
               >
                 <Linkedin className="h-5 w-5" />
                 <span>Connect with the founder on LinkedIn</span>
+              </a>
+              <a
+                href="mailto:achyuth@baselynesystems.com"
+                className="mt-2 flex w-fit items-center gap-2 text-primary transition-colors hover:text-primary/80"
+              >
+                <Mail className="h-5 w-5" />
+                <span>achyuth@baselynesystems.com</span>
               </a>
             </div>
           </div>
