@@ -178,38 +178,6 @@ export function articleSchema({
 }
 
 // Service-specific schemas
-export const aiInfraServiceSchema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: "AI Infrastructure Consulting",
-  provider: {
-    "@type": "Organization",
-    name: "Baselyne Systems",
-    url: "https://baselynesystems.com",
-  },
-  description:
-    "Expert consulting for building production AI infrastructure including GPU orchestration, cost optimization, and security compliance.",
-  serviceType: "Consulting",
-  areaServed: "Worldwide",
-  url: "https://baselynesystems.com/services/ai-infrastructure-consulting",
-};
-
-export const mlopsServiceSchema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: "MLOps Consulting",
-  provider: {
-    "@type": "Organization",
-    name: "Baselyne Systems",
-    url: "https://baselynesystems.com",
-  },
-  description:
-    "Expert MLOps consulting to get models from notebooks to production with proper versioning, deployment infrastructure, and monitoring.",
-  serviceType: "Consulting",
-  areaServed: "Worldwide",
-  url: "https://baselynesystems.com/services/mlops-consulting",
-};
-
 export const physicalAIServiceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
@@ -224,20 +192,4 @@ export const physicalAIServiceSchema = {
   serviceType: "Consulting",
   areaServed: "Worldwide",
   url: "https://baselynesystems.com/physical-ai",
-};
-
-export const dataInfraServiceSchema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: "Data Infrastructure Consulting",
-  provider: {
-    "@type": "Organization",
-    name: "Baselyne Systems",
-    url: "https://baselynesystems.com",
-  },
-  description:
-    "Expert data infrastructure consulting for building reliable, scalable data platforms including lakehouse architecture, pipeline orchestration, and governance.",
-  serviceType: "Consulting",
-  areaServed: "Worldwide",
-  url: "https://baselynesystems.com/services/data-infrastructure-consulting",
 };

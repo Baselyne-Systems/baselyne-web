@@ -9,10 +9,6 @@ const distPath = path.resolve(__dirname, '../dist');
 
 const routes = [
   '/',
-  '/services',
-  '/services/ai-infrastructure-consulting',
-  '/services/mlops-consulting',
-  '/services/data-infrastructure-consulting',
   '/physical-ai',
   '/solutions',
   '/blog/bulkhead',
@@ -20,7 +16,6 @@ const routes = [
   '/blog/robot-data-lake',
   '/blog/edge-sync',
   '/blog/training-pipeline',
-  '/blog/retrieval-os',
   '/blog/cdc-platform',
   '/blog',
   '/about',

@@ -2,29 +2,14 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/baselyne-logo.jpg";
-import { PHYSICAL_AI_MODE } from "@/config";
 
 const navigation = {
-  main: PHYSICAL_AI_MODE
-    ? [
-        { name: "Blog", href: "/blog" },
-        { name: "About", href: "/about" },
-        { name: "Contact", href: "/contact" },
-      ]
-    : [
-        { name: "Physical AI", href: "/physical-ai" },
-        { name: "Services", href: "/services" },
-        { name: "Blog", href: "/blog" },
-        { name: "About", href: "/about" },
-        { name: "Contact", href: "/contact" },
-      ],
-  services: PHYSICAL_AI_MODE
-    ? []
-    : [
-        { name: "Data Infrastructure", href: "/services/data-infrastructure-consulting" },
-        { name: "MLOps", href: "/services/mlops-consulting" },
-        { name: "AI Infrastructure", href: "/services/ai-infrastructure-consulting" },
-      ],
+  main: [
+    { name: "Solutions", href: "/solutions" },
+    { name: "Blog", href: "/blog" },
+    { name: "About", href: "/about" },
+    { name: "Contact", href: "/contact" },
+  ],
 };
 
 export function Footer() {
@@ -35,7 +20,7 @@ export function Footer() {
         <div className="container mx-auto px-4 py-16 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-2xl font-semibold text-foreground sm:text-3xl">
-              {PHYSICAL_AI_MODE ? "Building physical AI infrastructure?" : "Ready to move AI into production?"}
+              Building physical AI infrastructure?
             </h2>
             <p className="mt-4 text-muted-foreground">
               Schedule a 30-minute call to discuss your infrastructure challenges and how we can help.
@@ -63,15 +48,11 @@ export function Footer() {
               <img src={logo} alt="Baselyne Systems" className="h-10 w-10 rounded-lg" />
               <span className="text-lg font-semibold text-foreground">Baselyne Systems</span>
             </Link>
-            {PHYSICAL_AI_MODE && (
-              <p className="mt-4 text-sm font-medium text-foreground">
-                Accelerate autonomy.
-              </p>
-            )}
+            <p className="mt-4 text-sm font-medium text-foreground">
+              Accelerate autonomy.
+            </p>
             <p className="mt-2 max-w-sm text-sm text-muted-foreground">
-              {PHYSICAL_AI_MODE
-                ? "We take on 2–3 engagements at a time. If you're scaling a physical AI system and hitting infrastructure limits, we want to hear from you."
-                : "AI infrastructure, data engineering, and MLOps consulting. We design, build, and operate production-grade data platforms and AI systems."}
+              We take on 2–3 engagements at a time. If you're scaling a physical AI system and hitting infrastructure limits, we want to hear from you.
             </p>
             <a
               href="https://www.linkedin.com/in/achyuthsamudrala/"
@@ -106,22 +87,6 @@ export function Footer() {
               ))}
             </ul>
           </div>
-
-          {navigation.services.length > 0 && <div>
-            <h3 className="text-sm font-semibold text-foreground">Services</h3>
-            <ul className="mt-4 space-y-3">
-              {navigation.services.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    to={item.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>}
         </div>
 
         <div className="mt-12 border-t border-border pt-8">
@@ -136,4 +101,3 @@ export function Footer() {
     </footer>
   );
 }
-

@@ -1,5 +1,4 @@
 import { ArrowRight, Cpu, Database, GitBranch, Linkedin, Radio, Shield, BarChart3, Wifi, AlertTriangle, FileCheck } from "lucide-react";
-import { PHYSICAL_AI_MODE } from "@/config";
 import founderPhoto from "@/assets/achyuth.jpeg";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
@@ -324,32 +323,6 @@ export default function PhysicalAI() {
         </div>
       </section>
 
-      {/* CTA - hidden in physical AI mode since footer has one */}
-      {!PHYSICAL_AI_MODE && <section className="bg-layer-3 py-20 lg:py-28">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-semibold text-foreground sm:text-4xl">
-              Building physical AI infrastructure?
-            </h2>
-            <p className="mt-4 text-muted-foreground">
-              Typical engagements run 6-12 weeks with defined deliverables. Most
-              start with a 2-week architecture review of your data pipeline,
-              training workflow, and deployment process.
-            </p>
-            <Button asChild size="lg" className="mt-8">
-              <a
-                href="https://calendly.com/achyuthsamudrala/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2"
-              >
-                Schedule a Call
-                <ArrowRight className="h-4 w-4" />
-              </a>
-            </Button>
-          </div>
-        </div>
-      </section>}
     </Layout>
   );
 }
