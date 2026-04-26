@@ -19,19 +19,19 @@ type Solution = {
 
 const advisorySprint: Solution = {
   stage: "ADVISORY",
-  duration: "2-3 weeks",
+  duration: "2 weeks",
   price: "From £5k",
   icon: Lightbulb,
   title: "Advisory Sprint",
   audience:
     "For teams who want focused senior input on a specific infrastructure question - lighter than a full Assessment, more structured than a scoping call.",
   outcome:
-    "A time-boxed advisory engagement on the topic you pick. Structured discussion, offline analysis, written recommendations.",
+    "A written decision memo with concrete recommendations and rationale, ready to share with your team or board. Includes ~12 hours of senior advisory time across the engagement.",
   build: [
-    "3-5 scheduled discussion sessions with your team",
+    "3 scheduled discussion sessions of 90 minutes with your team",
     "Offline research and analysis between sessions",
-    "Written notes and observations after each session",
-    "Final summary with concrete recommendations",
+    "Written observations after each session",
+    "Final decision memo with prioritised recommendations",
   ],
   dontDo: [
     "Implement technical fixes - advisory only",
