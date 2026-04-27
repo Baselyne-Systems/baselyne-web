@@ -78,7 +78,7 @@ const pillars = [
         icon: Shield,
         title: "Evaluation & Policy Gating",
         description:
-          "Automated evaluation pipelines that gate deployment. Regression test suites that grow from production failures. Block a regression before it reaches the fleet.",
+          "You define eval criteria. The platform runs them on every model, blocks regressions before they reach the fleet, and grows the regression suite from production failures.",
       },
     ],
   },
