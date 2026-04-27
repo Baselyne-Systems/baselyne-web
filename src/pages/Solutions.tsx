@@ -304,8 +304,11 @@ export default function Solutions() {
       <section className="bg-layer-1 py-16 lg:py-20">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="mx-auto max-w-6xl">
-            <p className="mb-10 text-center text-sm text-muted-foreground">
-              Below are the most common engagement shapes. If your problem doesn't fit cleanly, book a scoping call and we'll scope custom.
+            <p className="text-center text-sm font-medium uppercase tracking-wider text-primary">
+              Scoped engagements
+            </p>
+            <p className="mx-auto mt-3 mb-10 max-w-2xl text-center text-base text-muted-foreground">
+              These are probably what you'll need. Each engagement targets a specific stage of the iteration loop and ships a defined outcome - pick the one that maps to the bottleneck you most want to clear. If nothing fits cleanly, we'll scope custom.
             </p>
             <div className="flex flex-wrap justify-center gap-6">
               {solutions.map((solution) => (
