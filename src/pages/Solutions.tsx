@@ -45,10 +45,10 @@ const entryPoint: Solution = {
   duration: "2-3 weeks",
   price: "From £10k",
   icon: Target,
-  title: "Iteration Velocity Assessment",
+  title: "Find what's actually slowing you down",
   audience: "For teams who want a sharp outside view of where their iteration cycle breaks, with a structured diagnostic.",
   outcome:
-    "Know where your iteration cycle actually breaks - specific bottlenecks, their cost, and a prioritized path to fixing them.",
+    "Walk away with a bottleneck map, dollar cost per bottleneck, and a prioritised path to fix them. Specific recommendations tied to your stack - not platitudes.",
   build: [
     "Bottleneck map - where your cycle time is actually going",
     "Cost of each bottleneck (cycle time, engineering hours, GPU waste)",
@@ -65,11 +65,11 @@ const solutions: Solution[] = [
     duration: "6–8 weeks",
     price: "From £40k",
     icon: Database,
-    title: "Fleet Data Capture",
+    title: "Make your fleet data usable",
     audience:
       "For teams that just deployed their first robots and don't know what to do with the data streaming back.",
     outcome:
-      "Turn teleop interventions, failures, and routine operations into a queryable dataset your ML team can actually use.",
+      "Sensor streams from every robot become one queryable dataset your ML team can train on. No more bespoke conversion scripts. No more 'where did that episode go.'",
     build: [
       "Your fleet data, ingested in whatever format it arrives (MCAP, RLDS, LeRobot, HDF5)",
       "One queryable schema across your entire robot fleet",
@@ -86,11 +86,11 @@ const solutions: Solution[] = [
     duration: "4–6 weeks",
     price: "From £30k",
     icon: Filter,
-    title: "Retrain-Ready Curation",
+    title: "Train on what actually matters",
     audience:
       "For teams with fleet data who realize retraining on everything is infeasible and retraining on random 1% is losing the signal.",
     outcome:
-      "Score which episodes matter - failures, edge cases, novel states - and export curated training slices to your fine-tuning workflow.",
+      "Stop retaining 1% blindly or trying to keep everything. Score episodes by failure, novelty, and difficulty; export curated slices that turn fine-tuning into signal, not noise.",
     build: [
       "Declarative scoring policies (diversity, outcome, novelty, difficulty)",
       "Curated training set export in your preferred format",
@@ -105,11 +105,11 @@ const solutions: Solution[] = [
     duration: "6–8 weeks",
     price: "From £40k",
     icon: FlaskConical,
-    title: "Training Experimentation",
+    title: "Know which model is better, before you ship it",
     audience:
       "For teams running multiple training configurations who lose track of which run did what and can't systematically compare them.",
     outcome:
-      "Run experiments against your curated data. Compare training approaches head-to-head. Know which wins before you ship.",
+      "Stop guessing which training run did what. Track every experiment with full context, compare approaches head-to-head on the same eval, and ship the version that actually wins.",
     build: [
       "Track every experiment with full context (data slice, config, eval results)",
       "Re-run any past experiment exactly",
@@ -128,11 +128,11 @@ const solutions: Solution[] = [
     duration: "6–8 weeks",
     price: "From £40k",
     icon: Rocket,
-    title: "Ship-Safe Deployment",
+    title: "Stop regressed models from reaching your fleet",
     audience:
       "For teams whose retrained model looks better in eval but keeps regressing in production.",
     outcome:
-      "Block regressions before they reach the fleet. Automated comparison gates, canary deployment, and rollback on regression.",
+      "Every model change goes through automated comparison gates and canary deployment. Regressions roll back automatically. Your ops team stops getting paged at 2am.",
     build: [
       "Config-driven eval pipeline with statistical comparison",
       "Regression suite that grows from production failures",
@@ -149,11 +149,11 @@ const solutions: Solution[] = [
     duration: "6–10 weeks",
     price: "From £50k",
     icon: ShieldCheck,
-    title: "Audit-Ready Lineage",
+    title: "Answer 'why did the robot do that?' in seconds",
     audience:
       'For teams whose enterprise customers, compliance teams, or regulators ask "why did the robot do that?"',
     outcome:
-      "End-to-end trace from sensor input → training data → model version → deployment → physical action. Queryable.",
+      "When compliance, customers, or regulators ask why a robot did what it did, you have the answer in queryable form. From sensor input to physical action, every decision traces back to its data and model.",
     build: [
       "Immutable lineage graph across your training pipeline",
       "Decision-to-data traceability",
